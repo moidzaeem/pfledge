@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid navbar-container justify-content-between">
-        <a href="./index.html"><img src="{{ asset('assets/Images/pflegepur_logo.svg') }}"
+        <a href="{{url('/')}}"><img src="{{ asset('assets/Images/pflegepur_logo.svg') }}"
                 alt="PflegePur Logo" /></a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    <a class="nav-link" aria-current="page" href="{{url('/')}}">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a href="./services.html" class="nav-link">Service</a>
@@ -20,7 +20,7 @@
                         <li
                             style="margin-top: 0.35rem; margin-bottom: 0.7rem; border-bottom: 1px solid #ffffffbd; padding-bottom: 0.8rem;">
                             <a style="border: none; text-decoration: none;"
-                                href="checklisten.html">Checklisten</a>
+                                href="{{route('checklisten')}}">Checklisten</a>
                         </li>
                         <li
                             style="margin-bottom: 0.7rem; border-bottom: 1px solid #ffffffbd; padding-bottom: 0.8rem;">
@@ -28,18 +28,18 @@
                                 href="onlineRechner.html">Online-Rechner</a>
                         </li>
                         <li style="margin-bottom: 0.5rem;"><a style="border: none; text-decoration: none;"
-                                href="musteranschreiben.html">Musteranschreiben</a></li>
+                                href="{{route('musteranschreiben')}}">Musteranschreiben</a></li>
                     </ul>
 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="blog.html">Blog</a>
+                    <a class="nav-link" aria-current="page" href="{{route('blogs.index')}}">Blog</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{{route('achrichten')}}">News und Ratgeber</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="marktplatz.html">Marktplatz</a>
+                    <a class="nav-link" aria-current="page" href="{{route('marketplace.index')}}">Marktplatz</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{{route('buecher')}}">Bücher</a>

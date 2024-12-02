@@ -23,7 +23,6 @@ class SimpleController extends Controller
                 $count++;
             }
         }
-    
         return view('news_ratgeber.arztezeitung', compact('news'));
     }
     
