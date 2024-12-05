@@ -564,7 +564,7 @@ color: #000000;
   margin-bottom: 5rem;
 }
 .blog-card {
-  width: 32%;
+  /* width: 32%; */
 }
 .blog-card-img:hover{
   transform: scale(1.029);

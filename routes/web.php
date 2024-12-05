@@ -5,9 +5,16 @@ use App\Http\Controllers\MarketplaceController;
 use App\Http\Controllers\SimpleController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('migrate', function () {
+    \Artisan::call('migrate');
+    dd("Migration done");
 });
+
+Route::get('/foo', function () {
+    Artisan::call('storage:link');
+});
+
+Route::get('/', [SimpleController::class, 'getWelcomePage']);
 
 Route::get('/partner-und-mitmacher-gesucht', function () {
     return view('partner-und-mitmacher-gesucht');
@@ -69,6 +76,7 @@ Route::get('/checkliste-regelmäßige-gesundheitschecks-und-monitoring-blutdruck
 Route::get('/marktplatz', [MarketplaceController::class, 'index'])->name('marketplace.index');
 
 
+
 //BLOGs
 Route::get('/blogs', [BlogsController::class, 'index'])->name('blogs.index');
 Auth::routes();
@@ -76,5 +84,9 @@ Auth::routes();
 // FOr Admin
 Route::get('/admin/marketplace', [MarketplaceController::class, 'getAllForAdmin'])->name('admin.marketplace.index');
 Route::get('/admin/marketplace/add', [MarketplaceController::class, 'create'])->name('admin.marketplace.create');
+Route::post('/admin/marketplace', [MarketplaceController::class, 'store'])->name('admin.marketplace.store');
+Route::delete('/admin/marketplace/{id}', [MarketplaceController::class, 'destroy'])->name('admin.marketplace.destroy');
+Route::get('admin/marketplace/{id}/edit', [MarketplaceController::class, 'edit'])->name('admin.marketplace.edit');
+Route::put('admin/marketplace/{id}', [MarketplaceController::class, 'update'])->name('admin.marketplace.update');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

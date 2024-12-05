@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Marketplace;
+use App\Models\MarketplaceCategory;
 use Illuminate\Http\Request;
 
 class SimpleController extends Controller
@@ -10,7 +12,7 @@ class SimpleController extends Controller
     {
         $xml = simplexml_load_file('https://www.aerztezeitung.de/medizin.rss');
         $news = [];
-    
+
         if ($xml && $xml->channel && $xml->channel->item) {
             $count = 0;
             foreach ($xml->channel->item as $item) {
@@ -25,13 +27,13 @@ class SimpleController extends Controller
         }
         return view('news_ratgeber.arztezeitung', compact('news'));
     }
-    
+
 
     public function getNachrichten()
     {
         $xml = simplexml_load_file('https://www.aend.de/rss/medizin');
         $news = [];
-    
+
         if ($xml && $xml->channel && $xml->channel->item) {
             $count = 0;
             foreach ($xml->channel->item as $item) {
@@ -44,16 +46,16 @@ class SimpleController extends Controller
                 $count++;
             }
         }
-    
+
         return view('news_ratgeber.nachrichten-aerztenachichtendienst', compact('news'));
     }
-    
+
 
     public function nachrichtenBundesministeriumFuerGesundheit()
     {
         $xml = simplexml_load_file('https://www.bundesgesundheitsministerium.de/meldungen.xml');
         $news = [];
-    
+
         if ($xml && $xml->channel && $xml->channel->item) {
             $count = 0;
             foreach ($xml->channel->item as $item) {
@@ -66,8 +68,25 @@ class SimpleController extends Controller
                 $count++;
             }
         }
-    
+
         return view('news_ratgeber.nachrichten-bundesministerium-fuer-gesundheit', compact('news'));
     }
+
+    public function getWelcomePage()
+    {
+        $marketplaces = Marketplace::where('home', 'ja')
+        ->get()
+        ->map(function ($marketplace) {
+            // Get category names by ID
+            $marketplace->category1_name = $marketplace->category1 ? MarketplaceCategory::find($marketplace->category1)->name : null;
+            $marketplace->category2_name = $marketplace->category2 ?  MarketplaceCategory::find($marketplace->category2)->name : null;
+            $marketplace->category3_name = $marketplace->category3 ? MarketplaceCategory::find($marketplace->category3)->name : null;
+            $marketplace->category4_name = $marketplace->category4 ? MarketplaceCategory::find($marketplace->category4)->name : null;
     
+            return $marketplace;
+        });
+
+
+        return view('welcome', compact('marketplaces'));
+    }
 }

@@ -1,8 +1,10 @@
 @extends('layouts.app')
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<!-- Use the latest jQuery version -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
 
 @section('content')
-    <div class="page-content-wrapper ">
+    <div class="page-content-wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
@@ -13,15 +15,10 @@
                     @endif
                 </div> <!-- end col -->
             </div> <!-- end row -->
-
         </div><!-- container-fluid -->
     </div>
 
-
-
     {{-- DATATABLE --}}
-
-
     <div class="page-content-wrapper mt-5">
         <div class="container-fluid">
             <div class="row">
@@ -30,8 +27,9 @@
                         <div class="card-body">
 
                             <div class="d-flex justify-content-between">
-                                <h4 class="mt-0 header-title">{{ __('All Data') }}</h4>
-                                <a href="{{route('admin.marketplace.create')}}" class="btn btn-primary mb-5">{{__('Add Marketplace')}}</a>
+                                <h4 class="mt-0 header-title">{{ __('All Marketplaces') }}</h4>
+                                <a href="{{ route('admin.marketplace.create') }}"
+                                    class="btn btn-primary mb-5">{{ __('Add Marketplace') }}</a>
                             </div>
 
                             @if (!empty($marketplaces))
@@ -41,33 +39,76 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>{{ __('Name') }}</th>
-                                            <th>{{ __('link') }}</th>
+                                            <th>{{ __('Link') }}</th>
                                             <th>{{ __('Image') }}</th>
+                                            <th>{{ __('Category') }}</th>
                                             <th>{{ __('Actions') }}</th>
                                         </tr>
                                     </thead>
 
-
                                     <tbody>
                                         @foreach ($marketplaces as $marketplace)
                                             <tr>
-                                                <td>{{ $incident->created_at->format('m/d/Y') }}</td>
-                                                <td>{{ $incident->id }}</td>
-                                                <td>{{ $incident->preventionAdvisor->company->name }}</td>
-                                                <td>{{ $incident->kit->name }}</td>
-                                                <td>{{ $incident->preventionAdvisor->user->name }}</td>
-                                                <td><a href="{{ route('incident.export', $incident->id) }}"><i
-                                                            class="mdi mdi-download text-primary"></i></a> / <a
-                                                        href="{{ route('incident.show', $incident->id) }}"><i
-                                                            class="mdi mdi-eye"></i></a></td>
+                                                <!-- Display the marketplace ID -->
+                                                <td>{{ $marketplace->id }}</td>
+
+                                                <!-- Display the name of the marketplace -->
+                                                <td>{{ $marketplace->name ?? 'N/A' }}</td>
+
+                                                <!-- Display the link to the marketplace -->
+                                                <td>
+                                                    <a href="{{ $marketplace->link }}" target="_blank">Visit</a>
+                                                </td>
+
+                                                <!-- Display the image (if it exists) -->
+                                                <td>
+                                                    @if ($marketplace->image)
+                                                        <img src="{{ $marketplace->image }}" alt="Image"
+                                                            style="width: 50px; height: auto;">
+                                                    @else
+                                                        N/A
+                                                    @endif
+                                                </td>
+
+                                                <!-- Display the category names -->
+                                                <td>
+                                                    @if ($marketplace->category1_name)
+                                                        <span>{{ $marketplace->category1_name }}</span><br>
+                                                    @endif
+                                                    @if ($marketplace->category2_name)
+                                                        <span>{{ $marketplace->category2_name }}</span><br>
+                                                    @endif
+                                                    @if ($marketplace->category3_name)
+                                                        <span>{{ $marketplace->category3_name }}</span><br>
+                                                    @endif
+                                                    @if ($marketplace->category4_name)
+                                                        <span>{{ $marketplace->category4_name }}</span><br>
+                                                    @endif
+                                                </td>
+
+                                                <!-- Display actions like Edit or Delete -->
+                                                <td>
+                                                    <!-- Edit Button -->
+                                                    <a href="{{ route('admin.marketplace.edit', $marketplace->id) }}" class="btn btn-link p-0" title="Edit">
+                                                        <i class="mdi mdi-pencil text-primary"></i> 
+                                                    </a>
+                                                    
+                                                    <!-- Delete Button -->
+                                                    <form action="{{ route('admin.marketplace.destroy', $marketplace->id) }}" method="POST" style="display:inline;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button style="color: red" type="submit" class="btn btn-link p-0" onclick="return confirm('Are you sure you want to delete this marketplace?')">
+                                                            <i style="color: red" class="mdi mdi-delete"></i> 
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                                
                                             </tr>
                                         @endforeach
-
-
                                     </tbody>
                                 </table>
                             @else
-                                <h4 class="text-center">No Data Available</h4>
+                                <h4 class="text-center">No Marketplaces Available</h4>
                             @endif
                         </div>
                     </div>

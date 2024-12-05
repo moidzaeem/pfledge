@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('marketplaces', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('category')->null();
-            $table->text('link');
-            $table->timestamps();
+        Schema::table('marketplace_categories', function (Blueprint $table) {
+            $table->text('description')->nullable();
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('marketplaces');
+        Schema::table('marketplace_categories', function (Blueprint $table) {
+            $table->dropColumn('description');
+        });
     }
 };

@@ -2,7 +2,25 @@
 <html lang="en">
 
 @include('components.header.head')
+<style>
+    .blog-card-img {
+        width: 100%;
+        /* Ensure image fills the width of the container */
+        /* Use flexbox to center the image */
+        justify-content: center;
+        /* Center the image horizontally */
+        align-items: center;
+        /* Center the image vertically */
+        /* You can adjust the height of the image container */
+    }
 
+    .blog-card-img img {
+        max-width: 100%;
+        /* Ensure the image doesn't overflow */
+        height: auto;
+        /* Maintain aspect ratio */
+    }
+</style>
 
 <body>
     <div class="header-container">
@@ -615,64 +633,55 @@
             </div>
 
             <!-- ###################### For Desktop ################### -->
-            <div class="blog-card-container-lg">
-                <div class="blog-card">
-                    <div class="blog-card-img">
-                        <img src="./Images/marktplatz_img1.svg" alt="" />
+            <div class="row">
+                @foreach ($marketplaces as $marketplace)
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <!-- Blog Card Container -->
+                        <div class="blog-card">
+                            <div class="blog-card-img">
+                                @if (strpos($marketplace->image, 'https') === 0)
+                                    <!-- Check if the image is an external URL -->
+                                    <img src="{{ $marketplace->image }}" alt="" class="img-fluid" />
+                                @else
+                                    <img src="{{ asset('storage/' . $marketplace->image) }}" alt=""
+                                        class="img-fluid" />
+                                @endif
+                            </div>
+                            <div class="blog-card-body">
+                                <div class="blog-kate">Kategorie: @if ($marketplace->category1_name)
+                                        <span class="blog-kate">{{ $marketplace->category1_name }}</span>
+                                    @endif
+                                    @if ($marketplace->category2_name)
+                                        <span class="blog-kate">{{ $marketplace->category2_name }}</span>
+                                    @endif
+                                    @if ($marketplace->category3_name)
+                                        <span class="blog-kate">{{ $marketplace->category3_name }}</span>
+                                    @endif
+                                    @if ($marketplace->category4_name)
+                                        <span class="blog-kate">{{ $marketplace->category4_name }}</span>
+                                    @endif
+                                </div>
+                                <div class="blog-card-heading">
+                                    {{ $marketplace->name }} <!-- Dynamically display marketplace name -->
+                                </div>
+                                <div class="blog-card-sub-heading">
+                                    {{ Str::limit($marketplace->content_text, 150) }}
+                                    <!-- Limit the content text for a preview -->
+                                </div>
+                            </div>
+                            <a style="text-decoration: none" href="{{ $marketplace->link }}"> <button
+                                    class="blog-card-btn">Weiterlesen</button></a>
+                        </div>
                     </div>
-                    <div class="blog-card-body">
-                        <div>sani25 Pflegebox</div>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <div class="blog-card-img">
-                        <img src="./Images/marktplatz_img2.svg" alt="" />
-                    </div>
-                    <div class="blog-card-body">
-                        <div>curendo Online-Pflegekurse</div>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <div class="blog-card-img">
-                        <img src="./Images/marktplatz_img3.svg" alt="" />
-                    </div>
-                    <div class="blog-card-body">
-                        <div>Johanniter Pflegecoach</div>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
-            <!-- ################### For Mobile ################### -->
-            <div class="blog-card-container-sm d-none">
-                <div class="blog-card-sm">
-                    <div class="blog-card-img">
-                        <img src="./Images/marktplatz_img1.svg" alt="" />
-                    </div>
-                    <div class="blog-card-body">
-                        <div>sani25 Pflegebox</div>
-                    </div>
-                </div>
-                <div class="blog-card-sm">
-                    <div class="blog-card-img">
-                        <img src="./Images/marktplatz_img2.svg" alt="" />
-                    </div>
-                    <div class="blog-card-body">
-                        <div>curendo Online-Pflegekurse</div>
-                    </div>
-                </div>
-                <div class="blog-card-sm">
-                    <div class="blog-card-img">
-                        <img src="./Images/marktplatz_img3.svg" alt="" />
-                    </div>
-                    <div class="blog-card-body">
-                        <div>Johanniter Pflegecoach</div>
-                    </div>
-                </div>
-            </div>
+
+
             <button style="position: relative;"><a style="position: relative;"><a
                         style="position: absolute;top: 0; width: 100%; height: 100%;left: 0;
       border-radius: 10px;"
-                        href="./marktplatz.html"></a>Zum Marktplatz</button>
+                        href="{{ route('marketplace.index') }}"></a>Zum Marktplatz</button>
         </div>
     </div>
 

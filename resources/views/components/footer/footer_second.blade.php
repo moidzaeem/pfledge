@@ -87,3 +87,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
+    <script id="CookieDeclaration" src="https://consent.cookiebot.com/985f611d-8977-47e6-9427-b1f4e5d959f1/cd.js" type="text/javascript" async></script>

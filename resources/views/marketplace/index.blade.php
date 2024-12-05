@@ -50,7 +50,7 @@
         <div class="col-lg-4 blog-left">
             <div class="blog-search-container">
                 <div class="blog-search-sub-container">
-                    <input type="search" placeholder="Suchbegriff" />
+                    <input type="search" id="searchInput" placeholder="Suchbegriff" onkeyup="filterMarketplaces()" />
                     <img src="{{ asset('assets/Images/Blog_search_icon.svg') }}" alt="" />
                 </div>
 
@@ -68,112 +68,67 @@
                             src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="" />
                     </div>
                 </div>
-                <div class="hide-show-content">
-                    <div class="blog-search-sub-heading">Pflegehilfsmittel</div>
-                    <div class="blog-search-sub-heading">Inkontinenzprodukte</div>
-                    <div class="blog-search-sub-heading">
-                        Ernährung & Nahrungsergänzung
-                    </div>
-                    <div class="blog-search-sub-heading">Hygiene & Körperpflege</div>
-                    <div class="blog-search-sub-heading">Technologie & E-Health</div>
-                    <div class="blog-search-sub-heading">Mobilitätshilfen</div>
-                    <div class="blog-search-sub-heading">Barrierefreies Wohnen</div>
-                    <div class="blog-search-sub-heading">Rehabilitation & Therapie</div>
-                    <div class="blog-search-sub-heading">
-                        Beratung & Dienstleistungen
-                    </div>
-                    <div class="blog-search-sub-heading">
-                        Pflegebekleidung & Schutzkleidung
-                    </div>
-                    <div class="blog-search-sub-heading">Freizeit & Wohlbefinden</div>
-                    <div class="blog-search-sub-heading">
-                        Hauswirtschaft & Alltagshilfen
-                    </div>
-                    <div class="blog-search-sub-heading">
-                        Pflegeversicherungen & Finanzdienstleistungen
-                    </div>
-                    <div class="blog-search-sub-heading">
-                        Medikamente & Gesundheitsprodukte
-                    </div>
-                    <div class="blog-search-sub-heading">
-                        Barrierefreie Freizeitgestaltung
-                    </div>
-                    <div class="blog-search-sub-heading">
-                        Haushaltshilfen & Reinigung
-                    </div>
-                    <div class="blog-search-sub-heading">Transport & Fahrdienste</div>
-                    <div class="blog-search-sub-heading">Pflegekurse & Schulungen</div>
-                    <div class="blog-search-sub-heading">
-                        Notfallausrüstung & Sicherheitsprodukte
-                    </div>
-                    <div class="blog-search-sub-heading">
-                        Angebote für pflegende Angehörige
-                    </div>
-                    <div class="blog-search-sub-heading">
-                        Psychologische Unterstützung & Seelsorge
-                    </div>
-                    <div class="blog-search-sub-heading">
-                        Naturheilkunde & alternative Heilmethoden
-                    </div>
-                    <div class="blog-search-sub-heading">Sonstiges</div>
+                <div class="hide-show-content" id="categoryList">
+                    @foreach ($uniqueCategories as $category)
+                        <div class="blog-search-sub-heading category-item">
+                            <a style="text-decoration: none;color:black"
+                                href="{{ route('marketplace.index', ['category' => $category->name]) }}">{{ $category->name }}</a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
 
         <div class="col-lg-8">
             <div class="row">
-                <div class="col-12 mt-lg-0 mt-5">
-                    <div class="row">
-                        <div class="col-md-6 bucher-card">
-                            <div class="bucher-card-img">
-                                <img src="{{ asset('assets/Images/Marktplatz_section1_img1.svg') }}" alt="" />
+                @foreach ($marketPlaces as $marketplace)
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4 marketplace-item" data-name="{{ $marketplace->name }}"
+                        data-content="{{ $marketplace->content_text }}">
+                        <!-- Blog Card Container -->
+                        <div class="blog-card">
+                            <div class="blog-card-img">
+                                @if (strpos($marketplace->image, 'https') === 0)
+                                    <!-- Check if the image is an external URL -->
+                                    <img src="{{ $marketplace->image }}" alt="" class="img-fluid" />
+                                @else
+                                    <img src="{{ asset('storage/' . $marketplace->image) }}" alt=""
+                                        class="img-fluid" />
+                                @endif
                             </div>
-                            <div class="bucher-card-content">Sanicare Versandapotheke</div>
-                        </div>
-                        <div class="col-md-6 bucher-card">
-                            <div class="bucher-card-img">
-                                <img src="{{asset('assets/Images/Marktplatz_section1_img2.svg')}}" alt="" />
+                            <div class="blog-card-body">
+                                <div class="blog-kate">
+                                    Kategorie:
+                                    @if ($marketplace->category1_name)
+                                        <span class="blog-kate">{{ $marketplace->category1_name }},</span>
+                                    @endif
+                                    @if ($marketplace->category2_name)
+                                        <span class="blog-kate">{{ $marketplace->category2_name }},</span>
+                                    @endif
+                                    @if ($marketplace->category3_name)
+                                        <span class="blog-kate">{{ $marketplace->category3_name }},</span>
+                                    @endif
+                                    @if ($marketplace->category4_name)
+                                        <span class="blog-kate">{{ $marketplace->category4_name }}</span>
+                                    @endif
+                                </div>
+                                <div class="blog-card-heading">
+                                    {{ $marketplace->name }} <!-- Dynamically display marketplace name -->
+                                </div>
+                                <div class="blog-card-sub-heading">
+                                    {{ Str::limit($marketplace->content_text, 150) }}
+                                    <!-- Limit the content text for a preview -->
+                                </div>
                             </div>
-                            <div class="bucher-card-content">sani25 Pflegebox</div>
+                            <a style="text-decoration: none" href="{{ $marketplace->link }}">
+                                <button class="blog-card-btn">Weiterlesen</button>
+                            </a>
                         </div>
                     </div>
-                </div>
+                @endforeach
 
-                <div class="col-12" style="margin-top: 1.5rem">
-                    <div class="row">
-                        <div class="col-md-6 bucher-card">
-                            <div class="bucher-card-img">
-                                <img src="{{asset('assets/Images/Marktplatz_section1_img3.svg')}}" alt="" />
-                            </div>
-                            <div class="bucher-card-content">Sanicare Versandapotheke</div>
-                        </div>
-                        <div class="col-md-6 bucher-card">
-                            <div class="bucher-card-img">
-                                <img src="{{asset('assets/Images/Marktplatz_section1_img1.svg')}}" alt="" />
-                            </div>
-                            <div class="bucher-card-content">sani25 Pflegebox</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12" style="margin-top: 1.5rem">
-                    <div class="row">
-                        <div class="col-md-6 bucher-card">
-                            <div class="bucher-card-img">
-                                <img src="{{asset('assets/Images/Marktplatz_section1_img1.svg')}}" alt="" />
-                            </div>
-                            <div class="bucher-card-content">Sanicare Versandapotheke</div>
-                        </div>
-                        <div class="col-md-6 bucher-card">
-                            <div class="bucher-card-img">
-                                <img src="{{asset('assets/Images/Marktplatz_section1_img2.svg')}}" alt="" />
-                            </div>
-                            <div class="bucher-card-content">sani25 Pflegebox</div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
+
     </div>
     <div style="width: 100%">
         <img class="page-bottom-img" style="width: 100%; object-fit: cover; height: 100%"
@@ -181,6 +136,41 @@
     </div>
 
     @include('components.footer.footer_second')
+
+    <script>
+        function filterMarketplaces() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase(); // Get input value
+            const marketplaceItems = document.querySelectorAll('.marketplace-item'); // Get all marketplace items
+
+            marketplaceItems.forEach(function(item) {
+                const name = item.getAttribute('data-name').toLowerCase(); // Get marketplace name
+                const content = item.getAttribute('data-content').toLowerCase(); // Get marketplace content
+                // const categories = item.getAttribute('data-categories').toLowerCase(); // Get marketplace categories
+
+                // If search term is found in name or content, show the item, otherwise hide it
+                if (name.indexOf(searchInput) > -1 || content.indexOf(searchInput) > -1) {
+                    item.style.display = ''; // Show the marketplace item
+                } else {
+                    item.style.display = 'none'; // Hide the marketplace item
+                }
+            });
+        }
+
+        // Function to filter marketplaces by category
+        // function filterByCategory(category) {
+        //     const marketplaceItems = document.querySelectorAll('.marketplace-item'); // Get all marketplace items
+
+        //     marketplaceItems.forEach(function(item) {
+        //         const categories = item.getAttribute('data-categories').toLowerCase(); // Get marketplace categories
+
+        //         if (category === 'Alle' || categories.indexOf(category.toLowerCase()) > -1) {
+        //             item.style.display = ''; // Show the marketplace item
+        //         } else {
+        //             item.style.display = 'none'; // Hide the marketplace item
+        //         }
+        //     });
+        // }
+    </script>
 
 </body>
 
