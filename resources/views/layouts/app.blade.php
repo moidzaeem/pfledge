@@ -82,9 +82,16 @@
                             </li>
 
                             <li>
-                                <a href="{{route('admin.marketplace.index')}}" class="waves-effect">
+                                <a href="{{ route('admin.marketplace.index') }}" class="waves-effect">
                                     <i class="mdi mdi-file"></i>
                                     <span> {{ __('Marktplatz') }} </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('admin.blogs.index') }}" class="waves-effect">
+                                    <i class="mdi mdi-file"></i>
+                                    <span> {{ __('Blog') }} </span>
                                 </a>
                             </li>
                         </ul>

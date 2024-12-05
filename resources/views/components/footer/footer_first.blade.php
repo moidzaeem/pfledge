@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-7 contact-right">
+        <div class="col-lg-7 contact-right" id="contactFormTest">
             <form action="" class="row">
                 <div class="col-lg-6 pe-sm-0">
                     <input type="text" placeholder="lhr Name*" />

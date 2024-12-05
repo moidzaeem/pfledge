@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BlogCategory;
+use App\Models\Blogs;
 use App\Models\Marketplace;
 use App\Models\MarketplaceCategory;
 use Illuminate\Http\Request;
@@ -25,7 +27,7 @@ class SimpleController extends Controller
                 $count++;
             }
         }
-        return view('news_ratgeber.arztezeitung', compact('news'));
+    return view('news_ratgeber.arztezeitung', compact('news'));
     }
 
 
@@ -87,6 +89,19 @@ class SimpleController extends Controller
         });
 
 
-        return view('welcome', compact('marketplaces'));
+        $blogs = Blogs::where('home', 'ja')
+        ->get()
+        ->map(function ($blog) {
+            // Get category names by ID
+            $blog->category1_name = $blog->category1 ? BlogCategory::find($blog->category1)->name : null;
+            $blog->category2_name = $blog->category2 ?  blogCategory::find($blog->category2)->name : null;
+            $blog->category3_name = $blog->category3 ? blogCategory::find($blog->category3)->name : null;
+            $blog->category4_name = $blog->category4 ? blogCategory::find($blog->category4)->name : null;
+    
+            return $blog;
+        });
+
+
+        return view('welcome', compact('marketplaces', 'blogs'));
     }
 }

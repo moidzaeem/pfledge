@@ -3,7 +3,11 @@
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\MarketplaceController;
 use App\Http\Controllers\SimpleController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/sitemap', [SitemapController::class, 'index']);
+
 
 Route::get('migrate', function () {
     \Artisan::call('migrate');
@@ -15,7 +19,7 @@ Route::get('/foo', function () {
 });
 
 Route::get('/', [SimpleController::class, 'getWelcomePage']);
-Route::get('/ueberuns', function(){
+Route::get('/ueberuns', function () {
     return view('aboutus.index');
 })->name('aboutus');
 
@@ -26,6 +30,10 @@ Route::get('/partner-und-mitmacher-gesucht', function () {
 Route::get('/buecher', function () {
     return view('buecher');
 })->name('buecher');
+
+Route::get('/services', function () {
+    return view('services');
+})->name('services');
 
 Route::get('/achrichten-aerztezeitung', [SimpleController::class, 'getAchrichtenNews'])->name('achrichten');
 Route::get('/nachrichten-aerztenachichtendienst', [SimpleController::class, 'getNachrichten'])->name('nachrichten');
@@ -82,6 +90,13 @@ Route::get('/marktplatz', [MarketplaceController::class, 'index'])->name('market
 
 //BLOGs
 Route::get('/blogs', [BlogsController::class, 'index'])->name('blogs.index');
+Route::get('/admin/blogs', [BlogsController::class, 'getAllForAdmin'])->name('admin.blogs.index');
+Route::post('/admin/blog', [BlogsController::class, 'store'])->name('admin.blogs.store');
+Route::get('/admin/blog/create', [BlogsController::class, 'create'])->name('admin.blog.create');
+Route::get('/blog/{title}', [BlogsController::class, 'show'])->name('blogs.show');
+Route::get('admin/blog/{id}/edit', [BlogsController::class, 'edit'])->name('admin.blog.edit');
+Route::delete('/admin/blog/{id}', [BlogsController::class, 'destroy'])->name('admin.blog.destroy');
+
 Auth::routes();
 
 // FOr Admin

@@ -39,7 +39,7 @@
             <button style="position: relative;"> <a
                     style=" width: 100%; position: absolute;top: 0;left: 0;
         border-radius: 10px;height: 100%;"
-                    href="{{route('aboutus')}}"></a>Mehr erfahren</button>
+                    href="{{ route('aboutus') }}"></a>Mehr erfahren</button>
         </div>
     </div>
 
@@ -102,7 +102,7 @@
         <!-- Desktop view: Flexbox layout for products -->
         <div class="service-product-container d-none d-sm-flex">
             <div class="service-product">
-                <a href="./checklisten.html"><img src="{{ asset('assets/Images/Service_img1.svg') }}"
+                <a href="{{route('checklisten')}}"><img src="{{ asset('assets/Images/Service_img1.svg') }}"
                         alt="Product 1" /></a>
             </div>
             <div class="service-product">
@@ -110,7 +110,7 @@
                         alt="Product 2" /></a>
             </div>
             <div class="service-product">
-                <a href="./musteranschreiben.html"><img src="{{ asset('assets/Images/Service_img3.svg') }}"
+                <a href="{{route('musteranschreiben')}}"><img src="{{ asset('assets/Images/Service_img3.svg') }}"
                         alt="Product 3" /></a>
             </div>
             <div class="section1-black-bg d-none d-sm-block"></div>
@@ -135,8 +135,8 @@
         </div>
 
         <button style="position: relative;"><a
-                style="position: absolute; display: block;width: 100%; height: 100%; top: 0; left: 0; border-radius: 10px;"
-                href="./services.html"></a>Zu unseren Services</button>
+                style="position: absolute;font-weight:bold; display: block;width: 100%; height: 100%; top: 0; left: 0; border-radius: 10px;"
+                href="{{ route('services') }}"></a><span style="font-weight: bold"> Zu unseren Services</span></button>
     </div>
 
     <!-- ########################### SECTION 2 BUTTONS ########################### -->
@@ -148,7 +148,7 @@
             </div>
             <div class="newsund-btn2 newsund-btn">
                 <button>
-                    <a style="color: #b22222" href="./newsundratgeber2.html">Ratgeber</a>
+                    <a style="color: #b22222" href="{{route('ratgeber')}}">Ratgeber</a>
                 </button>
             </div>
         </div>
@@ -445,7 +445,7 @@
         </div>
 
         <button class="Weitere-btn">
-            <a href="./newsundratgeber.html"></a>Weitere Nachrichten und Ratgeber
+            <a href="{{ route('achrichten') }}"></a>Weitere Nachrichten und Ratgeber
         </button>
     </div>
 
@@ -459,84 +459,43 @@
             <br /><br />Gemeinsam möchten wir die Pflege menschlicher, einfacher und
             verständlicher gestalten. <br /><br />Begleiten Sie uns auf diesem Weg!
         </div>
-
-        <!-- ###################### For Desktop ################### -->
-        <div class="blog-card-container-lg">
-            <div class="blog-card">
-                <div class="blog-card-img">
-                    <img src="{{ asset('asset/Images/blog_img_.webp') }}" alt="" />
-                </div>
-                <div class="blog-card-body">
-                    <span class="blog-date">04.10.2024 </span>
-                    <div class="blog-kate">Kategorie: Pflegewissen & Ratgeber </div>
-                    <div class="blog-card-heading">
-                        Pflege bei speziellen Bedürfnissen: Fokus auf seltene Erkrankungen
-                    </div>
-                    <div class="blog-card-sub-heading">
-                        Die Pflege von Menschen mit seltenen Erkrankungen stellt eine besondere Herausforderung dar, die
-                        oft über das hinausgeht, was in der allgemeinen Pflege gelehrt und erwartet wird. Seltene
-                        Krankheiten sind oft komplex, erfordern spezialisierte Pflege und haben tiefgreifende
-                        Auswirkungen auf das Leben der Betroffenen und ihrer Familien. Dieser Blogartikel beleuchtet die
-                        Herausforderungen und Besonderheiten der Pflege von Menschen mit seltenen Erkrankungen und zeigt
-                        auf, welche Rolle Pflegekräfte in diesem sensiblen Bereich spielen.
-
-                    </div>
-                </div>
-                <button class="blog-card-btn">Weiterlesen</button>
-
-            </div>
-            <div class="blog-card">
-                <div class="blog-card-img">
-                    <img src="{{ asset('assets/Images/blog_img_2.webp') }}" alt="" />
-                </div>
-                <div class="blog-card-body">
-                    <span class="blog-date">15.09.2024 </span>
-                    <div class="blog-kate">Kategorie: Recht & Pflegeversicherung </div>
-                    <div class="blog-card-heading">
-                        Pflege und Ethik: Tägliche Entscheidungen mit Tragweite
-                    </div>
-                    <div class="blog-card-sub-heading">
-                        Die Pflege ist ein Beruf, der tief in menschlichen Beziehungen verwurzelt ist. Pflegende stehen
-                        täglich vor Herausforderungen, die nicht nur fachliches Wissen, sondern auch ein hohes Maß an
-                        ethischem Bewusstsein erfordern. Entscheidungen, die im Pflegealltag getroffen werden, haben oft
-                        weitreichende Folgen für das Leben der Patient*innen und deren Angehörige. Dieser Artikel
-                        beleuchtet die ethischen Aspekte der Pflege und zeigt, welche Rolle ethische Prinzipien im
-                        Alltag von Pflegefachkräften spielen.
-
+        <div class="row">
+            @foreach ($blogs as $blog)
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                    <!-- Blog Card Container -->
+                    <div class="blog-card">
+                        <div class="blog-card-img">
+                            <img src="{{ Storage::url($blog->image) }}" alt="" class="img-fluid" />
+                        </div>
+                        <div class="blog-card-body">
+                            <div class="blog-kate">Kategorie: @if ($blog->category1_name)
+                                    <span class="blog-kate">{{ $blog->category1_name }}</span>
+                                @endif
+                                @if ($blog->category2_name)
+                                    <span class="blog-kate">{{ $blog->category2_name }}</span>
+                                @endif
+                                @if ($blog->category3_name)
+                                    <span class="blog-kate">{{ $blog->category3_name }}</span>
+                                @endif
+                                @if ($blog->category4_name)
+                                    <span class="blog-kate">{{ $blog->category4_name }}</span>
+                                @endif
+                            </div>
+                            <div class="blog-card-heading">
+                                {{ $blog->title }} <!-- Dynamically display marketplace name -->
+                            </div>
+                            <div class="blog-card-sub-heading">
+                                {{ Str::limit($blog->description, 150) }}
+                                <!-- Limit the content text for a preview -->
+                            </div>
+                        </div>
+                        <a style="text-decoration: none" href="{{route('blogs.show', $blog->slug)}}">
+                            <button class="blog-card-btn">Weiterlesen</button>
+                        </a>
                     </div>
                 </div>
-                <button class="blog-card-btn">Weiterlesen</button>
-
-            </div>
-            <div class="blog-card">
-                <div class="blog-card-img">
-                    <img src="{{ asset('assets/Images/blog_img_3.webp') }}" alt="" />
-                </div>
-                <div class="blog-card-body">
-                    <span class="blog-date">08.09.2024 </span>
-                    <div class="blog-kate">Kategorie: Pflegende Angehörige </div>
-                    <div class="blog-card-heading">
-                        Aggressivität in der Pflege: Umgang mit schwierigen Situationen
-                    </div>
-                    <div class="blog-card-sub-heading">
-                        Die Pflege ist ein anspruchsvoller Beruf, der Geduld, Empathie und Fachkompetenz erfordert.
-                        Pflegekräfte begegnen dabei nicht nur körperlichen Herausforderungen, sondern auch emotionalen
-                        und psychischen Belastungen. Eine dieser Belastungen ist die Aggressivität, die bei
-                        Pflegebedürftigen auftreten kann. Aggression in der Pflege kann viele Ursachen haben, von
-                        Schmerzen und Krankheit bis hin zu kognitiven Einschränkungen wie Demenz. Der Umgang mit
-                        aggressivem Verhalten ist für Pflegekräfte eine schwierige, aber unvermeidbare Aufgabe. In
-                        diesem Artikel wird beleuchtet, warum Aggressionen in der Pflege auftreten, wie Pflegekräfte
-                        damit umgehen können und welche präventiven Maßnahmen getroffen werden können, um solche
-                        Situationen zu entschärfen.
-
-
-                    </div>
-                </div>
-                <button class="blog-card-btn">Weiterlesen</button>
-
-            </div>
+            @endforeach
         </div>
-
         <!-- ################### For Mobile ################### -->
         <div class="blog-card-container-sm d-none">
             <div class="blog-card-sm">
@@ -615,7 +574,7 @@
         <button style="position: relative;"><a
                 style="position: absolute;top: 0; width: 100%; height: 100%;left: 0;
       border-radius: 10px;"
-                href="./blog.html"></a>Zu unserem Blog</button>
+                href="{{ route('blogs.index') }}"></a>Zu unserem Blog</button>
     </div>
 
     <!-- ################### Marktplatz SECTION ################### -->
@@ -787,7 +746,7 @@
         <button style="position: relative;"><a style="position: relative;"><a
                     style="position: absolute;top: 0; width: 100%; height: 100%;left: 0;
       border-radius: 10px;"
-                    href="./buecher.html"></a>Zu den Büchern</button>
+                    href="{{ route('buecher') }}"></a>Zu den Büchern</button>
     </div>
 
     <!-- ###################### ACADEMY SECTION #######################  -->
@@ -823,7 +782,7 @@
                         <button style="position: relative;"><a style="position: relative;"><a
                                     style="position: absolute;top: 0; width: 100%; height: 100%;left: 0;
       border-radius: 10px;"
-                                    href="./academy.html"></a>Zu unserer Academy</button>
+                                    href="https://pflegepur.myelopage.com/"></a>Zu unserer Academy</button>
                     </div>
                 </div>
             </div>
@@ -859,7 +818,7 @@
                         <button style="position: relative;"><a style="position: relative;"><a
                                     style="position: absolute;top: 0; width: 100%; height: 100%;left: 0;
       border-radius: 10px;"
-                                    href="./partner.html"></a>Erfahren Sie hier mehr!</button>
+                                    href="{{ route('partner') }}"></a>Erfahren Sie hier mehr!</button>
                     </div>
                 </div>
             </div>

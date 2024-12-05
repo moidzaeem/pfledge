@@ -23,24 +23,24 @@
                     <div class="col-lg-3 col-6">
                         <span class="footer-items-heading">Seiten</span>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="Uberuns.html">Über uns</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="newsundratgeber.html">News und Ratgeber</a></li>
-                            <li><a href="marktplatz.html">Marktplatz</a></li>
-                            <li><a href="buecher.html">Bücher</a></li>
-                            <li><a href="academy.html">Academy</a></li>
+                            <li><a href="{{url('/')}}">Home</a></li>
+                            <li><a href="{{route('aboutus')}}">Über uns</a></li>
+                            <li><a href="{{route('services')}}">Services</a></li>
+                            <li><a href="{{route('blogs.index')}}">Blog</a></li>
+                            <li><a href="{{route('achrichten')}}">News und Ratgeber</a></li>
+                            <li><a href="{{route('marketplace.index')}}">Marktplatz</a></li>
+                            <li><a href="{{route('buecher')}}">Bücher</a></li>
+                            <li><a href="{{'https://pflegepur.myelopage.com/'}}">Academy</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-3 col-6">
                         <span class="footer-items-heading">Services</span>
                         <ul>
-                            <li><a href="checklisten.html">Checklisten </a></li>
+                            <li><a href="{{route('checklisten')}}">Checklisten </a></li>
                             <li>
                                 <a href="online_rechner.html">Online-Rechner</a>
                             </li>
-                            <li><a href="musteranschreiben.html">Musteranschreiben</a></li>
+                            <li><a href="{{route('musteranschreiben')}}">Musteranschreiben</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
@@ -53,13 +53,13 @@
                         </button>
                         <div class="footer-icons-div">
                             <a href="https://www.facebook.com/profile.php?id=100079595010397" target="_blank"><img
-                                    src="./Images/footer_fb_icon.svg" alt="" /></a>
+                                    src="{{asset('assets/Images/footer_fb_icon.svg')}}" alt="" /></a>
                             <a href="https://twitter.com/Pflege_Pur" target="_blank"><img
-                                    src="./Images/footer_x_icon.svg" alt="" /></a>
+                                    src="{{asset('assets/Images/footer_x_icon.svg')}}" alt="" /></a>
                             <a href="https://open.spotify.com/show/6JACh2eflNeIcxU8U2ltyL" target="_blank"><img
-                                    src="./Images/footer_spotify_icon.svg" alt="" /></a>
+                                    src="{{asset('assets/Images/footer_spotify_icon.svg')}}" alt="" /></a>
                             <a href="https://www.youtube.com/@PflegePur" target="_blank"><img
-                                    src="./Images/footer_utube_icon.svg" alt="" /></a>
+                                    src="{{asset('assets/Images/footer_utube_icon.svg')}}" alt="" /></a>
                         </div>
                     </div>
                 </div>

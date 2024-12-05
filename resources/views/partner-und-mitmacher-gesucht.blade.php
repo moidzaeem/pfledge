@@ -42,7 +42,7 @@
                         Pflege neu denken! <br />Ihr PflegePur-Team
                     </div>
                     <div>
-                        <button href="">Kontaktieren Sie uns!</button>
+                        <button><a href="#contactFormTest" style="text-decoration: none;color:white">Kontaktieren Sie uns!</a></button>
                     </div>
                 </div>
             </div>
@@ -163,9 +163,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 d-sm-block d-none partner-section3-btn-div">
+            {{-- <div class="col-12 d-sm-block d-none partner-section3-btn-div">
                 <button>Zum Regionalportal Hameln-Pyrmont</button>
-            </div>
+            </div> --}}
         </div>
     </div>
 

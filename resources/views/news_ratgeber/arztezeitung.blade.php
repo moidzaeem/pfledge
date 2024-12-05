@@ -19,7 +19,7 @@
     <div class="newsund-ratgeber-section1">
         <div class="newsund-ratgeber-btn-top">
             <div class="newsund-btn1 newsund-btn">
-                <button><a href="./newsundratgeber.html">News</a></button>
+                <button><a href="{{url('/')}}">News</a></button>
             </div>
             <div class="newsund-btn2 newsund-btn">
                 <button>
