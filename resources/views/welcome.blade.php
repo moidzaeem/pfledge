@@ -39,7 +39,7 @@
             <button style="position: relative;"> <a
                     style=" width: 100%; position: absolute;top: 0;left: 0;
         border-radius: 10px;height: 100%;"
-                    href="./ueberuns.html"></a>Mehr erfahren</button>
+                    href="{{route('aboutus')}}"></a>Mehr erfahren</button>
         </div>
     </div>
 

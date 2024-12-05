@@ -15,6 +15,9 @@ Route::get('/foo', function () {
 });
 
 Route::get('/', [SimpleController::class, 'getWelcomePage']);
+Route::get('/ueberuns', function(){
+    return view('aboutus.index');
+})->name('aboutus');
 
 Route::get('/partner-und-mitmacher-gesucht', function () {
     return view('partner-und-mitmacher-gesucht');
