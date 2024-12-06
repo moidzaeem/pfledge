@@ -35,7 +35,7 @@ Route::get('/services', function () {
     return view('services');
 })->name('services');
 
-Route::get('/achrichten-aerztezeitung', [SimpleController::class, 'getAchrichtenNews'])->name('achrichten');
+Route::get('/nachrichten-aerztenachrichtendienst', [SimpleController::class, 'getAchrichtenNews'])->name('achrichten');
 Route::get('/nachrichten-aerztenachichtendienst', [SimpleController::class, 'getNachrichten'])->name('nachrichten');
 Route::get('/nachrichten-bundesministerium-fuer-gesundheit', [SimpleController::class, 'nachrichtenBundesministeriumFuerGesundheit'])->name('nachrichten.bundesministerium');
 
@@ -44,6 +44,7 @@ Route::get('/finanzierung-der-pflege', function () {
     return view('news_ratgeber.ratgeber.finanzierung-der-pflege');
 })->name('ratgeber');
 
+Route::view('/academy', 'academy')->name('academy');
 Route::get('/portal-anschreiben', function () {
     return view('musteranschreiben.index');
 })->name('musteranschreiben');
@@ -108,3 +109,5 @@ Route::get('admin/marketplace/{id}/edit', [MarketplaceController::class, 'edit']
 Route::put('admin/marketplace/{id}', [MarketplaceController::class, 'update'])->name('admin.marketplace.update');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/marketplace/load-more', [MarketplaceController::class, 'loadMore'])->name('marketplace.loadMore');

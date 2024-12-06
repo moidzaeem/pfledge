@@ -102,7 +102,7 @@
         <!-- Desktop view: Flexbox layout for products -->
         <div class="service-product-container d-none d-sm-flex">
             <div class="service-product">
-                <a href="{{route('checklisten')}}"><img src="{{ asset('assets/Images/Service_img1.svg') }}"
+                <a href="{{ route('checklisten') }}"><img src="{{ asset('assets/Images/Service_img1.svg') }}"
                         alt="Product 1" /></a>
             </div>
             <div class="service-product">
@@ -110,7 +110,7 @@
                         alt="Product 2" /></a>
             </div>
             <div class="service-product">
-                <a href="{{route('musteranschreiben')}}"><img src="{{ asset('assets/Images/Service_img3.svg') }}"
+                <a href="{{ route('musteranschreiben') }}"><img src="{{ asset('assets/Images/Service_img3.svg') }}"
                         alt="Product 3" /></a>
             </div>
             <div class="section1-black-bg d-none d-sm-block"></div>
@@ -148,7 +148,7 @@
             </div>
             <div class="newsund-btn2 newsund-btn">
                 <button>
-                    <a style="color: #b22222" href="{{route('ratgeber')}}">Ratgeber</a>
+                    <a style="color: #b22222" href="{{ route('ratgeber') }}">Ratgeber</a>
                 </button>
             </div>
         </div>
@@ -489,7 +489,7 @@
                                 <!-- Limit the content text for a preview -->
                             </div>
                         </div>
-                        <a style="text-decoration: none" href="{{route('blogs.show', $blog->slug)}}">
+                        <a style="text-decoration: none" href="{{ route('blogs.show', $blog->slug) }}">
                             <button class="blog-card-btn">Weiterlesen</button>
                         </a>
                     </div>
@@ -628,8 +628,12 @@
                                     <!-- Limit the content text for a preview -->
                                 </div>
                             </div>
-                            <a style="text-decoration: none" href="{{ $marketplace->link }}"> <button
-                                    class="blog-card-btn">Weiterlesen</button></a>
+                            <a href="{{ $marketplace->link }}"
+                                target="{{ $marketplace->external_link === 'ja' ? '_blank' : '' }}"
+                                style="text-decoration: none">
+                                <button class="blog-card-btn">Weiterlesen</button>
+                            </a>
+
                         </div>
                     </div>
                 @endforeach
@@ -655,94 +659,50 @@
 
 
         <!-- ###################### For Desktop ################### -->
-        <div class="blog-card-container-lg">
-            <div class="blog-card">
-                <div class="blog-card-img">
-                    <a style="position: absolute;top: 0;left: 0; width: 100%;
-            height: 100%;"
-                        href="https://amzn.to/46e0eKE" target="_blank"></a><img
-                        src="{{ asset('assets/Images/Bucher_img1.svg') }}" alt="" />
-                </div>
-                <div class="blog-card-body">
-                    <div class="bucher-card-heading">
-                        Wenn das Leben um Hilfe ruft: Angehörige zwischen Hingabe,
-                        Pflichtgefühl und Verzweiflung
+        <div class="row">
+            <div class="col-lg-4 col-12">
+                <div class="blog-card">
+                    <div class="blog-card-img">
+                        <a href="https://amzn.to/46e0eKE" target="_blank"></a><img
+                            src="{{ asset('assets/Images/Bucher_img1.svg') }}" alt="" />
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="bucher-card-heading">
+                            Wenn das Leben um Hilfe ruft: Angehörige zwischen Hingabe,
+                            Pflichtgefühl und Verzweiflung
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="blog-card">
-                <div class="blog-card-img">
-                    <a style="position: absolute;top: 0;left: 0; width: 100%;
-            height: 100%;"
-                        href="https://amzn.to/3W4UAG4" target="_blank"></a> <img
-                        src="{{ asset('assets/Images/Bucher_img2.svg') }}" alt="" />
-                </div>
-                <div class="blog-card-body">
-                    <div class="bucher-card-heading">
-                        Pflege organisieren und finanzieren: Eine Orientierungshilfe für
-                        Angehörige
+            <div class="col-lg-4 col-12">
+                <div class="blog-card">
+                    <div class="blog-card-img">
+                        <a href="https://amzn.to/3W4UAG4" target="_blank"></a> <img
+                            src="{{ asset('assets/Images/Bucher_img2.svg') }}" alt="" />
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="bucher-card-heading">
+                            Pflege organisieren und finanzieren: Eine Orientierungshilfe für
+                            Angehörige
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="blog-card">
-                <div class="blog-card-img">
-                    <a style="position: absolute;top: 0;left: 0; width: 100%;
-            height: 100%;"
-                        href="https://amzn.to/4cFjZ05" target="_blank"></a> <img
-                        src="{{ asset('assets/Images/Bucher_img3.svg') }}" alt="" />
-                </div>
-                <div class="blog-card-body">
-                    <div class="bucher-card-heading">
-                        Pflege zu Hause: Was Angehörige wissen müssen
+            <div class="col-lg-4 col-12">
+                <div class="blog-card">
+                    <div class="blog-card-img">
+                        <a href="https://amzn.to/4cFjZ05" target="_blank"></a> <img
+                            src="{{ asset('assets/Images/Bucher_img3.svg') }}" alt="" />
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="bucher-card-heading">
+                            Pflege zu Hause: Was Angehörige wissen müssen
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- ################### For Mobile ################### -->
-        <div class="blog-card-container-sm d-none">
-            <div class="blog-card-sm">
-                <div class="blog-card-img">
-                    <a style="position: absolute;top: 0;left: 0; width: 100%;
-            height: 100%;"
-                        href="https://amzn.to/46e0eKE" target="_blank"></a> <img
-                        src="{{ asset('assets/Images/Bucher_img1.svg') }}" alt="" />
-                </div>
-                <div class="blog-card-body">
-                    <div class="bucher-card-heading">
-                        Wenn das Leben um Hilfe ruft: Angehörige zwischen Hingabe,
-                        Pflichtgefühl und Verzweiflung
-                    </div>
-                </div>
-            </div>
-            <div class="blog-card-sm">
-                <div class="blog-card-img">
-                    <a style="position: absolute;top: 0;left: 0; width: 100%;
-            height: 100%;"
-                        href="https://amzn.to/3W4UAG4" target="_blank"></a> <img
-                        src="{{ asset('assets/Images/Bucher_img2.svg') }}" alt="" />
-                </div>
-                <div class="blog-card-body">
-                    <div class="bucher-card-heading">
-                        Pflege organisieren und finanzieren: Eine Orientierungshilfe für
-                        Angehörige
-                    </div>
-                </div>
-            </div>
-            <div class="blog-card-sm">
-                <div class="blog-card-img">
-                    <a style="position: absolute;top: 0;left: 0; width: 100%;
-            height: 100%;"
-                        href="https://amzn.to/4cFjZ05" target="_blank"></a> <img
-                        src="{{ asset('assets/Images/Bucher_img3.svg') }}" alt="" />
-                </div>
-                <div class="blog-card-body">
-                    <div class="bucher-card-heading">
-                        Pflege zu Hause: Was Angehörige wissen müssen
-                    </div>
-                </div>
-            </div>
-        </div>
         <button style="position: relative;"><a style="position: relative;"><a
                     style="position: absolute;top: 0; width: 100%; height: 100%;left: 0;
       border-radius: 10px;"

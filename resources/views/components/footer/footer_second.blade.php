@@ -30,7 +30,7 @@
                             <li><a href="{{route('achrichten')}}">News und Ratgeber</a></li>
                             <li><a href="{{route('marketplace.index')}}">Marktplatz</a></li>
                             <li><a href="{{route('buecher')}}">Bücher</a></li>
-                            <li><a href="{{'https://pflegepur.myelopage.com/'}}">Academy</a></li>
+                            <li><a href="{{route('academy')}}">Academy</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-3 col-6">

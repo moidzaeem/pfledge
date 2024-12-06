@@ -12,7 +12,7 @@
                 <div class="col-12">
                     <div class="card m-b-20">
                         <div class="card-body">
-                            <h4 class="mt-0 header-title">{{ __('Marktplatz hinzufügen') }}</h4>
+                            <h4 class="mt-0 header-title">{{ __('Blogartikel erstellen') }}</h4>
                             <p class="text-muted m-b-30 font-14">{{ __('Füllen Sie die Anweisungen sorgfältig aus') }}.</p>
                             @if (Session::has('success'))
                                 <div class="alert alert-success" role="alert">

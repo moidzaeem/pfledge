@@ -45,7 +45,7 @@
                     <a class="nav-link" aria-current="page" href="{{route('buecher')}}">Bücher</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="border: none" aria-current="page" href="https://pflegepur.myelopage.com/" target="_blank">Academy</a>
+                    <a class="nav-link" style="border: none" aria-current="page" href="{{route('academy')}}" >Academy</a>
                 </li>
                 <li class="nav-item nav-btn">
                     <button class="nav-link" aria-current="page" style="position: relative;">

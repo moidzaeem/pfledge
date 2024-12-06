@@ -37,11 +37,11 @@ class MarketplaceController extends Controller
             }
         }
 
-        // Fetch all marketplaces based on the query
-        $marketPlaces = $query->get();
+        // Paginate the marketplaces (10 per page)
+        $marketPlaces = $query->paginate(10);
 
         // Map category names to marketplaces
-        $marketPlaces = $marketPlaces->map(function ($marketplace) use ($categoriesById) {
+        $marketPlaces->getCollection()->transform(function ($marketplace) use ($categoriesById) {
             // Add category1_name, category2_name, etc.
             $marketplace->category1_name = isset($categoriesById[$marketplace->category1]) ? $categoriesById[$marketplace->category1]->name : null;
             $marketplace->category2_name = isset($categoriesById[$marketplace->category2]) ? $categoriesById[$marketplace->category2]->name : null;
@@ -55,7 +55,7 @@ class MarketplaceController extends Controller
         $uniqueCategories = [];
 
         // Iterate through each marketplace and add its categories to the uniqueCategories array
-        $marketPlaces->each(function ($marketplace) use ($categoriesById, &$uniqueCategories) {
+        $marketPlaces->getCollection()->each(function ($marketplace) use ($categoriesById, &$uniqueCategories) {
             // Add category1 if it exists and is not already added
             if (isset($categoriesById[$marketplace->category1]) && !in_array($categoriesById[$marketplace->category1], $uniqueCategories)) {
                 $uniqueCategories[] = $categoriesById[$marketplace->category1];
@@ -77,9 +77,51 @@ class MarketplaceController extends Controller
             }
         });
 
-        // Return the view with the filtered marketplaces, categories, and unique categories array
+        // Return the view with the filtered marketplaces, categories, unique categories array, and pagination links
         return view('marketplace.index', compact('marketPlaces', 'uniqueCategories'));
     }
+
+    public function loadMore(Request $request)
+    {
+        $categories = MarketplaceCategory::all();
+        $categoriesById = $categories->keyBy('id');
+
+        // Start the marketplace query (without the 'home' condition)
+        $query = Marketplace::query();
+
+        // Apply category filter if a category is selected in the request
+        if ($request->category) {
+            $category = MarketplaceCategory::where('name', $request->category)->first();
+            if ($category) {
+                $query->where(function ($q) use ($category) {
+                    $q->where('category1', $category->id)
+                        ->orWhere('category2', $category->id)
+                        ->orWhere('category3', $category->id)
+                        ->orWhere('category4', $category->id);
+                });
+            }
+        }
+
+        // Get the next page of results
+        $marketPlaces = $query->paginate(10, ['*'], 'page', $request->page); // Use the 'page' parameter for pagination
+
+        // Map category names to marketplaces
+        $marketPlaces->getCollection()->transform(function ($marketplace) use ($categoriesById) {
+            $marketplace->category1_name = isset($categoriesById[$marketplace->category1]) ? $categoriesById[$marketplace->category1]->name : null;
+            $marketplace->category2_name = isset($categoriesById[$marketplace->category2]) ? $categoriesById[$marketplace->category2]->name : null;
+            $marketplace->category3_name = isset($categoriesById[$marketplace->category3]) ? $categoriesById[$marketplace->category3]->name : null;
+            $marketplace->category4_name = isset($categoriesById[$marketplace->category4]) ? $categoriesById[$marketplace->category4]->name : null;
+
+            return $marketplace;
+        });
+
+        // Return the next page of marketplaces as a JSON response
+        return response()->json([
+            'marketPlaces' => view('marketplace.partials.marketplaces', compact('marketPlaces'))->render(),
+            'nextPage' => $marketPlaces->hasMorePages() ? $marketPlaces->currentPage() + 1 : null,
+        ]);
+    }
+
 
 
 

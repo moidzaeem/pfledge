@@ -80,7 +80,7 @@
         </div>
 
         <div class="col-lg-8">
-            <div class="row">
+            <div class="row" id="marketplace-items">
                 @foreach ($marketPlaces as $marketplace)
                     <div class="col-lg-4 col-md-6 col-sm-12 mb-4 marketplace-item" data-name="{{ $marketplace->name }}"
                         data-content="{{ $marketplace->content_text }}">
@@ -126,7 +126,19 @@
                     </div>
                 @endforeach
 
+                {{-- Pagination links --}}
+                {{-- Load More button --}}
+
+
             </div>
+            <div class="col-8 mx-auto">
+                @if ($marketPlaces->hasMorePages())
+                    <button id="load-more" data-next-page="{{ $marketPlaces->currentPage() + 1 }}"
+                        class="blog-card-btn2  text-center mt-5">Mehr laden</button>
+                @endif
+            </div>
+
+
         </div>
 
     </div>
@@ -170,6 +182,36 @@
         //         }
         //     });
         // }
+    </script>
+
+    {{-- JavaScript to handle Load More --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#load-more').on('click', function() {
+                var nextPage = $(this).data('next-page');
+                var url = '{{ route('marketplace.loadMore') }}?page=' + nextPage;
+
+                $.ajax({
+                    url: url,
+                    method: 'GET',
+                    success: function(response) {
+                        // Append the new items to the existing list
+                        $('#marketplace-items').append(response.marketPlaces);
+
+                        // Update the "Load More" button
+                        if (response.nextPage) {
+                            $('#load-more').data('next-page', response.nextPage);
+                        } else {
+                            $('#load-more').remove(); // Remove the button if no more pages
+                        }
+                    },
+                    error: function() {
+                        alert('Error loading more items.');
+                    }
+                });
+            });
+        });
     </script>
 
 </body>

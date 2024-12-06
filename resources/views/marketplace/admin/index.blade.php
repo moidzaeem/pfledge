@@ -27,9 +27,9 @@
                         <div class="card-body">
 
                             <div class="d-flex justify-content-between">
-                                <h4 class="mt-0 header-title">{{ __('All Marketplaces') }}</h4>
+                                <h4 class="mt-0 header-title">{{ __('Alle Marktplatz-Einträge') }}</h4>
                                 <a href="{{ route('admin.marketplace.create') }}"
-                                    class="btn btn-primary mb-5">{{ __('Add Marketplace') }}</a>
+                                    class="btn btn-primary mb-5">{{ __('Marktplatz-Eintrag erstellen') }}</a>
                             </div>
 
                             @if (!empty($marketplaces))
