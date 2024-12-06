@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\MarketplaceController;
+use App\Http\Controllers\OnlineRechner;
 use App\Http\Controllers\SimpleController;
 use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
@@ -83,6 +84,20 @@ Route::get('/checkliste-regelmäßige-gesundheitschecks-und-monitoring-blutdruck
 })->name('checklist.6');
 
 ////// END --- CHECKLISTEN ---- ///////
+
+
+// ONLINE-RECHNER ///
+Route::get('/portal_onlinerechner', [OnlineRechner::class, 'index'])->name('online.rechner.index');
+Route::post('/portal_onlinerechner/calculate', [OnlineRechner::class, 'calculateModule'])->name('online.rechner.calculate');
+
+Route::get('/rechner_pflegeleistungen2', [OnlineRechner::class, 'secondPage'])->name('online.rechner.second');
+
+Route::get('/rechner_pflegegeld2', [OnlineRechner::class, 'thirdPage'])->name('online.rechner.third');
+Route::post('/rechner_pflegegeld2/calculate', [OnlineRechner::class, 'calculationForThirdPage'])->name('online.rechner.calculationForThirdPage');
+
+Route::get('/rechner_pflegekosten2', [OnlineRechner::class, 'fourthPage'])->name('online.rechner.fourth');
+
+// END ONLINE-RECHNER //
 
 
 Route::get('/marktplatz', [MarketplaceController::class, 'index'])->name('marketplace.index');

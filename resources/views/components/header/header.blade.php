@@ -25,7 +25,7 @@
                         <li
                             style="margin-bottom: 0.7rem; border-bottom: 1px solid #ffffffbd; padding-bottom: 0.8rem;">
                             <a style="border: none; text-decoration: none;"
-                                href="onlineRechner.html">Online-Rechner</a>
+                                href="{{route('online.rechner.index')}}">Online-Rechner</a>
                         </li>
                         <li style="margin-bottom: 0.5rem;"><a style="border: none; text-decoration: none;"
                                 href="{{route('musteranschreiben')}}">Musteranschreiben</a></li>

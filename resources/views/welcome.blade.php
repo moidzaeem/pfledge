@@ -106,7 +106,7 @@
                         alt="Product 1" /></a>
             </div>
             <div class="service-product">
-                <a href="./online_rechner.html"><img src="{{ asset('assets/Images/Service_img2.svg') }}"
+                <a href="{{ route('online.rechner.index') }}"><img src="{{ asset('assets/Images/Service_img2.svg') }}"
                         alt="Product 2" /></a>
             </div>
             <div class="service-product">
@@ -119,16 +119,16 @@
         <div class="service-product-slider d-block d-sm-none">
             <div class="slider-container">
                 <div class="service-slide" style="margin-left: 2rem">
-                    <a href="./checklisten.html"><img src={{ asset('assets/Images/Service_img1.svg') }}"
+                    <a href="{{ route('checklisten') }}"><img src={{ asset('assets/Images/Service_img1.svg') }}"
                             alt="Product 1" /></a>
                 </div>
                 <div class="service-slide">
-                    <a href="./onlineRechner.html"><img src="{{ asset('assets/Images/Service_img2.svg') }}"
-                            alt="Product 2" /></a>
+                    <a href="{{ route('online.rechner.index') }}"><img
+                            src="{{ asset('assets/Images/Service_img2.svg') }}" alt="Product 2" /></a>
                 </div>
                 <div class="service-slide" style="margin-right: 2rem">
-                    <a href="./musteranschreiben.html"><img src="{{ asset('assets/Images/Service_img3.svg') }}"
-                            alt="Product 3" /></a>
+                    <a href=""{{ route('musteranschreiben') }}"><img
+                            src="{{ asset('assets/Images/Service_img3.svg') }}" alt="Product 3" /></a>
                 </div>
             </div>
             <div class="section1-black-bg d-block d-sm-none"></div>
@@ -144,7 +144,8 @@
     <div class="newsund-ratgeber-section1" style="margin-bottom: 4rem">
         <div class="newsund-ratgeber-btn-top">
             <div class="newsund-btn1 newsund-btn">
-                <button style="color: #ffffff">News</button>
+                <button style="color: #ffffff"> <a style="color: #ffffff"
+                        href="{{ route('achrichten') }}">News</a></button>
             </div>
             <div class="newsund-btn2 newsund-btn">
                 <button>
@@ -445,7 +446,8 @@
         </div>
 
         <button class="Weitere-btn">
-            <a href="{{ route('achrichten') }}"></a>Weitere Nachrichten und Ratgeber
+            <a href="{{ route('achrichten') }}"></a><span style="font-weight: bold"> Weitere Nachrichten und
+                Ratgeber</span>
         </button>
     </div>
 
@@ -574,7 +576,8 @@
         <button style="position: relative;"><a
                 style="position: absolute;top: 0; width: 100%; height: 100%;left: 0;
       border-radius: 10px;"
-                href="{{ route('blogs.index') }}"></a>Zu unserem Blog</button>
+                href="{{ route('blogs.index') }}"></a><span style="font-weight: bold"> Zu unserem
+                Blog</span></button>
     </div>
 
     <!-- ################### Marktplatz SECTION ################### -->
@@ -644,7 +647,8 @@
             <button style="position: relative;"><a style="position: relative;"><a
                         style="position: absolute;top: 0; width: 100%; height: 100%;left: 0;
       border-radius: 10px;"
-                        href="{{ route('marketplace.index') }}"></a>Zum Marktplatz</button>
+                        href="{{ route('marketplace.index') }}"></a><span style="font-weight: bold"> Zum Marktplatz
+                    </span></button>
         </div>
     </div>
 
@@ -706,7 +710,8 @@
         <button style="position: relative;"><a style="position: relative;"><a
                     style="position: absolute;top: 0; width: 100%; height: 100%;left: 0;
       border-radius: 10px;"
-                    href="{{ route('buecher') }}"></a>Zu den Büchern</button>
+                    href="{{ route('buecher') }}"></a><span style="font-weight: bold"> Zu den Büchern
+                </span></button>
     </div>
 
     <!-- ###################### ACADEMY SECTION #######################  -->

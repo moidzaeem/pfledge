@@ -23,29 +23,28 @@
                     <div class="col-lg-3 col-6">
                         <span class="footer-items-heading">Seiten</span>
                         <ul>
-                            <li><a href="{{url('/')}}">Home</a></li>
-                            <li><a href="{{route('aboutus')}}">Über uns</a></li>
-                            <li><a href="{{route('services')}}">Services</a></li>
-                            <li><a href="{{route('blogs.index')}}">Blog</a></li>
-                            <li><a href="{{route('achrichten')}}">News und Ratgeber</a></li>
-                            <li><a href="{{route('marketplace.index')}}">Marktplatz</a></li>
-                            <li><a href="{{route('buecher')}}">Bücher</a></li>
-                            <li><a href="{{route('academy')}}">Academy</a></li>
+                            <li><a href="{{ url('/') }}">Home</a></li>
+                            <li><a href="{{ route('aboutus') }}">Über uns</a></li>
+                            <li><a href="{{ route('services') }}">Services</a></li>
+                            <li><a href="{{ route('blogs.index') }}">Blog</a></li>
+                            <li><a href="{{ route('achrichten') }}">News und Ratgeber</a></li>
+                            <li><a href="{{ route('marketplace.index') }}">Marktplatz</a></li>
+                            <li><a href="{{ route('buecher') }}">Bücher</a></li>
+                            <li><a href="{{ route('academy') }}">Academy</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-3 col-6">
                         <span class="footer-items-heading">Services</span>
                         <ul>
-                            <li><a href="{{route('checklisten')}}">Checklisten </a></li>
+                            <li><a href="{{ route('checklisten') }}">Checklisten </a></li>
                             <li>
-                                <a href="online_rechner.html">Online-Rechner</a>
+                                <a href="{{ route('online.rechner.index') }}">Online-Rechner</a>
                             </li>
-                            <li><a href="{{route('musteranschreiben')}}">Musteranschreiben</a></li>
+                            <li><a href="{{ route('musteranschreiben') }}">Musteranschreiben</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
-                        <span style="display: block; margin-bottom: 4rem"
-                            class="footer-items-heading">Newsletter</span>
+                        <span style="display: block; margin-bottom: 4rem" class="footer-items-heading">Newsletter</span>
                         <button class="footer-btn" style="position: relative;">
                             <a style=" position: absolute; top: 0; left: 0; width: 100%;height: 100%;border-radius: 10px;"
                                 href="https://pflegepur.de/newsletter.php" target="_blank"></a> Abonnieren Sie unseren
@@ -53,13 +52,13 @@
                         </button>
                         <div class="footer-icons-div">
                             <a href="https://www.facebook.com/profile.php?id=100079595010397" target="_blank"><img
-                                    src="{{asset('assets/Images/footer_fb_icon.svg')}}" alt="" /></a>
+                                    src="{{ asset('assets/Images/footer_fb_icon.svg') }}" alt="" /></a>
                             <a href="https://twitter.com/Pflege_Pur" target="_blank"><img
-                                    src="{{asset('assets/Images/footer_x_icon.svg')}}" alt="" /></a>
+                                    src="{{ asset('assets/Images/footer_x_icon.svg') }}" alt="" /></a>
                             <a href="https://open.spotify.com/show/6JACh2eflNeIcxU8U2ltyL" target="_blank"><img
-                                    src="{{asset('assets/Images/footer_spotify_icon.svg')}}" alt="" /></a>
+                                    src="{{ asset('assets/Images/footer_spotify_icon.svg') }}" alt="" /></a>
                             <a href="https://www.youtube.com/@PflegePur" target="_blank"><img
-                                    src="{{asset('assets/Images/footer_utube_icon.svg')}}" alt="" /></a>
+                                    src="{{ asset('assets/Images/footer_utube_icon.svg') }}" alt="" /></a>
                         </div>
                     </div>
                 </div>
@@ -87,4 +86,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
-    <script id="CookieDeclaration" src="https://consent.cookiebot.com/985f611d-8977-47e6-9427-b1f4e5d959f1/cd.js" type="text/javascript" async></script>
+    <script id="CookieDeclaration" src="https://consent.cookiebot.com/985f611d-8977-47e6-9427-b1f4e5d959f1/cd.js"
+        type="text/javascript" async></script>
