@@ -3115,7 +3115,7 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     line-height: 24.24px;
     text-align: left;
     color: #ffffff;
-    border-bottom: 1px solid #ffffff33;
+    /* border-bottom: 1px solid #ffffff33; */
     padding: 1rem 0;
 }
 .online-rechner-section3-bottom-heading2 {

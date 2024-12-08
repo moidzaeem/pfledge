@@ -52,7 +52,9 @@
 
 
         <div class="kategorie-btn">
+            <a href="{{route('blogs.index')}}">
             <button>Zurück</button>
+        </a>
         </div>
     </div>
 

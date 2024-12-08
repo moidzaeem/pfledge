@@ -1,6 +1,5 @@
 @extends('layouts.app')
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <script src="https://cdn.tiny.cloud/1/zzqkek2e8tzy91mu1adyt9xniaxyydlr7fjl26iao7zkj7gn/tinymce/7/tinymce.min.js"
     referrerpolicy="origin"></script>
@@ -12,7 +11,7 @@
                 <div class="col-12">
                     <div class="card m-b-20">
                         <div class="card-body">
-                            <h4 class="mt-0 header-title">{{ __('Marktplatz-Eintrag bearbeiten') }}</h4>
+                            <h4 class="mt-0 header-title">{{ __('Blogartikel bearbeiten') }}</h4>
                             <p class="text-muted m-b-30 font-14">{{ __('Ändern Sie die Blog-Details') }}.</p>
                             @if (Session::has('success'))
                                 <div class="alert alert-success" role="alert">
@@ -29,12 +28,12 @@
                                 </div>
                             @endif
                             <div class="p-20">
-                                <form method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('admin.blog.update', $blog->id) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class="row">
-                                        <input id="slug" type="hidden" name="slug"
-                                            value="{{ old('slug', $blog->slug) }}">
+                                        <!-- Slug Field -->
+                                        <input id="slug" type="hidden" name="slug" value="{{ old('slug', $blog->slug) }}">
 
                                         <!-- Title Field -->
                                         <div class="col-lg-6">
@@ -51,13 +50,12 @@
                                                 <label for="image">Blog Image</label>
                                                 <input type="file" name="image" id="image" class="form-control">
                                                 @if ($blog->image)
-                                                    <img src="{{ Storage::url($blog->image) }}"
-                                                        alt="Blog Image" width="150">
+                                                    <img src="{{ Storage::url($blog->image) }}" alt="Blog Image" width="150">
                                                 @endif
                                             </div>
                                         </div>
 
-                                        <!-- Category Fields -->
+                                        <!-- Category Fields (1 to 4) -->
                                         @foreach (range(1, 4) as $category)
                                             <div class="col-lg-6">
                                                 <div class="form-group">
@@ -66,9 +64,10 @@
                                                         class="form-control @error('category' . $category) is-invalid @enderror">
                                                         <option value="">{{ __('Bitte wählen') }}</option>
                                                         @foreach ($blogCategories as $cat)
-                                                            <option value="{{ $cat->id }}"
-                                                              >
-                                                                {{ $cat->name }}</option>
+                                                            <option value="{{ $cat->id }}" 
+                                                                {{ old('category' . $category, $blog->{'category' . $category}) == $cat->id ? 'selected' : '' }}>
+                                                                {{ $cat->name }}
+                                                            </option>
                                                         @endforeach
                                                     </select>
                                                     @error('category' . $category)
@@ -80,11 +79,37 @@
                                             </div>
                                         @endforeach
 
-                                        <!-- Content Field -->
+                                        <!-- Description Field -->
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="description">Description</label>
+                                                <textarea class="form-control" name="description" id="description">{{ old('description', $blog->description) }}</textarea>
+                                            </div>
+                                        </div>
+
+                                        <!-- Home Field -->
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>{{ __('Home') }}</label>
+                                                <select name="home" class="form-control @error('home') is-invalid @enderror">
+                                                    <option value="nein" {{ old('home', $blog->home) == 'nein' ? 'selected' : '' }}>
+                                                        {{ __('Nein') }}</option>
+                                                    <option value="ja" {{ old('home', $blog->home) == 'ja' ? 'selected' : '' }}>
+                                                        {{ __('Ja') }}</option>
+                                                </select>
+                                                @error('home')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <!-- Blog Content Field (TinyMCE Editor) -->
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label for="content">Blog Content</label>
-                                                <textarea name="content" id="myeditorinstance">{{ old('content', $blog->content) }}</textarea>
+                                                <textarea name="content" id="myeditorinstance">{{ old('content', $blog->data) }}</textarea>
                                             </div>
                                         </div>
 
@@ -132,13 +157,11 @@
                 tinycomments_author: 'Author name',
                 images_file_types: 'jpg,svg,webp',
                 file_picker_types: 'file image media',
-                toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table',
                 convert_urls: false,
                 init_instance_callback(editor) {
                     editor.setContent(content);
                 }
             });
-
         });
     </script>
 @endsection

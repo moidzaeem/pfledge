@@ -58,7 +58,7 @@
                 <a href="{{ route('musteranschreiben') }}"></a>FÜR PFLEGEBEDÜRFTIGE
             </button>
             <button class="cover-letter-top-btn2 cover-letter-top-btn" id="cover-letter-top-btn2">
-                <a href="{{route('fur_pflegebedurftige')}}"></a>FÜR PFLEGENDE ANGEHÖRIGE
+                <a href="{{ route('fur_pflegebedurftige') }}"></a>FÜR PFLEGENDE ANGEHÖRIGE
             </button>
         </div>
         <div class="cover-letter-bottom-buttons" id="cover-letter-bottom-buttons1">
@@ -135,7 +135,8 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname] <br />
             </div>
-            <div class="cover-letter-section3-btn"><button>Drucken</button></div>
+            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-11')">
+                <button>Drucken</button></div>
         </div>
 
         <!-- ################# COVER LETTER 12 ################# -->
@@ -185,7 +186,7 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn"><button>Drucken</button></div>
+            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-12')"><button>Drucken</button></div>
         </div>
         <!-- ################# COVER LETTER 13 ################# -->
 
@@ -236,7 +237,7 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn"><button>Drucken</button></div>
+            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-13')"><button>Drucken</button></div>
         </div>
         <!-- ################# COVER LETTER 14 ################# -->
 
@@ -293,7 +294,7 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn"><button>Drucken</button></div>
+            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-14')"><button>Drucken</button></div>
         </div>
         <!-- ################# COVER LETTER 15 ################# -->
 
@@ -344,7 +345,7 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn"><button>Drucken</button></div>
+            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-15')"><button>Drucken</button></div>
         </div>
         <!-- ################# COVER LETTER 16 ################# -->
 
@@ -396,7 +397,7 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn"><button>Drucken</button></div>
+            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-16')"><button>Drucken</button></div>
         </div>
         <!-- ################# COVER LETTER 17 ################# -->
 
@@ -453,7 +454,8 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn"><button>Drucken</button></div>
+            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-17')">
+                <button>Drucken</button></div>
         </div>
     </div>
 
@@ -463,6 +465,16 @@
     </div>
 
     @include('components.footer.footer_second')
+
+    <script>
+        function printDiv(divId) {
+            var printContents = document.getElementById(divId).innerHTML;
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
+        }
+    </script>
 
 </body>
 

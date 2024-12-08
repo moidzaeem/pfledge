@@ -119,7 +119,7 @@
         <div class="service-product-slider d-block d-sm-none">
             <div class="slider-container">
                 <div class="service-slide" style="margin-left: 2rem">
-                    <a href="{{ route('checklisten') }}"><img src={{ asset('assets/Images/Service_img1.svg') }}"
+                    <a href="{{ route('checklisten') }}"><img src="{{ asset('assets/Images/Service_img1.svg') }}"
                             alt="Product 1" /></a>
                 </div>
                 <div class="service-slide">
@@ -179,269 +179,91 @@
     <div class="newund-section2-row">
         <div class="col-12">
             <div class="row index-news-bottom" id="index-news-bottom1">
-                <div class="col-lg-4">
-                    <div class="newsund-section2-card">
-                        <div class="newsund-section2-card-heading">
-                            LSG Potsdam: Tabletten holen ist meist Privatsache
-                        </div>
-                        <div class="newsund-section2-card-content">
-                            Weil sie Tabletten im Auto vergessen hatte, machte die Klägerin
-                            eine Arbeitspause – und stürzte auf dem Rückweg. Das Gericht
-                            lehnte eine Entschädigung als Arbeitsunfall ab.
-                        </div>
-                        <div class="newsund-section2-card-bottom">
-                            <div class="newsund-section2-card-date">
-                                Datum: 29.10.2024<br />
-                                Quelle:
-                                <a href="https://bundesgesundheitsministerium.de"
-                                    target="_blank">www.aerztezeitung.de</a>
+                @foreach ($news as $new)
+                    <div class="col-lg-4">
+                        <div class="newsund-section2-card">
+                            <div class="newsund-section2-card-heading">
+                                {{ $new['title'] }}
                             </div>
-                            <div>
-                                <button>
-                                    <a href="https://www.bundesgesundheitsministerium.de/presse/reden/rede/gvsg-bt-1-lesung.html"
-                                        target="_blank"></a>Weiterlesen
-                                </button>
+                            <div class="newsund-section2-card-content">
+                                {{ $new['description'] }}
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="newsund-section2-card">
-                        <div class="newsund-section2-card-heading">
-                            Tuberkulose löst COVID als tödlichste Infektionskrankheit wieder
-                            ab
-                        </div>
-                        <div class="newsund-section2-card-content">
-                            Ohne Behandlung stirbt annähernd jeder zweite Infizierte an der
-                            bakteriellen Infektion Tuberkulose. Der Leiter des Globalen
-                            Fonds zur Bekämpfung von Infektionskrankheiten Peter Sands
-                            fordert mehr Mittel.
-                        </div>
-                        <div class="newsund-section2-card-bottom">
-                            <div class="newsund-section2-card-date">
-                                Datum: 29.10.2024 <br />
-                                Quelle:
-                                <a href="https://bundesgesundheitsministerium.de"
-                                    target="_blank">www.aerztezeitung.de</a>
-                            </div>
-                            <div>
-                                <button>
-                                    <a href="https://www.bundesgesundheitsministerium.de/presse/reden/rede/gvsg-bt-1-lesung.html"
-                                        target="_blank"></a>Weiterlesen
-                                </button>
+                            <div class="newsund-section2-card-bottom">
+                                <div class="newsund-section2-card-date">
+                                    Datum: 29.10.2024 <br />
+                                    Quelle:
+                                    <a href="https://bundesgesundheitsministerium.de"
+                                        target="_blank">www.aerztezeitung.de</a>
+                                </div>
+                                <div>
+                                    <button>
+                                        <a href="{{ $new['link'] }}" target="_blank"></a>Weiterlesen
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="newsund-section2-card">
-                        <div class="newsund-section2-card-heading">
-                            Pneumonie bei Kindern: Antibiotika wohl nicht immer erforderlich
-                        </div>
-                        <div class="newsund-section2-card-content">
-                            In einer Studie nahm sich ein amerikanisches Team der Frage an,
-                            ob sofortige Antibiotikagabe bei allen Kindern mit ambulant
-                            behandelter Lungenentzündung tatsächlich nötig sei.
-                        </div>
-                        <div class="newsund-section2-card-bottom">
-                            <div class="newsund-section2-card-date">
-                                Datum: 29.10.2024 <br />
-                                Quelle:
-                                <a href="https://bundesgesundheitsministerium.de"
-                                    target="_blank">www.aerztezeitung.de</a>
-                            </div>
-                            <div>
-                                <button>
-                                    <a href="https://www.bundesgesundheitsministerium.de/presse/reden/rede/gvsg-bt-1-lesung.html"
-                                        target="_blank"></a>Weiterlesen
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
 
             <div class="row index-news-bottom" id="index-news-bottom2">
-                <div class="col-lg-4">
-                    <div class="newsund-section2-card">
-                        <div class="newsund-section2-card-heading">
-                            Optimierte Therapie für Kreuzbandverletzungen
-                        </div>
-                        <div class="newsund-section2-card-content">
-                            Derzeit beruht die Therapieplanung von Knieverletzungen auf
-                            statischen Bildgebungen wie MRT, CT oder Röntgen. Eine im
-                            Projekt Plank entwickelte Simulation ermöglicht es nun, die
-                            optimale Position zur Fixierung des Kreuzbandes auf Basis
-                            dynamischer Modellierungen zu finden – dadurch würden
-                            Folgeschäden verhindert.
-                        </div>
-                        <div class="newsund-section2-card-bottom">
-                            <div class="newsund-section2-card-date">
-                                Datum: 29.10.2024<br />
-                                Quelle:
-                                <a href="https://bundesgesundheitsministerium.de"
-                                    target="_blank">www.aerztezeitung.de</a>
+                @foreach ($seconNews as $new)
+                    <div class="col-lg-4">
+                        <div class="newsund-section2-card">
+                            <div class="newsund-section2-card-heading">
+                                {{ $new['title'] }}
                             </div>
-                            <div>
-                                <button>
-                                    <a href="https://www.bundesgesundheitsministerium.de/presse/reden/rede/gvsg-bt-1-lesung.html"
-                                        target="_blank"></a>Weiterlesen
-                                </button>
+                            <div class="newsund-section2-card-content">
+                                {{ $new['description'] }}
+                            </div>
+                            <div class="newsund-section2-card-bottom">
+                                <div class="newsund-section2-card-date">
+                                    Datum: 29.10.2024 <br />
+                                    Quelle:
+                                    <a href="https://bundesgesundheitsministerium.de"
+                                        target="_blank">www.aerztezeitung.de</a>
+                                </div>
+                                <div>
+                                    <button>
+                                        <a href="{{ $new['link'] }}" target="_blank"></a>Weiterlesen
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="newsund-section2-card">
-                        <div class="newsund-section2-card-heading">
-                            Kontinuierliches Glukosemanagement auch bei Diabetes Typ 2 ab
-                        </div>
-                        <div class="newsund-section2-card-content">
-                            Technische Lösungen wie das kontinuierliche Glukosemanagement
-                            (CGM) sollten auch bei Menschen mit Diabetes Typ 2 verstärkt
-                            eingesetzt werden. Dafür setzte sich der Hamburger Diabetologe
-                            Dr. Jens Kröger auf einer Online-Pressekonferenz der Deutschen
-                            Diabetes Hilfe ein.
-                        </div>
-                        <div class="newsund-section2-card-bottom">
-                            <div class="newsund-section2-card-date">
-                                Datum: 29.10.2024 <br />
-                                Quelle:
-                                <a href="https://bundesgesundheitsministerium.de"
-                                    target="_blank">www.aerztezeitung.de</a>
-                            </div>
-                            <div>
-                                <button>
-                                    <a href="https://www.bundesgesundheitsministerium.de/presse/reden/rede/gvsg-bt-1-lesung.html"
-                                        target="_blank"></a>Weiterlesen
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="newsund-section2-card">
-                        <div class="newsund-section2-card-heading">
-                            Wie männliches Geschlecht das kardiovaskuläre Risiko beeinflusst
-                        </div>
-                        <div class="newsund-section2-card-content">
-                            Soziokulturelle Normen und daraus entstehender Druck kann
-                            individuelles Verhalten, Vorlieben und Vorstellungen
-                            beeinflussen – so die These. Diese haben Forschende untersucht,
-                            indem sie den Zusammenhang zwischen dem Ausdruck männlicher
-                            Geschlechtsidentität und dem Umgang mit kardiovaskulärer
-                            Erkrankungen analysierten.
-                        </div>
-                        <div class="newsund-section2-card-bottom">
-                            <div class="newsund-section2-card-date">
-                                Datum: 29.10.2024 <br />
-                                Quelle:
-                                <a href="https://bundesgesundheitsministerium.de"
-                                    target="_blank">www.aerztezeitung.de</a>
-                            </div>
-                            <div>
-                                <button>
-                                    <a href="https://www.bundesgesundheitsministerium.de/presse/reden/rede/gvsg-bt-1-lesung.html"
-                                        target="_blank"></a>Weiterlesen
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
+
             </div>
 
             <div class="row index-news-bottom" id="index-news-bottom3">
-                <div class="col-lg-4">
-                    <div class="newsund-section2-card">
-                        <div class="newsund-section2-card-heading">
-                            Lauterbach: Reform der Notfallversorgung rettet Menschenleben
-                        </div>
-                        <div class="newsund-section2-card-content">
-                            „Jeden Tag sterben in Deutschland Menschen, die nicht sterben
-                            müssten, wenn wir ein besseres Notfallsystem hätten“, so
-                            Bundesgesundheitsminister Prof. Karl Lauterbach bei der 1.
-                            Lesung im Bundestag zur Reform der Notfallversorgung. Lesen Sie
-                            hier die gesamte Rede.
-                        </div>
-                        <div class="newsund-section2-card-bottom">
-                            <div class="newsund-section2-card-date">
-                                Datum: 09.10.2024 <br />
-                                Quelle:
-                                <a href="https://bundesgesundheitsministerium.de"
-                                    target="_blank">www.aerztezeitung.de</a>
+
+                @foreach ($thirdNews as $new)
+                    <div class="col-lg-4">
+                        <div class="newsund-section2-card">
+                            <div class="newsund-section2-card-heading">
+                                {{ $new['title'] }}
                             </div>
-                            <div>
-                                <button>
-                                    <a href="https://www.bundesgesundheitsministerium.de/presse/reden/rede/gvsg-bt-1-lesung.html"
-                                        target="_blank"></a>Weiterlesen
-                                </button>
+                            <div class="newsund-section2-card-content">
+                                {{ $new['description'] }}
+                            </div>
+                            <div class="newsund-section2-card-bottom">
+                                <div class="newsund-section2-card-date">
+                                    Datum: 29.10.2024 <br />
+                                    Quelle:
+                                    <a href="https://bundesgesundheitsministerium.de"
+                                        target="_blank">www.aerztezeitung.de</a>
+                                </div>
+                                <div>
+                                    <button>
+                                        <a href="{{ $new['link'] }}" target="_blank"></a>Weiterlesen
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="newsund-section2-card">
-                        <div class="newsund-section2-card-heading">
-                            Lauterbach: Durchbruch bei der Krankenhausreform
-                        </div>
-                        <div class="newsund-section2-card-content">
-                            Nach intensiven Verhandlungen haben sich die
-                            Regierungsfraktionen und das Bundesgesundheitsministerium auf
-                            die letzte Fassung der Krankenhausreform geeinigt. „Von den
-                            Grundzügen der Reform machen wir keine Abstriche. Wir halten
-                            unser Qualitätsversprechen und haben sinnvolle Anregungen,
-                            insbesondere zur ambulanten Facharztversorgung in ländlichen
-                            Gebieten und der Kinderbehandlung, aufgenommen“, erklärt
-                            Bundesgesundheitsminister Prof. Lauterbach. Damit ist der Weg
-                            für die Verabschiedung im Bundestag Ende Oktober frei.
-                        </div>
-                        <div class="newsund-section2-card-bottom">
-                            <div class="newsund-section2-card-date">
-                                Datum: 08.10.2024 <br />
-                                Quelle:
-                                <a href="https://bundesgesundheitsministerium.de"
-                                    target="_blank">www.aerztezeitung.de</a>
-                            </div>
-                            <div>
-                                <button>
-                                    <a href="https://www.bundesgesundheitsministerium.de/presse/reden/rede/gvsg-bt-1-lesung.html"
-                                        target="_blank"></a>Weiterlesen
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="newsund-section2-card">
-                        <div class="newsund-section2-card-heading">
-                            Lauterbach: Alle Gesundheitsdaten auf einen Blick zu haben, wird
-                            die Behandlung entscheidend verbessern
-                        </div>
-                        <div class="newsund-section2-card-content">
-                            Gut 100 Tage vor dem Start der „ePA für alle“ startet das
-                            Bundesministerium für Gesundheit eine Aufklärungskampagne zur
-                            elektronischen Patientenakte. „Die elektronische Patientenakte
-                            bringt nur Vorteile: bessere Therapie, weniger
-                            Behandlungsfehler, bessere Forschung, weniger Bürokratie.
-                            Darüber wollen wir mit den Menschen ins Gespräch kommen“, so
-                            Bundesgesundheitsminister Prof. Karl Lauterbach.
-                        </div>
-                        <div class="newsund-section2-card-bottom">
-                            <div class="newsund-section2-card-date">
-                                Datum: 30.09.2024 <br />
-                                Quelle:
-                                <a href="https://bundesgesundheitsministerium.de"
-                                    target="_blank">www.aerztezeitung.de</a>
-                            </div>
-                            <div>
-                                <button>
-                                    <a href="https://www.bundesgesundheitsministerium.de/presse/reden/rede/gvsg-bt-1-lesung.html"
-                                        target="_blank"></a>Weiterlesen
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
 
@@ -463,119 +285,44 @@
         </div>
         <div class="row">
             @foreach ($blogs as $blog)
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                    <!-- Blog Card Container -->
-                    <div class="blog-card">
-                        <div class="blog-card-img">
-                            <img src="{{ Storage::url($blog->image) }}" alt="" class="img-fluid" />
-                        </div>
-                        <div class="blog-card-body">
-                            <div class="blog-kate">Kategorie: @if ($blog->category1_name)
-                                    <span class="blog-kate">{{ $blog->category1_name }}</span>
-                                @endif
-                                @if ($blog->category2_name)
-                                    <span class="blog-kate">{{ $blog->category2_name }}</span>
-                                @endif
-                                @if ($blog->category3_name)
-                                    <span class="blog-kate">{{ $blog->category3_name }}</span>
-                                @endif
-                                @if ($blog->category4_name)
-                                    <span class="blog-kate">{{ $blog->category4_name }}</span>
-                                @endif
+                <div class="col-lg-4 col-12">
+                    <a style="text-decoration: none" href="{{ route('blogs.show', $blog->slug) }}">
+                        <!-- Blog Card Container -->
+                        <div class="blog-card">
+                            <div class="blog-card-img">
+                                <img src="{{ Storage::url($blog->image) }}" alt="" class="img-fluid" />
                             </div>
-                            <div class="blog-card-heading">
-                                {{ $blog->title }} <!-- Dynamically display marketplace name -->
+                            <div class="blog-card-body">
+                                <div class="blog-kate">Kategorie: @if ($blog->category1_name)
+                                        <span class="blog-kate">{{ $blog->category1_name }}</span>
+                                    @endif
+                                    @if ($blog->category2_name)
+                                        <span class="blog-kate">{{ $blog->category2_name }}</span>
+                                    @endif
+                                    @if ($blog->category3_name)
+                                        <span class="blog-kate">{{ $blog->category3_name }}</span>
+                                    @endif
+                                    @if ($blog->category4_name)
+                                        <span class="blog-kate">{{ $blog->category4_name }}</span>
+                                    @endif
+                                </div>
+                                <div class="blog-card-heading">
+                                    {{ $blog->title }} <!-- Dynamically display marketplace name -->
+                                </div>
+                                <div class="blog-card-sub-heading">
+                                    {{ Str::limit($blog->description, 150) }}
+                                    <!-- Limit the content text for a preview -->
+                                </div>
                             </div>
-                            <div class="blog-card-sub-heading">
-                                {{ Str::limit($blog->description, 150) }}
-                                <!-- Limit the content text for a preview -->
-                            </div>
-                        </div>
-                        <a style="text-decoration: none" href="{{ route('blogs.show', $blog->slug) }}">
                             <button class="blog-card-btn">Weiterlesen</button>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 </div>
             @endforeach
         </div>
-        <!-- ################### For Mobile ################### -->
-        <div class="blog-card-container-sm d-none">
-            <div class="blog-card-sm">
-                <div class="blog-card-img">
-                    <img src="{{ asset('assets/Images/blog_img_.webp') }}" alt="" />
-                </div>
-                <div class="blog-card-body">
-                    <span class="blog-date">04.10.2024 </span>
-                    <div class="blog-kate">Kategorie: Pflegewissen & Ratgeber </div>
-                    <div class="blog-card-heading">
-                        Pflege bei speziellen Bedürfnissen: Fokus auf seltene Erkrankungen
-                    </div>
-                    <div class="blog-card-sub-heading">
-                        Die Pflege von Menschen mit seltenen Erkrankungen stellt eine besondere Herausforderung dar, die
-                        oft über das hinausgeht, was in der allgemeinen Pflege gelehrt und erwartet wird. Seltene
-                        Krankheiten sind oft komplex, erfordern spezialisierte Pflege und haben tiefgreifende
-                        Auswirkungen auf das Leben der Betroffenen und ihrer Familien. Dieser Blogartikel beleuchtet die
-                        Herausforderungen und Besonderheiten der Pflege von Menschen mit seltenen Erkrankungen und zeigt
-                        auf, welche Rolle Pflegekräfte in diesem sensiblen Bereich spielen.
 
-                    </div>
-                </div>
-                <button class="blog-card-btn">Weiterlesen</button>
-
-            </div>
-            <div class="blog-card-sm">
-                <div class="blog-card-img">
-                    <img src="./Images/blog_img_2.webp" alt="" />
-                </div>
-                <div class="blog-card-body">
-                    <span class="blog-date">15.09.2024</span>
-                    <div class="blog-kate">Kategorie: Recht & Pflegeversicherung </div>
-                    <div class="blog-card-heading">
-                        Pflege und Ethik: Tägliche Entscheidungen mit Tragweite
-                    </div>
-                    <div class="blog-card-sub-heading">
-                        Die Pflege ist ein Beruf, der tief in menschlichen Beziehungen verwurzelt ist. Pflegende stehen
-                        täglich vor Herausforderungen, die nicht nur fachliches Wissen, sondern auch ein hohes Maß an
-                        ethischem Bewusstsein erfordern. Entscheidungen, die im Pflegealltag getroffen werden, haben oft
-                        weitreichende Folgen für das Leben der Patient*innen und deren Angehörige. Dieser Artikel
-                        beleuchtet die ethischen Aspekte der Pflege und zeigt, welche Rolle ethische Prinzipien im
-                        Alltag von Pflegefachkräften spielen.
-
-                    </div>
-                </div>
-                <button class="blog-card-btn">Weiterlesen</button>
-
-            </div>
-            <div class="blog-card-sm">
-                <div class="blog-card-img">
-                    <img src="./Images/blog_img_3.webp" alt="" />
-                </div>
-                <div class="blog-card-body">
-                    <span class="blog-date">08.09.2024 </span>
-                    <div class="blog-kate">Kategorie: Pflegende Angehörige </div>
-                    <div class="blog-card-heading">
-                        Aggressivität in der Pflege: Umgang mit schwierigen Situationen
-                    </div>
-                    <div class="blog-card-sub-heading">
-                        Die Pflege ist ein anspruchsvoller Beruf, der Geduld, Empathie und Fachkompetenz erfordert.
-                        Pflegekräfte begegnen dabei nicht nur körperlichen Herausforderungen, sondern auch emotionalen
-                        und psychischen Belastungen. Eine dieser Belastungen ist die Aggressivität, die bei
-                        Pflegebedürftigen auftreten kann. Aggression in der Pflege kann viele Ursachen haben, von
-                        Schmerzen und Krankheit bis hin zu kognitiven Einschränkungen wie Demenz. Der Umgang mit
-                        aggressivem Verhalten ist für Pflegekräfte eine schwierige, aber unvermeidbare Aufgabe. In
-                        diesem Artikel wird beleuchtet, warum Aggressionen in der Pflege auftreten, wie Pflegekräfte
-                        damit umgehen können und welche präventiven Maßnahmen getroffen werden können, um solche
-                        Situationen zu entschärfen.
-
-                    </div>
-                </div>
-                <button class="blog-card-btn">Weiterlesen</button>
-
-            </div>
-        </div>
-        <button style="position: relative;"><a
-                style="position: absolute;top: 0; width: 100%; height: 100%;left: 0;
-      border-radius: 10px;"
+        <button style="position: relative;">
+            <a style="position: absolute;top: 0; width: 100%; height: 100%;left: 0;border-radius: 10px;"
                 href="{{ route('blogs.index') }}"></a><span style="font-weight: bold"> Zu unserem
                 Blog</span></button>
     </div>
@@ -598,46 +345,60 @@
             <div class="row">
                 @foreach ($marketplaces as $marketplace)
                     <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                        <!-- Blog Card Container -->
-                        <div class="blog-card">
-                            <div class="blog-card-img">
-                                @if (strpos($marketplace->image, 'https') === 0)
-                                    <!-- Check if the image is an external URL -->
-                                    <img src="{{ $marketplace->image }}" alt="" class="img-fluid" />
-                                @else
-                                    <img src="{{ asset('storage/' . $marketplace->image) }}" alt=""
-                                        class="img-fluid" />
-                                @endif
-                            </div>
-                            <div class="blog-card-body">
-                                <div class="blog-kate">Kategorie: @if ($marketplace->category1_name)
-                                        <span class="blog-kate">{{ $marketplace->category1_name }}</span>
-                                    @endif
-                                    @if ($marketplace->category2_name)
-                                        <span class="blog-kate">{{ $marketplace->category2_name }}</span>
-                                    @endif
-                                    @if ($marketplace->category3_name)
-                                        <span class="blog-kate">{{ $marketplace->category3_name }}</span>
-                                    @endif
-                                    @if ($marketplace->category4_name)
-                                        <span class="blog-kate">{{ $marketplace->category4_name }}</span>
+                        <a href="{{ $marketplace->link }}"
+                            target="{{ $marketplace->external_link === 'ja' ? '_blank' : '' }}"
+                            style="text-decoration: none">
+                            <!-- Blog Card Container -->
+                            <div class="blog-card">
+                                <div class="blog-card-img">
+                                    @if (strpos($marketplace->image, 'https') === 0)
+                                        <!-- Check if the image is an external URL -->
+                                        <img src="{{ $marketplace->image }}" alt="" class="img-fluid" />
+                                    @else
+                                        <img src="{{ asset('storage/' . $marketplace->image) }}" alt=""
+                                            class="img-fluid" />
                                     @endif
                                 </div>
-                                <div class="blog-card-heading">
-                                    {{ $marketplace->name }} <!-- Dynamically display marketplace name -->
+                                <div class="blog-card-body">
+                                    <div class="blog-kate">Kategorie:
+                                        @if ($marketplace->category1_name)
+                                            <span class="blog-kate">{{ $marketplace->category1_name }}
+                                                @if ($marketplace->category2_name || $marketplace->category3_name || $marketplace->category4_name)
+                                                    ,
+                                                @endif
+                                            </span>
+                                        @endif
+                                        @if ($marketplace->category2_name)
+                                            <span class="blog-kate">{{ $marketplace->category2_name }}
+                                                @if ($marketplace->category3_name || $marketplace->category4_name)
+                                                    ,
+                                                @endif
+                                            </span>
+                                        @endif
+                                        @if ($marketplace->category3_name)
+                                            <span class="blog-kate">{{ $marketplace->category3_name }}
+                                                @if ($marketplace->category4_name)
+                                                    ,
+                                                @endif
+                                            </span>
+                                        @endif
+                                        @if ($marketplace->category4_name)
+                                            <span class="blog-kate">{{ $marketplace->category4_name }}</span>
+                                        @endif
+                                    </div>
+                                    <div class="blog-card-heading">
+                                        {{ $marketplace->name }} <!-- Dynamically display marketplace name -->
+                                    </div>
+                                    <div class="blog-card-sub-heading">
+                                        {{ Str::limit($marketplace->content_text, 150) }}
+                                        <!-- Limit the content text for a preview -->
+                                    </div>
                                 </div>
-                                <div class="blog-card-sub-heading">
-                                    {{ Str::limit($marketplace->content_text, 150) }}
-                                    <!-- Limit the content text for a preview -->
-                                </div>
-                            </div>
-                            <a href="{{ $marketplace->link }}"
-                                target="{{ $marketplace->external_link === 'ja' ? '_blank' : '' }}"
-                                style="text-decoration: none">
-                                <button class="blog-card-btn">Weiterlesen</button>
-                            </a>
 
-                        </div>
+                                <button class="blog-card-btn">Weiterlesen</button>
+
+                            </div>
+                        </a>
                     </div>
                 @endforeach
             </div>
@@ -666,43 +427,48 @@
         <div class="row">
             <div class="col-lg-4 col-12">
                 <div class="blog-card">
-                    <div class="blog-card-img">
-                        <a href="https://amzn.to/46e0eKE" target="_blank"></a><img
-                            src="{{ asset('assets/Images/Bucher_img1.svg') }}" alt="" />
-                    </div>
-                    <div class="blog-card-body">
-                        <div class="bucher-card-heading">
-                            Wenn das Leben um Hilfe ruft: Angehörige zwischen Hingabe,
-                            Pflichtgefühl und Verzweiflung
+                    <a style="text-decoration: none" href="https://amzn.to/46e0eKE" target="_blank">
+
+                        <div class="blog-card-img">
+                            <img src="{{ asset('assets/Images/Bucher_img1.svg') }}" alt="" />
                         </div>
-                    </div>
+                        <div class="blog-card-body">
+                            <div class="bucher-card-heading">
+                                Wenn das Leben um Hilfe ruft: Angehörige zwischen Hingabe,
+                                Pflichtgefühl und Verzweiflung
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-12">
+                <div class="blog-card">
+                    <a style="text-decoration: none"  href="https://amzn.to/3W4UAG4" target="_blank">
+                        <div class="blog-card-img">
+                            <img src="{{ asset('assets/Images/Bucher_img2.svg') }}" alt="" />
+                        </div>
+                        <div class="blog-card-body">
+                            <div class="bucher-card-heading">
+                                Pflege organisieren und finanzieren: Eine Orientierungshilfe für
+                                Angehörige
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="col-lg-4 col-12">
                 <div class="blog-card">
-                    <div class="blog-card-img">
-                        <a href="https://amzn.to/3W4UAG4" target="_blank"></a> <img
-                            src="{{ asset('assets/Images/Bucher_img2.svg') }}" alt="" />
-                    </div>
-                    <div class="blog-card-body">
-                        <div class="bucher-card-heading">
-                            Pflege organisieren und finanzieren: Eine Orientierungshilfe für
-                            Angehörige
+                    <a  style="text-decoration: none" href="https://amzn.to/4cFjZ05" target="_blank">
+                        <div class="blog-card-img">
+                            <img src="{{ asset('assets/Images/Bucher_img3.svg') }}" alt="" />
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-12">
-                <div class="blog-card">
-                    <div class="blog-card-img">
-                        <a href="https://amzn.to/4cFjZ05" target="_blank"></a> <img
-                            src="{{ asset('assets/Images/Bucher_img3.svg') }}" alt="" />
-                    </div>
-                    <div class="blog-card-body">
-                        <div class="bucher-card-heading">
-                            Pflege zu Hause: Was Angehörige wissen müssen
+                        <div class="blog-card-body">
+                            <div class="bucher-card-heading">
+                                Pflege zu Hause: Was Angehörige wissen müssen
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -747,7 +513,7 @@
                         <button style="position: relative;"><a style="position: relative;"><a
                                     style="position: absolute;top: 0; width: 100%; height: 100%;left: 0;
       border-radius: 10px;"
-                                    href="https://pflegepur.myelopage.com/"></a>Zu unserer Academy</button>
+                                    href="{{ route('academy') }}"></a>Zu unserer Academy</button>
                     </div>
                 </div>
             </div>

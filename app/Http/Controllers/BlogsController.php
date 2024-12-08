@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BlogCategory;
 use App\Models\Blogs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BlogsController extends Controller
 {
@@ -70,6 +71,8 @@ class BlogsController extends Controller
                 $uniqueCategories[] = $categoriesById[$blog->category4];
             }
         });
+        sort($uniqueCategories);        // Sort by 'name' property
+
         // Return the view with the filtered blogs, categories, and unique categories
         return view('blogs.index', compact('blogs', 'uniqueCategories'));
     }
@@ -152,10 +155,55 @@ class BlogsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Blogs $blogs)
+    public function update(Request $request, $id)
     {
-        //
+        // Find the existing blog post by ID
+        $blog = Blogs::findOrFail($id);
+
+        // Validate the incoming data
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'content' => 'required|string',
+            'category1' => 'nullable|exists:blog_categories,id',
+            'category2' => 'nullable|exists:blog_categories,id',
+            'category3' => 'nullable|exists:blog_categories,id',
+            'category4' => 'nullable|exists:blog_categories,id',
+            // Exclude the current blog's slug from the uniqueness check
+            'slug' => 'required|unique:blogs,slug,' . $blog->id,
+            'home' => 'nullable|in:ja,nein', // 'ja' or 'nein'
+        ]);
+
+        // Handle image upload (if an image is uploaded)
+        $imagePath = $blog->image;  // Use the current image by default
+        if ($request->hasFile('image')) {
+            // Delete the old image if it exists (optional, depending on your needs)
+            if ($blog->image && Storage::exists($blog->image)) {
+                Storage::delete($blog->image);
+            }
+            // Upload new image
+            $imagePath = $request->file('image')->store('public/blog_images', 'public');
+        }
+
+        // Update the blog post with the validated data
+        $blog->update([
+            'slug' => $validated['slug'],
+            'title' => $validated['title'],
+            'data' => $validated['content'],
+            'home' => $validated['home'],
+            'description' => $validated['description'],
+            'image' => $imagePath,
+            'category1' => $validated['category1'] ?? null,
+            'category2' => $validated['category2'] ?? null,
+            'category3' => $validated['category3'] ?? null,
+            'category4' => $validated['category4'] ?? null,
+        ]);
+
+        // Redirect back with a success message
+        return redirect()->route('admin.blog.edit', $blog->id)->with('success', 'Blog updated successfully!');
     }
+
 
     /**
      * Remove the specified resource from storage.

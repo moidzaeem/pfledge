@@ -37,11 +37,11 @@
             <a href="{{route('checklisten')}}"><img src="{{ asset('assets/Images/Service_img1.svg') }}" alt="Product 1" /></a>
         </div>
         <div class="service-product">
-            <a href="./online_rechner.html"><img src="{{ asset('assets/Images/Service_img2.svg') }}"
+            <a href="{{ route('online.rechner.index') }}"><img src="{{ asset('assets/Images/Service_img2.svg') }}"
                     alt="Product 3" /></a>
         </div>
         <div class="service-product">
-            <a href="./musteranschreiben.html"><img src="{{ asset('assets/Images/Service_img3.svg') }}"
+            <a href="{{ route('musteranschreiben') }}"><img src="{{ asset('assets/Images/Service_img3.svg') }}"
                     alt="Product 3" /></a>
         </div>
     </div>
@@ -51,7 +51,7 @@
             <a href="{{route('checklisten')}}"><img src="{{ asset('assets/Images/Service_img1.svg') }}" alt="Product 1" /></a>
         </div>
         <div class="service-product1">
-            <a href="./online_rechner.html"><img src="{{ asset('assets/Images/Service_img2.svg') }}"
+            <a href="{{ route('online.rechner.index') }}"><img src="{{ asset('assets/Images/Service_img2.svg') }}"
                     alt="Product 3" /></a>
         </div>
         <div class="service-product1">
@@ -146,7 +146,7 @@
                       height: 100%;
                       border-radius: 10px;
                     "
-                                href="./online_rechner.html"></a>Zu den Online-Rechnern
+                                href="{{ route('online.rechner.index') }}"></a>Zu den Online-Rechnern
                         </button>
                     </div>
                 </div>
@@ -192,7 +192,7 @@
                     </div>
                     <div>
                         <button style="position: relative">
-                            <a href="./musteranschreiben.html"
+                            <a href="{{ route('musteranschreiben') }}"
                                 style="
                       position: absolute;
                       top: 0;

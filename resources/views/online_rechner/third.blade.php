@@ -178,7 +178,7 @@
 
         <!-- ######################## Online Rechner Section 3 bottom ######################## -->
         <div class="online-rechner-section3-bottom">
-            <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
+            {{-- <div class="online-rechner-section3-bottom-heading">Ergebnis</div> --}}
             <div class="online-rechner-section3-heading-bottom">
                 <div>Ergebnis</div>
             </div>
@@ -186,7 +186,7 @@
             <div
                 class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2 online-rechner-section3-inner-bottom22">
 
-                <div style="padding-top: 0; color: #000000; font-weight: 600;">
+                <div style="padding-top: 0; color: white; font-weight: 600;">
                     <span class="span1">Pflegegeldanspruch</span>
                     <span class="span2">Anspruch teilstationäre Pflege</span>
                     <span class="span3">Anspruch vollstationäre Pflege</span>
@@ -206,9 +206,9 @@
                     </span>
                 </div>
             </div>
-            <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
+            {{-- <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
                     class="online-rechner-page2-section3-btn"
-                    style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
+                    style="border: none;background-color: #000000; width: 200px;">Zurück</button></div> --}}
         </div>
     </div>
     </div>

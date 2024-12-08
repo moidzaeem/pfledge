@@ -187,7 +187,7 @@
 
                 <!-- ######################## Online Rechner Section 3 bottom ######################## -->
                 <div class="online-rechner-section3-bottom">
-                    <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
+                    {{-- <div class="online-rechner-section3-bottom-heading">Ergebnis</div> --}}
                     <div class="online-rechner-section3-heading-bottom">
                         <div>Ergebnis</div>
                     </div>
@@ -195,8 +195,8 @@
                     <div
                         class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2 online-rechner-section3-inner-bottom23 ">
 
-                        <div style="padding-top: 0; color: #000000; font-weight: 600;">
-                            <span class="span1">Pflegegeldanspruch</span>
+                        <div style="padding-top: 0; color: white; font-weight: 600;">
+                            <span class="span1">Pflegebedingte Kosten</span>
                             <span class="span2">Pflegebedingte Kosten nach Zuschlag</span>
                             <span class="span3">Investitionskosten</span>
                             <span class="span4">Verpflegung & Unterkunft</span>

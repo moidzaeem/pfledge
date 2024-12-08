@@ -120,6 +120,8 @@ class OnlineRechner extends Controller
     public function calculateModule(Request $request)
     { // Get values from the request
         // Modul 1
+
+        // dd($request->all());
         $modul1_1 = $request->input('modul1_1');
         $modul1_2 = $request->input('modul1_2');
         $modul1_3 = $request->input('modul1_3');
@@ -419,11 +421,12 @@ class OnlineRechner extends Controller
         } elseif ($gesamtwert <= 100) {
             $pflegegrad = 5;
         }
-
+$Sonderfall=false;
         # Sonderfall:
         # Wenn beide Arme und Beine gebrauchsunfähig sind (also wenn die pflegebedürftige Person weder in der Lage ist Arme noch Beine zu verwenden, ist eine vollständige Beantwortung aller Fragen nicht erforderlich. Es ist Pflegegrad 5 zu bewilligen.)
         if ($modul1_6 == "1") {
             $pflegegrad = 5;
+            $Sonderfall=true;
         }
 
         $data = [
@@ -456,7 +459,8 @@ class OnlineRechner extends Controller
 
         return back()->with([
             'modul1_punkte' => $data,
-            'pflegegrad' => $pflegegrad
+            'pflegegrad' => $pflegegrad,
+            'Sonderfall'=>$Sonderfall
         ]);
     }
 

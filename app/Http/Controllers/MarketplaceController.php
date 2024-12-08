@@ -77,6 +77,7 @@ class MarketplaceController extends Controller
             }
         });
 
+        sort($uniqueCategories);
         // Return the view with the filtered marketplaces, categories, unique categories array, and pagination links
         return view('marketplace.index', compact('marketPlaces', 'uniqueCategories'));
     }

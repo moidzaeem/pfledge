@@ -15,7 +15,7 @@
                     <a class="nav-link" aria-current="page" href="{{url('/')}}">Home</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="{{route('services')}}" class="nav-link">Service</a>
+                    <a href="{{route('services')}}" class="nav-link">Services</a>
                     <ul class="dropdown-menu" style="background-color: #000000;">
                         <li
                             style="margin-top: 0.35rem; margin-bottom: 0.7rem; border-bottom: 1px solid #ffffffbd; padding-bottom: 0.8rem;">

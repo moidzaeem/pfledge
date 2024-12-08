@@ -1409,6 +1409,43 @@
 
     @include('components.footer.footer_second')
 
+    <script>
+        // Function to hide unchecked checkboxes and their labels
+        function prepareForPrint() {
+            // Get all checkbox containers
+            const checkboxes = document.querySelectorAll('.checklisten-checkbox-container');
+    
+            // Loop through each checkbox container
+            checkboxes.forEach(function(checkboxContainer) {
+                const checkbox = checkboxContainer.querySelector('input[type="checkbox"]');
+    
+                // If the checkbox is not checked, hide its container
+                if (!checkbox.checked) {
+                    checkboxContainer.style.display = 'none';
+                }
+            });
+        }
+    
+        // Function to reset visibility after printing (if you print multiple times in a session)
+        function resetPrint() {
+            const checkboxes = document.querySelectorAll('.checklisten-checkbox-container');
+            checkboxes.forEach(function(checkboxContainer) {
+                checkboxContainer.style.display = ''; // Reset to original state
+            });
+        }
+    
+        // Print button event listener
+        document.querySelector('.checklisten-section3-btn button').addEventListener('click', function() {
+            prepareForPrint();
+            
+            // Open the print dialog
+            window.print();
+    
+            // Reset visibility after printing
+            window.onafterprint = resetPrint;
+        });
+    </script>
+
 </body>
 
 </html>

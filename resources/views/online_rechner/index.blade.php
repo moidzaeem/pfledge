@@ -3,8 +3,57 @@
 
 @include('components.header.head')
 
-<style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<style>
+    strong {
+        color: #b22222;
+        font-weight: 800;
+    }
+
+    #tooltip {
+        text-align: left;
+        color: #fff;
+        background: #111;
+        position: absolute;
+        z-index: 100;
+        padding: 15px;
+        font-size: 1.0rem;
+    }
+
+    #tooltip:after
+
+    /* triangle decoration */
+        {
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #111;
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: -10px;
+        margin-left: -10px;
+    }
+
+    #tooltip.top:after {
+        border-top-color: transparent;
+        border-bottom: 10px solid #111;
+        top: -20px;
+        bottom: auto;
+    }
+
+    #tooltip.left:after {
+        left: 10px;
+        margin: 0;
+    }
+
+    #tooltip.right:after {
+        right: 10px;
+        left: auto;
+        margin: 0;
+    }
 </style>
 
 <body>
@@ -86,6 +135,7 @@
     <!-- ########################### Online Rechner SECTION 2 ########################### -->
 
     <div class="online-rechner-section2">
+
         <button class="online-rechner-section2-btn1 online-rechner-section2-btn online-active-btn">
             <a href="{{ route('online.rechner.index') }}"></a> RECHNER PFLEGEGRAD
         </button>
@@ -130,6 +180,7 @@
             </div>
 
             <!-- ######################## Online Rechner Section 3 Buttons ######################## -->
+            <div class="online-rechner-section3-bottom-heading mb-3">Ergebnis</div>
 
             <div class="online-rechner-section3-buttons">
                 <button id="module1-btn" class="online-rechner-section3-btn1 online-rechner-section3-btn active-btn2">
@@ -168,7 +219,9 @@
 
                     <div class="row">
                         <div class="col-md-4">
-                            <label for="online-rechner-input1">1.1 Positionswechsel im Bett</label>
+                            <label for="online-rechner-input1"
+                                title="Einnehmen von verschiedenen Positionen im Bett, Drehen um die Längsachse, Aufrichten aus dem Liegen<br /><strong>Selbständig:</strong> Selbständig ist auch eine Person, die ihre Position unter Nutzung von Hilfsmitteln (Aufrichthilfe, Bettseitenteil, Strickleiter, elektrisch verstellbares Bett) allein verändern kann.<br /><strong>Überwiegend selbständig:</strong> Die Person kann beispielsweise nach Anreichen eines Hilfsmittels oder Reichen der Hand ihre Lage im Bett verändern.<br /><strong>Überwiegend unselbständig:</strong> Die Person kann beim Positionswechsel nur wenig mithelfen, z. B. auf den Rücken rollen, am Bettgestell festhalten, Aufforderungen folgen wie z. B. Bitte die Arme vor der Brust verschränken und den Kopf auf die Brust legen.<br /><strong>Unselbständig:</strong> Die Person kann sich beim Positionswechsel nicht oder nur minimal beteiligen."
+                                rel="tooltip">1.1 Positionswechsel im Bett</label>
                             <select name="modul1_1" id="online-rechner-input1">
                                 <option value="0">Selbstständig</option>
                                 <option value="1">Überwiegend selbstständig</option>
@@ -177,7 +230,9 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input2">1.2 Halten einer stabilen Sitzposition</label>
+                            <label for="online-rechner-input2"
+                                title="Sich auf einem Bett, Stuhl oder Sessel aufrecht halten.<br /><strong>Selbständig:</strong> Selbständig ist eine Person auch dann, wenn sie beim Sitzen gelegentlich ihre Sitzposition korrigieren muss.<br /><strong>Überwiegend selbständig:</strong> Die Person kann sich nur kurz, z. B. für die Dauer einer Mahlzeit oder eines Waschvorgangs selbständig in der Sitzposition halten, darüber hinaus benötigt sie aber personelle Unterstützung zur Positionskorrektur.<br /><strong>Überwiegend unselbständig:</strong> Die Person kann sich wegen eingeschränkter Rumpfkontrolle auch mit Rücken- und Seitenstütze nicht in aufrechter Position halten und benötigt auch während der Dauer einer Mahlzeit oder eines Waschvorgangs personelle Unterstützung zur Positionskorrektur.<br /><strong>Unselbständig:</strong> Die Person kann sich nicht in Sitzposition halten. Bei fehlender Rumpf- und Kopfkontrolle kann die Person nur im Bett oder Lagerungsstuhl liegend gelagert werden."
+                                rel="tooltip">1.2 Halten einer stabilen Sitzposition</label>
                             <select name="modul1_2" id="online-rechner-input2">
                                 <option value="0">Selbstständig</option>
                                 <option value="1">Überwiegend selbstständig</option>
@@ -186,7 +241,16 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input3">1.3 Umsetzen</label>
+                            <label
+                                for="online-rechner-input3"title="Von einer erhöhten Sitzfläche, Bettkante, Stuhl, Sessel, Bank, Toilette etc., aufstehen und sich auf einen Rollstuhl, Toilettenstuhl, Sessel o.ä. umsetzen<br />
+                            <strong>Selbständig:</strong> Selbständig ist jemand auch dann, wenn er keine Personenhilfe benötigt, aber ein Hilfsmittel oder einen anderen Gegenstand zum Festhalten oder Hochziehen (z. B. Griffstangen) benutzt oder sich auf Tisch, Armlehnen oder sonstigen Gegenständen abstützen muss, um aufzustehen. Als selbständig ist auch zu bewerten, wer zwar nicht stehen kann, aber sich mit Armkraft ohne personelle Hilfe umsetzen kann (z. B. Bett – Rollstuhl, Rollstuhl – Toilette).
+                            <br />
+                            <strong>Überwiegend selbständig:</strong> Die Person kann aus eigener Kraft aufstehen oder sich umsetzen, wenn sie eine Hand oder einen Arm gereicht bekommt.
+                            <br />
+                            <strong>Überwiegend unselbständig:</strong> Die Pflegeperson muss beim Aufstehen, Umsetzen (erheblichen) Kraftaufwand aufbringen (hochziehen, halten, stützen, heben). Die beeinträchtigte Person hilft jedoch in geringem Maße mit, kann z. B. kurzzeitig stehen.
+                            <br />
+                            <strong>Unselbständig:</strong> Die Person muss gehoben oder getragen werden, Mithilfe ist nicht möglich."
+                                rel="tooltip">1.3 Umsetzen</label>
                             <select name="modul1_3" id="online-rechner-input3">
                                 <option value="0">Selbstständig</option>
                                 <option value="1">Überwiegend selbstständig</option>
@@ -195,7 +259,17 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input4">1.4 Fortwegen innerhalb des Wohnbereichs</label>
+                            <label for="online-rechner-input4"
+                                title="Sich innerhalb einer Wohnung oder im Wohnbereich einer Einrichtung zwischen den Zimmern sicher bewegen. Als Anhaltsgröße für übliche Gehstrecken innerhalb einer Wohnung werden mindestens acht Meter festgelegt. Die Fähigkeiten zur räumlichen Orientierung und zum Treppensteigen sind im Modul 2 Ziffer 2 bzw. Modul 1 Ziffer 5 zu berücksichtigen.
+                            <br />
+                            <strong>Selbständig:</strong> Die Person kann sich ohne Hilfe durch andere Personen fortbewegen. Dies kann ggf. unter Nutzung von Hilfsmitteln, z. B. Rollator, Rollstuhl oder sonstigen Gegenständen, z. B. Stock oder Möbelstück geschehen.
+                            <br />
+                            <strong>Überwiegend selbständig:</strong> Die Person kann die Aktivität überwiegend selbständig durchführen. Personelle Hilfe ist beispielsweise erforderlich im Sinne von Bereitstellen von Hilfsmitteln (z. B. Rollator oder Gehstock), Beobachtung aus Sicherheitsgründen oder gelegentlichem Stützen, Unterhaken.
+                            <br />
+                            <strong>Überwiegend unselbständig:</strong> Die Person kann nur wenige Schritte gehen oder sich mit dem Rollstuhl nur wenige Meter fortbewegen oder kann nur mit Stützung oder Festhalten einer Pflegeperson gehen. Die ausschließliche Fähigkeit der Fortbewegung durch Krabbeln oder Robben ist generell als „überwiegend unselbständig“ zu bewerten.
+                            <br />
+                            <strong>Unselbständig:</strong> Die Person muss getragen oder vollständig im Rollstuhl geschoben werden."
+                                rel="tooltip">1.4 Fortwegen innerhalb des Wohnbereichs</label>
                             <select name="modul1_4" id="online-rechner-input4">
                                 <option value="0">Selbstständig</option>
                                 <option value="1">Überwiegend selbstständig</option>
@@ -204,7 +278,17 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input5">1.5 Treppensteigen</label>
+                            <label for="online-rechner-input5"
+                                title="Überwinden von Treppen zwischen zwei Etagen. Treppensteigen ist unabhängig von der individuellen Wohnsituation zu bewerten.
+<br />
+<strong>Selbständig:</strong> Die Person kann ohne Hilfe durch andere Personen in aufrechter Position eine Treppe steigen.
+<br />
+<strong>Überwiegend selbständig:</strong> Die Person kann eine Treppe alleine steigen, benötigt aber Begleitung wegen eines Sturzrisikos.
+<br />
+<strong>Überwiegend unselbständig:</strong> Treppensteigen ist nur mit Stützen oder Festhalten der Person möglich.
+<br />
+<strong>Unselbständig:</strong> Person muss getragen oder mit Hilfsmitteln transportiert werden, keine Eigenbeteiligung."
+                                rel="tooltip">1.5 Treppensteigen</label>
                             <select name="modul1_5" id="online-rechner-input5">
                                 <option value="0">Selbstständig</option>
                                 <option value="1">Überwiegend selbstständig</option>
@@ -221,7 +305,8 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <button class="online-rechner-section3-form-btn">
+                        <button class="online-rechner-section3-form-btn active-btn2 " type="submit"
+                            style="background-color: #b22222">
                             Pflegegrad berechnen
                         </button>
                     </div>
@@ -239,7 +324,17 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4">
-                            <label for="online-rechner-input21">2.1 Erkennen von Personen aus dem näheren
+                            <label for="online-rechner-input21"
+                                title="Fähigkeit, Personen aus dem näheren Umfeld wiederzuerkennen, d. h. Menschen, zu denen im Alltag regelmäßig ein direkter Kontakt besteht. Dazu gehören z. B. Familienmitglieder, Nachbarn aber auch Pflegekräfte eines ambulanten Dienstes oder einer stationären Pflegeeinrichtung.
+<br />
+<strong>Fähigkeit vorhanden:</strong> Die Person erkennt andere Personen aus ihrem näheren Umfeld unmittelbar.
+<br />
+<strong>Fähigkeit größtenteils vorhanden:</strong> Die Person erkennt bekannte Personen beispielsweise erst nach einer längeren Zeit des Kontaktes in einem Gespräch oder sie hat Schwierigkeiten wenn auch nicht täglich, aber doch in regelmäßigen Abständen, vertraute Personen zu erkennen.
+<br />
+<strong>Fähigkeit in geringem Maße vorhanden:</strong> Die aus dem näheren Umfeld stammenden Personen werden nur selten erkannt oder die Fähigkeit hängt ggf. von der Tagesform ab, d. h. die Fähigkeit unterliegt im Zeitverlauf erheblichen Schwankungen.
+<br />
+<strong>Fähigkeit nicht vorhanden:</strong> Auch Familienmitglieder werden nicht oder nur ausnahmsweise erkannt."
+                                rel="tooltip">2.1 Erkennen von Personen aus dem näheren
                                 Umfeld</label>
                             <select name="module2_1" id="online-rechner-input21">
                                 <option value="0">Vorhanden / unbeeinträchtigt</option>
@@ -249,7 +344,17 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input22">2.2 Örtliche Orientierung</label>
+                            <label for="online-rechner-input22"
+                                title="Fähigkeit, sich in der räumlichen Umgebung zurechtzufinden, andere Orte gezielt anzusteuern und zu wissen, wo man sich befindet
+                            <br />
+                            <strong>Fähigkeit vorhanden:</strong> Die Person weiß in welcher Stadt, auf welchem Stockwerk und ggf. in welcher Einrichtung sie sich befindet. Sie kennt sich in den regelmäßig genutzten Räumlichkeiten aus. Ein Verirren in den Räumlichkeiten der eigenen Wohnung oder unmittelbar im Wohnbereich einer Einrichtung kommt nicht vor und die Person findet sich auch in der näheren außenhäuslichen Umgebung zurecht. Sie weiß beispielsweise, wie sie zu benachbarten Geschäften, zu einer Bushaltestelle oder zu einer anderen nahe gelegenen Örtlichkeit gelangt.
+                            <br />
+                            <strong>Fähigkeit größtenteils vorhanden:</strong> Es bestehen Schwierigkeiten, sich in der außenhäuslichen Umgebung zu orientieren, beispielsweise nach Verlassen des Hauses wieder den Weg zurück zu finden. In den eigenen Wohnräumen existieren solche Schwierigkeiten hingegen nicht.
+                            <br />
+                            <strong>Fähigkeit in geringem Maße vorhanden:</strong> Die Person hat auch in einer gewohnten Wohnumgebung Schwierigkeiten sich zurechtzufinden. Regelmäßig genutzte Räumlichkeiten und Wege in der Wohnumgebung werden nicht immer erkannt.
+                            <br />
+                            <strong>Fähigkeit nicht vorhanden:</strong> Selbst in der eigenen Wohnumgebung ist die Person regelmäßig auf Unterstützung angewiesen, um sich zurechtzufinden."
+                                rel="tooltip">2.2 Örtliche Orientierung</label>
                             <select name="module2_2" id="online-rechner-input22">
                                 <option value="0">Vorhanden / unbeeinträchtigt</option>
                                 <option value="1">Größenteils vorhanden</option>
@@ -258,7 +363,17 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input23">2.3 Zeitliche Orientierung</label>
+                            <label for="online-rechner-input23"
+                                title="Fähigkeit, zeitliche Strukturen zu erkennen. Dazu gehören Uhrzeit, Tagesabschnitte (Vormittag, Nachmittag, Abend etc.), Jahreszeiten und die zeitliche Abfolge des eigenen Lebens. Aufschluss über die Fähigkeit zur zeitlichen Orientierung geben Antworten auf die Frage nach der Jahreszeit, dem Jahr, dem Wochentag, dem Monat oder der Tageszeit.
+<br />
+<strong>Fähigkeit vorhanden:</strong> Die zeitliche Orientierung ist ohne nennenswerte Beeinträchtigungen vorhanden.
+<br />
+<strong>Fähigkeit größtenteils vorhanden:</strong> Die Person ist die meiste Zeit über zeitlich orientiert, aber nicht durchgängig. Sie hat z. B. Schwierigkeiten, ohne äußere Orientierungshilfen (Uhr, Dunkelheit etc.) den Tagesabschnitt zu bestimmen.
+<br />
+<strong>Fähigkeit in geringem Maße vorhanden:</strong> Die zeitliche Orientierung ist die meiste Zeit nur in Ansätzen vorhanden. Die Person ist auch unter Nutzung äußerer Orientierungshilfen zumeist nicht in der Lage, Tageszeiten zu erkennen, zu denen regelmäßig bestimmte Ereignisse stattfinden (z. B. Mittagessen).
+<br />
+<strong>Fähigkeit nicht vorhanden:</strong> Das Verständnis für zeitliche Strukturen und Abläufe ist kaum oder nicht vorhanden."
+                                rel="tooltip">2.3 Zeitliche Orientierung</label>
                             <select name="module2_3" id="online-rechner-input23">
                                 <option value="0">Vorhanden / unbeeinträchtigt</option>
                                 <option value="1">Größenteils vorhanden</option>
@@ -267,7 +382,17 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input24">2.4 Erinnern an wesentliche Ereignisse oder
+                            <label for="online-rechner-input24"
+                                title="Fähigkeit, sich an kurz und auch länger zurückliegende Ereignisse oder Beobachtungen zu erinnern. Dazu gehört, dass die Person z. B. weiß, was sie zum Frühstück gegessen hat oder mit welchen Tätigkeiten sie den Vormittag verbracht hat. Im Hinblick auf das Langzeitgedächtnis geht es bei Erwachsenen z. B. um die Kenntnis des Geburtsjahres, des Geburtsorts oder wichtiger Bestandteile des Lebensverlaufs wie Eheschließung und Berufstätigkeit.
+<br />
+<strong>Fähigkeit vorhanden:</strong> Die Person kann über kurz zurückliegende Ereignisse Auskunft geben oder durch Handlungen und Gesten signalisieren, dass sie sich erinnert.
+<br />
+<strong>Fähigkeit größtenteils vorhanden:</strong> Die Person hat Schwierigkeiten, sich an manche kurz zurückliegende Ereignisse zu erinnern oder muss hierzu länger nachdenken, sie hat aber keine nennenswerten Probleme, sich an Ereignisse aus der eigenen Lebensgeschichte zu erinnern.
+<br />
+<strong>Fähigkeit in geringem Maße vorhanden:</strong> Die Person vergisst kurz zurückliegende Ereignisse häufig. Nicht alle, aber wichtige Ereignisse aus der eigenen Lebensgeschichte sind (noch) präsent.
+<br />
+<strong>Fähigkeit nicht vorhanden:</strong> Die Person ist nicht (oder nur selten) in der Lage, sich an Ereignisse, Dinge oder Personen aus der eigenen Lebensgeschichte zu erinnern."
+                                rel="tooltip">2.4 Erinnern an wesentliche Ereignisse oder
                                 Beobachtungen</label>
                             <select name="module2_4" id="online-rechner-input24">
                                 <option value="0">Vorhanden / unbeeinträchtigt</option>
@@ -277,7 +402,17 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input25">2.5 Steuern von mehrschrittigen
+                            <label for="online-rechner-input25"
+                                title="Fähigkeit, zielgerichtete Handlungen des Lebensalltags, die eine Abfolge von Teilschritten umfassen, zu steuern. Die Betonung liegt in diesem Fall auf dem Begriff Alltagshandlungen. Gemeint sind zielgerichtete Handlungen, die diese Person täglich oder nahezu täglich im Lebensalltag durchführt oder durchgeführt hat, wie z. B. das komplette Ankleiden, Kaffeeköchen oder Tischdecken.
+<br />
+<strong>Fähigkeit vorhanden:</strong> Die Person ist in der Lage, die erforderlichen Handlungsschritte selbständig in der richtigen Reihenfolge auszuführen oder zu steuern, so dass das angestrebte Ergebnis der Handlung erreicht wird.
+<br />
+<strong>Fähigkeit größtenteils vorhanden:</strong> Die Person verliert manchmal den Faden und vergisst, welcher Handlungsschritt der nächste ist. Erhält sie dabei eine Erinnerungshilfe, kann sie die Handlung aber selbständig fortsetzen.
+<br />
+<strong>Fähigkeit in geringem Maße vorhanden:</strong> Die Person hat erhebliche Schwierigkeiten. Sie verwechselt regelmäßig die Reihenfolge der einzelnen Handlungsschritte oder vergisst einzelne, notwendige Handlungsschritte.
+<br />
+<strong>Fähigkeit nicht vorhanden:</strong> Mehrschrittige Alltagshandlungen werden erst gar nicht begonnen oder nach den ersten Versuchen aufgegeben."
+                                rel="tooltip">2.5 Steuern von mehrschrittigen
                                 Alltagshandlungen</label>
                             <select name="module2_5" id="online-rechner-input25">
                                 <option value="0">Vorhanden / unbeeinträchtigt</option>
@@ -287,7 +422,17 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input26">2.6 Treffen von Entscheidungen im Alltagsleben</label>
+                            <label for="online-rechner-input26"
+                                title="Fähigkeit, folgerichtige und geeignete Entscheidungen im Alltagsleben zu treffen. Dazu gehört z. B. die dem Wetter angepasste Auswahl von Kleidung, die Entscheidung über die Durchführung von Aktivitäten wie Einkaufen, Familienangehörige oder Freunde anrufen, einer Freizeitbeschäftigung nachzugehen. Zu klären ist hier die Frage, ob die Entscheidungen folgerichtig sind, d. h. geeignet sind, das angestrebte Ziel zu erreichen oder ein gewisses Maß an Sicherheit und Wohlbefinden oder Bedürfnisbefriedigung zu gewährleisten, z. B. warme Kleidung.
+<br />
+<strong>Fähigkeit vorhanden:</strong> Die Person kann auch in unbekannten Situationen folgerichtige Entscheidungen treffen, beispielsweise beim Umgang mit unbekannten Personen, die an der Haustür klingeln.
+<br />
+<strong>Fähigkeit größtenteils vorhanden:</strong> Im Rahmen der Alltagsroutinen oder zuvor besprochenen Situationen können Entscheidungen getroffen werden, die Person hat aber Schwierigkeiten in unbekannten Situationen.
+<br />
+<strong>Fähigkeit in geringem Maße vorhanden:</strong> Die Person trifft zwar Entscheidungen, diese Entscheidungen sind jedoch in der Regel nicht geeignet, ein bestimmtes Ziel zu erreichen. Dies ist beispielsweise der Fall, wenn die Person mit nur leichter Bekleidung bei winterlichen Temperaturen im Freien spazieren gehen will. Weiterhin liegt eine schwere Beeinträchtigung vor, wenn die Person nur mit Unterstützung in Form von Anleitung, Aufforderung, Aufzeigen von Handlungsalternativen in der Lage ist, Entscheidungen zu treffen.
+<br />
+<strong>Fähigkeit nicht vorhanden:</strong> Die Person kann Entscheidungen auch mit Unterstützung nicht mehr oder nur selten treffen. Sie zeigt keine deutbare Reaktion auf das Angebot mehrerer Entscheidungsalternativen)."
+                                rel="tooltip">2.6 Treffen von Entscheidungen im Alltagsleben</label>
                             <select name="module2_6" id="online-rechner-input26">
                                 <option value="0">Vorhanden / unbeeinträchtigt</option>
                                 <option value="1">Größenteils vorhanden</option>
@@ -296,7 +441,17 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input27">2.7 Verstehen von Sachverhalten und
+                            <label for="online-rechner-input27"
+                                title="Fähigkeit, Sachverhalte zu verstehen und Informationen inhaltlich einordnen zu können. Hier geht es um Ereignisse und Inhalte, die Bestandteil des Alltagslebens der meisten Menschen sind. Gemeint ist etwa die Fähigkeit, zu erkennen, dass man sich in einer bestimmten Situation befindet, z. B. gemeinschaftliche Aktivitäten mit anderen Menschen, Versorgung durch eine Pflegekraft, MD-Begutachtung sowie die Fähigkeit, Informationen zum Tagesgeschehen aus den Medien z. B. Fernsehgerät, Tageszeitung aufzunehmen und inhaltlich zu verstehen. Gleiches gilt für mündlich von anderen Personen übermittelte Informationen.
+                            <br />
+                            <strong>Fähigkeit vorhanden:</strong> Die Person kann Sachverhalte und Informationen aus dem Alltagsleben ohne nennenswerte Probleme verstehen.
+                            <br />
+                            <strong>Fähigkeit größtenteils vorhanden:</strong> Die Person kann einfache Sachverhalte und Informationen nachvollziehen, hat bei komplizierteren jedoch Schwierigkeiten.
+                            <br />
+                            <strong>Fähigkeit in geringem Maße vorhanden:</strong> Die Person kann auch einfache Informationen häufig nur nachvollziehen, wenn sie wiederholt erklärt werden. Eine schwere Beeinträchtigung liegt auch dann vor, wenn das Verständnis sehr stark von der Tagesform abhängt.
+                            <br />
+                            <strong>Fähigkeit nicht vorhanden:</strong> Die Person gibt weder verbal noch nonverbal zu erkennen, dass sie Situationen und übermittelte Informationen verstehen kann."
+                                rel="tooltip">2.7 Verstehen von Sachverhalten und
                                 Informationen</label>
                             <select name="module2_7" id="online-rechner-input27">
                                 <option value="0">Vorhanden / unbeeinträchtigt</option>
@@ -306,7 +461,17 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input28">2.8 Erkennen von Risiken und Gefahren</label>
+                            <label for="online-rechner-input28"
+                                title="Fähigkeit, Risiken und Gefahren zu erkennen. Dazu gehören Gefahren wie Strom- und Feuerquellen, Barrieren und Hindernisse auf dem Fußboden bzw. auf Fußwegen, eine problematische Beschaffenheit des Bodens (z. B. Glätte) oder Gefahrenzonen in der außerhäuslichen Umgebung (z. B. verkehrsreiche Straßen, Baustellen).
+<br />
+<strong>Fähigkeit vorhanden:</strong> Die Person kann solche Risiken und Gefahrenquellen im Alltagsleben ohne weiteres erkennen, auch wenn sie ihnen aus anderen Gründen (z. B. aufgrund von somatischen Beeinträchtigungen) nicht aus dem Weg gehen kann.
+<br />
+<strong>Fähigkeit größtenteils vorhanden:</strong> Die Person erkennt meist nur solche Risiken und Gefahren, die sich in der vertrauten innenhäuslichen Wohnumgebung wiederfinden. Es bestehen aber beispielsweise Schwierigkeiten, Risiken im Straßenverkehr angemessen einzuschätzen oder Gefährdungen in ungewohnter Umgebung zu erkennen.
+<br />
+<strong>Fähigkeit in geringem Maße vorhanden:</strong> Die Person kann auch Risiken und Gefahren, denen sie häufig auch in der Wohnumgebung begegnet, oft nicht als solche erkennen.
+<br />
+<strong>Fähigkeit nicht vorhanden:</strong> Die Person kann Risiken und Gefahren so gut wie gar nicht erkennen."
+                                rel="tooltip">2.8 Erkennen von Risiken und Gefahren</label>
                             <select name="module2_8" id="online-rechner-input28">
                                 <option value="0">Vorhanden / unbeeinträchtigt</option>
                                 <option value="1">Größenteils vorhanden</option>
@@ -315,7 +480,17 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input29">2.9 Mitteilen von elementaren Bedürfnissen</label>
+                            <label for="online-rechner-input29"
+                                title="Fähigkeit, elementare Bedürfnisse verbal oder nonverbal mitzuteilen. Das beinhaltet sich bei Hunger oder Durst, Schmerzen oder Frieren bemerkbar zu machen. Bei Sprachstörungen kann dies ggf. durch Laute, Mimik oder Gestik bzw. unter Nutzung von Hilfsmitteln erfolgen.
+<br />
+<strong>Fähigkeit vorhanden:</strong> Die Person kann Bedürfnisse äußern.
+<br />
+<strong>Fähigkeit größtenteils vorhanden:</strong> Die Person kann auf Nachfrage elementare Bedürfnisse äußern. Die Person äußert Bedürfnisse aber nicht immer von sich aus.
+<br />
+<strong>Fähigkeit in geringem Maße vorhanden:</strong> Elementare Bedürfnisse sind nur aus nonverbalen Reaktionen (Mimik, Gestik, Lautäußerungen) ableitbar, ggf. nach oder durch entsprechende(r) Stimulation; oder die Person äußert von sich aus keine elementaren Bedürfnisse, muss dazu ständig angeleitet werden, kann aber Zustimmung oder Ablehnung deutlich machen.
+<br />
+<strong>Fähigkeit nicht vorhanden:</strong> Die Person äußert nicht oder nur sehr selten Bedürfnisse, auch nicht in nonverbaler Form. Sie kann weder Zustimmung noch Ablehnung deutlich machen."
+                                rel="tooltip">2.9 Mitteilen von elementaren Bedürfnissen</label>
                             <select name="module2_9" id="online-rechner-input29">
                                 <option value="0">Vorhanden / unbeeinträchtigt</option>
                                 <option value="1">Größenteils vorhanden</option>
@@ -324,7 +499,17 @@
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <label for="online-rechner-input210">2.10 Verstehen von Aufforderungen</label>
+                            <label for="online-rechner-input210"
+                                title="Fähigkeit, Aufforderungen in Hinblick auf alltägliche Grundbedürfnisse zu verstehen. Zu den alltäglichen Grundbedürfnissen gehören z. B. Essen, Trinken, sich kleiden, sich beschäftigen.
+<br />
+<strong>Fähigkeit vorhanden:</strong> Aufforderungen und Bitten zu alltäglichen Grundbedürfnissen werden ohne weiteres verstanden.
+<br />
+<strong>Fähigkeit größtenteils vorhanden:</strong> Einfache Bitten und Aufforderungen, wie z. B. „Setz dich bitte an den Tisch!“, „Zieh dir die Jacke über!“, „Komm zum Essen!“, „Prosit!“ werden verstanden, Aufforderungen in nicht alltäglichen Situationen müssen erklärt werden. Ggf. sind besonders deutliche Ansprache, Wiederholungen, Zeichensprache, Gebärdensprache oder Schrift erforderlich, um Aufforderungen verständlich zu machen.
+<br />
+<strong>Fähigkeit in geringem Maße vorhanden:</strong> Die Person kann Aufforderungen und Bitten meist nicht verstehen, wenn diese nicht wiederholt geäußert und erläutert werden. Das Verständnis ist sehr von der Tagesform abhängig. Sie zeigt aber Zustimmung oder Ablehnung gegenüber nonverbalen Aufforderungen, z. B. Berührungen oder Geleiten an den Esstisch.
+<br />
+<strong>Fähigkeit nicht vorhanden:</strong> Die Person kann Anleitung und Aufforderungen kaum oder nicht verstehen."
+                                rel="tooltip">2.10 Verstehen von Aufforderungen</label>
                             <select name="module2_10" id="online-rechner-input210">
                                 <option value="0">Vorhanden / unbeeinträchtigt</option>
                                 <option value="1">Größenteils vorhanden</option>
@@ -333,7 +518,17 @@
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <label for="online-rechner-input211">2.11 Beteiligen an einem Gespräch</label>
+                            <label for="online-rechner-input211"
+                                title="Fähigkeit, in einem Gespräch Gesprächsinhalte aufzunehmen, sinngerecht zu antworten und zur Weiterführung des Gesprächs Inhalte einzubringen
+<br />
+<strong>Fähigkeit vorhanden:</strong> Die Person kommt sowohl in Einzel- als auch in Gesprächen kleiner Gruppen gut zurecht. Sie zeigt im Gespräch Eigeninitiative, Interesse und beteiligt sich, wenn vielleicht auch nur auf direkte Ansprache hin. Ihre Äußerungen passen zu den Inhalten des Gesprächs.
+<br />
+<strong>Fähigkeit größtenteils vorhanden:</strong> Die Person kommt in Gesprächen mit einer Person gut zurecht, in Gruppen ist sie jedoch meist überfordert und verliert den Faden. Wortfindungsstörungen treten ggf. regelmäßig auf. Die Person ist häufig auf besonders deutliche Ansprache oder Wiederholung von Worten, Sätzen angewiesen.
+<br />
+<strong>Fähigkeit in geringem Maße vorhanden:</strong> Die Person kann auch einem Gespräch nur mit einer Person kaum folgen oder sie kann sich nur wenig oder mit einzelnen Worten beteiligen. Die Person zeigt nur wenig Eigeninitiative, reagiert aber auf Ansprache oder Fragen mit wenigen Worten, z. B. mit ja oder nein; Die Person beteiligt sich am Gespräch, weicht aber in aller Regel vom Gesprächsinhalt ab (führt mehr ein Selbstgespräch) oder es besteht leichte Ablenkbarkeit durch Umgebungseinflüsse.
+<br />
+<strong>Fähigkeit nicht vorhanden:</strong> Ein Gespräch mit der Person, das über einfache Mitteilungen hinausgeht, ist auch unter Einsatz bonverbaler Kommunikation kaum oder nicht möglich."
+                                rel="tooltip">2.11 Beteiligen an einem Gespräch</label>
                             <select name="module2_11" id="online-rechner-input211">
                                 <option value="0">Vorhanden / unbeeinträchtigt</option>
                                 <option value="1">Größenteils vorhanden</option>
@@ -343,7 +538,8 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <button class="online-rechner-section3-form-btn">
+                        <button class="online-rechner-section3-form-btn active-btn2 " type="submit"
+                            style="background-color: #b22222">
                             Pflegegrad berechnen
                         </button>
                     </div>
@@ -362,7 +558,9 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4">
-                            <label for="online-rechner-input31">3.1 Motorisch geprägte
+                            <label for="online-rechner-input31"
+                                title="Dieses Kriterium fasst verschiedene Verhaltensweisen zusammen. Dazu gehören vor allem das (scheinbar) ziellose Umhergehen in der Wohnung oder der Einrichtung und der Versuch desorientierter Personen, ohne Begleitung die Wohnung, Einrichtung zu verlassen oder Orte aufzusuchen, die für diese Person unzugänglich sein sollten, z. B. Treppenhaus, Zimmer anderer Bewohner. Ebenso zu berücksichtigen ist allgemeine Rastlosigkeit in Form von ständigem Aufstehen und Hinsetzen oder Hin- und Herrutschen auf dem Sitzplatz oder im und aus dem Bett."
+                                rel="tooltip">3.1 Motorisch geprägte
                                 Verhaltensauffälligkeiten</label>
                             <select name="modul3_1" id="online-rechner-input31">
                                 <option value="0">Nie oder sehr selten</option>
@@ -372,7 +570,11 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input32">3.2 Nächtliche Unruhe</label>
+                            <label for="online-rechner-input32"
+                                title="Gemeint sind hier nächtliches Umherirren oder nächtliche Unruhephasen bis hin zur Umkehr des Tag-, Nachtrhythmus im Sinne von aktiv sein in der Nacht und schlafen während des Tages.
+                            <br /><br />
+                            Zu bewerten ist, wie häufig Anlass für personelle Unterstützung zur Steuerung des Schlaf-Wach-Rhythmus bestehen, z. B. wieder ins Bett bringen und beruhigen. Schlafstörungen wie Einschlafschwierigkeiten am Abend oder Wachphasen während der Nacht sind nicht zu werten. Andere nächtliche Hilfen, z. B. Aufstehen, zu Bett bringen bei Nykturie oder Lagerungen sind im Modul 6 Ziffer 2 zu werten."
+                                rel="tooltip">3.2 Nächtliche Unruhe</label>
                             <select name="modul3_2" id="online-rechner-input32">
                                 <option value="0">Nie oder sehr selten</option>
                                 <option value="1">Selten</option>
@@ -381,7 +583,9 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input33">3.3 Selbstschädigendes und autoaggressives
+                            <label for="online-rechner-input33"
+                                title="Selbstschädigendes und autoaggressives Verhalten kann z. B. darin bestehen, sich selbst durch Gegenstände zu verletzen, ungenießbare Substanzen zu essen und zu trinken, sich selbst schlagen und sich selbst mit den Fingernägeln oder Zähnen verletzen."
+                                rel="tooltip">3.3 Selbstschädigendes und autoaggressives
                                 Verhalten</label>
                             <select name="modul3_3" id="online-rechner-input33">
                                 <option value="0">Nie oder sehr selten</option>
@@ -391,7 +595,9 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input34">3.4 Beschädigen von Gegenständen</label>
+                            <label for="online-rechner-input34"
+                                title="Gemeint sind hier aggressive, auf Gegenstände gerichtete Handlungen wie Gegenstände wegstoßen oder wegschieben, gegen Gegenstände schlagen, das Zerstören von Dingen sowie das Treten nach Gegenständen."
+                                rel="tooltip">3.4 Beschädigen von Gegenständen</label>
                             <select name="modul3_4" id="online-rechner-input34">
                                 <option value="0">Nie oder sehr selten</option>
                                 <option value="1">Selten</option>
@@ -400,7 +606,9 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input35">3.5 Physisch aggressives Verhalten</label>
+                            <label for="online-rechner-input35"
+                                title="Physisch aggressives Verhalten gegenüber anderen Personen kann z. B. darin bestehen, nach Personen zu schlagen oder zu treten, andere mit Zähnen oder Fingernägeln zu verletzen, andere zu stoßen oder wegzudrängen oder in Verletzungsversuchen gegenüber anderen Personen mit Gegenständen."
+                                rel="tooltip">3.5 Physisch aggressives Verhalten</label>
                             <select name="modul3_5" id="online-rechner-input35">
                                 <option value="0">Nie oder sehr selten</option>
                                 <option value="1">Selten</option>
@@ -409,7 +617,9 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input36">3.6 Verbale Aggression</label>
+                            <label for="online-rechner-input36"
+                                title="Verbale Aggression kann sich z. B. in verbalen Beschimpfungen oder in der Bedrohung anderer Personen ausdrücken."
+                                rel="tooltip">3.6 Verbale Aggression</label>
                             <select name="modul3_6" id="online-rechner-input36">
                                 <option value="0">Nie oder sehr selten</option>
                                 <option value="1">Selten</option>
@@ -418,7 +628,9 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input37">3.7 Andere pflegerelevante vokale
+                            <label for="online-rechner-input37"
+                                title="Andere pflegerelevante vokale Auffälligkeiten können sein: Lautes Rufen, Schreien, Klagen ohne nachvollziehbaren Grund, vor sich hin schimpfen, fluchen, seltsame Laute von sich geben, ständiges Wiederholen von Sätzen und Fragen."
+                                rel="tooltip">3.7 Andere pflegerelevante vokale
                                 Auffälligkeiten</label>
                             <select name="modul3_7" id="online-rechner-input37">
                                 <option value="0">Nie oder sehr selten</option>
@@ -428,7 +640,9 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input38">3.8 Abwehr pflegerischer Maßnahmen</label>
+                            <label for="online-rechner-input38"
+                                title="Hier ist die Abwehr von Unterstützung, z. B. bei der Körperpflege, die Verweigerung der Nahrungsaufnahme, der Medikamenteneinnahme oder anderer notwendiger Verrichtungen sowie die Manipulation an Vorrichtungen wie z. B. an Kathetern, Infusionen oder Sondenernährung gemeint. Dazu gehört nicht die willentliche (selbstbestimmte) Ablehnung bestimmter Maßnahmen."
+                                rel="tooltip">3.8 Abwehr pflegerischer Maßnahmen</label>
                             <select name="modul3_8" id="online-rechner-input38">
                                 <option value="0">Nie oder sehr selten</option>
                                 <option value="1">Selten</option>
@@ -437,7 +651,9 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input39">3.9 Wahnvorstellungen</label>
+                            <label for="online-rechner-input39"
+                                title="Wahnvorstellungen beziehen sich z. B. auf die Vorstellung, mit Verstorbenen oder imaginären Personen in Kontakt zu stehen oder auf die Vorstellung, verfolgt, bedroht oder bestohlen zu werden."
+                                rel="tooltip">3.9 Wahnvorstellungen</label>
                             <select name="modul3_9" id="online-rechner-input39">
                                 <option value="0">Nie oder sehr selten</option>
                                 <option value="1">Selten</option>
@@ -446,7 +662,9 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input310">3.10 Ängste</label>
+                            <label for="online-rechner-input310"
+                                title="Die Person hat starke Ängste oder Sorgen, sie erlebt Angstattacken unabhängig von der Ursache."
+                                rel="tooltip">3.10 Ängste</label>
                             <select name="modul3_10" id="online-rechner-input310">
                                 <option value="0">Nie oder sehr selten</option>
                                 <option value="1">Selten</option>
@@ -455,7 +673,9 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input311">3.11 Antriebslosigkeit</label>
+                            <label for="online-rechner-input311"
+                                title="Antriebslosigkeit bei depressiver Stimmungslage zeigt sich z. B. daran, dass die Person kaum Interesse an der Umgebung hat, kaum Eigeninitiative aufbringt und Motivierung durch andere benötigt, um etwas zu tun. Sie wirkt traurig oder apathisch, möchte am liebsten das Bett nicht verlassen. Hier ist nicht gemeint, dass Menschen mit rein kognitiven Beeinträchtigungen, z. B. bei Demenz Impulse benötigen, um eine Handlung zu beginnen oder fortzuführen."
+                                rel="tooltip">3.11 Antriebslosigkeit</label>
                             <select name="modul3_11" id="online-rechner-input311">
                                 <option value="0">Nie oder sehr selten</option>
                                 <option value="1">Selten</option>
@@ -464,7 +684,9 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input312">3.12 Sozial inadäquate Verhaltensweisen</label>
+                            <label for="online-rechner-input312"
+                                title="Sozial inadäquate Verhaltensweisen sind z. B. distanzloses Verhalten, auffälliges Einfordern von Aufmerksamkeit, sich vor anderen in unpassenden Situationen auskleiden, unangemessenes Greifen nach Personen oder unangemessene körperliche oder verbale sexuelle Annäherungsversuche."
+                                rel="tooltip">3.12 Sozial inadäquate Verhaltensweisen</label>
                             <select name="modul3_12" id="online-rechner-input312">
                                 <option value="0">Nie oder sehr selten</option>
                                 <option value="1">Selten</option>
@@ -473,7 +695,9 @@
                             </select>
                         </div>
                         <div class="col-12">
-                            <label for="online-rechner-input313">3.13 Sonstige inadäquate Handlungen</label>
+                            <label for="online-rechner-input313"
+                                title="Sonstige pflegerelevante inadäquate Handlungen sind z. B. Nesteln an der Kleidung, ständiges Wiederholen der gleichen Handlung (Stereotypien), planlose Aktivitäten, Verstecken oder Horten von Gegenständen, Kotschmieren, Urinieren in die Wohnung."
+                                rel="tooltip">3.13 Sonstige inadäquate Handlungen</label>
                             <select name="modul3_13" id="online-rechner-input313">
                                 <option value="0">Nie oder sehr selten</option>
                                 <option value="1">Selten</option>
@@ -483,7 +707,8 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <button class="online-rechner-section3-form-btn">
+                        <button class="online-rechner-section3-form-btn active-btn2 " type="submit"
+                            style="background-color: #b22222">
                             Pflegegrad berechnen
                         </button>
                     </div>
@@ -636,7 +861,8 @@
                     </div>
 
                     <div class="text-center">
-                        <button class="online-rechner-section3-form-btn" type="submit">
+                        <button class="online-rechner-section3-form-btn active-btn2 " type="submit"
+                            style="background-color: #b22222">
                             Pflegegrad berechnen
                         </button>
                     </div>
@@ -1005,7 +1231,8 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <button class="online-rechner-section3-form-btn">
+                        <button class="online-rechner-section3-form-btn active-btn2 " type="submit"
+                            style="background-color: #b22222">
                             Pflegegrad berechnen
                         </button>
                     </div>
@@ -1080,7 +1307,8 @@
                     </div>
 
                     <div class="text-center">
-                        <button class="online-rechner-section3-form-btn">
+                        <button class="online-rechner-section3-form-btn active-btn2 " type="submit"
+                            style="background-color: #b22222">
                             Pflegegrad berechnen
                         </button>
                     </div>
@@ -1089,25 +1317,45 @@
             </form>
 
             <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
+                {{-- <div class="online-rechner-section3-heading-bottom">Ergebnis</div> --}}
+                {{-- <div class="online-rechner-section3-heading-bottom" style="background: white;color:black">
                     <div class="">Module</div>
                     <div class="">Summe Einzelpunkte</div>
                     <div class="">
                         Gewichtete Punkte
                     </div>
+                </div> --}}
+                <div class=" online-rechner-section3-heading-bottom" style="background: white;color:black">
+                    <div class="col-lg-8">
+                        <div style="padding-top: 0">Module</div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="pt-0">Summe Einzelpunkte</div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div style="padding-top: 0">Gewichtete Punkte</div>
+                    </div>
                 </div>
 
                 <div class="online-rechner-section3-inner-bottom">
+                        @if (session('Sonderfall') === true)
+                        <div class="" style="color: white"></div>
+                            <strong style="color: white">Sonderfall:</strong>
+                            <span style="color: white">
+                            Wenn beide Arme und Beine gebrauchsunfähig sind (also wenn die pflegebedürftige Person weder
+                            in der Lage ist Arme noch Beine zu verwenden), ist eine vollständige Beantwortung aller
+                            Fragen nicht erforderlich. Es ist Pflegegrad 5 zu bewilligen.</span>
+                        </div>
+                @else
                     @foreach (session('modul1_punkte', []) as $moduleName => $moduleValues)
                         <div class="row">
-                            <div class="col-lg-4">
+                            <div class="col-lg-8">
                                 <div style="padding-top: 0">{{ $loop->iteration }} - {{ $moduleName }}</div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-2">
                                 <div class="pt-0">{{ $moduleValues['punkte'] ?? '---' }}</div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-2">
                                 <div style="padding-top: 0">{{ $moduleValues['gewichtet'] ?? '---' }}</div>
                             </div>
                         </div>
@@ -1116,6 +1364,7 @@
                     <div class="online-rechner-section3-bottom-heading2">
                         PFLEGEGRAD:{{ session('pflegegrad', '') }}
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -1129,7 +1378,85 @@
 
     @include('components.footer.footer_second')
 
+    <script>
+        $(function() {
+            var targets = $('[rel~=tooltip]'),
+                target = false,
+                tooltip = false,
+                title = false;
 
+            targets.bind('mouseenter', function() {
+                console.log('waow');
+                target = $(this);
+                tip = target.attr('title');
+                tooltip = $('<div id="tooltip"></div>');
+
+                if (!tip || tip == '')
+                    return false;
+
+                target.removeAttr('title');
+                tooltip.css('opacity', 0)
+                    .html(tip)
+                    .appendTo('body');
+
+                var init_tooltip = function() {
+                    if ($(window).width() < tooltip.outerWidth() * 1.5)
+                        tooltip.css('max-width', $(window).width() / 2);
+                    else
+                        tooltip.css('max-width', 340);
+
+                    var pos_left = target.offset().left + (target.outerWidth() / 2) - (tooltip
+                            .outerWidth() / 2),
+                        pos_top = target.offset().top - tooltip.outerHeight() - 20;
+
+                    if (pos_left < 0) {
+                        pos_left = target.offset().left + target.outerWidth() / 2 - 20;
+                        tooltip.addClass('left');
+                    } else
+                        tooltip.removeClass('left');
+
+                    if (pos_left + tooltip.outerWidth() > $(window).width()) {
+                        pos_left = target.offset().left - tooltip.outerWidth() + target.outerWidth() /
+                            2 + 20;
+                        tooltip.addClass('right');
+                    } else
+                        tooltip.removeClass('right');
+
+                    if (pos_top < 0) {
+                        var pos_top = target.offset().top + target.outerHeight();
+                        tooltip.addClass('top');
+                    } else
+                        tooltip.removeClass('top');
+
+                    tooltip.css({
+                            left: pos_left,
+                            top: pos_top
+                        })
+                        .animate({
+                            top: '+=10',
+                            opacity: 1
+                        }, 50);
+                };
+
+                init_tooltip();
+                $(window).resize(init_tooltip);
+
+                var remove_tooltip = function() {
+                    tooltip.animate({
+                        top: '-=10',
+                        opacity: 0
+                    }, 50, function() {
+                        $(this).remove();
+                    });
+
+                    target.attr('title', tip);
+                };
+
+                target.bind('mouseleave', remove_tooltip);
+                tooltip.bind('click', remove_tooltip);
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -36,7 +36,7 @@ Route::get('/services', function () {
     return view('services');
 })->name('services');
 
-Route::get('/nachrichten-aerztenachrichtendienst', [SimpleController::class, 'getAchrichtenNews'])->name('achrichten');
+Route::get('/nachrichten-aerztezeitung', [SimpleController::class, 'getAchrichtenNews'])->name('achrichten');
 Route::get('/nachrichten-aerztenachichtendienst', [SimpleController::class, 'getNachrichten'])->name('nachrichten');
 Route::get('/nachrichten-bundesministerium-fuer-gesundheit', [SimpleController::class, 'nachrichtenBundesministeriumFuerGesundheit'])->name('nachrichten.bundesministerium');
 
@@ -80,7 +80,7 @@ Route::get('/checkliste-notfallkontakte-und-informationen', function () {
 })->name('checklist.5');
 
 Route::get('/checkliste-regelmäßige-gesundheitschecks-und-monitoring-blutdruck-blutzucker', function () {
-    return view('checklisten.subpages.checkliste-regelmäßige-gesundheitschecks-und-monitoring-blutdruck-blutzucker');
+    return view('checklisten.subpages.last');
 })->name('checklist.6');
 
 ////// END --- CHECKLISTEN ---- ///////
@@ -112,6 +112,7 @@ Route::get('/admin/blog/create', [BlogsController::class, 'create'])->name('admi
 Route::get('/blog/{title}', [BlogsController::class, 'show'])->name('blogs.show');
 Route::get('admin/blog/{id}/edit', [BlogsController::class, 'edit'])->name('admin.blog.edit');
 Route::delete('/admin/blog/{id}', [BlogsController::class, 'destroy'])->name('admin.blog.destroy');
+Route::put('/admin/blogs/{id}', [BlogsController::class, 'update'])->name('admin.blog.update');
 
 Auth::routes();
 
@@ -126,3 +127,6 @@ Route::put('admin/marketplace/{id}', [MarketplaceController::class, 'update'])->
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/marketplace/load-more', [MarketplaceController::class, 'loadMore'])->name('marketplace.loadMore');
+
+
+Route::post('/contact-form', [SimpleController::class,'postContactForm'])->name('contact.form');
