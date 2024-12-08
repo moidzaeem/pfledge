@@ -27,9 +27,9 @@
                         <div class="card-body">
 
                             <div class="d-flex justify-content-between">
-                                <h4 class="mt-0 header-title">{{ __('All Blogs') }}</h4>
+                                <h4 class="mt-0 header-title">{{ __('Alle Blogartikel') }}</h4>
                                 <a href="{{ route('admin.blog.create') }}"
-                                    class="btn btn-primary mb-5">{{ __('Add Blog') }}</a>
+                                    class="btn btn-primary mb-5">{{ __('logartikel erstellen') }}</a>
                             </div>
 
                             @if (!empty($blogs))

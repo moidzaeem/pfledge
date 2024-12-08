@@ -97,6 +97,7 @@ class BlogsController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
+            'blog_date' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             'content' => 'required|string',
             'category1' => 'nullable|exists:blog_categories,id',
@@ -120,6 +121,7 @@ class BlogsController extends Controller
             'title' => $validated['title'],
             'data' => $validated['content'],
             'home' => $validated['home'],
+            'blog_date' => $validated['blog_date'],
             'description' => $validated['description'],
             'image' => $imagePath,
             'category1' => $validated['category1'] ?? null,
@@ -164,6 +166,7 @@ class BlogsController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
+            'blog_date' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             'content' => 'required|string',
             'category1' => 'nullable|exists:blog_categories,id',
@@ -192,6 +195,7 @@ class BlogsController extends Controller
             'title' => $validated['title'],
             'data' => $validated['content'],
             'home' => $validated['home'],
+            'blog_date' => $validated['blog_date'],
             'description' => $validated['description'],
             'image' => $imagePath,
             'category1' => $validated['category1'] ?? null,

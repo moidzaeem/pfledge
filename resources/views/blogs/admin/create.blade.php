@@ -44,6 +44,13 @@
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
+                                                <label for="title">Blog Date</label>
+                                                <input type="date" class="form-control" name="blog_date" id=""
+                                                    required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
                                                 <label for="image">Blog Image</label>
                                                 <input type="file" name="image" id="image" class="form-control">
                                             </div>

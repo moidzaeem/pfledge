@@ -75,7 +75,7 @@
                     <div id="sidebar-menu">
                         <ul>
                             <li>
-                                <a href="{{ url('/') }}" class="waves-effect">
+                                <a href="{{ url('/home') }}" class="waves-effect">
                                     <i class="mdi mdi-view-dashboard"></i>
                                     <span> Dashboard </span>
                                 </a>
@@ -166,7 +166,7 @@
                                 <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user"
                                     data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                     aria-expanded="false">
-                                    {{ __('My account') }}
+                                    {{ __('Mein Konto') }}
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                     {{-- <a style="margin-left:-16px" class="dropdown-item"
