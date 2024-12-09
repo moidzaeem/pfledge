@@ -75,7 +75,7 @@
                 </div>
             </a>
             <a style="text-decoration: none" target="_blank"
-                href="https://pflegepur.my-ablefy.com/s/pflegepur/kopie-von-pflege-zu-hause-grundlagen-und-tipps-13bbb0bb">
+                href="https://pflegepur.my-ablefy.com/s/pflegepur/pflege-zu-hause-grundlagen-und-tipps-736e9710">
 
                 <div class="academy-card">
                     <img src="{{ asset('assets/Images/Academy_page_slider1.svg') }}" alt="Image 1" />
@@ -96,7 +96,7 @@
                 </div>
             </a>
             <a style="text-decoration: none" target="_blank"
-                href="https://pflegepur.my-ablefy.com/s/pflegepur/pflege-zu-hause-grundlagen-und-tipps-736e9710">
+                href="https://pflegepur.my-ablefy.com/s/pflegepur/kopie-von-pflege-zu-hause-grundlagen-und-tipps-13bbb0bb">
                 <div class="academy-card">
                     <img src="{{ asset('assets/Images/Academy_page_slider3.svg') }}" alt="Image 3" />
                     <div class="swiper-content">

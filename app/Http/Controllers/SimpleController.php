@@ -120,35 +120,38 @@ class SimpleController extends Controller
         }
         $count = 0;
 
-        $seconNews = [];
+        $secondNews = [];
 
         try {
-            // Send GET request with timeout set to 10 seconds
-            $response = Http::timeout(10)->get('https://www.aend.de/rss/medizin');
 
-            if ($response->successful()) {
-                // Load the XML content from the response body
-                $secondXml = simplexml_load_string($response->body());
-
-                if ($secondXml && isset($secondXml->channel->item)) {
-                    $count = 0;
-                    foreach ($secondXml->channel->item as $item) {
-                        if ($count >= 3) {
-                            break; // Stop once we have 3 items
-                        }
-                        foreach ($item as $key => $value) {
-                            $secondNews[$count][$key] = (string) $value;
-                        }
-                        $count++;
+            $secondXml = simplexml_load_file('https://www.aend.de/rss/medizin');
+            if ($secondXml && isset($secondXml->channel->item)) {
+                $count = 0; // Initialize count to track the number of added items
+            
+                foreach ($secondXml->channel->item as $item) {
+                    if ($count >= 3) {
+                        break; // Stop once we have 3 items
                     }
-                } else {
-                    // Handle the case when there are no valid items in the RSS feed
-                    // return response()->json(['error' => 'Invalid RSS feed or no items found.']);
+                    
+                    // Extract the values from each <item>
+                    $newsItem = [
+                        'title' => (string) $item->title,
+                        'description' => (string) $item->description,
+                        'link' => (string) $item->link,
+                        'pubDate' => (string) $item->pubDate
+                    ];
+            
+                    // Add the item to the secondNews array
+                    $secondNews[] = $newsItem;
+            
+                    // Increment the count
+                    $count++;
                 }
-            } else {
-                // Handle the error if the request was not successful
-                // return response()->json(['error' => 'Failed to load the RSS feed.'], 500);
+            
+                // You can now use $secondNews as needed
+                // For example, you can dump or log it to see the results:
             }
+            
         } catch (\Exception $e) {
             // Handle network or any other exception (like timeout, DNS resolution, etc.)
             return response()->json(['error' => 'Request timed out or network error occurred.'], 500);
@@ -173,7 +176,7 @@ class SimpleController extends Controller
 
 
 
-        return view('welcome', compact('marketplaces', 'blogs', 'news', 'seconNews', 'thirdNews'));
+        return view('welcome', compact('marketplaces', 'blogs', 'news', 'secondNews', 'thirdNews'));
     }
 
     public function postContactForm(Request $request)

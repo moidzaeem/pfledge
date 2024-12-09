@@ -43,6 +43,13 @@
                                                     value="{{ old('title', $blog->title) }}" required>
                                             </div>
                                         </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="title">Blog Date</label>
+                                                <input type="date" class="form-control" name="blog_date" id=""
+                                                value="{{ old('blog_date', $blog->blog_date) }}"    required>
+                                            </div>
+                                        </div>
 
                                         <!-- Image Field -->
                                         <div class="col-lg-6">

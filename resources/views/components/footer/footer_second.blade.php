@@ -31,7 +31,7 @@
                             <li><a href="{{ route('marketplace.index') }}">Marktplatz</a></li>
                             <li><a href="{{ route('buecher') }}">Bücher</a></li>
                             <li><a href="{{ route('academy') }}">Academy</a></li>
-                            <li><a href="{{ route('partner') }}"> Partner werde</a></li>
+                            <li><a href="{{ route('partner') }}"> Partner werden!</a></li>
 
                         </ul>
                     </div>
@@ -55,15 +55,16 @@
                         <div class="footer-icons-div">
                             <a href="https://www.facebook.com/profile.php?id=100079595010397" target="_blank"><img
                                     src="{{ asset('assets/Images/footer_fb_icon.svg') }}" alt="" /></a>
-                                    <a href="https://www.instagram.com/pflegepur1/" target="_blank" class="social-icon">
-                                        <i class="fab fa-instagram" style="font-weight: bold;color:white;font-size:30px"></i>
-                                    </a>
+
                             <a href="https://twitter.com/Pflege_Pur" target="_blank"><img
                                     src="{{ asset('assets/Images/footer_x_icon.svg') }}" alt="" /></a>
                             <a href="https://open.spotify.com/show/6JACh2eflNeIcxU8U2ltyL" target="_blank"><img
                                     src="{{ asset('assets/Images/footer_spotify_icon.svg') }}" alt="" /></a>
                             <a href="https://www.youtube.com/@PflegePur" target="_blank"><img
                                     src="{{ asset('assets/Images/footer_utube_icon.svg') }}" alt="" /></a>
+                            <a href="https://www.instagram.com/pflegepur1/" target="_blank" class="social-icon">
+                                <i class="fab fa-instagram" style="font-weight: bold;color:white;font-size:30px"></i>
+                            </a>
                         </div>
                     </div>
                 </div>

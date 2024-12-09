@@ -207,7 +207,7 @@
             </div>
 
             <div class="row index-news-bottom" id="index-news-bottom2">
-                @foreach ($seconNews as $new)
+                @foreach ($secondNews as $new)
                     <div class="col-lg-4">
                         <div class="newsund-section2-card">
                             <div class="newsund-section2-card-heading">
@@ -220,8 +220,8 @@
                                 <div class="newsund-section2-card-date">
                                     {{-- Datum: 29.10.2024 <br /> --}}
                                     Quelle:
-                                    <a href="https://bundesgesundheitsministerium.de"
-                                        target="_blank">www.aerztezeitung.de</a>
+                                    <a href="https://www.aend.de/rss/medizin"
+                                        target="_blank">www.aend.de/rss/medizin</a>
                                 </div>
                                 <div>
                                     <button>
