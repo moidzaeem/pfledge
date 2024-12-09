@@ -94,6 +94,19 @@
                                     <span> {{ __('Blog') }} </span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{ route('admin.blog.categories.index') }}" class="waves-effect">
+                                    <i class="mdi mdi-file"></i>
+                                    <span> {{ __('Blog Categories') }} </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('admin.marketplace.categories.index') }}" class="waves-effect">
+                                    <i class="mdi mdi-file"></i>
+                                    <span> {{ __('Market Categories') }} </span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 @endif

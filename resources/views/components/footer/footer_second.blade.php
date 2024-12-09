@@ -31,6 +31,8 @@
                             <li><a href="{{ route('marketplace.index') }}">Marktplatz</a></li>
                             <li><a href="{{ route('buecher') }}">Bücher</a></li>
                             <li><a href="{{ route('academy') }}">Academy</a></li>
+                            <li><a href="{{ route('partner') }}"> Partner werde</a></li>
+
                         </ul>
                     </div>
                     <div class="col-lg-3 col-6">
@@ -53,6 +55,9 @@
                         <div class="footer-icons-div">
                             <a href="https://www.facebook.com/profile.php?id=100079595010397" target="_blank"><img
                                     src="{{ asset('assets/Images/footer_fb_icon.svg') }}" alt="" /></a>
+                                    <a href="https://www.instagram.com/pflegepur1/" target="_blank" class="social-icon">
+                                        <i class="fab fa-instagram" style="font-weight: bold;color:white;font-size:30px"></i>
+                                    </a>
                             <a href="https://twitter.com/Pflege_Pur" target="_blank"><img
                                     src="{{ asset('assets/Images/footer_x_icon.svg') }}" alt="" /></a>
                             <a href="https://open.spotify.com/show/6JACh2eflNeIcxU8U2ltyL" target="_blank"><img
@@ -72,7 +77,7 @@
                     Copyright © PflegePur
                 </div>
                 <div style="text-align: right" class="footer-bottom-flex-inner">
-                    <a href="./impressum.html" class="footer-impressum ">Impressum und Datenschutzerklärung</a>
+                    <a href="{{ route('impressum') }}" class="footer-impressum ">Impressum und Datenschutzerklärung</a>
                     <a target="_blank"
                         href="https://61cac9fd.sibforms.com/serve/MUIFAGHCIVlNnpFo6oZ8Bxe81qPMrQsIHzE3gZBM3cN41OqxlCOPZgqD00GPoBXSOr5OUmg4_xleR7Qsgn1T1UNQQH1le1Ws3QaZ_KhUrVPJBqD_yR_IykEsyz19cbQVNPHUiLc-avpokGlRq28zKceSlVbepTWnhMS4b3MKFh-UjB_67WhHhruMNmQj6DaFQTBAuCOEBppJpfM-"
                         class="footer-newsletter"> Newsletter-Abmeldung</a>

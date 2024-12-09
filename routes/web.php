@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogsController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MarketplaceController;
 use App\Http\Controllers\OnlineRechner;
 use App\Http\Controllers\SimpleController;
@@ -23,6 +24,8 @@ Route::get('/', [SimpleController::class, 'getWelcomePage']);
 Route::get('/ueberuns', function () {
     return view('aboutus.index');
 })->name('aboutus');
+
+Route::view('/impressum', 'impressum')->name('impressum');
 
 Route::get('/partner-und-mitmacher-gesucht', function () {
     return view('partner-und-mitmacher-gesucht');
@@ -64,11 +67,11 @@ Route::get('/checkliste-arzttermine-und-facharztbesuche', function () {
 })->name('checklist.1');
 
 Route::get('/checkliste-körperpflege-baden-anziehen-hygiene', function () {
-    return view('checklisten.subpages.checkliste-körperpflege-baden-anziehen-hygiene');
+    return view('checklisten.subpages.checkliste-korperpflege-baden-anziehen-hygiene');
 })->name('checklist.2');
 
 Route::get('/checkliste-sozialkontakte-und-freizeitaktivitäten', function () {
-    return view('checklisten.subpages.checkliste-sozialkontakte-und-freizeitaktivitäten');
+    return view('checklisten.subpages.checkliste-sozialkontakte-und-freizeitaktivitaten');
 })->name('checklist.3');
 
 Route::get('/checkliste-pflegeversicherung-und-leistungen', function () {
@@ -114,6 +117,22 @@ Route::get('admin/blog/{id}/edit', [BlogsController::class, 'edit'])->name('admi
 Route::delete('/admin/blog/{id}', [BlogsController::class, 'destroy'])->name('admin.blog.destroy');
 Route::put('/admin/blogs/{id}', [BlogsController::class, 'update'])->name('admin.blog.update');
 
+/// Blog Categories ///
+Route::get('/admin/blog/category', [HomeController::class, 'getBlogCategories'])->name('admin.blog.categories.index');
+Route::get('/admin/blog/category/create', [HomeController::class, 'createBlogCategory'])->name('admin.blog.category.create');
+Route::get('admin/blog/category/{id}/edit', [HomeController::class, 'editBlogCategory'])->name('admin.blog.category.edit');
+Route::post('/admin/blog/category/store', [HomeController::class, 'blogCategoryStore'])->name('admin.blog.category.store');
+Route::delete('/admin/blog/category/delete/{id}', [HomeController::class, 'BlogCategoryDestroy'])->name('admin.blog.category.destroy');
+Route::put('/admin/blog/category/update/{id}', [HomeController::class, 'updateBlogCategory'])->name('admin.blog.category.update');
+
+//Marketplace Cateogires//
+Route::get('/admin/marketplace/category', [HomeController::class, 'getMarketplaceCategories'])->name('admin.marketplace.categories.index');
+Route::get('/admin/marketplace/category/create', [HomeController::class, 'createMarketplaceCategory'])->name('admin.marketplace.category.create');
+Route::get('admin/marketplace/category/{id}/edit', [HomeController::class, 'editMarketplaceCategory'])->name('admin.marketplace.category.edit');
+Route::post('/admin/marketplace/category/store', [HomeController::class, 'marketplaceCategoryStore'])->name('admin.marketplace.category.store');
+Route::delete('/admin/marketplace/category/delete/{id}', [HomeController::class, 'marketplaceCategoryDestroy'])->name('admin.marketplace.category.destroy');
+Route::put('/admin/marketplace/category/update/{id}', [HomeController::class, 'updateMarketplaceCategory'])->name('admin.marketplace.category.update');
+
 Auth::routes();
 
 // FOr Admin
@@ -129,4 +148,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/marketplace/load-more', [MarketplaceController::class, 'loadMore'])->name('marketplace.loadMore');
 
 
-Route::post('/contact-form', [SimpleController::class,'postContactForm'])->name('contact.form');
+Route::post('/contact-form', [SimpleController::class, 'postContactForm'])->name('contact.form');

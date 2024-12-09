@@ -25,8 +25,8 @@
                </div>
            </div>
            <div class="col-lg-7 contact-right" id="contactFormTest">
-               <form action="{{route('contact.form')}}" method="POST" class="row">
-                @csrf
+               <form action="{{ route('contact.form') }}" method="POST" class="row">
+                   @csrf
                    <div class="col-lg-6 pe-sm-0">
                        <input type="text" placeholder="lhr Name*" required />
                    </div>
@@ -44,17 +44,16 @@
                    </div>
                    <div class="col-12">
                        <div class="row ps-2 captcha-main-row">
-                           <div class="col-lg-8 captcha-div p-0">
+                           {{-- <div class="col-lg-8 captcha-div p-0">
                                <div class="captcha-sub-div" style="width: 45%; display: flex">
                                    <div style="width: 80%">
                                        <img style="
-                      width: 100%;
-                      height: 100%;
-                      display: block;
-                      object-fit: cover;
-                      border-top-left-radius: 10px;
-                      border-bottom-left-radius: 10px;
-                    "
+                                                width: 100%;
+                                                height: 100%;
+                                                display: block;
+                                                object-fit: cover;
+                                                border-top-left-radius: 10px;
+                                                border-bottom-left-radius: 10px;"
                                            src="{{ asset('assets/Images/contact_captcha.svg') }}" alt="" />
                                    </div>
                                    <button style="width: 20%" class="captcha-refresh-btn" type="button">
@@ -62,7 +61,7 @@
                                    </button>
                                </div>
                                <textarea name="" id="" placeholder="Geben Sie hier den Code ein!"></textarea>
-                           </div>
+                           </div> --}}
                            <div class="col-lg-4 contact-submit-btn-div pe-0 text-end">
                                <button class="contact-submit-btn" type="submit">
                                    Nachricht senden

@@ -190,7 +190,6 @@
                             </div>
                             <div class="newsund-section2-card-bottom">
                                 <div class="newsund-section2-card-date">
-                                    Datum: 29.10.2024 <br />
                                     Quelle:
                                     <a href="https://bundesgesundheitsministerium.de"
                                         target="_blank">www.aerztezeitung.de</a>
@@ -219,7 +218,7 @@
                             </div>
                             <div class="newsund-section2-card-bottom">
                                 <div class="newsund-section2-card-date">
-                                    Datum: 29.10.2024 <br />
+                                    {{-- Datum: 29.10.2024 <br /> --}}
                                     Quelle:
                                     <a href="https://bundesgesundheitsministerium.de"
                                         target="_blank">www.aerztezeitung.de</a>
@@ -250,10 +249,10 @@
                             </div>
                             <div class="newsund-section2-card-bottom">
                                 <div class="newsund-section2-card-date">
-                                    Datum: 29.10.2024 <br />
+                                    {{-- Datum: 29.10.2024 <br /> --}}
                                     Quelle:
-                                    <a href="https://bundesgesundheitsministerium.de"
-                                        target="_blank">www.aerztezeitung.de</a>
+                                    <a href="www.bundesgesundheitsministerium.de"
+                                        target="_blank">https://www.bundesgesundheitsministerium.de</a>
                                 </div>
                                 <div>
                                     <button>
@@ -293,6 +292,8 @@
                                 <img src="{{ Storage::url($blog->image) }}" alt="" class="img-fluid" />
                             </div>
                             <div class="blog-card-body">
+                                <span
+                                    class="blog-date">{{ \Carbon\Carbon::parse($blog->blog_date)->format('d.m.Y') }}</span>
                                 <div class="blog-kate">Kategorie: @if ($blog->category1_name)
                                         <span class="blog-kate">{{ $blog->category1_name }}</span>
                                     @endif
@@ -444,7 +445,7 @@
 
             <div class="col-lg-4 col-12">
                 <div class="blog-card">
-                    <a style="text-decoration: none"  href="https://amzn.to/3W4UAG4" target="_blank">
+                    <a style="text-decoration: none" href="https://amzn.to/3W4UAG4" target="_blank">
                         <div class="blog-card-img">
                             <img src="{{ asset('assets/Images/Bucher_img2.svg') }}" alt="" />
                         </div>
@@ -459,7 +460,7 @@
             </div>
             <div class="col-lg-4 col-12">
                 <div class="blog-card">
-                    <a  style="text-decoration: none" href="https://amzn.to/4cFjZ05" target="_blank">
+                    <a style="text-decoration: none" href="https://amzn.to/4cFjZ05" target="_blank">
                         <div class="blog-card-img">
                             <img src="{{ asset('assets/Images/Bucher_img3.svg') }}" alt="" />
                         </div>

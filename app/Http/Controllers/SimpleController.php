@@ -6,6 +6,7 @@ use App\Models\BlogCategory;
 use App\Models\Blogs;
 use App\Models\Marketplace;
 use App\Models\MarketplaceCategory;
+use Http;
 use Illuminate\Http\Request;
 
 class SimpleController extends Controller
@@ -117,24 +118,42 @@ class SimpleController extends Controller
                 $count++;
             }
         }
-        $count=0;
+        $count = 0;
 
-        $secondXml = simplexml_load_file('https://www.aend.de/rss/medizin');
         $seconNews = [];
 
-        if ($secondXml && $secondXml->channel && $secondXml->channel->item) {
-            $count = 0;
-            foreach ($secondXml->channel->item as $item) {
-                if ($count >= 3) {
-                    break; // Stop once we have 14 items
+        try {
+            // Send GET request with timeout set to 10 seconds
+            $response = Http::timeout(10)->get('https://www.aend.de/rss/medizin');
+
+            if ($response->successful()) {
+                // Load the XML content from the response body
+                $secondXml = simplexml_load_string($response->body());
+
+                if ($secondXml && isset($secondXml->channel->item)) {
+                    $count = 0;
+                    foreach ($secondXml->channel->item as $item) {
+                        if ($count >= 3) {
+                            break; // Stop once we have 3 items
+                        }
+                        foreach ($item as $key => $value) {
+                            $secondNews[$count][$key] = (string) $value;
+                        }
+                        $count++;
+                    }
+                } else {
+                    // Handle the case when there are no valid items in the RSS feed
+                    // return response()->json(['error' => 'Invalid RSS feed or no items found.']);
                 }
-                foreach ($item as $key => $value) {
-                    $seconNews[$count][$key] = (string) $value;
-                }
-                $count++;
+            } else {
+                // Handle the error if the request was not successful
+                // return response()->json(['error' => 'Failed to load the RSS feed.'], 500);
             }
+        } catch (\Exception $e) {
+            // Handle network or any other exception (like timeout, DNS resolution, etc.)
+            return response()->json(['error' => 'Request timed out or network error occurred.'], 500);
         }
-        $count=0;
+        $count = 0;
 
         $thirdXml = simplexml_load_file('https://www.bundesgesundheitsministerium.de/meldungen.xml');
         $thirdNews = [];
@@ -154,10 +173,11 @@ class SimpleController extends Controller
 
 
 
-        return view('welcome', compact('marketplaces', 'blogs', 'news','seconNews','thirdNews'));
+        return view('welcome', compact('marketplaces', 'blogs', 'news', 'seconNews', 'thirdNews'));
     }
 
-    public function postContactForm(Request $request){
+    public function postContactForm(Request $request)
+    {
         return back()->with('success', "Your form has been successfully submitted");
     }
 }
