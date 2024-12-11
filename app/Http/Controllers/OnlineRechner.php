@@ -116,6 +116,18 @@ class OnlineRechner extends Controller
     {
         return view('online_rechner.fourth');
     }
+    public function fifthPage()
+    {
+        return view('online_rechner.fifth');
+    }
+
+    public function sixthPage(){
+        return view('online_rechner.sixth');
+
+    }
+
+
+    
 
     public function calculateModule(Request $request)
     { // Get values from the request

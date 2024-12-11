@@ -61,49 +61,71 @@
                 <a href="./fur_pflegebedurftige.html"></a>FÜR PFLEGENDE ANGEHÖRIGE
             </button>
         </div>
-        <div class="cover-letter-bottom-buttons" id="cover-letter-bottom-buttons2">
-            <button
-                class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn21 cover-letter-active-btn"
-                id="cover-letter-bottom-btn21">
-                Antrag auf Pflegeunterstützungsgeld
-            </button>
-            <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn22"
-                id="cover-letter-bottom-btn22">
-                Antrag auf Entlastungsbetrag für pflegende Angehörige
-            </button>
-            <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn23"
-                id="cover-letter-bottom-btn23">
-                Antrag auf Freistellung gemäß Pflegezeitgesetz
-            </button>
-            <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn24"
-                id="cover-letter-bottom-btn24">
-                Antrag auf Teilzeitarbeit gemäß Familienpflegezeitgesetz
-            </button>
-            <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn25"
-                id="cover-letter-bottom-btn25">
-                Widerspruch gegen Ablehnung von Pflegeleistungen
-            </button>
-            <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn26"
-                id="cover-letter-bottom-btn26">
-                Antrag auf zusätzliche Betreuungs- und Entlastungsleistungen
-            </button>
-            <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn27"
-                id="cover-letter-bottom-btn27">
-                Mitteilung über Veränderungen im Pflegeaufwand
-            </button>
-            <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn28"
-                id="cover-letter-bottom-btn28">
-                Antrag auf Erhöhung des Pflegegeldes
-            </button>
-            <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn29"
-                id="cover-letter-bottom-btn29">
-                Antrag auf Beratungsgespräche gemäß § 37 Abs. 3 SGB XI
-            </button>
-            <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn210"
-                id="cover-letter-bottom-btn210">
-                Antrag auf Pflegekurse und Schulungen für pflegende Angehörige
-            </button>
+        <div class="cover-letter-bottom-buttons row justify-content-center align-items-center"
+            id="cover-letter-bottom-buttons2">
+            <div class="col-12 col-md-3">
+                <button
+                    class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn21 cover-letter-active-btn"
+                    id="cover-letter-bottom-btn21">
+                    Antrag auf Pflegeunterstützungsgeld
+                </button>
+            </div>
+            <div class="col-12 col-md-3">
+                <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn22"
+                    id="cover-letter-bottom-btn22">
+                    Antrag auf Entlastungsbetrag für pflegende Angehörige
+                </button>
+            </div>
+            <div class="col-12 col-md-3">
+                <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn23"
+                    id="cover-letter-bottom-btn23">
+                    Antrag auf Freistellung gemäß Pflegezeitgesetz
+                </button>
+            </div>
+            <div class="col-12 col-md-3">
+                <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn23"
+                    id="cover-letter-bottom-btn23">
+                    Antrag auf Teilzeitarbeit gemäß Familienpflegezeitgesetz
+                </button>
+            </div>
+            <div class="col-12 col-md-3">
+                <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn25"
+                    id="cover-letter-bottom-btn25">
+                    Widerspruch gegen Ablehnung von Pflegeleistungen
+                </button>
+            </div>
+            <div class="col-12 col-md-3">
+                <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn26"
+                    id="cover-letter-bottom-btn26">
+                    Antrag auf zusätzliche Betreuungs- und Entlastungsleistungen
+                </button>
+            </div>
+            <div class="col-12 col-md-3">
+                <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn27"
+                    id="cover-letter-bottom-btn27">
+                    Mitteilung über Veränderungen im Pflegeaufwand
+                </button>
+            </div>
+            <div class="col-12 col-md-3">
+                <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn28"
+                    id="cover-letter-bottom-btn28">
+                    Antrag auf Erhöhung des Pflegegeldes
+                </button>
+            </div>
+            <div class="col-12 col-md-3">
+                <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn29"
+                    id="cover-letter-bottom-btn29">
+                    Antrag auf Beratungsgespräche gemäß § 37 Abs. 3 SGB XI
+                </button>
+            </div>
+            <div class="col-12 col-md-3">
+                <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn210"
+                    id="cover-letter-bottom-btn210">
+                    Antrag auf Pflegekurse und Schulungen für pflegende Angehörige
+                </button>
+            </div>
         </div>
+
     </div>
 
     <!-- ######################## MUSTERANSCHREIBEN SECTION 3 ######################## -->
@@ -162,7 +184,9 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn"><button>Drucken</button></div>
+            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-21')">
+                <button>Drucken</button>
+            </div>
         </div>
 
         <!-- ################# COVER LETTER 22 ################# -->
@@ -223,7 +247,8 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn"><button>Drucken</button></div>
+            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-22')">
+                <button>Drucken</button></div>
         </div>
         <!-- ################# COVER LETTER 23 ################# -->
 
@@ -271,7 +296,8 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn"><button>Drucken</button></div>
+            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-23')">
+                <button>Drucken</button></div>
         </div>
         <!-- ################# COVER LETTER 24 ################# -->
 
@@ -322,7 +348,8 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn"><button>Drucken</button></div>
+            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-24')">
+                <button>Drucken</button></div>
         </div>
         <!-- ################# COVER LETTER 25 ################# -->
 
@@ -372,7 +399,8 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn"><button>Drucken</button></div>
+            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-25')">
+                <button>Drucken</button></div>
         </div>
         <!-- ################# COVER LETTER 26 ################# -->
 
@@ -432,7 +460,8 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn"><button>Drucken</button></div>
+            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-26')">
+                <button>Drucken</button></div>
         </div>
         <!-- ################# COVER LETTER 27 ################# -->
 
@@ -494,7 +523,8 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn"><button>Drucken</button></div>
+            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-27')">
+                <button>Drucken</button></div>
         </div>
         <!-- ################# COVER LETTER 28 ################# -->
 
@@ -553,7 +583,8 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn"><button>Drucken</button></div>
+            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-28')">
+                <button>Drucken</button></div>
         </div>
         <!-- ################# COVER LETTER 29 ################# -->
 
@@ -600,7 +631,8 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn"><button>Drucken</button></div>
+            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-29')">
+                <button>Drucken</button></div>
         </div>
         <!-- ################# COVER LETTER 210 ################# -->
 
@@ -650,7 +682,8 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn"><button>Drucken</button></div>
+            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-210')">
+                <button>Drucken</button></div>
         </div>
     </div>
     <div style="width: 100%">
@@ -659,6 +692,18 @@
     </div>
 
     @include('components.footer.footer_second')
+
+
+    <script>
+        function printDiv(divId) {
+            var printContents = document.getElementById(divId).innerHTML;
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
+            location.reload();
+        }
+    </script>
 
 </body>
 

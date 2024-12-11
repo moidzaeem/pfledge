@@ -72,7 +72,6 @@
                                 </div>
                                 <div class="newsund-section2-card-bottom">
                                     <div class="newsund-section2-card-date">
-                                        Datum: 29.10.2024 <br />
                                         Quelle:
                                         <a href="https://bundesgesundheitsministerium.de"
                                             target="_blank">www.aerztezeitung.de</a>

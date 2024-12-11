@@ -20,7 +20,8 @@
         <div class="impressum-section1-accordion1">
             <div class="impressum-accordion1-top-div">
                 <div class="impressum-accordion1-heading ">1. Angaben gemäß § 5 TMG</div>
-                <img src="{{asset('assets/Images/Blog_caret_down.svg')}}" alt="caret" class="accordion-icon rotated ">
+                <img src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="caret"
+                    class="accordion-icon rotated ">
             </div>
             <div class="impressum-accordion1-bottom-div active">
                 Melanie Zick <br> Mühlenfeld 10a <div class="mb-2">31789 Hameln</div>
@@ -30,7 +31,7 @@
         <div class="impressum-section1-accordion1">
             <div class="impressum-accordion1-top-div">
                 <div class="impressum-accordion1-heading">2. Streitschlichtung</div>
-                <img src="{{asset('assets/Images/Blog_caret_down.svg')}}" alt="caret" class="accordion-icon">
+                <img src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="caret" class="accordion-icon">
             </div>
             <div class="impressum-accordion1-bottom-div">
                 Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
@@ -45,7 +46,7 @@
         <div class="impressum-section1-accordion1">
             <div class="impressum-accordion1-top-div">
                 <div class="impressum-accordion1-heading">2.1. Haftung für Inhalte</div>
-                <img src="{{asset('assets/Images/Blog_caret_down.svg')}}" alt="caret" class="accordion-icon">
+                <img src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="caret" class="accordion-icon">
             </div>
             <div class="impressum-accordion1-bottom-div">
                 Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den
@@ -69,7 +70,7 @@
         <div class="impressum-section1-accordion1">
             <div class="impressum-accordion1-top-div">
                 <div class="impressum-accordion1-heading">2.2. Haftung für Links</div>
-                <img src="{{asset('assets/Images/Blog_caret_down.svg')}}" alt="caret" class="accordion-icon">
+                <img src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="caret" class="accordion-icon">
             </div>
             <div class="impressum-accordion1-bottom-div">
                 Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben.
@@ -90,7 +91,7 @@
         <div class="impressum-section1-accordion1">
             <div class="impressum-accordion1-top-div">
                 <div class="impressum-accordion1-heading">2.3. Urheberrecht</div>
-                <img src="{{asset('assets/Images/Blog_caret_down.svg')}}" alt="caret" class="accordion-icon">
+                <img src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="caret" class="accordion-icon">
             </div>
             <div class="impressum-accordion1-bottom-div">
                 Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen
@@ -122,7 +123,8 @@
             <div class="impressum-section1-accordion1">
                 <div class="impressum-accordion1-top-div">
                     <div class="impressum-accordion1-heading ">1. Allgemeine Hinweise</div>
-                    <img src="{{asset('assets/Images/Blog_caret_down.svg')}}" alt="caret" class="accordion-icon rotated">
+                    <img src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="caret"
+                        class="accordion-icon rotated">
                 </div>
                 <div class="impressum-accordion1-bottom-div active">
                     Die Verarbeitung Ihrer personenbezogener Daten erfolgt in Übereinstimmung mit der
@@ -140,7 +142,7 @@
                     <div class="impressum-accordion1-heading ">2. Name und Kontaktdaten des für die Verarbeitung
                         Verantwortlichen
                     </div>
-                    <img src="{{asset('assets/Images/Blog_caret_down.svg')}}" alt="caret" class="accordion-icon ">
+                    <img src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="caret" class="accordion-icon ">
                 </div>
                 <div class="impressum-accordion1-bottom-div ">
                     Diese Datenschutzerklärung gilt für die Datenverarbeitung durch: <br>
@@ -158,7 +160,7 @@
             <div class="impressum-section1-accordion1">
                 <div class="impressum-accordion1-top-div">
                     <div class="impressum-accordion1-heading ">3. Begriffsbestimmungen</div>
-                    <img src="{{asset('assets/Images/Blog_caret_down.svg')}}" alt="caret" class="accordion-icon ">
+                    <img src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="caret" class="accordion-icon ">
                 </div>
                 <div class="impressum-accordion1-bottom-div ">
                     Wir verwenden in unserer Datenschutzerklärung unter anderem die folgenden Begriffe, die wir
@@ -278,7 +280,7 @@
                     <div class="impressum-accordion1-heading ">4. Erhebung und Speicherung personenbezogener Daten sowie
                         Art und
                         Zweck von deren Verwendung</div>
-                    <img src="{{asset('assets/Images/Blog_caret_down.svg')}}" alt="caret" class="accordion-icon ">
+                    <img src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="caret" class="accordion-icon ">
                 </div>
                 <div class="impressum-accordion1-bottom-div ">
                     a) beim Besuch unserer Website <br>
@@ -383,7 +385,7 @@
             <div class="impressum-section1-accordion1">
                 <div class="impressum-accordion1-top-div">
                     <div class="impressum-accordion1-heading ">5. Cookies</div>
-                    <img src="{{asset('assets/Images/Blog_caret_down.svg')}}" alt="caret" class="accordion-icon ">
+                    <img src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="caret" class="accordion-icon ">
                 </div>
                 <div class="impressum-accordion1-bottom-div ">
                     Wie viele andere Websites benutzen auch wir „Cookies“, kleine Textdateien, die es ermöglichen, auf
@@ -420,7 +422,7 @@
             <div class="impressum-section1-accordion1">
                 <div class="impressum-accordion1-top-div">
                     <div class="impressum-accordion1-heading ">6. Link zu Facebook</div>
-                    <img src="{{asset('assets/Images/Blog_caret_down.svg')}}" alt="caret" class="accordion-icon ">
+                    <img src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="caret" class="accordion-icon ">
                 </div>
                 <div class="impressum-accordion1-bottom-div ">
                     Unsere Website enthält einen Link zum sozialen Netzwerk facebook.com, welches von der Facebook Inc.,
@@ -447,7 +449,7 @@
             <div class="impressum-section1-accordion1">
                 <div class="impressum-accordion1-top-div">
                     <div class="impressum-accordion1-heading ">7. Links zu Webauftritten Dritter</div>
-                    <img src="{{asset('assets/Images/Blog_caret_down.svg')}}" alt="caret" class="accordion-icon ">
+                    <img src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="caret" class="accordion-icon ">
                 </div>
                 <div class="impressum-accordion1-bottom-div ">
                     Unsere Webseiten enthalten Links zu Webauftritten Dritter. Die Einhaltung des Datenschutzes auf
@@ -459,7 +461,8 @@
             <div class="impressum-section1-accordion1">
                 <div class="impressum-accordion1-top-div">
                     <div class="impressum-accordion1-heading ">8. Google Web Fonts</div>
-                    <img src="{{asset('assets/Images/Blog_caret_down.svg')}}" alt="caret" class="accordion-icon ">
+                    <img src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="caret"
+                        class="accordion-icon ">
                 </div>
                 <div class="impressum-accordion1-bottom-div ">
                     Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten so genannte Web Fonts, die von
@@ -483,7 +486,8 @@
             <div class="impressum-section1-accordion1">
                 <div class="impressum-accordion1-top-div">
                     <div class="impressum-accordion1-heading ">9. Einbindung von umap/OpenStreetMap</div>
-                    <img src="{{asset('assets/Images/Blog_caret_down.svg')}}" alt="caret" class="accordion-icon ">
+                    <img src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="caret"
+                        class="accordion-icon ">
                 </div>
                 <div class="impressum-accordion1-bottom-div ">
                     Wir verwenden auf unserer Webseite einen Kartenausschnitt von Umap
@@ -519,7 +523,8 @@
             <div class="impressum-section1-accordion1">
                 <div class="impressum-accordion1-top-div">
                     <div class="impressum-accordion1-heading ">10. Einsatz von Google AdSense</div>
-                    <img src="{{asset('assets/Images/Blog_caret_down.svg')}}" alt="caret" class="accordion-icon ">
+                    <img src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="caret"
+                        class="accordion-icon ">
                 </div>
                 <div class="impressum-accordion1-bottom-div ">
                     Diese Website verwendet den Online-Werbedienst Google AdSense, durch den Ihnen auf Ihre Interessen
@@ -580,7 +585,8 @@
             <div class="impressum-section1-accordion1">
                 <div class="impressum-accordion1-top-div">
                     <div class="impressum-accordion1-heading ">11. Einsatz von AdCell</div>
-                    <img src="{{asset('assets/Images/Blog_caret_down.svg')}}" alt="caret" class="accordion-icon ">
+                    <img src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="caret"
+                        class="accordion-icon ">
                 </div>
                 <div class="impressum-accordion1-bottom-div ">
                     Der für die Verarbeitung Verantwortliche hat auf dieser Internetseite Komponenten von Adcell
@@ -635,7 +641,8 @@
             <div class="impressum-section1-accordion1">
                 <div class="impressum-accordion1-top-div">
                     <div class="impressum-accordion1-heading ">12. Einsatz von Matomo</div>
-                    <img src="{{asset('assets/Images/Blog_caret_down.svg')}}" alt="caret" class="accordion-icon ">
+                    <img src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="caret"
+                        class="accordion-icon ">
                 </div>
                 <div class="impressum-accordion1-bottom-div ">
                     Sie haben die Möglichkeit zu verhindern, dass von Ihnen hier getätigte Aktionen analysiert und
@@ -691,7 +698,8 @@
             <div class="impressum-section1-accordion1">
                 <div class="impressum-accordion1-top-div">
                     <div class="impressum-accordion1-heading ">13. Newsletter</div>
-                    <img src="{{asset('assets/Images/Blog_caret_down.svg')}}" alt="caret" class="accordion-icon ">
+                    <img src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="caret"
+                        class="accordion-icon ">
                 </div>
                 <div class="impressum-accordion1-bottom-div ">
                     <br>
@@ -818,7 +826,8 @@
             <div class="impressum-section1-accordion1">
                 <div class="impressum-accordion1-top-div">
                     <div class="impressum-accordion1-heading ">14. Amazon-Partnerprogramm</div>
-                    <img src="{{asset('assets/Images/Blog_caret_down.svg')}}" alt="caret" class="accordion-icon ">
+                    <img src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="caret"
+                        class="accordion-icon ">
                 </div>
                 <div class="impressum-accordion1-bottom-div ">
                     In unserem Internetauftritt setzen wir das AMAZON-Partnerprogramm ein. Es handelt sich hierbei um
@@ -868,7 +877,8 @@
             <div class="impressum-section1-accordion1">
                 <div class="impressum-accordion1-top-div">
                     <div class="impressum-accordion1-heading ">15. Betroffenenrechte</div>
-                    <img src="{{asset('assets/Images/Blog_caret_down.svg')}}" alt="caret" class="accordion-icon ">
+                    <img src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="caret"
+                        class="accordion-icon ">
                 </div>
                 <div class="impressum-accordion1-bottom-div ">
                     <br>
@@ -926,7 +936,8 @@
             <div class="impressum-section1-accordion1">
                 <div class="impressum-accordion1-top-div">
                     <div class="impressum-accordion1-heading ">16. Widerspruchsrecht</div>
-                    <img src="{{asset('assets/Images/Blog_caret_down.svg')}}" alt="caret" class="accordion-icon ">
+                    <img src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="caret"
+                        class="accordion-icon ">
                 </div>
                 <div class="impressum-accordion1-bottom-div ">
                     Sofern Ihre personenbezogenen Daten auf Grundlage von berechtigten Interessen gemäß Art. 6 Abs. 1 S.
@@ -945,7 +956,8 @@
             <div class="impressum-section1-accordion1">
                 <div class="impressum-accordion1-top-div">
                     <div class="impressum-accordion1-heading ">17. Datensicherheit</div>
-                    <img src="./Images/Blog_caret_down.svg" alt="caret" class="accordion-icon ">
+                    <img src="{{ asset('assets/Images/Blog_caret_down.svg') }}" alt="caret"
+                        class="accordion-icon ">
                 </div>
                 <div class="impressum-accordion1-bottom-div ">
                     Unsere Website nutzt aus Gründen der Sicherheit eine SSL (Secure Socket Layer) -Verschlüsselung. Ob

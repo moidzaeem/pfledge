@@ -19,11 +19,11 @@
     <div class="newsund-ratgeber-section1">
         <div class="newsund-ratgeber-btn-top">
             <div class="newsund-btn1 newsund-btn">
-                <button><a href="{{url('/')}}">News</a></button>
+                <button><a href="{{ url('/') }}">News</a></button>
             </div>
             <div class="newsund-btn2 newsund-btn">
                 <button>
-                    <a style="color: #b22222" href="{{route('ratgeber')}}">Ratgeber</a>
+                    <a style="color: #b22222" href="{{ route('ratgeber') }}">Ratgeber</a>
                 </button>
             </div>
         </div>
@@ -72,7 +72,6 @@
                                 </div>
                                 <div class="newsund-section2-card-bottom">
                                     <div class="newsund-section2-card-date">
-                                        Datum: 29.10.2024 <br />
                                         Quelle:
                                         <a href="https://bundesgesundheitsministerium.de"
                                             target="_blank">www.aerztezeitung.de</a>

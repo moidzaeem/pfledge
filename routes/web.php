@@ -40,7 +40,7 @@ Route::get('/services', function () {
 })->name('services');
 
 Route::get('/nachrichten-aerztezeitung', [SimpleController::class, 'getAchrichtenNews'])->name('achrichten');
-Route::get('/nachrichten-aerztenachichtendienst', [SimpleController::class, 'getNachrichten'])->name('nachrichten');
+Route::get('/nachrichten-aerztenachrichtendienst', [SimpleController::class, 'getNachrichten'])->name('nachrichten');
 Route::get('/nachrichten-bundesministerium-fuer-gesundheit', [SimpleController::class, 'nachrichtenBundesministeriumFuerGesundheit'])->name('nachrichten.bundesministerium');
 
 //finanzierung-der-pflege
@@ -100,6 +100,9 @@ Route::post('/rechner_pflegegeld2/calculate', [OnlineRechner::class, 'calculatio
 
 Route::get('/rechner_pflegekosten2', [OnlineRechner::class, 'fourthPage'])->name('online.rechner.fourth');
 
+Route::get('/rechner_pflegekosten_ambulant2',[OnlineRechner::class,'fifthPage'])->name('online.rechner.fifth');
+Route::get('/rechner_zuzahlungen',[OnlineRechner::class,'sixthPage'])->name('online.rechner.sixth');
+
 // END ONLINE-RECHNER //
 
 
@@ -116,6 +119,8 @@ Route::get('/blog/{title}', [BlogsController::class, 'show'])->name('blogs.show'
 Route::get('admin/blog/{id}/edit', [BlogsController::class, 'edit'])->name('admin.blog.edit');
 Route::delete('/admin/blog/{id}', [BlogsController::class, 'destroy'])->name('admin.blog.destroy');
 Route::put('/admin/blogs/{id}', [BlogsController::class, 'update'])->name('admin.blog.update');
+Route::get('/blogs/load-mores', [BlogsController::class, 'loadMoreData'])->name('blogs.loadMore');
+
 
 /// Blog Categories ///
 Route::get('/admin/blog/category', [HomeController::class, 'getBlogCategories'])->name('admin.blog.categories.index');

@@ -55,13 +55,7 @@
                 </div>
 
                 <div
-                    style="
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            align-items: center;
-            margin-top: 2rem;
-          ">
+                    style="display: flex;justify-content: space-between;width: 100%;align-items: center;margin-top: 2rem;">
                     <div class="blog-search-main-heading">Kategorien</div>
                     <div class="d-flex d-lg-none">
                         <img class="hide-show-btn" style="cursor: pointer"
@@ -70,19 +64,25 @@
                 </div>
                 <div class="hide-show-content" id="categoryList">
                     <div class="blog-search-sub-heading category-item">
-                        <a style="text-decoration: none;color:black" href="{{ route('marketplace.index') }}">Alle</a>
+                        <a style="text-decoration: none;color:black" href="{{ route('marketplace.index') }}"
+                            class="{{ request()->routeIs('marketplace.index') && !request()->category ? 'active' : '' }}">
+                            Alle
+                        </a>
                     </div>
                     @foreach ($uniqueCategories as $category)
                         <div class="blog-search-sub-heading category-item">
                             <a style="text-decoration: none;color:black"
-                                href="{{ route('marketplace.index', ['category' => $category->name]) }}">{{ $category->name }}</a>
+                                href="{{ route('marketplace.index', ['category' => $category->name]) }}"
+                                class="{{ request()->routeIs('marketplace.index') && request()->category === $category->name ? 'active' : '' }}">
+                                {{ $category->name }}
+                            </a>
                         </div>
                     @endforeach
                 </div>
             </div>
         </div>
 
-        <div class="col-lg-8">
+        <div class="col-lg-8 mt-4">
             <div class="row" id="marketplace-items">
                 @foreach ($marketPlaces as $marketplace)
                     <div class="col-lg-4 col-md-6 col-sm-12 mb-4 marketplace-item" data-name="{{ $marketplace->name }}"
@@ -91,22 +91,21 @@
                         <div class="blog-card">
                             <a target="{{ $marketplace->external_link === 'ja' ? '_blank' : '' }}"
                                 style="text-decoration: none" href="{{ $marketplace->link }}">
-                                    <div class="blog-card-img">
-                                        @if (strpos($marketplace->image, 'https') === 0)
-                                            <!-- Check if the image is an external URL -->
-                                            <img src="{{ $marketplace->image }}" alt="" class="img-fluid" />
-                                        @else
-                                            <img src="{{ asset('storage/' . $marketplace->image) }}" alt=""
-                                                class="img-fluid" />
-                                        @endif
-                                    </div>
+                                <div class="blog-card-img">
+                                    @if (strpos($marketplace->image, 'https') === 0)
+                                        <!-- Check if the image is an external URL -->
+                                        <img src="{{ $marketplace->image }}" alt="" class="img-fluid" />
+                                    @else
+                                        <img src="{{ asset('storage/' . $marketplace->image) }}" alt=""
+                                            class="img-fluid" />
+                                    @endif
+                                </div>
                                 <div class="blog-card-body">
                                     <div class="blog-kate">
                                         Kategorie:
                                         @if ($marketplace->category1_name)
-                                            <span class="blog-kate">{{ $marketplace->category1_name }}</span>
-                                            @if ($marketplace->category2_name || $marketplace->category3_name || $marketplace->category4_name)
-                                                ,
+                                            <span class="blog-kate">{{ trim($marketplace->category1_name) }}</span>
+                                            @if ($marketplace->category2_name || $marketplace->category3_name || $marketplace->category4_name){{ trim(',') }}
                                             @endif
                                         @endif
                                         @if ($marketplace->category2_name)

@@ -61,29 +61,45 @@
                 <a href="{{ route('fur_pflegebedurftige') }}"></a>FÜR PFLEGENDE ANGEHÖRIGE
             </button>
         </div>
-        <div class="cover-letter-bottom-buttons" id="cover-letter-bottom-buttons1">
-            <button class="cover-letter-bottom-btn cover-letter-bottom-btn11 cover-letter-active-btn"
-                id="cover-letter-bottom-btn11">
-                ANTRAG AUF FESTSTELLUNG EINES PFLEGEGRADES
-            </button>
-            <button class="cover-letter-bottom-btn cover-letter-bottom-btn12" id="cover-letter-bottom-btn12">
-                WIDERSPRUCH GEGEN DIE EINSTUFUNG DES PFLEGEGRADES
-            </button>
-            <button class="cover-letter-bottom-btn cover-letter-bottom-btn13" id="cover-letter-bottom-btn13">
-                ANTRAG AUF ERHÖHUNG DES PFLEGEGRADES
-            </button>
-            <button class="cover-letter-bottom-btn cover-letter-bottom-btn14" id="cover-letter-bottom-btn14">
-                ANTRAG AUF PFLEGEHILFSMITTEL
-            </button>
-            <button class="cover-letter-bottom-btn cover-letter-bottom-btn15" id="cover-letter-bottom-btn15">
-                ANTRAG AUF KURZZEITPFLEGE
-            </button>
-            <button class="cover-letter-bottom-btn cover-letter-bottom-btn16" id="cover-letter-bottom-btn16">
-                ANTRAG AUF VERHINDERUNGSPFLEGE
-            </button>
-            <button class="cover-letter-bottom-btn cover-letter-bottom-btn17" id="cover-letter-bottom-btn17">
-                ANTRAG AUF WOHNUMFELDVERBESSERNDE MASSNAHMEN
-            </button>
+
+
+        <div class="cover-letter-bottom-buttons row justify-content-center" id="cover-letter-bottom-buttons1">
+            <div class="col-lg-3">
+                <button class="cover-letter-bottom-btn cover-letter-bottom-btn11 cover-letter-active-btn"
+                    id="cover-letter-bottom-btn11">
+                    ANTRAG AUF FESTSTELLUNG EINES PFLEGEGRADES
+                </button>
+            </div>
+            <div class="col-lg-3">
+                <button class="cover-letter-bottom-btn cover-letter-bottom-btn12" id="cover-letter-bottom-btn12">
+                    WIDERSPRUCH GEGEN DIE EINSTUFUNG DES PFLEGEGRADES
+                </button>
+            </div>
+            <div class="col-lg-3">
+                <button class="cover-letter-bottom-btn cover-letter-bottom-btn13" id="cover-letter-bottom-btn13">
+                    ANTRAG AUF ERHÖHUNG DES PFLEGEGRADES
+                </button>
+            </div>
+            <div class="col-lg-3">
+                <button class="cover-letter-bottom-btn cover-letter-bottom-btn14" id="cover-letter-bottom-btn14">
+                    ANTRAG AUF PFLEGEHILFSMITTEL
+                </button>
+            </div>
+            <div class="col-lg-3">
+                <button class="cover-letter-bottom-btn cover-letter-bottom-btn15" id="cover-letter-bottom-btn15">
+                    ANTRAG AUF KURZZEITPFLEGE
+                </button>
+            </div>
+            <div class="col-lg-3">
+                <button class="cover-letter-bottom-btn cover-letter-bottom-btn16" id="cover-letter-bottom-btn16">
+                    ANTRAG AUF VERHINDERUNGSPFLEGE
+                </button>
+            </div>
+            <div class="col-lg-3">
+                <button class="cover-letter-bottom-btn cover-letter-bottom-btn17" id="cover-letter-bottom-btn17">
+                    ANTRAG AUF WOHNUMFELDVERBESSERNDE MASSNAHMEN
+                </button>
+            </div>
         </div>
     </div>
 
@@ -136,7 +152,8 @@
                 [Ihr Vor- und Nachname] <br />
             </div>
             <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-11')">
-                <button>Drucken</button></div>
+                <button>Drucken</button>
+            </div>
         </div>
 
         <!-- ################# COVER LETTER 12 ################# -->
@@ -186,7 +203,9 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-12')"><button>Drucken</button></div>
+            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-12')">
+                <button>Drucken</button>
+            </div>
         </div>
         <!-- ################# COVER LETTER 13 ################# -->
 
@@ -237,7 +256,9 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-13')"><button>Drucken</button></div>
+            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-13')">
+                <button>Drucken</button>
+            </div>
         </div>
         <!-- ################# COVER LETTER 14 ################# -->
 
@@ -294,7 +315,9 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-14')"><button>Drucken</button></div>
+            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-14')">
+                <button>Drucken</button>
+            </div>
         </div>
         <!-- ################# COVER LETTER 15 ################# -->
 
@@ -345,7 +368,9 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-15')"><button>Drucken</button></div>
+            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-15')">
+                <button>Drucken</button>
+            </div>
         </div>
         <!-- ################# COVER LETTER 16 ################# -->
 
@@ -397,7 +422,9 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-16')"><button>Drucken</button></div>
+            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-16')">
+                <button>Drucken</button>
+            </div>
         </div>
         <!-- ################# COVER LETTER 17 ################# -->
 
@@ -455,7 +482,8 @@
                 [Ihr Vor- und Nachname]
             </div>
             <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-17')">
-                <button>Drucken</button></div>
+                <button>Drucken</button>
+            </div>
         </div>
     </div>
 
@@ -473,6 +501,7 @@
             document.body.innerHTML = printContents;
             window.print();
             document.body.innerHTML = originalContents;
+            location.reload();
         }
     </script>
 

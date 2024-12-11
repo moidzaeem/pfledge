@@ -94,12 +94,17 @@
         <button class="online-rechner-section2-btn4 online-rechner-section2-btn">
             <a href="{{ route('online.rechner.fourth') }}"></a> RECHNER PFLEGEKOSTEN IM PFLEGEHEIM
         </button>
-        {{-- <button class="online-rechner-section2-btn5 online-rechner-section2-btn">
-            <a href="./rechner_pflegekosten_fur_ambulante_pflege.html"></a> RECHNER PFLEGEKOSTEN FÜR AMBULANTE PFLEGE
-        </button>
-        <button class="online-rechner-section2-btn6 online-rechner-section2-btn">
-            <a href="./rechner_zuzahlungen.html"></a> RECHNER ZUZAHLUNGEN
-        </button> --}}
+        <button class="online-rechner-section2-btn5 online-rechner-section2-btn">
+            <a
+            href="{{route('online.rechner.fifth')}}"
+             
+            ></a>
+            RECHNER PFLEGEKOSTEN FÜR AMBULANTE PFLEGE
+          </button>
+          <button class="online-rechner-section2-btn6 online-rechner-section2-btn">
+            <a href="{{route('online.rechner.sixth')}}"></a>
+            RECHNER ZUZAHLUNGEN
+          </button>
     </div>
 
     <!-- ########################### Online Rechner SECTION 3 ########################### -->

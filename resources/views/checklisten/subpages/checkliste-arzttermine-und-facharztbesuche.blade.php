@@ -39,23 +39,23 @@
             TERMINPLANUNG UND ARZTBESUCHE
         </button>
         <button class="checklisten-section2-top-btn3 checklisten-top-btn" id="checklisten-top-btn3">
-            <a href="{{route('checklist.2')}}"></a>
+            <a href="{{ route('checklist.2') }}"></a>
             HÄUSLICHE PFLEGE UND UNTERSTÜTZUNG
         </button>
         <button class="checklisten-section2-top-btn4 checklisten-top-btn" id="checklisten-top-btn4">
-            <a href="{{route('checklist.3')}}"></a>
+            <a href="{{ route('checklist.3') }}"></a>
             PSYCHISCHE UND SOZIALE UNTERSTÜTZUNG
         </button>
         <button class="checklisten-section2-top-btn5 checklisten-top-btn" id="checklisten-top-btn5">
-            <a href="{{route('checklist.4')}}"></a>
+            <a href="{{ route('checklist.4') }}"></a>
             FINANZIELLE UND RECHTLICHE ANGELEGENHEITEN
         </button>
         <button class="checklisten-section2-top-btn6 checklisten-top-btn" id="checklisten-top-btn6">
-            <a href="{{route('checklist.5')}}"></a>
+            <a href="{{ route('checklist.5') }}"></a>
             NOTFALLVORBEREITUNG
         </button>
         <button class="checklisten-section2-top-btn7 checklisten-top-btn" id="checklisten-top-btn7">
-            <a href="{{route('checklist.6')}}"></a>
+            <a href="{{ route('checklist.6') }}"></a>
             GESUNDHEITSÜBERWACHUNG
         </button>
     </div>

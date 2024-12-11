@@ -1,5 +1,6 @@
 @extends('layouts.app')
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <script src="https://cdn.tiny.cloud/1/zzqkek2e8tzy91mu1adyt9xniaxyydlr7fjl26iao7zkj7gn/tinymce/7/tinymce.min.js"
     referrerpolicy="origin"></script>
@@ -28,12 +29,14 @@
                                 </div>
                             @endif
                             <div class="p-20">
-                                <form action="{{ route('admin.blog.update', $blog->id) }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('admin.blog.update', $blog->id) }}" method="POST"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class="row">
                                         <!-- Slug Field -->
-                                        <input id="slug" type="hidden" name="slug" value="{{ old('slug', $blog->slug) }}">
+                                        <input id="slug" type="hidden" name="slug"
+                                            value="{{ old('slug', $blog->slug) }}">
 
                                         <!-- Title Field -->
                                         <div class="col-lg-6">
@@ -47,7 +50,7 @@
                                             <div class="form-group">
                                                 <label for="title">Blog Date</label>
                                                 <input type="date" class="form-control" name="blog_date" id=""
-                                                value="{{ old('blog_date', $blog->blog_date) }}"    required>
+                                                    value="{{ old('blog_date', $blog->blog_date) }}" required>
                                             </div>
                                         </div>
 
@@ -57,7 +60,8 @@
                                                 <label for="image">Blog Image</label>
                                                 <input type="file" name="image" id="image" class="form-control">
                                                 @if ($blog->image)
-                                                    <img src="{{ Storage::url($blog->image) }}" alt="Blog Image" width="150">
+                                                    <img src="{{ Storage::url($blog->image) }}" alt="Blog Image"
+                                                        width="150">
                                                 @endif
                                             </div>
                                         </div>
@@ -71,7 +75,7 @@
                                                         class="form-control @error('category' . $category) is-invalid @enderror">
                                                         <option value="">{{ __('Bitte wählen') }}</option>
                                                         @foreach ($blogCategories as $cat)
-                                                            <option value="{{ $cat->id }}" 
+                                                            <option value="{{ $cat->id }}"
                                                                 {{ old('category' . $category, $blog->{'category' . $category}) == $cat->id ? 'selected' : '' }}>
                                                                 {{ $cat->name }}
                                                             </option>
@@ -98,10 +102,13 @@
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label>{{ __('Home') }}</label>
-                                                <select name="home" class="form-control @error('home') is-invalid @enderror">
-                                                    <option value="nein" {{ old('home', $blog->home) == 'nein' ? 'selected' : '' }}>
+                                                <select name="home"
+                                                    class="form-control @error('home') is-invalid @enderror">
+                                                    <option value="nein"
+                                                        {{ old('home', $blog->home) == 'nein' ? 'selected' : '' }}>
                                                         {{ __('Nein') }}</option>
-                                                    <option value="ja" {{ old('home', $blog->home) == 'ja' ? 'selected' : '' }}>
+                                                    <option value="ja"
+                                                        {{ old('home', $blog->home) == 'ja' ? 'selected' : '' }}>
                                                         {{ __('Ja') }}</option>
                                                 </select>
                                                 @error('home')
