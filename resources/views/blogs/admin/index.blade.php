@@ -29,7 +29,7 @@
                             <div class="d-flex justify-content-between">
                                 <h4 class="mt-0 header-title">{{ __('Alle Blogartikel') }}</h4>
                                 <a href="{{ route('admin.blog.create') }}"
-                                    class="btn btn-primary mb-5">{{ __('logartikel erstellen') }}</a>
+                                    class="btn btn-primary mb-5">{{ __('Blogartikel erstellen') }}</a>
                             </div>
 
                             @if (!empty($blogs))

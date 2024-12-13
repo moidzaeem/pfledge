@@ -4,6 +4,56 @@
 @include('components.header.head')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<style>
+    strong {
+        color: #b22222;
+        font-weight: 800;
+    }
+
+    #tooltip {
+        text-align: left;
+        color: #fff;
+        background: #111;
+        position: absolute;
+        z-index: 100;
+        padding: 15px;
+        font-size: 1.0rem;
+    }
+
+    #tooltip:after
+
+    /* triangle decoration */
+        {
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #111;
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: -10px;
+        margin-left: -10px;
+    }
+
+    #tooltip.top:after {
+        border-top-color: transparent;
+        border-bottom: 10px solid #111;
+        top: -20px;
+        bottom: auto;
+    }
+
+    #tooltip.left:after {
+        left: 10px;
+        margin: 0;
+    }
+
+    #tooltip.right:after {
+        right: 10px;
+        left: auto;
+        margin: 0;
+    }
+</style>
 
 <body>
     <div class="header-container service-header-bg"
@@ -121,14 +171,15 @@
             <div class="online-rechner-section3-heading-bottom">
                 <div>Erfassung</div>
             </div>
-            <form action="" id="zuzahlungen">
+            <form action="{{ route('online.rechner.sixth.calculate') }}" id="zuzahlungen" method="POST">
+                @csrf
                 <div class="online-rechner-section3-form" style="display: block" id="module1Form">
 
                     <div class="online-rechner-page2-section3-input-div"
                         style="margin-bottom: 1rem; display: flex; align-items: center;justify-content: space-between;">
                         <label style="margin-top: -0.67rem;" class="online-rechner-page2-section3-heading "
                             for="online-rechner-input1">Berechnung für</label>
-                        <select name="" id="jahr" style="width: 50%;">
+                        <select name="jahr" id="jahr" style="width: 50%;">
                             <option value="0">2023</option>
                             <option value="1">2022</option>
 
@@ -137,8 +188,17 @@
                     <div class="online-rechner-page2-section3-input-div"
                         style="margin-bottom: 1rem; display: flex; align-items: center;justify-content: space-between;">
                         <label style="margin-top: -0.67rem;" class="online-rechner-page2-section3-heading "
-                            for="online-rechner-input1">ALG II- oder Sozialhilfeempfänger</label>
-                        <select name="" id="alg" style="width: 50%;">
+                            for="online-rechner-input1"
+                            title="Geben Sie bitte an, ob für Sie als Versicherter einer der folgenden Punkte zutrifft:<br />
+                            - Sie sind Empfänger von ALG II (Hartz IV), Sie beziehen Hilfe zum Lebensunterhalt.<br />
+                            - Sie erhalten Grundsicherung im Alter und bei Erwerbsminderung.<br />
+                            - Für Sie werden die Kosten der Unterbringung in einem Heim oder einer ähnlichen Einrichtung von einem Träger der Sozialhilfe oder der Kriegsopferfürsorge getragen.<br />
+                            - Sie sind Sozialhilfeempfänger, für den die Gesundheitsversorgung durch die gesetzliche Krankenversicherung übernommen wird.<br />
+                            - Sie sind Empfänger von laufenden Leistungen nach § 2 des Asylbewerber-Leistungsgesetzes.<br /><br />
+                            Trifft einer der Punkte für den Versicherten zu, wird als Familien-Bruttoeinkommen zur Ermittlung der Belastungsgrenze lediglich der Regelsatz des Haushaltsvorstandes nach der Regelsatzverordnung festgelegt. 2023 beträgt der Regelsatz 502 EUR monatlich bzw. 6.024 Euro je Kalenderjahr, im Vorjahr 449 EUR monatlich bzw. 5.388 EUR jährlich.<br /><br />
+                            Der Regelsatz ist der jährlich festgelegte Satz für den Lebensunterhalt, der zur Gewährleistung des Existenzminimums in Deutschland notwendig ist."
+                            rel="tooltip">ALG II- oder Sozialhilfeempfänger</label>
+                        <select name="alg" id="alg" style="width: 50%;">
                             <option value="0">Nein</option>
                             <option value="1">Ja</option>>
                         </select>
@@ -146,8 +206,16 @@
                     <div class="online-rechner-page2-section3-input-div"
                         style="margin-bottom: 1rem; display: flex; align-items: center;justify-content: space-between;">
                         <label style="margin-top: -0.67rem;" class="online-rechner-page2-section3-heading "
-                            for="online-rechner-input1">Chronisch krank oder Pflegegrad 3 bis 5</label>
-                        <select name="" id="chronisch" style="width: 50%;">
+                            for="online-rechner-input1"
+                            title="Bitte geben Sie an, ob Sie oder ein anderes gesetzlich versichertes Familienmitglied schwerwiegend chronisch krank im Sinne der folgenden per Gesetz festgelegten Kriterien sind. Dabei ist es für die Berechnung der Zuzahlung unerheblich, ob eine oder mehrere Versicherte chronisch krank sind. Eine Krankheit gilt als schwerwiegend chronisch, wenn sie wenigstens ein Jahr lang mindestens einmal pro Quartal ärztlich behandelt wurde und einer der folgenden Punkte zutrifft:<br />
+                            - Es liegt eine Pflegebedürftigkeit mit Pflegegrad 3 oder höher vor.<br />
+                            - Es liegt ein Grad der Behinderung nach Schwerbehindertenrecht bzw. Versorgungsrecht von mindestens 60 % vor oder eine Minderung der Erwerbsfähigkeit nach Unfallversicherungsrecht von mindestens 60 %.<br />
+                            - Es ist eine kontinuierliche medizinische Versorgung (ärztliche oder psychotherapeutische Behandlung, Arzneimitteltherapie, Behandlungspflege, Versorgung mit Heil- und Hilfsmitteln) erforderlich, ohne die nach ärztlicher Einschätzung eine lebensbedrohliche Verschlimmerung der Erkrankung, eine Verminderung der Lebenserwartung oder eine dauerhafte Beeinträchtigung der Lebensqualität durch die verursachte Gesundheitsstörung zu erwarten ist.<br />
+                            - Die Krankenkasse trifft die Entscheidung, ob Sie gemäß dieser Richtlinien schwerwiegend chronisch krank sind.<br />
+                            - Versicherte mit chronischer Krankheit haben eine geringere Belastungsgrenze von nur 1 % (statt 2 %) der jährlichen Bruttoeinnahmen zum Lebensunterhalt (abzüglich etwaiger Freibeträge für Gatte und Kinder). Sobald die Belastungsgrenze erreicht ist, kann sich die Familie für den Rest des Jahres von weiteren Zuzahlungen durch die Krankenkasse befreien lassen. Die Befreiung gilt für die gesamte im gemeinsamen Haushalt lebende Familie.
+                            "
+                            rel="tooltip">Chronisch krank oder Pflegegrad 3 bis 5</label>
+                        <select name="chronisch" id="chronisch" style="width: 50%;">
                             <option value="0">Nein</option>
                             <option value="1">Ja</option>
                         </select>
@@ -155,8 +223,13 @@
                     <div class="online-rechner-page2-section3-input-div"
                         style="margin-bottom: 1rem; display: flex; align-items: center;justify-content: space-between;">
                         <label style="margin-top: -0.67rem;" class="online-rechner-page2-section3-heading "
-                            for="online-rechner-input1">Verheiratet oder eingetragene Lebenspartnerschaft</label>
-                        <select name="" id="verheiratet" style="width: 50%;">
+                            for="online-rechner-input1"
+                            title="Geben Sie bitte an, ob Sie mit Ihrem Ehepartner bzw. mit Ihrem eingetragenen Lebenspartner in einem Haushalt leben. Dabei ist unerheblich, ob dieser selbst versichert, familienversichert oder nicht in der gesetzlichen Krankenversicherung versichert ist. Zur Bestimmung der Belastungsgrenze für Zuzahlungen wird das Familien-Bruttoeinkommen abzüglich bestimmter Freibeträge für jedes im Haushalt lebende Familienmitglied herangezogen.<br />
+                            - Der Freibetrag für den Ehepartner bzw. eingetragenen Lebenspartner beträgt 2023 15 % der jährlichen Bezugsgröße 2023 und macht somit jährlich 6.111,00 EUR aus, falls dieser Punkt mit 'ja' beantwortet wurde (Im Vorjahr 2022 waren es 15 % der vorjährlichen Bezugsgröße und machte somit jährlich 5.922,00 EUR aus.).<br />
+                            - Die jährliche Bezugsgröße ist definiert als das Durchschnittsentgelt der gesetzlichen Rentenversicherung im vorvergangenen Kalenderjahr. In der gesetzlichen Kranken- und Pflegeversicherung gilt dabei die Bezugsgröße West bundeseinheitlich.
+                            "
+                            rel="tooltip">Verheiratet oder eingetragene Lebenspartnerschaft</label>
+                        <select name="verheiratet" id="verheiratet" style="width: 50%;">
                             <option value="0">Nein</option>
                             <option value="1">Ja</option>
                         </select>
@@ -167,24 +240,35 @@
                     <div class="online-rechner-page2-section3-input-div"
                         style="margin-bottom: 1rem; display: flex; align-items: center;justify-content: space-between; margin-top: 1rem;">
                         <label style="margin-top: -0.67rem;"
-                            class="online-rechner-page2-section3-heading input-margin-top"
-                            for="online-rechner-input1">Anzahl der Kinder</label>
-                        <input id="kinder" type="number" min="0" max="2" class="ambulants2"
-                            value="0" style="width: 50%;">
+                            class="online-rechner-page2-section3-heading input-margin-top" for="online-rechner-input1"
+                            title="Geben Sie bitte an, wie viele Ihrer Kinder in Ihrem Haushalt leben. Dazu zählen alle familienversicherte Kinder. Nicht familienversicherte Kinder zählen bis zum Ende des Kalenderjahres dazu, in dem sie das 18. Lebensjahr vollenden. Kinder von getrennt lebenden oder geschiedenen Ehepartnern werden bei dem Elternteil berücksichtigt, bei dem sie wohnen, unabhängig davon, bei wem die Familienversicherung durchgeführt wird.<br />
+                            Zur Bestimmung der Belastungsgrenze für Zuzahlungen wird das Familien-Bruttoeinkommen abzüglich bestimmter Freibeträge für jedes im Haushalt lebende Familienmitglied herangezogen. 2023 beträgt der Freibetrag je Kind 8.952 EUR. Im Vorjahr, also 2022 betrug er 8.388 EUR.
+                            "
+                            rel="tooltip">Anzahl der Kinder</label>
+                        <input id="kinder" name="kinder" type="number" min="0" max="2"
+                            class="ambulants2" value="0" style="width: 50%;">
                     </div>
                     <div class="online-rechner-page2-section3-input-div"
                         style="margin-bottom: 1rem; display: flex; align-items: center;justify-content: space-between; margin-top: 1rem;">
                         <label style="margin-top: -0.67rem;"
-                            class="online-rechner-page2-section3-heading input-margin-top"
-                            for="online-rechner-input1">Familien-Bruttoeinkommen</label>
-                        <input id="brutto" type="number" min="0" max="2" class="ambulants3"
-                            value="0" style="width: 50%;">
+                            class="online-rechner-page2-section3-heading input-margin-top" for="online-rechner-input1"
+                            title="Geben Sie bitte das jährliche Familien-Bruttoeinkommen an.<br />
+                            - Das Familieneinkommen setzt sich zusammen aus den gesamten Bruttoeinnahmen zum Lebensunterhalt des Versicherten und seiner Familienangehörigen im gemeinsamen Haushalt.<br />
+                            - Hierzu zählen wiederkehrende Bezüge wie Arbeitsentgelt, Renten- und Versorgungsbezüge, Arbeitseinkommen sowie Einkünfte, die ein Unternehmer aus seinem Geschäftsbetrieb zur Bestreitung des Lebensunterhalts für sich und seine Familie erzielt oder entnimmt.<br />
+                            - Dazu kommen noch Einnahmen aus Kapitalvermögen, Einnahmen aus Vermietung und Verpachtung, sowie Hilfen zum Lebensunterhalt nach dem Bundessozialhilfegesetz.<br />
+                            - Genauso wie bei den Krankenversicherungs­beiträgen werden also auch für die Ermittlung der Belastungsgrenze die Bruttoeinkünfte als Berechnungsgrundlage herangezogen.<br />
+                            - Anzugeben sind die geschätzten Einkünfte für das aktuelle Kalenderjahr, denn gemäß der 'Verfahrensgrundsätze zur Vorschrift über die Erstattung bzw. Befreiung von gesetzlichen Zuzahlungen' heißt es unter 3.2 (3): 'Die Feststellung der Belastungsgrenze erfolgt auf der Basis der zum Zeitpunkt der Prüfung bestehenden aktuellen Verhältnisse durch eine Schätzung der kalenderjährlichen Bruttoeinnahmen zum Lebensunterhalt unter Einbeziehung der voraussichtlich im weiteren Verlauf des Kalenderjahres zu erwartenden Einnahmen (z. B. Urlaubs- und Weihnachtsgeld) und Einkommenssteigerungen. Bei stark schwankenden Einkünften kann eine vergleichende Berücksichtigung der Gesamtbruttoeinnahmen des Vorjahres erfolgen.'
+                            "
+                            rel="tooltip">Familien-Bruttoeinkommen</label>
+                        <input id="brutto" type="number" min="0" name="brutto" max="2"
+                            class="ambulants3" value="0" style="width: 50%;">
                     </div>
 
+                    <div style="display: flex; justify-content: center;"><button id="zuzahlungen-btn" type="submit"
+                            class="online-rechner-page2-section3-btn"
+                            style="border: none; text-transform: uppercase;">Berechnen</button></div>
             </form>
-            <div style="display: flex; justify-content: center;"><button id="zuzahlungen-btn"
-                    class="online-rechner-page2-section3-btn"
-                    style="border: none; text-transform: uppercase;">Berechnen</button></div>
+
         </div>
 
 
@@ -195,23 +279,39 @@
                 <div>Ergebnis</div>
             </div>
 
-            <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                <div style="padding-top: 0"><span class="span1">Familieneinkommen</span> <span class="span2">0,00
-                        EUR
-                    </span> </div>
-                <div> <span class="span1">- Freibetrag Partner</span> <span class="span2">0,00 EUR</span> </div>
-                <div> <span class="span1">- Freibetrag Kinder</span> <span class="span2">0,00 EUR</span> </div>
-                <div> <span class="span1">Pflegegeld Höchstbetrag</span> <span class="span2">0,00 %</span> </div>
-                <div> <span class="span1">= Berechnungsgrundlage</span> <span class="span2">0,00 EUR</span> </div>
-                <div> <span class="span1">Belastungsgrenze</span> <span class="span2">1% davon</span> </div>
+            @if (session('regelsatz') && session('regelsatz') === 1)
+                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
+                    <div style="padding-top: 0">
+                        <span class="span1">Regelsatz</span>
+                        <span
+                            class="span2">{{ number_format(session('berechnungsgrundlage1'), 2, ',', '.') . ' EUR' }}</span>
+                        <div>
+                        </div>
+                    @else
+                        <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
+                            <div style="padding-top: 0"><span class="span1">Familieneinkommen</span> <span
+                                    class="span2">{{ number_format(session('brutto'), 2, ',', '.') . ' EUR' }}
+                                </span> </div>
+                            <div> <span class="span1">- Freibetrag Partner</span> <span
+                                    class="span2">{{ number_format(session('verheiratetfreibetrag'), 2, ',', '.') . ' EUR' }}</span>
+                            </div>
+                            <div> <span class="span1">- Freibetrag Kinder</span> <span class="span2">
+                                {{number_format(session('kinderfreibetrag'), 2, ',', '.')." EUR";}}
+                            </span>
+                            </div>
+                          
+                            <div> <span class="span1">= Berechnungsgrundlage</span> <span class="span2">
+                                {{number_format(session('berechnungsgrundlage1'), 2, ',', '.')." EUR"}}
+                            </span>
+                            </div>
+                            <div> <span class="span1">Belastungsgrenze</span> <span class="span2">{{session('chronisch')}}</span>
+                            </div>
 
-                <div style="border-bottom: none; color: #ffffffbd;">In diesem Jahr müssen Sie demnach maximal 0,00 EUR
-                    für Zuzahlungen aufbringen.</div>
+                            <div style="border-bottom: none; color: #ffffffbd;">{{session('maxzuzahlungtext')}}</div>
 
-            </div>
-            <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                    class="online-rechner-page2-section3-btn"
-                    style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
+                        </div>
+            @endif
+
         </div>
     </div>
     </div>
@@ -226,7 +326,85 @@
 
     @include('components.footer.footer_second')
 
+    <script>
+        $(function() {
+            var targets = $('[rel~=tooltip]'),
+                target = false,
+                tooltip = false,
+                title = false;
 
+            targets.bind('mouseenter', function() {
+                console.log('waow');
+                target = $(this);
+                tip = target.attr('title');
+                tooltip = $('<div id="tooltip"></div>');
+
+                if (!tip || tip == '')
+                    return false;
+
+                target.removeAttr('title');
+                tooltip.css('opacity', 0)
+                    .html(tip)
+                    .appendTo('body');
+
+                var init_tooltip = function() {
+                    if ($(window).width() < tooltip.outerWidth() * 1.5)
+                        tooltip.css('max-width', $(window).width() / 2);
+                    else
+                        tooltip.css('max-width', 340);
+
+                    var pos_left = target.offset().left + (target.outerWidth() / 2) - (tooltip
+                            .outerWidth() / 2),
+                        pos_top = target.offset().top - tooltip.outerHeight() - 20;
+
+                    if (pos_left < 0) {
+                        pos_left = target.offset().left + target.outerWidth() / 2 - 20;
+                        tooltip.addClass('left');
+                    } else
+                        tooltip.removeClass('left');
+
+                    if (pos_left + tooltip.outerWidth() > $(window).width()) {
+                        pos_left = target.offset().left - tooltip.outerWidth() + target.outerWidth() /
+                            2 + 20;
+                        tooltip.addClass('right');
+                    } else
+                        tooltip.removeClass('right');
+
+                    if (pos_top < 0) {
+                        var pos_top = target.offset().top + target.outerHeight();
+                        tooltip.addClass('top');
+                    } else
+                        tooltip.removeClass('top');
+
+                    tooltip.css({
+                            left: pos_left,
+                            top: pos_top
+                        })
+                        .animate({
+                            top: '+=10',
+                            opacity: 1
+                        }, 50);
+                };
+
+                init_tooltip();
+                $(window).resize(init_tooltip);
+
+                var remove_tooltip = function() {
+                    tooltip.animate({
+                        top: '-=10',
+                        opacity: 0
+                    }, 50, function() {
+                        $(this).remove();
+                    });
+
+                    target.attr('title', tip);
+                };
+
+                target.bind('mouseleave', remove_tooltip);
+                tooltip.bind('click', remove_tooltip);
+            });
+        });
+    </script>
 
 </body>
 

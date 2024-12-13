@@ -26,15 +26,15 @@ class MarketplaceController extends Controller
 
         // Apply category filter if a category is selected in the request
         if ($request->category) {
-            $category = MarketplaceCategory::where('name', $request->category)->first();
-            if ($category) {
-                $query->where(function ($q) use ($category) {
-                    $q->where('category1', $category->id)
-                        ->orWhere('category2', $category->id)
-                        ->orWhere('category3', $category->id)
-                        ->orWhere('category4', $category->id);
-                });
-            }
+            // $category = MarketplaceCategory::where('name', $request->category)->first();
+            // if ($category) {
+            //     $query->where(function ($q) use ($category) {
+            //         $q->where('category1', $category->id)
+            //             ->orWhere('category2', $category->id)
+            //             ->orWhere('category3', $category->id)
+            //             ->orWhere('category4', $category->id);
+            //     });
+            // }
         }
 
         // Paginate the marketplaces (10 per page)

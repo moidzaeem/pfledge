@@ -23,20 +23,22 @@ class BlogsController extends Controller
 
         // Apply category filter if a category is selected in the request
         if ($request->category) {
-            $category = BlogCategory::where('name', $request->category)->first();
-            if ($category) {
-                $query->where(function ($q) use ($category) {
-                    $q->where('category1', $category->id)
-                        ->orWhere('category2', $category->id)
-                        ->orWhere('category3', $category->id)
-                        ->orWhere('category4', $category->id);
-                });
-            }
+            // $category = BlogCategory::where('name', $request->category)->first();
+            // if ($category) {
+            //     $query->where(function ($q) use ($category) {
+            //         $q->where('category1', $category->id)
+            //             ->orWhere('category2', $category->id)
+            //             ->orWhere('category3', $category->id)
+            //             ->orWhere('category4', $category->id);
+            //     });
+            // }
         }
-        // Fetch the filtered blog records
-        $blogs = $query->get();
 
-        $blogs = $blogs->map(function ($blog) use ($categoriesById) {
+        // Fetch the filtered blog records and order by latest (newest first), paginate 5 articles per page
+        $blogs = $query->latest()->paginate(10);  // Paginate with 5 blogs per page
+
+        // Map blogs to include category names
+        $blogs->getCollection()->transform(function ($blog) use ($categoriesById) {
             // Add category1_name, category2_name, etc.
             $blog->category1_name = isset($categoriesById[$blog->category1]) ? $categoriesById[$blog->category1]->name : null;
             $blog->category2_name = isset($categoriesById[$blog->category2]) ? $categoriesById[$blog->category2]->name : null;
@@ -46,10 +48,10 @@ class BlogsController extends Controller
             return $blog;
         });
 
-        // Create an array to hold the unique categories for all marketplaces
+        // Create an array to hold the unique categories for all blogs
         $uniqueCategories = [];
 
-        // Iterate through each marketplace and add its categories to the uniqueCategories array
+        // Iterate through each blog and add its categories to the uniqueCategories array
         $blogs->each(function ($blog) use ($categoriesById, &$uniqueCategories) {
             // Add category1 if it exists and is not already added
             if (isset($categoriesById[$blog->category1]) && !in_array($categoriesById[$blog->category1], $uniqueCategories)) {
@@ -71,11 +73,16 @@ class BlogsController extends Controller
                 $uniqueCategories[] = $categoriesById[$blog->category4];
             }
         });
-        sort($uniqueCategories);        // Sort by 'name' property
+
+        // Optionally sort categories alphabetically by name
+        usort($uniqueCategories, function ($a, $b) {
+            return strcmp($a->name, $b->name); // Sort categories by their name
+        });
 
         // Return the view with the filtered blogs, categories, and unique categories
         return view('blogs.index', compact('blogs', 'uniqueCategories'));
     }
+
 
 
     /**
@@ -112,7 +119,7 @@ class BlogsController extends Controller
         // Handle the image upload (if an image is uploaded)
         $imagePath = null;
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('public/blog_images', 'public');
+            $imagePath = $request->file('image')->store('blog_images', 'public');
         }
 
         // Create a new blog post
@@ -186,7 +193,7 @@ class BlogsController extends Controller
                 Storage::delete($blog->image);
             }
             // Upload new image
-            $imagePath = $request->file('image')->store('public/blog_images', 'public');
+            $imagePath = $request->file('image')->store('blog_images', 'public');
         }
 
         // Update the blog post with the validated data
@@ -240,5 +247,46 @@ class BlogsController extends Controller
 
         // Return the view with the processed marketplace data
         return view('blogs.admin.index', compact('blogs'));
+    }
+
+    public function loadMoreData(Request $request)
+    {
+        $categories = BlogCategory::all();
+        $categoriesById = $categories->keyBy('id');
+
+        // Start the marketplace query (without the 'home' condition)
+        $query = Blogs::query();
+
+        // Apply category filter if a category is selected in the request
+        if ($request->category) {
+            // $category = BlogCategory::where('name', $request->category)->first();
+            // if ($category) {
+            //     $query->where(function ($q) use ($category) {
+            //         $q->where('category1', $category->id)
+            //             ->orWhere('category2', $category->id)
+            //             ->orWhere('category3', $category->id)
+            //             ->orWhere('category4', $category->id);
+            //     });
+            // }
+        }
+
+        // Get the next page of results
+        $blogs = $query->paginate(10, ['*'], 'page', $request->page); // Use the 'page' parameter for pagination
+
+        // Map category names to marketplaces
+        $blogs->getCollection()->transform(function ($blog) use ($categoriesById) {
+            $blog->category1_name = isset($categoriesById[$blog->category1]) ? $categoriesById[$blog->category1]->name : null;
+            $blog->category2_name = isset($categoriesById[$blog->category2]) ? $categoriesById[$blog->category2]->name : null;
+            $blog->category3_name = isset($categoriesById[$blog->category3]) ? $categoriesById[$blog->category3]->name : null;
+            $blog->category4_name = isset($categoriesById[$blog->category4]) ? $categoriesById[$blog->category4]->name : null;
+
+            return $blog;
+        });
+
+        // Return the next page of marketplaces as a JSON response
+        return response()->json([
+            'blogs' => view('blogs.partials.blogs', compact('blogs'))->render(),
+            'nextPage' => $blogs->hasMorePages() ? $blogs->currentPage() + 1 : null,
+        ]);
     }
 }

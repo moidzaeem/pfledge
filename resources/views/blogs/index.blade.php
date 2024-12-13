@@ -74,7 +74,7 @@
                                         <img src="{{ Storage::url($blog->image) }}" alt="" />
                                     </div>
                                     <div class="blog-card-body">
-                                        <span class="blog-date">{{ $blog->blog_date->format('d.m.Y') }}</span>
+                                        <span class="blog-date">{{ \Carbon\Carbon::parse($blog->blog_date)->format('d.m.Y') }}</span>
                                         <div class="blog-kate">
                                             Kategorie:
                                             @if ($blog->category1_name)
@@ -159,7 +159,7 @@
     </div>
     <div style="width: 100%">
         <img class="page-bottom-img" style="width: 100%; object-fit: cover; height: 100%"
-            src="{{ asset('assets/Images/blog_bottom.svg') }}" alt="" />
+            src="{{ asset('assets/Images/Blog_bottom.svg') }}" alt="" />
     </div>
 
     @include('components.footer.footer_second')

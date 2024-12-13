@@ -101,7 +101,11 @@ Route::post('/rechner_pflegegeld2/calculate', [OnlineRechner::class, 'calculatio
 Route::get('/rechner_pflegekosten2', [OnlineRechner::class, 'fourthPage'])->name('online.rechner.fourth');
 
 Route::get('/rechner_pflegekosten_ambulant2',[OnlineRechner::class,'fifthPage'])->name('online.rechner.fifth');
+Route::post('/rechner_pflegekosten_ambulant2', [OnlineRechner::class, 'calculateFifthResult'])->name('online.rechner.fifth.calculate');
+
+
 Route::get('/rechner_zuzahlungen',[OnlineRechner::class,'sixthPage'])->name('online.rechner.sixth');
+Route::post('/rechner_zuzahlungen',[OnlineRechner::class,'calculateSixthResult'])->name('online.rechner.sixth.calculate');
 
 // END ONLINE-RECHNER //
 

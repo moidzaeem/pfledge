@@ -18,7 +18,11 @@ class OnlineRechner extends Controller
 
     public function thirdPage()
     {
-        return view('online_rechner.third');
+        $pflegegeldanspruchtext = "Bei Pflegegrad 1 besteht kein Anspruch auf Pflegegeld.";
+        $teilstattext = "Bei Pflegegrad 1 besteht kein Anspruch auf teilstationäre Pflege.";
+        $vollstattext = "Hinweis: Bei vollstationärer Pflege, also der Unterbringung im Pflegeheim besteht kein Anspruch auf Pflegegeld.<br />Angegeben ist hier nur der Vollständigkeit halber die vom Pflegegrad abhängige Kostenübernahme der Pflegekasse bei Heimunterbringung.<br />Bei Pflegegrad 1 und vollstationärer Pflege besteht kein Anspruch auf Kostenübernahme.";
+
+        return view('online_rechner.third', compact('pflegegeldanspruchtext', 'teilstattext', 'vollstattext'));
     }
 
     public function calculationForThirdPage(Request $request)
@@ -121,13 +125,14 @@ class OnlineRechner extends Controller
         return view('online_rechner.fifth');
     }
 
-    public function sixthPage(){
+    public function sixthPage()
+    {
         return view('online_rechner.sixth');
 
     }
 
 
-    
+
 
     public function calculateModule(Request $request)
     { // Get values from the request
@@ -433,12 +438,12 @@ class OnlineRechner extends Controller
         } elseif ($gesamtwert <= 100) {
             $pflegegrad = 5;
         }
-$Sonderfall=false;
+        $Sonderfall = false;
         # Sonderfall:
         # Wenn beide Arme und Beine gebrauchsunfähig sind (also wenn die pflegebedürftige Person weder in der Lage ist Arme noch Beine zu verwenden, ist eine vollständige Beantwortung aller Fragen nicht erforderlich. Es ist Pflegegrad 5 zu bewilligen.)
         if ($modul1_6 == "1") {
             $pflegegrad = 5;
-            $Sonderfall=true;
+            $Sonderfall = true;
         }
 
         $data = [
@@ -472,8 +477,235 @@ $Sonderfall=false;
         return back()->with([
             'modul1_punkte' => $data,
             'pflegegrad' => $pflegegrad,
-            'Sonderfall'=>$Sonderfall
+            'Sonderfall' => $Sonderfall
         ]);
+    }
+
+    public function calculateFifthResult(Request $request)
+    {
+        $tagelk1 = 0;
+        $tagelk2 = 0;
+        $tagelk3 = 0;
+        $tagelk4 = 0;
+        $tagelk5 = 0;
+        $tagelk6 = 0;
+        $tagelk7 = 0;
+        $tagelk8 = 0;
+        $tagelk9 = 0;
+        $tagelk10 = 0;
+        $tagelk11 = 0;
+        $tagelk12 = 0;
+        $tagelk13 = 0;
+        $tagelk14 = 0;
+        $tagelk15 = 0;
+        $tagelk16 = 0;
+        $tagelk17 = 0;
+        $tagelk18 = 0;
+        $tagelk19 = 0;
+        $tagelk20 = 0;
+        $tagelk21 = 0;
+        $tagelk22 = 0;
+        $tagelk23 = 0;
+        $pflegegrad = $request->pflegegrad;
+        $erstattungssatz = 0;
+        $pgtext = "kein Pflegegrad";
+        $monattage = 0;
+        $monattagekosten = 0;
+        $monatminuten = 0;
+        $monatminutenkosten = 0;
+        $gesamtsumme = 0;
+
+        $leistung1 = "Erstbesuch (LK 1)";
+        $leistung2 = "Folgebesuch (LK 2)";
+        $leistung3 = "Kleine Pflege - Grundpflege (LK 3)";
+        $leistung4 = "Große Pflege I - Grundpflege (LK 4)";
+        $leistung5 = "Große Pflege II - Grundpflege (LK 5)";
+        $leistung6 = "Kämmen und Rasieren - Grundpflege (LK 6)";
+        # $leistung7=" (LK 7)";
+        $leistung8 = "Hilfen bei Aufsuchen und Verlassen des Bettes im Zusammenhang mit der Körperpflege - Grundpflege (LK 8)";
+        $leistung9 = "Hilfen beim Aufsuchen und Verlassen des Bettes - Grundpflege (LK 9)";
+        $leistung10 = "Spezielle Lagerung bei Immobilität im Zusammenhang mit der Körperpflege - Grundpflege (LK 10)";
+        $leistung11 = "Spezielle Lagerung bei Immobilität - Grundpflege (LK 11)";
+        $leistung12 = "Einfache Hilfe bei der Nahrungsaufnahme - Grundpflege (LK 12)";
+        $leistung13 = "Umfangreiche Hilfe bei der Nahrungsaufnahme - Grundpflege (LK 13)";
+        $leistung14 = "Nahrungszufuhr durch Verabreichung von Sondenkost - Grundpflege (LK 14)";
+        $leistung15 = "Ergänzende Hilfe bei Ausscheidungen im Zusammenhang mit der Körperpflege - Grundpflege (LK 15)";
+        $leistung16 = "Umfangreiche Hilfe bei Ausscheidungen - Grundpflege (LK 16)";
+        $leistung17 = "Hilfestellung beim Verlassen oder Wiederaufsuchen der Wohnung - Grundpflege (LK 17)";
+        $leistung18 = "Begleitung bei Aktivitäten - Grundpflege (LK 18)";
+        $leistung19 = "Hauswirtschaftliche Versorgung (LK 19)";
+        $leistung20 = "Beratungsbesuch gem. § 37 Abs. 3 SGB XI (LK 20)";
+        $leistung21 = "Wegepauschalen (LK 21)";
+        $leistung22 = "Grundpflege - nach Zeit";
+        $leistung23 = "Betreuungsleistungen - nach Zeit";
+
+        if ($pflegegrad == 0) {
+            $erstattungssatz = 0;
+            $pgtext = "kein Pflegegrad";
+        } elseif ($pflegegrad == 1) {
+            $erstattungssatz = 0;
+            $pgtext = "Pflegegrad 1";
+        } elseif ($pflegegrad == 2) {
+            $erstattungssatz = 761;
+            $pgtext = "Pflegegrad 2";
+        } elseif ($pflegegrad == 3) {
+            $erstattungssatz = 1432;
+            $pgtext = "Pflegegrad 3";
+        } elseif ($pflegegrad == 4) {
+            $erstattungssatz = 1778;
+            $pgtext = "Pflegegrad 4";
+        } elseif ($pflegegrad == 5) {
+            $erstattungssatz = 2200;
+            $pgtext = "Pflegegrad 5";
+        }
+        $tagelk1 = (int) $request->input('tagelk1', 0);
+        $tagelk2 = (int) $request->input('tagelk2', 0);
+        $tagelk3 = (int) $request->input('tagelk3', 0);
+        $tagelk4 = (int) $request->input('tagelk4', 0);
+        $tagelk5 = (int) $request->input('tagelk5', 0);
+        $tagelk6 = (int) $request->input('tagelk6', 0);
+        $tagelk7 = (int) $request->input('tagelk7', 0);
+        $tagelk8 = (int) $request->input('tagelk8', 0);
+        $tagelk9 = (int) $request->input('tagelk9', 0);
+        $tagelk10 = (int) $request->input('tagelk10', 0);
+        $tagelk11 = (int) $request->input('tagelk11', 0);
+        $tagelk12 = (int) $request->input('tagelk12', 0);
+        $tagelk13 = (int) $request->input('tagelk13', 0);
+        $tagelk14 = (int) $request->input('tagelk14', 0);
+        $tagelk15 = (int) $request->input('tagelk15', 0);
+        $tagelk16 = (int) $request->input('tagelk16', 0);
+        $tagelk17 = (int) $request->input('tagelk17', 0);
+        $tagelk18 = (int) $request->input('tagelk18', 0);
+        $tagelk19 = (int) $request->input('tagelk19', 0);
+        $tagelk20 = (int) $request->input('tagelk20', 0);
+        $tagelk21 = (int) $request->input('tagelk21', 0);
+        $tagelk22 = (int) $request->input('tagelk22', 0);
+        $tagelk23 = (int) $request->input('tagelk23', 0);
+
+        $monatlk1 = 57.75 * $tagelk1;
+        $monatlk2 = 31.50 * $tagelk2;
+        $monatlk3 = 11.55 * $tagelk3;
+        $monatlk4 = 18.90 * $tagelk4;
+        $monatlk5 = 23.65 * $tagelk5;
+        $monatlk6 = 3.70 * $tagelk6;
+        $monatlk7 = 0 * $tagelk7;
+        $monatlk8 = 2.65 * $tagelk8;
+        $monatlk9 = 5.25 * $tagelk9;
+        $monatlk10 = 5.25 * $tagelk10;
+        $monatlk11 = 10.5 * $tagelk11;
+        $monatlk12 = 5.25 * $tagelk12;
+        $monatlk13 = 15.75 * $tagelk13;
+        $monatlk14 = 5.25 * $tagelk14;
+        $monatlk15 = 4.20 * $tagelk15;
+        $monatlk16 = 10.5 * $tagelk16;
+        $monatlk17 = 4.20 * $tagelk17;
+        $monatlk18 = 31.5 * $tagelk18;
+        $monatlk19 = 0.42 * $tagelk19;
+        # Bei LK 19: 4,20 EUR je angefangene 10 Minuten
+        $monatlk20 = 55.15 * $tagelk20;
+        $monatlk21 = 2.33 * $tagelk21;
+        # Ansatz von 6,00 EUR als etwaigen Wert
+        # Vergütung 21a: 4,65 EUR
+        # Vergütung 21b: 7,90 EUR
+        # Vergütung 21c: 2,33 EUR
+        # Vergütung 21d: 3,95 EUR
+        # Vergütung 21 (Interner Dienst): 1,27 EUR
+        # Vergütung 21 (Externer Dienst, mehr als zwei Pflegebedürftige): 1,88 EUR
+        # Vergütung 21 (Pflegeleistungen, Minutenwert): 0,75 EUR
+        # Vergütung 21 (Betreuungsleistungen, Minutenwert): 0,50 EUR
+        $monatlk22 = 0.35 * $tagelk22;
+        # Bei Grundpflege nach Zeit: 15 Punkte je Minute, Einsatzmindestdauer: 15 Minuten
+        # Ansatz von erfassten Minuten - Vgl.: Punkte 105 = 5,25 EUR; Ansatz hier 0,35 EUR je Minute
+        $monatlk23 = 0.23 * $tagelk23;
+        # Bei Betreuungsleistungen nach Zeit: 10 Punkte je Minute, Einsatzmindestdauer: 15 Minuten
+        # Ansatz 0,23 EUR je Minute
+        $monattage = $tagelk1 + $tagelk2 + $tagelk3 + $tagelk4 + $tagelk5 + $tagelk6 + $tagelk7 + $tagelk8 + $tagelk9 + $tagelk10 + $tagelk11 + $tagelk12 + $tagelk13 + $tagelk14 + $tagelk15 + $tagelk16 + $tagelk17 + $tagelk18 + $tagelk20;
+        $monattagekosten = $monatlk1 + $monatlk2 + $monatlk3 + $monatlk4 + $monatlk5 + $monatlk6 + $monatlk7 + $monatlk8 + $monatlk9 + $monatlk10 + $monatlk11 + $monatlk12 + $monatlk13 + $monatlk14 + $monatlk15 + $monatlk16 + $monatlk17 + $monatlk18 + $monatlk20;
+        # LK 1 - 18, 20
+        $monatminuten = $tagelk19 + $tagelk21 + $tagelk22 + $tagelk23;
+        $monatminutenkosten = $monatlk19 + $monatlk21 + $monatlk22 + $monatlk23;
+        # LK 19, 21, GP und BL
+        $gesamtsumme = $monattagekosten + $monatminutenkosten;
+        # Gesamtsumme im Monat
+        $differenz = $gesamtsumme - $erstattungssatz;
+
+        return back()->with([
+            'gesamtsumme' => $gesamtsumme,
+            'pgtext' => $pgtext,
+            'differenz' => $differenz,
+            'erstattungssatz' => $erstattungssatz,
+        ]);
+    }
+
+    public function calculateSixthResult(Request $request)
+    {
+        $jahr = 2023;
+        $alg = 0;
+        $chronisch = 1;
+        $verheiratet = 0;
+        $kinder = 0;
+        $brutto = 0;
+
+        $berechnungsgrundlage0 = 0;
+        $berechnungsgrundlage1 = 0;
+        $kinderfreibetrag = 0;
+        $verheiratetfreibetrag = 0;
+        $maxzuzahlung = 0;
+        $regelsatz = 0;
+
+        $jahr = intval($request->jahr);
+        $alg = intval($request->alg);
+        $chronisch = intval($request->chronisch);
+        $verheiratet = intval($request->verheiratet);
+        $kinder = intval($request->kinder);
+        $brutto = intval($request->brutto);
+        $berechnungsgrundlage1 = 0;
+        # $berechnungsgrundlage1 = vor Belastungsgrenze
+        $kinderfreibetrag = 0;
+        $verheiratetfreibetrag = 0;
+        $maxzuzahlung = 0;
+        if ($alg == 1) {
+            $regelsatz = 1;
+            $verheiratetfreibetrag = "irrelevant";
+            $kinderfreibetrag = "irrelevant";
+            if ($jahr == 2023) {
+                $berechnungsgrundlage1 = 6024;
+            } elseif ($jahr == 2022) {
+                $berechnungsgrundlage1 = 5388;
+            }
+        } else {
+            if ($verheiratet == 1) {
+                if ($jahr == 2023) {
+                    $verheiratetfreibetrag = 6111;
+                } elseif ($jahr == 2022) {
+                    $verheiratetfreibetrag = 5922;
+                }
+            }
+            if ($kinder > 0) {
+                if ($jahr == 2023) {
+                    $kinderfreibetrag = $kinder * 8952;
+                } elseif ($jahr == 2022) {
+                    $kinderfreibetrag = $kinder * 8388;
+                }
+            }
+            $berechnungsgrundlage1 = $brutto - $verheiratetfreibetrag - $kinderfreibetrag;
+        }
+        $maxzuzahlung = ($berechnungsgrundlage1 * $chronisch) / 100;
+        if ($maxzuzahlung < 0) {
+            $maxzuzahlung = 0;
+        }
+        $maxzuzahlungtext = "In diesem Jahr müssen Sie demnach maximal " . number_format($maxzuzahlung, 2, ',', '.') . " EUR für Zuzahlungen aufbringen.";
+        return back()->with([
+            'berechnungsgrundlage1' => $berechnungsgrundlage1,
+            'brutto' => $brutto,
+            'verheiratetfreibetrag' => $verheiratetfreibetrag,
+            'kinderfreibetrag' => $kinderfreibetrag,
+            'chronisch' => $chronisch,
+            'maxzuzahlungtext' => $maxzuzahlungtext,
+            'regelsatz'=>$regelsatz,
+
+        ]);
+
     }
 
 }

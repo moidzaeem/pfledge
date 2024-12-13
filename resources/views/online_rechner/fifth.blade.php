@@ -3,6 +3,56 @@
 
 @include('components.header.head')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    strong {
+        color: #b22222;
+        font-weight: 800;
+    }
+
+    #tooltip {
+        text-align: left;
+        color: #fff;
+        background: #111;
+        position: absolute;
+        z-index: 100;
+        padding: 15px;
+        font-size: 1.0rem;
+    }
+
+    #tooltip:after
+
+    /* triangle decoration */
+        {
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #111;
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: -10px;
+        margin-left: -10px;
+    }
+
+    #tooltip.top:after {
+        border-top-color: transparent;
+        border-bottom: 10px solid #111;
+        top: -20px;
+        bottom: auto;
+    }
+
+    #tooltip.left:after {
+        left: 10px;
+        margin: 0;
+    }
+
+    #tooltip.right:after {
+        right: 10px;
+        left: auto;
+        margin: 0;
+    }
+</style>
 
 
 <body>
@@ -103,6 +153,8 @@
             RECHNER ZUZAHLUNGEN
         </button>
     </div>
+
+
     <div class="online-rechner-section3-container rechner-calculators" id="calculator0">
         <div class="online-rechner-section3-sub-container">
             <div class="online-rechner-section3-heading">Pflegekostenrechner für die ambulante Pflege</div>
@@ -129,83 +181,98 @@
 
                 <div class="calculator-btn-container">
                     <button class="calculator-btns calculator-btn-active" id="calculator-btn0">PG</button>
-                    <button class="calculator-btns " id="calculator-btn1">LK 1</button>
-                    <button class="calculator-btns" id="calculator-btn2">LK 2</button>
-                    <button class="calculator-btns" id="calculator-btn3">LK 3</button>
-                    <button class="calculator-btns" id="calculator-btn4">LK 4</button>
-                    <button class="calculator-btns" id="calculator-btn5">LK 5</button>
-                    <button class="calculator-btns" id="calculator-btn6">LK 6</button>
-                    <button class="calculator-btns" id="calculator-btn7">LK 7</button>
-                    <button class="calculator-btns" id="calculator-btn8">LK 8</button>
-                    <button class="calculator-btns" id="calculator-btn9">LK 9</button>
-                    <button class="calculator-btns" id="calculator-btn10">LK10</button>
-                    <button class="calculator-btns" id="calculator-btn11">LK11</button>
-                    <button class="calculator-btns" id="calculator-btn12">LK12</button>
-                    <button class="calculator-btns" id="calculator-btn13">LK13</button>
-                    <button class="calculator-btns" id="calculator-btn14">LK14</button>
-                    <button class="calculator-btns" id="calculator-btn15">LK15</button>
-                    <button class="calculator-btns" id="calculator-btn16">LK16</button>
-                    <button class="calculator-btns" id="calculator-btn17">LK17</button>
-                    <button class="calculator-btns" id="calculator-btn18">LK18</button>
-                    <button class="calculator-btns" id="calculator-btn19">LK19</button>
-                    <button class="calculator-btns" id="calculator-btn20">LK20</button>
-                    <button class="calculator-btns" id="calculator-btn21">LK21</button>
-                    <button class="calculator-btns" id="calculator-btn22">GP</button>
-                    <button class="calculator-btns" id="calculator-btn23">BL</button>
+                    <button class="calculator-btns " id="calculator-btn1" title="Leistungskomplex 1: Erstbesuch"
+                        rel="tooltip">LK 1</button>
+                    <button class="calculator-btns" id="calculator-btn2" title="Leistungskomplex 2: Folgebesuch"
+                        rel="tooltip">LK 2</button>
+                    <button class="calculator-btns" id="calculator-btn3"
+                        title="Leistungskomplex 3: Kleine Pflege - Grundpflege" rel="tooltip">LK 3</button>
+                    <button class="calculator-btns" id="calculator-btn4"
+                        title="Leistungskomplex 4: Große Pflege I - Grundpflege" rel="tooltip">LK 4</button>
+                    <button class="calculator-btns" id="calculator-btn5"
+                        title="Leistungskomplex 5: Große Pflege II - Grundpflege" rel="tooltip">LK 5</button>
+                    <button class="calculator-btns" id="calculator-btn6"
+                        title="Leistungskomplex 6: Kämmen und Rasieren - Grundpflege" rel="tooltip">LK 6</button>
+                    <button class="calculator-btns" id="calculator-btn7" title="Leistungskomplex 7: unbesetzt"
+                        rel="tooltip">LK 7</button>
+                    <button class="calculator-btns" id="calculator-btn8"
+                        title="Leistungskomplex 8: Hilfen bei Aufsuchen und Verlassen des Bettes im Zusammenhang mit der Körperpflege - Grundpflege"
+                        rel="tooltip">LK 8</button>
+                    <button class="calculator-btns" id="calculator-btn9"
+                        title="Leistungskomplex 9: Hilfen beim Aufsuchen und Verlassen des Bettes - Grundpflege"
+                        rel="tooltip">LK 9</button>
+                    <button class="calculator-btns" id="calculator-btn10"
+                        title="Leistungskomplex 10: Spezielle Lagerung bei Immobilität im Zusammenhang mit der Körperpflege - Grundpflege"
+                        rel="tooltip">LK10</button>
+                    <button class="calculator-btns" id="calculator-btn11"
+                        title="Leistungskomplex 11: Spezielle Lagerung bei Immobilität - Grundpflege"
+                        rel="tooltip">LK11</button>
+                    <button class="calculator-btns" id="calculator-btn12"
+                        title="Leistungskomplex 12: Einfache Hilfe bei der Nahrungsaufnahme - Grundpflege"
+                        rel="tooltip">LK12</button>
+                    <button class="calculator-btns" id="calculator-btn13"
+                        title="Leistungskomplex 13: Umfangreiche Hilfe bei der Nahrungsaufnahme - Grundpflege"
+                        rel="tooltip">LK13</button>
+                    <button class="calculator-btns" id="calculator-btn14"
+                        title="Leistungskomplex 14: Nahrungszufuhr durch Verabreichung von Sondenkost - Grundpflege"
+                        rel="tooltip">LK14</button>
+                    <button class="calculator-btns" id="calculator-btn15"
+                        title="Leistungskomplex 15: Ergänzende Hilfe bei Ausscheidungen im Zusammenhang mit der Körperpflege - Grundpflege"
+                        rel="tooltip">LK15</button>
+                    <button class="calculator-btns" id="calculator-btn16"
+                        title="Leistungskomplex 16: Umfangreiche Hilfe bei Ausscheidungen - Grundpflege"
+                        rel="tooltip">LK16</button>
+                    <button class="calculator-btns" id="calculator-btn17"
+                        title="Leistungskomplex 17: Hilfestellung beim Verlassen oder Wiederaufsuchen der Wohnung - Grundpflege"
+                        rel="tooltip">LK17</button>
+                    <button class="calculator-btns" id="calculator-btn18"
+                        title="Leistungskomplex 18: Begleitung bei Aktivitäten - Grundpflege"
+                        rel="tooltip">LK18</button>
+                    <button class="calculator-btns" id="calculator-btn19"
+                        title="Leistungskomplex 19: Hauswirtschaftliche Versorgung" rel="tooltip">LK19</button>
+                    <button class="calculator-btns" id="calculator-btn20"
+                        title="Leistungskomplex 20: Beratungsbesuch gem. § 37 Abs. 3 SGB XI"
+                        rel="tooltip">LK20</button>
+                    <button class="calculator-btns" id="calculator-btn21" title="Leistungskomplex 21: Wegepauschalen"
+                        rel="tooltip">LK21</button>
+                    <button class="calculator-btns" id="calculator-btn22" title="Grundpflege - nach Zeit"
+                        rel="tooltip">GP</button>
+                    <button class="calculator-btns" id="calculator-btn23" title="Betreuungsleistungen - nach Zeit"
+                        rel="tooltip"> BL</button>
                 </div>
+                <form action="{{ route('online.rechner.fifth.calculate') }}" method="POST">
+                    @csrf
 
+                    <div class="online-rechner-section3-form-heading mb-4">1. Stammdaten</div>
 
-                <div class="online-rechner-section3-form-heading mb-4">1. Stammdaten</div>
-
-                <div class="online-rechner-section3-form-sub-heading mb-4 ">
-                    Geben Sie hier den Pflegegrad ein.
-                </div>
-
-                <div class="online-rechner-page2-section3-input-div"
-                    style="margin-bottom: 1rem; display: flex; align-items: center;justify-content: space-between;">
-                    <label style="margin-top: -0.67rem;" class="online-rechner-page2-section3-heading "
-                        for="online-rechner-input1">Pflegegrad</label>
-
-                    <select name="" id="online-rechner-input1" style="width: 50%;">
-                        <option value="0">Kein Pflegegrad</option>
-                        <option value="1">Pflegegrad 1</option>
-                        <option value="2">Pflegegrad 2</option>
-                        <option value="3">Pflegegrad 3</option>
-                        <option value="4">Pflegegrad 4</option>
-                        <option value="5">Pflegegrad 5</option>
-                    </select>
-                </div>
-
-
-
-
-                </form>
-                <div style="display: flex; justify-content: center;"><button class="online-rechner-page2-section3-btn"
-                        style="border: none; text-transform: uppercase;">berechnen</button></div>
-            </div>
-
-
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
-
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
+                    <div class="online-rechner-section3-form-sub-heading mb-4 ">
+                        Geben Sie hier den Pflegegrad ein.
                     </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
 
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
+                    <div class="online-rechner-page2-section3-input-div"
+                        style="margin-bottom: 1rem; display: flex; align-items: center;justify-content: space-between;">
+                        <label style="margin-top: -0.67rem;" class="online-rechner-page2-section3-heading "
+                            for="online-rechner-input1">Pflegegrad</label>
+
+                        <select name="pflegegrad" id="online-rechner-input1" style="width: 50%;">
+                            <option value="0">Kein Pflegegrad</option>
+                            <option value="1">Pflegegrad 1</option>
+                            <option value="2">Pflegegrad 2</option>
+                            <option value="3">Pflegegrad 3</option>
+                            <option value="4">Pflegegrad 4</option>
+                            <option value="5">Pflegegrad 5</option>
+                        </select>
+                    </div>
+
+                    <div style="display: flex; justify-content: center;"><button
+                            class="online-rechner-page2-section3-btn"
+                            style="border: none; text-transform: uppercase;">berechnen</button></div>
+
+
+
             </div>
+
+
         </div>
     </div>
 
@@ -317,35 +384,14 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;">
+                    <input type="number" value="0" name="tagelk1" style="width: 50%;">
                 </div>
 
-                </form>
                 <div style="display: flex; justify-content: center;"><button class="online-rechner-page2-section3-btn"
                         style="border: none; text-transform: uppercase;">berechnen</button></div>
             </div>
 
 
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
-
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
-            </div>
         </div>
     </div>
     <!-- ########################### Online Rechner CALCULATOR2 ########################### -->
@@ -444,36 +490,13 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;">
+                    <input type="number" value="0" style="width: 50%;" name="tagelk2">
                 </div>
 
-                </form>
                 <div style="display: flex; justify-content: center;"><button class="online-rechner-page2-section3-btn"
                         style="border: none; text-transform: uppercase;">berechnen</button></div>
             </div>
 
-
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
-
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
-            </div>
         </div>
     </div>
 
@@ -576,35 +599,14 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;">
+                    <input type="number" value="0" style="width: 50%;" name="tagelk3">
                 </div>
 
-                </form>
                 <div style="display: flex; justify-content: center;"><button class="online-rechner-page2-section3-btn"
                         style="border: none; text-transform: uppercase;">berechnen</button></div>
             </div>
 
 
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
-
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
-            </div>
         </div>
     </div>
     <!-- ########################### Online Rechner CALCULATOR4 ########################### -->
@@ -712,35 +714,15 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;">
+                    <input type="number" value="0" style="width: 50%;" name="tagelk4">
                 </div>
 
-                </form>
                 <div style="display: flex; justify-content: center;"><button class="online-rechner-page2-section3-btn"
                         style="border: none; text-transform: uppercase;">berechnen</button></div>
             </div>
 
 
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
 
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
-            </div>
         </div>
     </div>
     <!-- ########################### Online Rechner CALCULATOR5 ########################### -->
@@ -850,34 +832,14 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;">
+                    <input type="number" value="0" style="width: 50%; " name="tagelk4">
                 </div>
 
-                </form>
                 <div style="display: flex; justify-content: center;"><button class="online-rechner-page2-section3-btn"
                         style="border: none; text-transform: uppercase;">berechnen</button></div>
             </div>
 
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
 
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
-            </div>
         </div>
     </div>
     <!-- ########################### Online Rechner CALCULATOR6 ########################### -->
@@ -975,35 +937,15 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;">
+                    <input type="number" value="0" style="width: 50%;" name="tagelk5">
                 </div>
 
-                </form>
                 <div style="display: flex; justify-content: center;"><button class="online-rechner-page2-section3-btn"
                         style="border: none; text-transform: uppercase;">berechnen</button></div>
             </div>
 
 
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
 
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
-            </div>
         </div>
     </div>
     <!-- ########################### Online Rechner CALCULATOR7 ########################### -->
@@ -1064,26 +1006,7 @@
             </div>
 
 
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
 
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
-            </div>
         </div>
     </div>
     <!-- ########################### Online Rechner CALCULATOR8 ########################### -->
@@ -1170,35 +1093,15 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;">
+                    <input type="number" value="0" style="width: 50%;" name="tagelk6">
                 </div>
 
-                </form>
                 <div style="display: flex; justify-content: center;"><button class="online-rechner-page2-section3-btn"
                         style="border: none; text-transform: uppercase;">berechnen</button></div>
             </div>
 
 
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
 
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
-            </div>
         </div>
     </div>
     <!-- ########################### Online Rechner CALCULATOR9 ########################### -->
@@ -1290,35 +1193,14 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;">
+                    <input type="number" value="0" style="width: 50%;" name="tagelk7">
                 </div>
 
-                </form>
                 <div style="display: flex; justify-content: center;"><button class="online-rechner-page2-section3-btn"
                         style="border: none; text-transform: uppercase;">berechnen</button></div>
             </div>
 
 
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
-
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
-            </div>
         </div>
     </div>
     <!-- ########################### Online Rechner CALCULATOR10 ########################### -->
@@ -1393,7 +1275,8 @@
                 <div class="online-rechner-page2-section3-heading mt-4">Punktzahl: 105</div>
                 <div class="online-rechner-page2-section3-heading mt-4">Vergütung: 5,25 EUR</div>
 
-                <div class="online-rechner-section3-form-sub-heading mt-4 mb-3">Dieser Leistungskomplex ist nur mit den
+                <div class="online-rechner-section3-form-sub-heading mt-4 mb-3">Dieser Leistungskomplex ist nur mit
+                    den
                     Leistungskomplexen 3 - 5 wählbar. <br>
                     <br>
                     Liegt keine Immobilität vor, sind Maßnahmen zum körper- und situationsgerechten Liegen und Sitzen im
@@ -1409,36 +1292,15 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;">
+                    <input type="number" value="0" style="width: 50%;" name="tagelk8">
                 </div>
 
-                </form>
-                <div style="display: flex; justify-content: center;"><button
-                        class="online-rechner-page2-section3-btn"
+                <div style="display: flex; justify-content: center;"><button class="online-rechner-page2-section3-btn"
                         style="border: none; text-transform: uppercase;">berechnen</button></div>
             </div>
 
 
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
 
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
-            </div>
         </div>
     </div>
     <!-- ########################### Online Rechner CALCULATOR11 ########################### -->
@@ -1530,36 +1392,15 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;">
+                    <input type="number" value="0" style="width: 50%;" name="tagelk9">
                 </div>
 
-                </form>
-                <div style="display: flex; justify-content: center;"><button
-                        class="online-rechner-page2-section3-btn"
+                <div style="display: flex; justify-content: center;"><button class="online-rechner-page2-section3-btn"
                         style="border: none; text-transform: uppercase;">berechnen</button></div>
             </div>
 
 
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
 
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
-            </div>
         </div>
     </div>
     <!-- ########################### Online Rechner CALCULATOR12 ########################### -->
@@ -1661,36 +1502,16 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;">
+                    <input type="number" value="0" style="width: 50%;" name="tagelk10">
                 </div>
 
-                </form>
                 <div style="display: flex; justify-content: center;"><button
                         class="online-rechner-page2-section3-btn"
                         style="border: none; text-transform: uppercase;">berechnen</button></div>
             </div>
 
 
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
 
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
-            </div>
         </div>
     </div>
     <!-- ########################### Online Rechner CALCULATOR13 ########################### -->
@@ -1801,36 +1622,14 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;">
+                    <input type="number" value="0" style="width: 50%;" name="tagelk11">
                 </div>
 
-                </form>
                 <div style="display: flex; justify-content: center;"><button
                         class="online-rechner-page2-section3-btn"
                         style="border: none; text-transform: uppercase;">berechnen</button></div>
             </div>
 
-
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
-
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
-            </div>
         </div>
     </div>
 
@@ -1936,36 +1735,14 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;">
+                    <input type="number" value="0" style="width: 50%;" name="tagelk12">
                 </div>
 
-                </form>
                 <div style="display: flex; justify-content: center;"><button
                         class="online-rechner-page2-section3-btn"
                         style="border: none; text-transform: uppercase;">berechnen</button></div>
             </div>
 
-
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
-
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
-            </div>
         </div>
     </div>
     <!-- ########################### Online Rechner CALCULATOR15 ########################### -->
@@ -2055,36 +1832,14 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;">
+                    <input type="number" value="0" style="width: 50%;" name="tagelk13">
                 </div>
 
-                </form>
                 <div style="display: flex; justify-content: center;"><button
                         class="online-rechner-page2-section3-btn"
                         style="border: none; text-transform: uppercase;">berechnen</button></div>
             </div>
 
-
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
-
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
-            </div>
         </div>
     </div>
 
@@ -2194,37 +1949,15 @@
                         <label style="margin-top: -0.67rem;"
                             class="online-rechner-page2-section3-heading input-margin-top"
                             for="online-rechner-input1">Anzahl Tage im Monat</label>
-                        <input type="number" value="0" style="width: 50%;">
+                        <input type="number" value="0" style="width: 50%;" name="tagelk14">
                     </div>
 
-                    </form>
                     <div style="display: flex; justify-content: center;"><button
                             class="online-rechner-page2-section3-btn"
                             style="border: none; text-transform: uppercase;">berechnen</button></div>
                 </div>
             </div>
 
-
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
-
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
-            </div>
         </div>
     </div>
     <!-- ########################### Online Rechner CALCULATOR17 ########################### -->
@@ -2319,36 +2052,15 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;">
+                    <input type="number" value="0" style="width: 50%;" name="tagelk15">
                 </div>
 
-                </form>
                 <div style="display: flex; justify-content: center;"><button
                         class="online-rechner-page2-section3-btn"
                         style="border: none; text-transform: uppercase;">berechnen</button></div>
             </div>
 
 
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
-
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
-            </div>
         </div>
     </div>
     <!-- ########################### Online Rechner CALCULATOR18 ########################### -->
@@ -2450,36 +2162,15 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;">
+                    <input type="number" value="0" style="width: 50%;" name="tagelk16">
                 </div>
 
-                </form>
                 <div style="display: flex; justify-content: center;"><button
                         class="online-rechner-page2-section3-btn"
                         style="border: none; text-transform: uppercase;">berechnen</button></div>
             </div>
 
 
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
-
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
-            </div>
         </div>
     </div>
     <!-- ########################### Online Rechner CALCULATOR19 ########################### -->
@@ -2609,36 +2300,16 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Summe Minuten im Monat</label>
-                    <input type="number" value="0" style="width: 50%;">
+                    <input type="number" value="0" style="width: 50%;" name="tagelk17">
                 </div>
 
-                </form>
                 <div style="display: flex; justify-content: center;"><button
                         class="online-rechner-page2-section3-btn"
                         style="border: none; text-transform: uppercase;">berechnen</button></div>
             </div>
 
 
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
 
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
-            </div>
         </div>
     </div>
     <!-- ########################### Online Rechner CALCULATOR20 ########################### -->
@@ -2774,36 +2445,15 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Summe Minuten im Monat</label>
-                    <input type="number" value="0" style="width: 50%;">
+                    <input type="number" value="0" style="width: 50%;" name="tagelk18">
                 </div>
 
-                </form>
                 <div style="display: flex; justify-content: center;"><button
                         class="online-rechner-page2-section3-btn"
                         style="border: none; text-transform: uppercase;">berechnen</button></div>
             </div>
 
 
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
-
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
-            </div>
         </div>
     </div>
     <!-- ########################### Online Rechner CALCULATOR21 ########################### -->
@@ -2931,36 +2581,14 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Summe Minuten im Monat</label>
-                    <input type="number" value="0" style="width: 50%;">
+                    <input type="number" value="0" style="width: 50%;" name="tagelk19">
                 </div>
 
-                </form>
                 <div style="display: flex; justify-content: center;"><button
                         class="online-rechner-page2-section3-btn"
                         style="border: none; text-transform: uppercase;">berechnen</button></div>
             </div>
 
-
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
-
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
-            </div>
         </div>
     </div>
     <!-- ########################### Online Rechner CALCULATOR22 ########################### -->
@@ -3160,36 +2788,15 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Summe Minuten im Monat</label>
-                    <input type="number" value="0" style="width: 50%;">
+                    <input type="number" value="0" style="width: 50%;" name="tagelk20">
                 </div>
 
-                </form>
                 <div style="display: flex; justify-content: center;"><button
                         class="online-rechner-page2-section3-btn"
                         style="border: none; text-transform: uppercase;">berechnen</button></div>
+
             </div>
 
-
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
-                </div>
-
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
-            </div>
         </div>
     </div>
     <!-- ########################### Online Rechner CALCULATOR23 ########################### -->
@@ -3320,39 +2927,41 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Summe Minuten im Monat</label>
-                    <input type="number" value="0" style="width: 50%;">
+                    <input type="number" value="0" style="width: 50%;" name="tagelk21">
                 </div>
 
-                </form>
+
                 <div style="display: flex; justify-content: center;"><button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none; text-transform: uppercase;">berechnen</button></div>
+                        class="online-rechner-page2-section3-btn" style="border: none; text-transform: uppercase;"
+                        type="submit">berechnen</button></div>
+            </div>
+            </form>
+
+
+        </div>
+
+    </div>
+    <div class="container mb-5">
+        <div class="online-rechner-section3-bottom">
+            <div class="online-rechner-section3-heading-bottom">
+                <div>Ergebnis</div>
             </div>
 
-
-            <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-            <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
-                <div class="online-rechner-section3-heading-bottom">
-                    <div>Ergebnis</div>
+            <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
+                <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">
+                        {{ session('gesamtsumme') ? number_format(session('gesamtsumme'), 2, ',', '.') . ' EUR' : '' }}</span>
                 </div>
-
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
-                    <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">0,00
-                            EUR</span> </div>
-                    <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">0,00
-                            EUR</span>
-                    </div>
-                    <div> <span class="span1">Differenz</span> <span class="span2">0,00 EUR</span> </div>
-
+                <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">
+                        {{ session('erstattungssatz') ? number_format(session('erstattungssatz'), 2, ',', '.') . ' EUR' : '' }}</span>
                 </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem;"> <button
-                        class="online-rechner-page2-section3-btn"
-                        style="border: none;background-color: #000000; width: 200px;">Zurück</button></div>
+                <div> <span class="span1">Differenz</span> <span class="span2">
+                    {{ session('differenz') ? number_format(session('differenz'), 2, ',', '.') . ' EUR' : '' }}
+                </span> </div>
+
             </div>
+
         </div>
     </div>
-
 
     <div style="width: 100%">
         <img class="page-bottom-img" style="width: 100%; object-fit: cover; height: 100%"
@@ -3361,7 +2970,85 @@
 
     @include('components.footer.footer_second')
 
+    <script>
+        $(function() {
+            var targets = $('[rel~=tooltip]'),
+                target = false,
+                tooltip = false,
+                title = false;
 
+            targets.bind('mouseenter', function() {
+                console.log('waow');
+                target = $(this);
+                tip = target.attr('title');
+                tooltip = $('<div id="tooltip"></div>');
+
+                if (!tip || tip == '')
+                    return false;
+
+                target.removeAttr('title');
+                tooltip.css('opacity', 0)
+                    .html(tip)
+                    .appendTo('body');
+
+                var init_tooltip = function() {
+                    if ($(window).width() < tooltip.outerWidth() * 1.5)
+                        tooltip.css('max-width', $(window).width() / 2);
+                    else
+                        tooltip.css('max-width', 340);
+
+                    var pos_left = target.offset().left + (target.outerWidth() / 2) - (tooltip
+                            .outerWidth() / 2),
+                        pos_top = target.offset().top - tooltip.outerHeight() - 20;
+
+                    if (pos_left < 0) {
+                        pos_left = target.offset().left + target.outerWidth() / 2 - 20;
+                        tooltip.addClass('left');
+                    } else
+                        tooltip.removeClass('left');
+
+                    if (pos_left + tooltip.outerWidth() > $(window).width()) {
+                        pos_left = target.offset().left - tooltip.outerWidth() + target.outerWidth() /
+                            2 + 20;
+                        tooltip.addClass('right');
+                    } else
+                        tooltip.removeClass('right');
+
+                    if (pos_top < 0) {
+                        var pos_top = target.offset().top + target.outerHeight();
+                        tooltip.addClass('top');
+                    } else
+                        tooltip.removeClass('top');
+
+                    tooltip.css({
+                            left: pos_left,
+                            top: pos_top
+                        })
+                        .animate({
+                            top: '+=10',
+                            opacity: 1
+                        }, 50);
+                };
+
+                init_tooltip();
+                $(window).resize(init_tooltip);
+
+                var remove_tooltip = function() {
+                    tooltip.animate({
+                        top: '-=10',
+                        opacity: 0
+                    }, 50, function() {
+                        $(this).remove();
+                    });
+
+                    target.attr('title', tip);
+                };
+
+                target.bind('mouseleave', remove_tooltip);
+                tooltip.bind('click', remove_tooltip);
+            });
+        });
+    </script>
 
 </body>
 

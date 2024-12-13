@@ -184,7 +184,7 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-21')">
+            <div class="cover-letter-section3-btn " onClick="printDiv('cover-letter-content-21')">
                 <button>Drucken</button>
             </div>
         </div>
@@ -248,7 +248,8 @@
                 [Ihr Vor- und Nachname]
             </div>
             <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-22')">
-                <button>Drucken</button></div>
+                <button>Drucken</button>
+            </div>
         </div>
         <!-- ################# COVER LETTER 23 ################# -->
 
@@ -297,7 +298,8 @@
                 [Ihr Vor- und Nachname]
             </div>
             <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-23')">
-                <button>Drucken</button></div>
+                <button>Drucken</button>
+            </div>
         </div>
         <!-- ################# COVER LETTER 24 ################# -->
 
@@ -349,7 +351,8 @@
                 [Ihr Vor- und Nachname]
             </div>
             <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-24')">
-                <button>Drucken</button></div>
+                <button>Drucken</button>
+            </div>
         </div>
         <!-- ################# COVER LETTER 25 ################# -->
 
@@ -400,7 +403,8 @@
                 [Ihr Vor- und Nachname]
             </div>
             <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-25')">
-                <button>Drucken</button></div>
+                <button>Drucken</button>
+            </div>
         </div>
         <!-- ################# COVER LETTER 26 ################# -->
 
@@ -461,7 +465,8 @@
                 [Ihr Vor- und Nachname]
             </div>
             <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-26')">
-                <button>Drucken</button></div>
+                <button>Drucken</button>
+            </div>
         </div>
         <!-- ################# COVER LETTER 27 ################# -->
 
@@ -524,7 +529,8 @@
                 [Ihr Vor- und Nachname]
             </div>
             <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-27')">
-                <button>Drucken</button></div>
+                <button>Drucken</button>
+            </div>
         </div>
         <!-- ################# COVER LETTER 28 ################# -->
 
@@ -584,7 +590,8 @@
                 [Ihr Vor- und Nachname]
             </div>
             <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-28')">
-                <button>Drucken</button></div>
+                <button>Drucken</button>
+            </div>
         </div>
         <!-- ################# COVER LETTER 29 ################# -->
 
@@ -632,7 +639,8 @@
                 [Ihr Vor- und Nachname]
             </div>
             <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-29')">
-                <button>Drucken</button></div>
+                <button>Drucken</button>
+            </div>
         </div>
         <!-- ################# COVER LETTER 210 ################# -->
 
@@ -682,8 +690,9 @@
                 [Ihre Unterschrift (bei postalischem Versand)] <br />
                 [Ihr Vor- und Nachname]
             </div>
-            <div class="cover-letter-section3-btn" onClick="printDiv('cover-letter-content-210')">
-                <button>Drucken</button></div>
+            <div class="cover-letter-section3-btn " onClick="printDiv('cover-letter-content-210')">
+                <button>Drucken</button>
+            </div>
         </div>
     </div>
     <div style="width: 100%">

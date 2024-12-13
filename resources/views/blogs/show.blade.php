@@ -25,7 +25,7 @@
     <!-- ############################ KATEGORIE CONTENT ######################### -->
 
     <div class="kategorie-content">
-        <span class="kategorie-date">{{ $blog->created_at->format('d.m.Y') }}</span>
+        <span class="kategorie-date">{{ \Carbon\Carbon::parse($blog->blog_date)->format('d.m.Y') }}</span>
         <div class="kategorie">Kategorie:
             @if ($blog->category1Model?->name)
                 <span class="blog-kate">{{ $blog->category1Model->name }}</span>,

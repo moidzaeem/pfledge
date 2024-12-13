@@ -127,7 +127,7 @@
                             src="{{ asset('assets/Images/Service_img2.svg') }}" alt="Product 2" /></a>
                 </div>
                 <div class="service-slide" style="margin-right: 2rem">
-                    <a href=""{{ route('musteranschreiben') }}"><img
+                    <a href="{{ route('musteranschreiben') }}"><img
                             src="{{ asset('assets/Images/Service_img3.svg') }}" alt="Product 3" /></a>
                 </div>
             </div>
@@ -294,19 +294,23 @@
                             <div class="blog-card-body">
                                 <span
                                     class="blog-date">{{ \Carbon\Carbon::parse($blog->blog_date)->format('d.m.Y') }}</span>
-                                <div class="blog-kate">Kategorie: @if ($blog->category1_name)
-                                        <span class="blog-kate">{{ $blog->category1_name }}</span>
-                                    @endif
-                                    @if ($blog->category2_name)
-                                        <span class="blog-kate">{{ $blog->category2_name }}</span>
-                                    @endif
-                                    @if ($blog->category3_name)
-                                        <span class="blog-kate">{{ $blog->category3_name }}</span>
-                                    @endif
-                                    @if ($blog->category4_name)
-                                        <span class="blog-kate">{{ $blog->category4_name }}</span>
-                                    @endif
-                                </div>
+                                    <div class="blog-kate">Kategorie: 
+                                        @php
+                                            $categories = [
+                                                trim($blog->category1_name),
+                                                trim($blog->category2_name),
+                                                trim($blog->category3_name),
+                                                trim($blog->category4_name),
+                                            ];
+                                            // Remove any empty categories
+                                            $categories = array_filter($categories);
+                                        @endphp
+                                    
+                                        @foreach ($categories as $key => $category)
+                                            <span class="blog-kate">{{ $category }}@if($key < count($categories) - 1), @endif</span>
+                                        @endforeach
+                                    </div>
+                                    
                                 <div class="blog-card-heading">
                                     {{ $blog->title }} <!-- Dynamically display marketplace name -->
                                 </div>
@@ -361,31 +365,24 @@
                                     @endif
                                 </div>
                                 <div class="blog-card-body">
+                                    
                                     <div class="blog-kate">Kategorie:
-                                        @if ($marketplace->category1_name)
-                                            <span class="blog-kate">{{ $marketplace->category1_name }}
-                                                @if ($marketplace->category2_name || $marketplace->category3_name || $marketplace->category4_name)
-                                                    ,
-                                                @endif
-                                            </span>
-                                        @endif
-                                        @if ($marketplace->category2_name)
-                                            <span class="blog-kate">{{ $marketplace->category2_name }}
-                                                @if ($marketplace->category3_name || $marketplace->category4_name)
-                                                    ,
-                                                @endif
-                                            </span>
-                                        @endif
-                                        @if ($marketplace->category3_name)
-                                            <span class="blog-kate">{{ $marketplace->category3_name }}
-                                                @if ($marketplace->category4_name)
-                                                    ,
-                                                @endif
-                                            </span>
-                                        @endif
-                                        @if ($marketplace->category4_name)
-                                            <span class="blog-kate">{{ $marketplace->category4_name }}</span>
-                                        @endif
+                                        @php
+                                        $categories = [
+                                            trim($marketplace->category1_name),
+                                            trim($marketplace->category2_name),
+                                            trim($marketplace->category3_name),
+                                            trim($marketplace->category4_name),
+                                        ];
+                                        // Remove any empty categories
+                                        $categories = array_filter($categories);
+                                    @endphp
+                                
+                                    @foreach ($categories as $key => $category)
+                                        <span class="blog-kate">{{ $category }}@if($key < count($categories) - 1), @endif</span>
+                                    @endforeach
+
+                                    
                                     </div>
                                     <div class="blog-card-heading">
                                         {{ $marketplace->name }} <!-- Dynamically display marketplace name -->

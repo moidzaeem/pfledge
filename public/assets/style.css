@@ -1248,6 +1248,26 @@ body {
     background-color: transparent;
     border-left: none !important;
 }
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .service-header-content div,
+    .service-header-content .span2 {
+        font-size: 40px; /* Reduce font size */
+        line-height: 48px; /* Adjust line height */
+        margin-top: 1rem !important; /* Adjust margin */
+        text-align: center; /* Center text on smaller screens */
+    }
+}
+
+/* Very small screens like phones in portrait mode */
+@media (max-width: 480px) {
+    .service-header-content .span2 {
+        font-size: 30px; /* Further reduce font size */
+        line-height: 36px; /* Adjust line height */
+        margin-top: 1.5rem !important; /* Adjust margin */
+        text-align: center; /* Center text on smaller screens */
+    }
+}
 
 .service-section1-container {
     border-radius: 20px;
@@ -1275,7 +1295,7 @@ body {
     }
     .service-header-content div,
     .service-header-content .span2 {
-        font-size: 50px;
+        /* font-size: 50px; */
         line-height: 59.25px;
     }
 }
@@ -1496,7 +1516,7 @@ body {
 .kategorie-content {
     width: 85%;
     margin: auto;
-    margin-top: 15rem;
+    margin-top: 10rem;
     margin-bottom: 5rem;
 }
 .kategorie-date {
@@ -1599,7 +1619,7 @@ body {
         height: 600px;
     }
     .kategorie-content {
-        margin-top: 20rem;
+        margin-top: 15rem;
     }
 }
 @media (min-width: 1300px) {
@@ -1607,7 +1627,7 @@ body {
         height: 700px;
     }
     .kategorie-content {
-        margin-top: 27rem;
+        margin-top: 18rem;
     }
 }
 @media (min-width: 1600px) {
@@ -2685,7 +2705,6 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     text-align: left;
     color: #666c89;
     margin-bottom: 1.5rem;
-    word-break: break-all;
 }
 .newsund-section2-card-bottom {
     display: flex;
@@ -3464,7 +3483,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .cover-letter-buttons {
     margin-bottom: 5rem;
-    overflow-x: auto;
+    /* overflow-x: auto; */
 }
 .cover-letter-top-buttons {
     gap: 0.65rem;
@@ -3513,7 +3532,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 #cover-letter-bottom-buttons1 {
-    display: flex;
+    /* display: flex; */
 }
 .active-btn1 {
     background-color: #b22222;
@@ -3523,9 +3542,8 @@ input[type="number"]::-webkit-inner-spin-button {
     text-align: center;
     margin-top: 1rem;
     gap: 0.65rem;
-    display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
+    /* display: flex; */
+   
 }
 .cover-letter-bottom-buttons::-webkit-scrollbar {
     display: none; /* Chrome, Safari, and Edge */
@@ -3646,10 +3664,8 @@ input[type="number"]::-webkit-inner-spin-button {
     }
 
     .cover-letter-bottom-buttons {
-        display: flex;
+        /* display: flex; */
         justify-content: center;
-        flex-wrap: wrap;
-        overflow-x: none;
     }
 
     .cover-letter-bottom-btn {
@@ -4102,4 +4118,9 @@ input[type="number"]::-webkit-inner-spin-button {
     .news-und-section5-content {
         text-align: left !important;
     }
+}
+/* Highlight selected category */
+.category-item a.active {
+    color: #b22222!important; /* Change to your desired highlight color */
+    font-weight: 700; /* Optionally make the text bold */
 }

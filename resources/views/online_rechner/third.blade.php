@@ -3,7 +3,56 @@
 
 @include('components.header.head')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    strong {
+        color: #b22222;
+        font-weight: 800;
+    }
 
+    #tooltip {
+        text-align: left;
+        color: #fff;
+        background: #111;
+        position: absolute;
+        z-index: 100;
+        padding: 15px;
+        font-size: 1.0rem;
+    }
+
+    #tooltip:after
+
+    /* triangle decoration */
+        {
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #111;
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: -10px;
+        margin-left: -10px;
+    }
+
+    #tooltip.top:after {
+        border-top-color: transparent;
+        border-bottom: 10px solid #111;
+        top: -20px;
+        bottom: auto;
+    }
+
+    #tooltip.left:after {
+        left: 10px;
+        margin: 0;
+    }
+
+    #tooltip.right:after {
+        right: 10px;
+        left: auto;
+        margin: 0;
+    }
+</style>
 
 <body>
     <div class="header-container service-header-bg"
@@ -95,16 +144,13 @@
             <a href="{{ route('online.rechner.fourth') }}"></a> RECHNER PFLEGEKOSTEN IM PFLEGEHEIM
         </button>
         <button class="online-rechner-section2-btn5 online-rechner-section2-btn">
-            <a
-            href="{{route('online.rechner.fifth')}}"
-             
-            ></a>
+            <a href="{{ route('online.rechner.fifth') }}"></a>
             RECHNER PFLEGEKOSTEN FÜR AMBULANTE PFLEGE
-          </button>
-          <button class="online-rechner-section2-btn6 online-rechner-section2-btn">
-            <a href="{{route('online.rechner.sixth')}}"></a>
+        </button>
+        <button class="online-rechner-section2-btn6 online-rechner-section2-btn">
+            <a href="{{ route('online.rechner.sixth') }}"></a>
             RECHNER ZUZAHLUNGEN
-          </button>
+        </button>
     </div>
 
     <!-- ########################### Online Rechner SECTION 3 ########################### -->
@@ -145,7 +191,7 @@
                         Ihre Nutzung eines ambulanten Pflegedienstes ein.</div>
 
                     <div class="online-rechner-page2-section3-input-div" style="margin-bottom: 1rem; display: flex;">
-                        <label style="margin-right: 1rem;" class="online-rechner-page2-section3-heading "
+                        <label style="margin-right: 1rem;margin-top:1rem" class="online-rechner-page2-section3-heading "
                             for="online-rechner-input1">Pflegegrad</label>
                         <select name="pflegegrad" id="pflegegrad" style="width: 100px;">
                             <option value="1">1</option>
@@ -156,8 +202,8 @@
                         </select>
                     </div>
 
-                    <label id="pflegegeldtext" class="online-rechner-page2-section3-heading"
-                        for="online-rechner-input1"></label>
+                    <label id="pflegegeldtext" class="online-rechner-page2-section3-heading" for="online-rechner-input1"
+                        style="font-weight: normal!important"></label>
 
                     <div id="pflegegeldDescription" class="online-rechner-section3-form-sub-heading ">
 
@@ -167,11 +213,11 @@
                     <div class="online-rechner-page2-section3-input-div"
                         style="margin-bottom: 1rem; display: flex; align-items: center;justify-content: space-between; margin-top: 1rem;">
                         <label style="margin-top: -0.67rem;"
-                            class="online-rechner-page2-section3-heading input-margin-top"
-                            for="online-rechner-input1">Mtl. Inanspruchnahme Ambulanter Pflegedienst (max. 125
+                            class="online-rechner-page2-section3-heading input-margin-top" for="online-rechner-input1"
+                            id="ambulantmaxtext">Mtl. Inanspruchnahme Ambulanter Pflegedienst (max. 125
                             EUR)</label>
-                        <input type="number" class="ambulants" id="ambulant2" min="1" max="125"
-                            value="0" style="width: 50%;" name="ambulant">
+                        <input type="number" onkeypress="return onlyNumberKey(event)" class="ambulants" id="ambulant2"
+                            value="0" style="width: 50%;" name="ambulant" />
                     </div>
 
             </form>
@@ -192,9 +238,11 @@
                 class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2 online-rechner-section3-inner-bottom22">
 
                 <div style="padding-top: 0; color: white; font-weight: 600;">
-                    <span class="span1">Pflegegeldanspruch</span>
-                    <span class="span2">Anspruch teilstationäre Pflege</span>
-                    <span class="span3">Anspruch vollstationäre Pflege</span>
+                    <span class="span1" title="<?php echo $pflegegeldanspruchtext; ?>" rel="tooltip">Pflegegeldanspruch</span>
+                    <span class="span2" title="<?php echo $teilstattext; ?>" rel="tooltip">Anspruch teilstationäre
+                        Pflege</span>
+                    <span class="span3" title="<?php echo $vollstattext; ?>" rel="tooltip">Anspruch vollstationäre
+                        Pflege</span>
                 </div>
                 <div>
                     <span id="pflegegeldanspruchtext" class="span1">
@@ -228,6 +276,15 @@
 
 
     <script>
+        function onlyNumberKey(evt) {
+
+            // Only ASCII character in that range allowed
+            var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+            if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+                return false;
+            return true;
+        }
+
         var pflegegradoutput, pflegegradDescription, ambulantmaxtext;
         var pflegegrad = $('select#pflegegrad').val();
         if (pflegegrad == 1) {
@@ -280,6 +337,86 @@
             }
             $("#pflegegeldtext").html(pflegegradoutput);
             $("#ambulantmaxtext").html(ambulantmaxtext);
+        });
+    </script>
+
+    <script>
+        $(function() {
+            var targets = $('[rel~=tooltip]'),
+                target = false,
+                tooltip = false,
+                title = false;
+
+            targets.bind('mouseenter', function() {
+                console.log('waow');
+                target = $(this);
+                tip = target.attr('title');
+                tooltip = $('<div id="tooltip"></div>');
+
+                if (!tip || tip == '')
+                    return false;
+
+                target.removeAttr('title');
+                tooltip.css('opacity', 0)
+                    .html(tip)
+                    .appendTo('body');
+
+                var init_tooltip = function() {
+                    if ($(window).width() < tooltip.outerWidth() * 1.5)
+                        tooltip.css('max-width', $(window).width() / 2);
+                    else
+                        tooltip.css('max-width', 340);
+
+                    var pos_left = target.offset().left + (target.outerWidth() / 2) - (tooltip
+                            .outerWidth() / 2),
+                        pos_top = target.offset().top - tooltip.outerHeight() - 20;
+
+                    if (pos_left < 0) {
+                        pos_left = target.offset().left + target.outerWidth() / 2 - 20;
+                        tooltip.addClass('left');
+                    } else
+                        tooltip.removeClass('left');
+
+                    if (pos_left + tooltip.outerWidth() > $(window).width()) {
+                        pos_left = target.offset().left - tooltip.outerWidth() + target.outerWidth() /
+                            2 + 20;
+                        tooltip.addClass('right');
+                    } else
+                        tooltip.removeClass('right');
+
+                    if (pos_top < 0) {
+                        var pos_top = target.offset().top + target.outerHeight();
+                        tooltip.addClass('top');
+                    } else
+                        tooltip.removeClass('top');
+
+                    tooltip.css({
+                            left: pos_left,
+                            top: pos_top
+                        })
+                        .animate({
+                            top: '+=10',
+                            opacity: 1
+                        }, 50);
+                };
+
+                init_tooltip();
+                $(window).resize(init_tooltip);
+
+                var remove_tooltip = function() {
+                    tooltip.animate({
+                        top: '-=10',
+                        opacity: 0
+                    }, 50, function() {
+                        $(this).remove();
+                    });
+
+                    target.attr('title', tip);
+                };
+
+                target.bind('mouseleave', remove_tooltip);
+                tooltip.bind('click', remove_tooltip);
+            });
         });
     </script>
 </body>

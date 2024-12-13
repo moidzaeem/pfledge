@@ -73,8 +73,8 @@
                                 <div class="newsund-section2-card-bottom">
                                     <div class="newsund-section2-card-date">
                                         Quelle:
-                                        <a href="https://bundesgesundheitsministerium.de"
-                                            target="_blank">www.aerztezeitung.de</a>
+                                        <a href="'https://www.aend.de/"
+                                            target="_blank">www.aend.de</a>
                                     </div>
                                     <div>
                                         <button>
