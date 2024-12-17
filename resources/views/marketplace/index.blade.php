@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('components.header.head')
+<style>
+   
 
+.blog-kate span:not(:last-child)::after {
+    content: ', ';
+}
+</style>
 <body>
     <div class="header-container service-header-bg"
         style="background-image: url('{{ asset('assets/Images/Bucher_header_bg.svg') }}') !important">
@@ -105,20 +111,14 @@
                                         Kategorie:
                                         @if ($marketplace->category1_name)
                                             <span class="blog-kate">{{ trim($marketplace->category1_name) }}</span>
-                                            @if ($marketplace->category2_name || $marketplace->category3_name || $marketplace->category4_name){{ trim(',') }}
-                                            @endif
                                         @endif
                                         @if ($marketplace->category2_name)
                                             <span class="blog-kate">{{ $marketplace->category2_name }}</span>
-                                            @if ($marketplace->category3_name || $marketplace->category4_name)
-                                                ,
-                                            @endif
+                                          
                                         @endif
                                         @if ($marketplace->category3_name)
                                             <span class="blog-kate">{{ $marketplace->category3_name }}</span>
-                                            @if ($marketplace->category4_name)
-                                                ,
-                                            @endif
+                                         
                                         @endif
                                         @if ($marketplace->category4_name)
                                             <span class="blog-kate">{{ $marketplace->category4_name }}</span>

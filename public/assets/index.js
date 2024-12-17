@@ -461,15 +461,17 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
   // Function to show specific content and hide others
   function showContent(buttonId, contentId) {
+    // Prevent the default form submission or page reload
+    
+    
     // Hide all content containers
     const allContents = document.querySelectorAll('.rechner-calculators');
     allContents.forEach(content => content.style.display = 'none');
     
     // Show the specific content container
     document.getElementById(contentId).style.display = 'block';
+}
 
-
-  }
 
   // Add event listeners to each button
   document.querySelectorAll('#calculator-btn0').forEach(function(button) {

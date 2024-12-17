@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('components.header.head')
+<style>
+   
 
+    .blog-kate span:not(:last-child)::after {
+        content: ', ';
+    }
+    </style>
 <body>
     <div style="position: relative" class="header-container service-header-bg blog-header-bg">
         @include('components.header.header')
@@ -28,14 +34,14 @@
         <span class="kategorie-date">{{ \Carbon\Carbon::parse($blog->blog_date)->format('d.m.Y') }}</span>
         <div class="kategorie">Kategorie:
             @if ($blog->category1Model?->name)
-                <span class="blog-kate">{{ $blog->category1Model->name }}</span>,
+                <span class="blog-kate">{{ $blog->category1Model->name }}</span>
             @endif
 
             @if ($blog->category2Model?->name)
                 <span class="blog-kate">{{ $blog->category2Model->name }}</span>
             @endif
             @if ($blog->category3Model?->name)
-                <span class="blog-kate">{{ $blog->category3Model->name }}</span>,
+                <span class="blog-kate">{{ $blog->category3Model->name }}</span>
             @endif
             @if ($blog->category4Model?->name)
                 <span class="blog-kate">{{ $blog->category4Model->name }}</span>

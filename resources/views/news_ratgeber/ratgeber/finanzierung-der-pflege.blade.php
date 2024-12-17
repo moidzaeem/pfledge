@@ -93,8 +93,9 @@
     <!-- ############################# NEWS UND RATGEBER SECTION 3 ########################### -->
 
     <div class="news-und-section3-container">
-        <div class="news-und-section3-cards-container">
-            <div class="partner-card partner-card1" style="margin-left: 2.5rem">
+        <div class="news-und-section3-cards-container row justify-content-center">
+
+            <div class="col-12 col-md-6 partner-card partner-card1" style="">
                 <div class="partner-card-heading">Pflegegeld</div>
                 <div class="partner-card-data">
                     Pflegebedürftige, die zu Hause von Angehörigen oder anderen
@@ -104,7 +105,7 @@
                     Pflegeleistungen zu unterstützen.
                 </div>
             </div>
-            <div class="partner-card">
+            <div class="partner-card col-12 col-md-6 ">
                 <div class="partner-card-heading">Sachleistungen</div>
                 <div class="partner-card-data">
                     Pflegebedürftige können sich auch für Sachleistungen entscheiden,
@@ -114,15 +115,15 @@
                     hauswirtschaftliche Versorgung.
                 </div>
             </div>
-            <div class="partner-card">
+            <div class="partner-card col-12 col-md-6 ">
                 <div class="partner-card-heading">Zuverlässigkeit</div>
                 <div class="partner-card-data">
                     Die Pflegeversicherung übernimmt die Kosten für Tages- und
                     Nachtpflegeeinrichtungen, die die pflegebedürftige Person tagsüber
                     oder nachts betreuen.
                 </div>
-            </div>
-            <div class="partner-card">
+            </div> 
+            <div class="partner-card col-12 col-md-6 ">
                 <div class="partner-card-heading">Kurzzeitpflege</div>
                 <div class="partner-card-data">
                     Kurzzeitpflege bietet eine vorübergehende Unterbringung in
@@ -131,7 +132,7 @@
                     Pflegeversicherung übernommen.
                 </div>
             </div>
-            <div class="partner-card partner-card-last">
+            <div class="partner-card partner-card-last col-12 col-md-6 ">
                 <div class="partner-card-heading">Verhinderungspflege</div>
                 <div class="partner-card-data">
                     Verhinderungspflege ermöglicht es, dass eine Ersatzpflegeperson
@@ -140,7 +141,7 @@
                     getragen.
                 </div>
             </div>
-            <div class="partner-card partner-card-last" style="margin-right: 2.5rem">
+            <div class="partner-card partner-card-last col-12 col-md-6 ">
                 <div class="partner-card-heading">Pflegehilfsmittel und -geräte:</div>
                 <div class="partner-card-data">
                     Die Pflegeversicherung kann die Kosten für Pflegehilfsmittel und

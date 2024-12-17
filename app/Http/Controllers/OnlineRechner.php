@@ -474,7 +474,7 @@ class OnlineRechner extends Controller
         ];
 
 
-        return back()->with([
+        return back()->withInput()->with([
             'modul1_punkte' => $data,
             'pflegegrad' => $pflegegrad,
             'Sonderfall' => $Sonderfall

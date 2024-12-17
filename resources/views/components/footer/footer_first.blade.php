@@ -28,40 +28,41 @@
                <form action="{{ route('contact.form') }}" method="POST" class="row">
                    @csrf
                    <div class="col-lg-6 pe-sm-0">
-                       <input type="text" placeholder="lhr Name*" required />
+                       <input type="text" name="name" placeholder="Ihr Name*" required
+                           value="{{ old('name') }}" />
+                       @error('name')
+                           <div class="text-danger">{{ $message }}</div>
+                       @enderror
                    </div>
                    <div class="col-lg-6 pe-sm-0">
-                       <input type="email" name="" id="" placeholder="Ihre E-Mail*" required />
+                       <input type="email" name="email" placeholder="Ihre E-Mail*" required
+                           value="{{ old('email') }}" />
+                       @error('email')
+                           <div class="text-danger">{{ $message }}</div>
+                       @enderror
                    </div>
                    <div class="col-lg-6 pe-sm-0">
-                       <input type="tel" placeholder="Ihre Telefonnummer" />
+                       <input type="tel" name="phone" placeholder="Ihre Telefonnummer"
+                           value="{{ old('phone') }}" />
+                       @error('phone')
+                           <div class="text-danger">{{ $message }}</div>
+                       @enderror
                    </div>
                    <div class="col-lg-6 pe-sm-0">
-                       <input type="text" placeholder="Ihre Stadt" />
+                       <input type="text" name="city" placeholder="Ihre Stadt" value="{{ old('city') }}" />
+                       @error('city')
+                           <div class="text-danger">{{ $message }}</div>
+                       @enderror
                    </div>
                    <div class="col-12 pe-sm-0">
-                       <textarea name="" id="" placeholder="Ihre Nachricht*" rows="6" required></textarea>
+                       <textarea name="message" placeholder="Ihre Nachricht*" rows="6" required>{{ old('message') }}</textarea>
+                       @error('message')
+                           <div class="text-danger">{{ $message }}</div>
+                       @enderror
                    </div>
                    <div class="col-12">
                        <div class="row ps-2 captcha-main-row">
-                           {{-- <div class="col-lg-8 captcha-div p-0">
-                               <div class="captcha-sub-div" style="width: 45%; display: flex">
-                                   <div style="width: 80%">
-                                       <img style="
-                                                width: 100%;
-                                                height: 100%;
-                                                display: block;
-                                                object-fit: cover;
-                                                border-top-left-radius: 10px;
-                                                border-bottom-left-radius: 10px;"
-                                           src="{{ asset('assets/Images/contact_captcha.svg') }}" alt="" />
-                                   </div>
-                                   <button style="width: 20%" class="captcha-refresh-btn" type="button">
-                                       <img src="{{ asset('assets/Images/Captcha_refresh_btn.svg') }}" alt="" />
-                                   </button>
-                               </div>
-                               <textarea name="" id="" placeholder="Geben Sie hier den Code ein!"></textarea>
-                           </div> --}}
+                           {{-- CAPTCHA code can be placed here if needed --}}
                            <div class="col-lg-4 contact-submit-btn-div pe-0 text-end">
                                <button class="contact-submit-btn" type="submit">
                                    Nachricht senden
@@ -71,5 +72,13 @@
                    </div>
                </form>
            </div>
+
+           <!-- Display success message -->
+           @if (session('success'))
+               <div class="alert alert-success mt-3">
+                   {{ session('success') }}
+               </div>
+           @endif
+
        </div>
    </div>

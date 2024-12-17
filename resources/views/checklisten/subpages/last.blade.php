@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('components.header.head')
+<style>
+    /* Media query for printing */
+    @media print {
+        .checklisten-section3-btn {
+            display: none;
+        }
+
+        /* Hide the entire checkbox container if the checkbox is unchecked */
+        .checklisten-checkbox-container input[type="checkbox"]:not(:checked) {
+            display: none;
+            /* Hide the checkbox */
+        }
+
+        /* Hide the title/heading (checklisten-section3-wrapper-heading) when the checkbox is unchecked */
+        .checklisten-checkbox-container input[type="checkbox"]:not(:checked)~.checklisten-section3-wrapper-heading {
+            display: none;
+            /* Hide the corresponding title/heading */
+        }
+    }
+</style>
 
 <body>
     <div class="header-container service-header-bg"
@@ -51,11 +71,11 @@
             FINANZIELLE UND RECHTLICHE ANGELEGENHEITEN
         </button>
         <button class="checklisten-section2-top-btn6 checklisten-top-btn" id="checklisten-top-btn6">
-            <a href="{{route('checklist.5')}}"></a>
+            <a href="{{ route('checklist.5') }}"></a>
             NOTFALLVORBEREITUNG
         </button>
         <button class="checklisten-section2-top-btn7 checklisten-top-btn active-btn" id="checklisten-top-btn7">
-            <a href="{{route('checklist.6')}}"></a>
+            <a href="{{ route('checklist.6') }}"></a>
             GESUNDHEITSÜBERWACHUNG
         </button>
     </div>
@@ -532,7 +552,7 @@
                 optimale Betreuung zu gewährleisten.
             </div>
 
-            <div class="checklisten-section3-btn"><button>Drucken</button></div>
+            <div class="checklisten-section3-btn" onClick="printDiv('gesu-form1')"><button>Drucken</button></div>
         </div>
     </form>
 
@@ -953,7 +973,7 @@
                 und entsprechend zu handeln.
             </div>
 
-            <div class="checklisten-section3-btn"><button>Drucken</button></div>
+            <div class="checklisten-section3-btn" onClick="printDiv('gesu-form2')" ><button>Drucken</button></div>
         </div>
     </form>
 
@@ -1417,7 +1437,7 @@
                 langfristigen Gesundheit und Prävention von Krankheiten bei.
             </div>
 
-            <div class="checklisten-section3-btn"><button>Drucken</button></div>
+            <div class="checklisten-section3-btn" onClick="printDiv('gesu-form3')"><button>Drucken</button></div>
         </div>
     </form>
 
@@ -1429,6 +1449,66 @@
     </div>
 
     @include('components.footer.footer_second')
+
+    <script>
+        // Function to hide unchecked checkboxes and their labels
+        function prepareForPrint() {
+            // Get all checkbox containers
+            const checkboxes = document.querySelectorAll('.checklisten-checkbox-container');
+
+            // Loop through each checkbox container
+            // checkboxes.forEach(function(checkboxContainer) {
+            //     const checkbox = checkboxContainer.querySelector('input[type="checkbox"]');
+
+            //     // If the checkbox is not checked, hide its container
+            //     if (!checkbox.checked) {
+            //         checkboxContainer.style.display = 'none';
+            //     } else {
+            //         // Ensure visible checkboxes remain visible
+            //         checkboxContainer.style.display = '';
+            //     }
+            // });
+        }
+
+
+
+        // Function to reset visibility after printing (if you print multiple times in a session)
+        function resetPrint() {
+            const checkboxes = document.querySelectorAll('.checklisten-checkbox-container');
+            checkboxes.forEach(function(checkboxContainer) {
+                checkboxContainer.style.display = ''; // Reset to original state
+            });
+        }
+
+        function printDiv(divId) {
+            prepareForPrint();
+            var printContents = document.getElementById(divId).innerHTML;
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
+            location.reload();
+        }
+
+        // Print button event listener
+        // document.querySelector('.checklisten-section3-btn button').addEventListener('click', function() {
+        //     // prepareForPrint();
+
+        //     var printContents = document.getElementById('medi-form1').innerHTML;
+        //     var originalContents = document.body.innerHTML;
+        //     document.body.innerHTML = printContents;
+        //     window.print();
+        //     document.body.innerHTML = originalContents;
+        //     location.reload();
+
+
+        //     // Open the print dialog
+        //     // window.print();
+
+        //     // // Reset visibility after printing
+        //     // window.onafterprint = resetPrint;
+        // });
+    </script>
 
 </body>
 

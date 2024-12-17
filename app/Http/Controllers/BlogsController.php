@@ -16,6 +16,7 @@ class BlogsController extends Controller
     {
         // Fetch all categories from the database and create a map (associative array) by category ID
         $categories = BlogCategory::all()->keyBy('id');
+        $testCategories = BlogCategory::all()->toArray();
         $categoriesById = $categories->keyBy('id');
 
         // Start the blog query
@@ -23,15 +24,15 @@ class BlogsController extends Controller
 
         // Apply category filter if a category is selected in the request
         if ($request->category) {
-            // $category = BlogCategory::where('name', $request->category)->first();
-            // if ($category) {
-            //     $query->where(function ($q) use ($category) {
-            //         $q->where('category1', $category->id)
-            //             ->orWhere('category2', $category->id)
-            //             ->orWhere('category3', $category->id)
-            //             ->orWhere('category4', $category->id);
-            //     });
-            // }
+            $category = BlogCategory::where('name', $request->category)->first();
+            if ($category) {
+                $query->where(function ($q) use ($category) {
+                    $q->where('category1', $category->id)
+                        ->orWhere('category2', $category->id)
+                        ->orWhere('category3', $category->id)
+                        ->orWhere('category4', $category->id);
+                });
+            }
         }
 
         // Fetch the filtered blog records and order by latest (newest first), paginate 5 articles per page
@@ -78,9 +79,13 @@ class BlogsController extends Controller
         usort($uniqueCategories, function ($a, $b) {
             return strcmp($a->name, $b->name); // Sort categories by their name
         });
+        usort($testCategories, function ($a, $b) {
+            return strcmp($a['name'], $b['name']); // Sort categories by their name
+        });
 
+        
         // Return the view with the filtered blogs, categories, and unique categories
-        return view('blogs.index', compact('blogs', 'uniqueCategories'));
+        return view('blogs.index', compact('blogs', 'uniqueCategories','testCategories'));
     }
 
 

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactFormConfirmation;
+use App\Mail\ContactFormThankYou;
 use App\Models\BlogCategory;
 use App\Models\Blogs;
 use App\Models\Marketplace;
 use App\Models\MarketplaceCategory;
 use Http;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class SimpleController extends Controller
 {
@@ -127,12 +130,12 @@ class SimpleController extends Controller
             $secondXml = simplexml_load_file('https://www.aend.de/rss/medizin');
             if ($secondXml && isset($secondXml->channel->item)) {
                 $count = 0; // Initialize count to track the number of added items
-            
+
                 foreach ($secondXml->channel->item as $item) {
                     if ($count >= 3) {
                         break; // Stop once we have 3 items
                     }
-                    
+
                     // Extract the values from each <item>
                     $newsItem = [
                         'title' => (string) $item->title,
@@ -140,18 +143,18 @@ class SimpleController extends Controller
                         'link' => (string) $item->link,
                         'pubDate' => (string) $item->pubDate
                     ];
-            
+
                     // Add the item to the secondNews array
                     $secondNews[] = $newsItem;
-            
+
                     // Increment the count
                     $count++;
                 }
-            
+
                 // You can now use $secondNews as needed
                 // For example, you can dump or log it to see the results:
             }
-            
+
         } catch (\Exception $e) {
             // Handle network or any other exception (like timeout, DNS resolution, etc.)
             return response()->json(['error' => 'Request timed out or network error occurred.'], 500);
@@ -181,6 +184,24 @@ class SimpleController extends Controller
 
     public function postContactForm(Request $request)
     {
-        return back()->with('success', "Your form has been successfully submitted");
+        // Validate the incoming request
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'city' => 'nullable|string|max:100',
+            'message' => 'required|string',
+        ]);
+
+         // Send a thank you email to the admin or your email
+         Mail::to('moid68580@gmail.com')->send(new ContactFormThankYou($validatedData));
+
+         // Send a confirmation email to the user
+         Mail::to($validatedData['email'])->send(new ContactFormConfirmation($validatedData['name']));
+ 
+         // Redirect back with a success message
+         return redirect()->back()->with('success', 'Ihre Nachricht wurde erfolgreich gesendet!');
+
+      
     }
+
 }

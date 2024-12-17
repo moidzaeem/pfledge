@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('components.header.head')
+<style>
+    /* Media query for printing */
+    @media print {
+        .checklisten-section3-btn {
+            display: none;
+        }
+
+        /* Hide the entire checkbox container if the checkbox is unchecked */
+        .checklisten-checkbox-container input[type="checkbox"]:not(:checked) {
+            display: none;
+            /* Hide the checkbox */
+        }
+
+        /* Hide the title/heading (checklisten-section3-wrapper-heading) when the checkbox is unchecked */
+        .checklisten-checkbox-container input[type="checkbox"]:not(:checked)~.checklisten-section3-wrapper-heading {
+            display: none;
+            /* Hide the corresponding title/heading */
+        }
+    }
+</style>
 
 <body>
     <div class="header-container service-header-bg"
@@ -480,7 +500,7 @@
                     Lebensqualität bei.
                 </div>
 
-                <div class="checklisten-section3-btn"><button>Drucken</button></div>
+                <div class="checklisten-section3-btn" onClick="printDiv('psyc-form1')"><button>Drucken</button></div>
             </div>
         </form>
 
@@ -863,7 +883,7 @@
                     Gesundheit zu verbessern.
                 </div>
 
-                <div class="checklisten-section3-btn"><button>Drucken</button></div>
+                <div class="checklisten-section3-btn" onClick="printDiv('psyc-form2')"><button>Drucken</button></div>
             </div>
         </form>
 
@@ -1251,7 +1271,7 @@
                     eine wertvolle Ressource sein können.
                 </div>
 
-                <div class="checklisten-section3-btn"><button>Drucken</button></div>
+                <div class="checklisten-section3-btn" onClick="printDiv('psyc-form3')"><button>Drucken</button></div>
             </div>
         </form>
 
@@ -1262,7 +1282,53 @@
         </div>
 
         @include('components.footer.footer_second')
+        <script>
+            // Function to hide unchecked checkboxes and their labels
+            function prepareForPrint() {
+            // Get all checkbox containers
+            const checkboxes = document.querySelectorAll('.checklisten-checkbox-container');
 
+            // Loop through each checkbox container
+            checkboxes.forEach(function(checkboxContainer) {
+                // Find the checkbox within the container
+                // const checkbox = checkboxContainer.querySelector('input[type="checkbox"]');
+
+                // // Find the heading ('.checklisten-section3-wrapper-heading') for this container's section
+                // const heading = checkboxContainer.closest('.checklisten-section3-wrapper').querySelector(
+                //     '.checklisten-section3-wrapper-heading');
+
+                // // If the checkbox is not checked, hide its container and its heading
+                // if (heading && !checkbox.checked) {
+                //     heading.style.display = 'none'; // Hide the heading
+                //     checkboxContainer.style.display = 'none'; // Hide the checkbox container
+                // } else {
+                //     // Ensure visible checkboxes remain visible (restore visibility)
+                //     if (heading) heading.style.display = ''; // Ensure heading is visible
+                //     checkboxContainer.style.display = ''; // Ensure checkbox container is visible
+                // }
+            });
+        }
+
+
+
+            // Function to reset visibility after printing (if you print multiple times in a session)
+            function resetPrint() {
+                const checkboxes = document.querySelectorAll('.checklisten-checkbox-container');
+                checkboxes.forEach(function(checkboxContainer) {
+                    checkboxContainer.style.display = ''; // Reset to original state
+                });
+            }
+
+            function printDiv(divId) {
+                prepareForPrint();
+                var printContents = document.getElementById(divId).innerHTML;
+                var originalContents = document.body.innerHTML;
+                document.body.innerHTML = printContents;
+                window.print();
+                document.body.innerHTML = originalContents;
+                location.reload();
+            }
+        </script>
 </body>
 
 </html>

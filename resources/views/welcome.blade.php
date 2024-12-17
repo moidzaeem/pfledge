@@ -191,8 +191,7 @@
                             <div class="newsund-section2-card-bottom">
                                 <div class="newsund-section2-card-date">
                                     Quelle:
-                                    <a href="https://bundesgesundheitsministerium.de"
-                                        target="_blank">www.aerztezeitung.de</a>
+                                    www.aerztezeitung.de
                                 </div>
                                 <div>
                                     <button>
@@ -220,8 +219,7 @@
                                 <div class="newsund-section2-card-date">
                                     {{-- Datum: 29.10.2024 <br /> --}}
                                     Quelle:
-                                    <a href="https://www.aend.de/rss/medizin"
-                                        target="_blank">www.aend.de/rss/medizin</a>
+                                    www.aend.de
                                 </div>
                                 <div>
                                     <button>
@@ -251,8 +249,7 @@
                                 <div class="newsund-section2-card-date">
                                     {{-- Datum: 29.10.2024 <br /> --}}
                                     Quelle:
-                                    <a href="www.bundesgesundheitsministerium.de"
-                                        target="_blank">https://www.bundesgesundheitsministerium.de</a>
+                                    www.bundesgesundheitsministerium.de
                                 </div>
                                 <div>
                                     <button>
@@ -274,7 +271,7 @@
 
     <!-- ################### BLOG SECTION ################### -->
 
-    <div class="blog-container">
+    <div class="blog-container container">
         <div class="blog-heading">Blog</div>
         <div class="blog-sub-heading">
             Unser Blog bietet Ihnen wertvolle Einblicke, praxisnahe Informationen
@@ -319,7 +316,7 @@
                                     <!-- Limit the content text for a preview -->
                                 </div>
                             </div>
-                            <button class="blog-card-btn">Weiterlesen</button>
+                            <button class="blog-card-btn mb-3">Weiterlesen</button>
                         </div>
                     </a>
                 </div>
@@ -335,7 +332,7 @@
     <!-- ################### Marktplatz SECTION ################### -->
 
     <div class="marktplatz-container" style="background-color: #b222221a; padding: 1rem 0">
-        <div class="blog-container">
+        <div class="blog-container container">
             <div class="blog-heading">Marktplatz</div>
             <div class="blog-sub-heading">
                 Unser Marktplatz bietet Ihnen eine sorgfältig ausgewählte Vielfalt an
@@ -413,7 +410,7 @@
 
     <!-- ################### BUCHER SECTION ################### -->
 
-    <div class="blog-container">
+    <div class="blog-container container">
         <div class="blog-heading">Bücher</div>
         <div class="blog-sub-heading">
             Die Seite "Bücher" befindet sich noch im Aufbau. Hier werden wir Ihnen
@@ -440,7 +437,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-12">
+            <div class="col-lg-4 col-12 mt-5">
                 <div class="blog-card">
                     <a style="text-decoration: none" href="https://amzn.to/3W4UAG4" target="_blank">
                         <div class="blog-card-img">
@@ -455,7 +452,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-lg-4 col-12">
+            <div class="col-lg-4 col-12 mt-5">
                 <div class="blog-card">
                     <a style="text-decoration: none" href="https://amzn.to/4cFjZ05" target="_blank">
                         <div class="blog-card-img">

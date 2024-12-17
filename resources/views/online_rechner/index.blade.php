@@ -231,10 +231,14 @@
                                 title="Einnehmen von verschiedenen Positionen im Bett, Drehen um die Längsachse, Aufrichten aus dem Liegen<br /><strong>Selbständig:</strong> Selbständig ist auch eine Person, die ihre Position unter Nutzung von Hilfsmitteln (Aufrichthilfe, Bettseitenteil, Strickleiter, elektrisch verstellbares Bett) allein verändern kann.<br /><strong>Überwiegend selbständig:</strong> Die Person kann beispielsweise nach Anreichen eines Hilfsmittels oder Reichen der Hand ihre Lage im Bett verändern.<br /><strong>Überwiegend unselbständig:</strong> Die Person kann beim Positionswechsel nur wenig mithelfen, z. B. auf den Rücken rollen, am Bettgestell festhalten, Aufforderungen folgen wie z. B. Bitte die Arme vor der Brust verschränken und den Kopf auf die Brust legen.<br /><strong>Unselbständig:</strong> Die Person kann sich beim Positionswechsel nicht oder nur minimal beteiligen."
                                 rel="tooltip">1.1 Positionswechsel im Bett</label>
                             <select name="modul1_1" id="online-rechner-input1">
-                                <option value="0">Selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('modul1_1') == '0' ? 'selected' : '' }}>Selbstständig
+                                </option>
+                                <option value="1" {{ old('modul1_1') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('modul1_1') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('modul1_1') == '3' ? 'selected' : '' }}>Unselbstständig
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -242,10 +246,14 @@
                                 title="Sich auf einem Bett, Stuhl oder Sessel aufrecht halten.<br /><strong>Selbständig:</strong> Selbständig ist eine Person auch dann, wenn sie beim Sitzen gelegentlich ihre Sitzposition korrigieren muss.<br /><strong>Überwiegend selbständig:</strong> Die Person kann sich nur kurz, z. B. für die Dauer einer Mahlzeit oder eines Waschvorgangs selbständig in der Sitzposition halten, darüber hinaus benötigt sie aber personelle Unterstützung zur Positionskorrektur.<br /><strong>Überwiegend unselbständig:</strong> Die Person kann sich wegen eingeschränkter Rumpfkontrolle auch mit Rücken- und Seitenstütze nicht in aufrechter Position halten und benötigt auch während der Dauer einer Mahlzeit oder eines Waschvorgangs personelle Unterstützung zur Positionskorrektur.<br /><strong>Unselbständig:</strong> Die Person kann sich nicht in Sitzposition halten. Bei fehlender Rumpf- und Kopfkontrolle kann die Person nur im Bett oder Lagerungsstuhl liegend gelagert werden."
                                 rel="tooltip">1.2 Halten einer stabilen Sitzposition</label>
                             <select name="modul1_2" id="online-rechner-input2">
-                                <option value="0">Selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('modul1_2') == '0' ? 'selected' : '' }}>Selbstständig
+                                </option>
+                                <option value="1" {{ old('modul1_2') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('modul1_2') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('modul1_2') == '3' ? 'selected' : '' }}>Unselbstständig
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -260,10 +268,14 @@
                             <strong>Unselbständig:</strong> Die Person muss gehoben oder getragen werden, Mithilfe ist nicht möglich."
                                 rel="tooltip">1.3 Umsetzen</label>
                             <select name="modul1_3" id="online-rechner-input3">
-                                <option value="0">Selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('modul1_3') == '0' ? 'selected' : '' }}>Selbstständig
+                                </option>
+                                <option value="1" {{ old('modul1_3') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('modul1_3') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('modul1_3') == '3' ? 'selected' : '' }}>Unselbstständig
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -279,29 +291,37 @@
                             <strong>Unselbständig:</strong> Die Person muss getragen oder vollständig im Rollstuhl geschoben werden."
                                 rel="tooltip">1.4 Fortwegen innerhalb des Wohnbereichs</label>
                             <select name="modul1_4" id="online-rechner-input4">
-                                <option value="0">Selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('modul1_4') == '0' ? 'selected' : '' }}>Selbstständig
+                                </option>
+                                <option value="1" {{ old('modul1_4') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('modul1_4') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('modul1_4') == '3' ? 'selected' : '' }}>Unselbstständig
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
                             <label for="online-rechner-input5"
                                 title="Überwinden von Treppen zwischen zwei Etagen. Treppensteigen ist unabhängig von der individuellen Wohnsituation zu bewerten.
-<br />
-<strong>Selbständig:</strong> Die Person kann ohne Hilfe durch andere Personen in aufrechter Position eine Treppe steigen.
-<br />
-<strong>Überwiegend selbständig:</strong> Die Person kann eine Treppe alleine steigen, benötigt aber Begleitung wegen eines Sturzrisikos.
-<br />
-<strong>Überwiegend unselbständig:</strong> Treppensteigen ist nur mit Stützen oder Festhalten der Person möglich.
-<br />
-<strong>Unselbständig:</strong> Person muss getragen oder mit Hilfsmitteln transportiert werden, keine Eigenbeteiligung."
+                                    <br />
+                                    <strong>Selbständig:</strong> Die Person kann ohne Hilfe durch andere Personen in aufrechter Position eine Treppe steigen.
+                                    <br />
+                                    <strong>Überwiegend selbständig:</strong> Die Person kann eine Treppe alleine steigen, benötigt aber Begleitung wegen eines Sturzrisikos.
+                                    <br />
+                                    <strong>Überwiegend unselbständig:</strong> Treppensteigen ist nur mit Stützen oder Festhalten der Person möglich.
+                                    <br />
+                                    <strong>Unselbständig:</strong> Person muss getragen oder mit Hilfsmitteln transportiert werden, keine Eigenbeteiligung."
                                 rel="tooltip">1.5 Treppensteigen</label>
                             <select name="modul1_5" id="online-rechner-input5">
-                                <option value="0">Selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('modul1_5') == '0' ? 'selected' : '' }}>Selbstständig
+                                </option>
+                                <option value="1" {{ old('modul1_5') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('modul1_5') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('modul1_5') == '3' ? 'selected' : '' }}>Unselbstständig
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -334,21 +354,21 @@
                         <div class="col-md-4">
                             <label for="online-rechner-input21"
                                 title="Fähigkeit, Personen aus dem näheren Umfeld wiederzuerkennen, d. h. Menschen, zu denen im Alltag regelmäßig ein direkter Kontakt besteht. Dazu gehören z. B. Familienmitglieder, Nachbarn aber auch Pflegekräfte eines ambulanten Dienstes oder einer stationären Pflegeeinrichtung.
-<br />
-<strong>Fähigkeit vorhanden:</strong> Die Person erkennt andere Personen aus ihrem näheren Umfeld unmittelbar.
-<br />
-<strong>Fähigkeit größtenteils vorhanden:</strong> Die Person erkennt bekannte Personen beispielsweise erst nach einer längeren Zeit des Kontaktes in einem Gespräch oder sie hat Schwierigkeiten wenn auch nicht täglich, aber doch in regelmäßigen Abständen, vertraute Personen zu erkennen.
-<br />
-<strong>Fähigkeit in geringem Maße vorhanden:</strong> Die aus dem näheren Umfeld stammenden Personen werden nur selten erkannt oder die Fähigkeit hängt ggf. von der Tagesform ab, d. h. die Fähigkeit unterliegt im Zeitverlauf erheblichen Schwankungen.
-<br />
-<strong>Fähigkeit nicht vorhanden:</strong> Auch Familienmitglieder werden nicht oder nur ausnahmsweise erkannt."
+                                <br />
+                                <strong>Fähigkeit vorhanden:</strong> Die Person erkennt andere Personen aus ihrem näheren Umfeld unmittelbar.
+                                <br />
+                                <strong>Fähigkeit größtenteils vorhanden:</strong> Die Person erkennt bekannte Personen beispielsweise erst nach einer längeren Zeit des Kontaktes in einem Gespräch oder sie hat Schwierigkeiten wenn auch nicht täglich, aber doch in regelmäßigen Abständen, vertraute Personen zu erkennen.
+                                <br />
+                                <strong>Fähigkeit in geringem Maße vorhanden:</strong> Die aus dem näheren Umfeld stammenden Personen werden nur selten erkannt oder die Fähigkeit hängt ggf. von der Tagesform ab, d. h. die Fähigkeit unterliegt im Zeitverlauf erheblichen Schwankungen.
+                                <br />
+                                <strong>Fähigkeit nicht vorhanden:</strong> Auch Familienmitglieder werden nicht oder nur ausnahmsweise erkannt."
                                 rel="tooltip">2.1 Erkennen von Personen aus dem näheren
                                 Umfeld</label>
                             <select name="module2_1" id="online-rechner-input21">
-                                <option value="0">Vorhanden / unbeeinträchtigt</option>
-                                <option value="1">Größenteils vorhanden</option>
-                                <option value="2">In geringem Maße vorhanden</option>
-                                <option value="3">Nicht vorhanden</option>
+                                <option value="0" {{ old('module2_1') == '0' ? 'selected' : '' }}>Vorhanden / unbeeinträchtigt</option>
+                                <option value="1" {{ old('module2_1') == '1' ? 'selected' : '' }}>Größenteils vorhanden</option>
+                                <option value="2" {{ old('module2_1') == '2' ? 'selected' : '' }}>In geringem Maße vorhanden</option>
+                                <option value="3" {{ old('module2_1') == '3' ? 'selected' : '' }}>Nicht vorhanden</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -364,23 +384,23 @@
                             <strong>Fähigkeit nicht vorhanden:</strong> Selbst in der eigenen Wohnumgebung ist die Person regelmäßig auf Unterstützung angewiesen, um sich zurechtzufinden."
                                 rel="tooltip">2.2 Örtliche Orientierung</label>
                             <select name="module2_2" id="online-rechner-input22">
-                                <option value="0">Vorhanden / unbeeinträchtigt</option>
-                                <option value="1">Größenteils vorhanden</option>
-                                <option value="2">In geringem Maße vorhanden</option>
-                                <option value="3">Nicht vorhanden</option>
+                                <option value="0" {{ old('module2_2') == '0' ? 'selected' : '' }} >Vorhanden / unbeeinträchtigt</option>
+                                <option value="1" {{ old('module2_2') == '1' ? 'selected' : '' }}>Größenteils vorhanden</option>
+                                <option value="2" {{ old('module2_2') == '2' ? 'selected' : '' }}>In geringem Maße vorhanden</option>
+                                <option value="3" {{ old('module2_2') == '3' ? 'selected' : '' }}>Nicht vorhanden</option>
                             </select>
                         </div>
                         <div class="col-md-4">
                             <label for="online-rechner-input23"
                                 title="Fähigkeit, zeitliche Strukturen zu erkennen. Dazu gehören Uhrzeit, Tagesabschnitte (Vormittag, Nachmittag, Abend etc.), Jahreszeiten und die zeitliche Abfolge des eigenen Lebens. Aufschluss über die Fähigkeit zur zeitlichen Orientierung geben Antworten auf die Frage nach der Jahreszeit, dem Jahr, dem Wochentag, dem Monat oder der Tageszeit.
-<br />
-<strong>Fähigkeit vorhanden:</strong> Die zeitliche Orientierung ist ohne nennenswerte Beeinträchtigungen vorhanden.
-<br />
-<strong>Fähigkeit größtenteils vorhanden:</strong> Die Person ist die meiste Zeit über zeitlich orientiert, aber nicht durchgängig. Sie hat z. B. Schwierigkeiten, ohne äußere Orientierungshilfen (Uhr, Dunkelheit etc.) den Tagesabschnitt zu bestimmen.
-<br />
-<strong>Fähigkeit in geringem Maße vorhanden:</strong> Die zeitliche Orientierung ist die meiste Zeit nur in Ansätzen vorhanden. Die Person ist auch unter Nutzung äußerer Orientierungshilfen zumeist nicht in der Lage, Tageszeiten zu erkennen, zu denen regelmäßig bestimmte Ereignisse stattfinden (z. B. Mittagessen).
-<br />
-<strong>Fähigkeit nicht vorhanden:</strong> Das Verständnis für zeitliche Strukturen und Abläufe ist kaum oder nicht vorhanden."
+                                <br />
+                                <strong>Fähigkeit vorhanden:</strong> Die zeitliche Orientierung ist ohne nennenswerte Beeinträchtigungen vorhanden.
+                                <br />
+                                <strong>Fähigkeit größtenteils vorhanden:</strong> Die Person ist die meiste Zeit über zeitlich orientiert, aber nicht durchgängig. Sie hat z. B. Schwierigkeiten, ohne äußere Orientierungshilfen (Uhr, Dunkelheit etc.) den Tagesabschnitt zu bestimmen.
+                                <br />
+                                <strong>Fähigkeit in geringem Maße vorhanden:</strong> Die zeitliche Orientierung ist die meiste Zeit nur in Ansätzen vorhanden. Die Person ist auch unter Nutzung äußerer Orientierungshilfen zumeist nicht in der Lage, Tageszeiten zu erkennen, zu denen regelmäßig bestimmte Ereignisse stattfinden (z. B. Mittagessen).
+                                <br />
+                                <strong>Fähigkeit nicht vorhanden:</strong> Das Verständnis für zeitliche Strukturen und Abläufe ist kaum oder nicht vorhanden."
                                 rel="tooltip">2.3 Zeitliche Orientierung</label>
                             <select name="module2_3" id="online-rechner-input23">
                                 <option value="0">Vorhanden / unbeeinträchtigt</option>
@@ -392,14 +412,14 @@
                         <div class="col-md-4">
                             <label for="online-rechner-input24"
                                 title="Fähigkeit, sich an kurz und auch länger zurückliegende Ereignisse oder Beobachtungen zu erinnern. Dazu gehört, dass die Person z. B. weiß, was sie zum Frühstück gegessen hat oder mit welchen Tätigkeiten sie den Vormittag verbracht hat. Im Hinblick auf das Langzeitgedächtnis geht es bei Erwachsenen z. B. um die Kenntnis des Geburtsjahres, des Geburtsorts oder wichtiger Bestandteile des Lebensverlaufs wie Eheschließung und Berufstätigkeit.
-<br />
-<strong>Fähigkeit vorhanden:</strong> Die Person kann über kurz zurückliegende Ereignisse Auskunft geben oder durch Handlungen und Gesten signalisieren, dass sie sich erinnert.
-<br />
-<strong>Fähigkeit größtenteils vorhanden:</strong> Die Person hat Schwierigkeiten, sich an manche kurz zurückliegende Ereignisse zu erinnern oder muss hierzu länger nachdenken, sie hat aber keine nennenswerten Probleme, sich an Ereignisse aus der eigenen Lebensgeschichte zu erinnern.
-<br />
-<strong>Fähigkeit in geringem Maße vorhanden:</strong> Die Person vergisst kurz zurückliegende Ereignisse häufig. Nicht alle, aber wichtige Ereignisse aus der eigenen Lebensgeschichte sind (noch) präsent.
-<br />
-<strong>Fähigkeit nicht vorhanden:</strong> Die Person ist nicht (oder nur selten) in der Lage, sich an Ereignisse, Dinge oder Personen aus der eigenen Lebensgeschichte zu erinnern."
+                                <br />
+                                <strong>Fähigkeit vorhanden:</strong> Die Person kann über kurz zurückliegende Ereignisse Auskunft geben oder durch Handlungen und Gesten signalisieren, dass sie sich erinnert.
+                                <br />
+                                <strong>Fähigkeit größtenteils vorhanden:</strong> Die Person hat Schwierigkeiten, sich an manche kurz zurückliegende Ereignisse zu erinnern oder muss hierzu länger nachdenken, sie hat aber keine nennenswerten Probleme, sich an Ereignisse aus der eigenen Lebensgeschichte zu erinnern.
+                                <br />
+                                <strong>Fähigkeit in geringem Maße vorhanden:</strong> Die Person vergisst kurz zurückliegende Ereignisse häufig. Nicht alle, aber wichtige Ereignisse aus der eigenen Lebensgeschichte sind (noch) präsent.
+                                <br />
+                                <strong>Fähigkeit nicht vorhanden:</strong> Die Person ist nicht (oder nur selten) in der Lage, sich an Ereignisse, Dinge oder Personen aus der eigenen Lebensgeschichte zu erinnern."
                                 rel="tooltip">2.4 Erinnern an wesentliche Ereignisse oder
                                 Beobachtungen</label>
                             <select name="module2_4" id="online-rechner-input24">
@@ -412,14 +432,14 @@
                         <div class="col-md-4">
                             <label for="online-rechner-input25"
                                 title="Fähigkeit, zielgerichtete Handlungen des Lebensalltags, die eine Abfolge von Teilschritten umfassen, zu steuern. Die Betonung liegt in diesem Fall auf dem Begriff Alltagshandlungen. Gemeint sind zielgerichtete Handlungen, die diese Person täglich oder nahezu täglich im Lebensalltag durchführt oder durchgeführt hat, wie z. B. das komplette Ankleiden, Kaffeeköchen oder Tischdecken.
-<br />
-<strong>Fähigkeit vorhanden:</strong> Die Person ist in der Lage, die erforderlichen Handlungsschritte selbständig in der richtigen Reihenfolge auszuführen oder zu steuern, so dass das angestrebte Ergebnis der Handlung erreicht wird.
-<br />
-<strong>Fähigkeit größtenteils vorhanden:</strong> Die Person verliert manchmal den Faden und vergisst, welcher Handlungsschritt der nächste ist. Erhält sie dabei eine Erinnerungshilfe, kann sie die Handlung aber selbständig fortsetzen.
-<br />
-<strong>Fähigkeit in geringem Maße vorhanden:</strong> Die Person hat erhebliche Schwierigkeiten. Sie verwechselt regelmäßig die Reihenfolge der einzelnen Handlungsschritte oder vergisst einzelne, notwendige Handlungsschritte.
-<br />
-<strong>Fähigkeit nicht vorhanden:</strong> Mehrschrittige Alltagshandlungen werden erst gar nicht begonnen oder nach den ersten Versuchen aufgegeben."
+                                <br />
+                                <strong>Fähigkeit vorhanden:</strong> Die Person ist in der Lage, die erforderlichen Handlungsschritte selbständig in der richtigen Reihenfolge auszuführen oder zu steuern, so dass das angestrebte Ergebnis der Handlung erreicht wird.
+                                <br />
+                                <strong>Fähigkeit größtenteils vorhanden:</strong> Die Person verliert manchmal den Faden und vergisst, welcher Handlungsschritt der nächste ist. Erhält sie dabei eine Erinnerungshilfe, kann sie die Handlung aber selbständig fortsetzen.
+                                <br />
+                                <strong>Fähigkeit in geringem Maße vorhanden:</strong> Die Person hat erhebliche Schwierigkeiten. Sie verwechselt regelmäßig die Reihenfolge der einzelnen Handlungsschritte oder vergisst einzelne, notwendige Handlungsschritte.
+                                <br />
+                                <strong>Fähigkeit nicht vorhanden:</strong> Mehrschrittige Alltagshandlungen werden erst gar nicht begonnen oder nach den ersten Versuchen aufgegeben."
                                 rel="tooltip">2.5 Steuern von mehrschrittigen
                                 Alltagshandlungen</label>
                             <select name="module2_5" id="online-rechner-input25">
@@ -432,14 +452,14 @@
                         <div class="col-md-4">
                             <label for="online-rechner-input26"
                                 title="Fähigkeit, folgerichtige und geeignete Entscheidungen im Alltagsleben zu treffen. Dazu gehört z. B. die dem Wetter angepasste Auswahl von Kleidung, die Entscheidung über die Durchführung von Aktivitäten wie Einkaufen, Familienangehörige oder Freunde anrufen, einer Freizeitbeschäftigung nachzugehen. Zu klären ist hier die Frage, ob die Entscheidungen folgerichtig sind, d. h. geeignet sind, das angestrebte Ziel zu erreichen oder ein gewisses Maß an Sicherheit und Wohlbefinden oder Bedürfnisbefriedigung zu gewährleisten, z. B. warme Kleidung.
-<br />
-<strong>Fähigkeit vorhanden:</strong> Die Person kann auch in unbekannten Situationen folgerichtige Entscheidungen treffen, beispielsweise beim Umgang mit unbekannten Personen, die an der Haustür klingeln.
-<br />
-<strong>Fähigkeit größtenteils vorhanden:</strong> Im Rahmen der Alltagsroutinen oder zuvor besprochenen Situationen können Entscheidungen getroffen werden, die Person hat aber Schwierigkeiten in unbekannten Situationen.
-<br />
-<strong>Fähigkeit in geringem Maße vorhanden:</strong> Die Person trifft zwar Entscheidungen, diese Entscheidungen sind jedoch in der Regel nicht geeignet, ein bestimmtes Ziel zu erreichen. Dies ist beispielsweise der Fall, wenn die Person mit nur leichter Bekleidung bei winterlichen Temperaturen im Freien spazieren gehen will. Weiterhin liegt eine schwere Beeinträchtigung vor, wenn die Person nur mit Unterstützung in Form von Anleitung, Aufforderung, Aufzeigen von Handlungsalternativen in der Lage ist, Entscheidungen zu treffen.
-<br />
-<strong>Fähigkeit nicht vorhanden:</strong> Die Person kann Entscheidungen auch mit Unterstützung nicht mehr oder nur selten treffen. Sie zeigt keine deutbare Reaktion auf das Angebot mehrerer Entscheidungsalternativen)."
+                                <br />
+                                <strong>Fähigkeit vorhanden:</strong> Die Person kann auch in unbekannten Situationen folgerichtige Entscheidungen treffen, beispielsweise beim Umgang mit unbekannten Personen, die an der Haustür klingeln.
+                                <br />
+                                <strong>Fähigkeit größtenteils vorhanden:</strong> Im Rahmen der Alltagsroutinen oder zuvor besprochenen Situationen können Entscheidungen getroffen werden, die Person hat aber Schwierigkeiten in unbekannten Situationen.
+                                <br />
+                                <strong>Fähigkeit in geringem Maße vorhanden:</strong> Die Person trifft zwar Entscheidungen, diese Entscheidungen sind jedoch in der Regel nicht geeignet, ein bestimmtes Ziel zu erreichen. Dies ist beispielsweise der Fall, wenn die Person mit nur leichter Bekleidung bei winterlichen Temperaturen im Freien spazieren gehen will. Weiterhin liegt eine schwere Beeinträchtigung vor, wenn die Person nur mit Unterstützung in Form von Anleitung, Aufforderung, Aufzeigen von Handlungsalternativen in der Lage ist, Entscheidungen zu treffen.
+                                <br />
+                                <strong>Fähigkeit nicht vorhanden:</strong> Die Person kann Entscheidungen auch mit Unterstützung nicht mehr oder nur selten treffen. Sie zeigt keine deutbare Reaktion auf das Angebot mehrerer Entscheidungsalternativen)."
                                 rel="tooltip">2.6 Treffen von Entscheidungen im Alltagsleben</label>
                             <select name="module2_6" id="online-rechner-input26">
                                 <option value="0">Vorhanden / unbeeinträchtigt</option>
@@ -471,14 +491,14 @@
                         <div class="col-md-4">
                             <label for="online-rechner-input28"
                                 title="Fähigkeit, Risiken und Gefahren zu erkennen. Dazu gehören Gefahren wie Strom- und Feuerquellen, Barrieren und Hindernisse auf dem Fußboden bzw. auf Fußwegen, eine problematische Beschaffenheit des Bodens (z. B. Glätte) oder Gefahrenzonen in der außerhäuslichen Umgebung (z. B. verkehrsreiche Straßen, Baustellen).
-<br />
-<strong>Fähigkeit vorhanden:</strong> Die Person kann solche Risiken und Gefahrenquellen im Alltagsleben ohne weiteres erkennen, auch wenn sie ihnen aus anderen Gründen (z. B. aufgrund von somatischen Beeinträchtigungen) nicht aus dem Weg gehen kann.
-<br />
-<strong>Fähigkeit größtenteils vorhanden:</strong> Die Person erkennt meist nur solche Risiken und Gefahren, die sich in der vertrauten innenhäuslichen Wohnumgebung wiederfinden. Es bestehen aber beispielsweise Schwierigkeiten, Risiken im Straßenverkehr angemessen einzuschätzen oder Gefährdungen in ungewohnter Umgebung zu erkennen.
-<br />
-<strong>Fähigkeit in geringem Maße vorhanden:</strong> Die Person kann auch Risiken und Gefahren, denen sie häufig auch in der Wohnumgebung begegnet, oft nicht als solche erkennen.
-<br />
-<strong>Fähigkeit nicht vorhanden:</strong> Die Person kann Risiken und Gefahren so gut wie gar nicht erkennen."
+                                <br />
+                                <strong>Fähigkeit vorhanden:</strong> Die Person kann solche Risiken und Gefahrenquellen im Alltagsleben ohne weiteres erkennen, auch wenn sie ihnen aus anderen Gründen (z. B. aufgrund von somatischen Beeinträchtigungen) nicht aus dem Weg gehen kann.
+                                <br />
+                                <strong>Fähigkeit größtenteils vorhanden:</strong> Die Person erkennt meist nur solche Risiken und Gefahren, die sich in der vertrauten innenhäuslichen Wohnumgebung wiederfinden. Es bestehen aber beispielsweise Schwierigkeiten, Risiken im Straßenverkehr angemessen einzuschätzen oder Gefährdungen in ungewohnter Umgebung zu erkennen.
+                                <br />
+                                <strong>Fähigkeit in geringem Maße vorhanden:</strong> Die Person kann auch Risiken und Gefahren, denen sie häufig auch in der Wohnumgebung begegnet, oft nicht als solche erkennen.
+                                <br />
+                                <strong>Fähigkeit nicht vorhanden:</strong> Die Person kann Risiken und Gefahren so gut wie gar nicht erkennen."
                                 rel="tooltip">2.8 Erkennen von Risiken und Gefahren</label>
                             <select name="module2_8" id="online-rechner-input28">
                                 <option value="0">Vorhanden / unbeeinträchtigt</option>
@@ -490,14 +510,14 @@
                         <div class="col-md-4">
                             <label for="online-rechner-input29"
                                 title="Fähigkeit, elementare Bedürfnisse verbal oder nonverbal mitzuteilen. Das beinhaltet sich bei Hunger oder Durst, Schmerzen oder Frieren bemerkbar zu machen. Bei Sprachstörungen kann dies ggf. durch Laute, Mimik oder Gestik bzw. unter Nutzung von Hilfsmitteln erfolgen.
-<br />
-<strong>Fähigkeit vorhanden:</strong> Die Person kann Bedürfnisse äußern.
-<br />
-<strong>Fähigkeit größtenteils vorhanden:</strong> Die Person kann auf Nachfrage elementare Bedürfnisse äußern. Die Person äußert Bedürfnisse aber nicht immer von sich aus.
-<br />
-<strong>Fähigkeit in geringem Maße vorhanden:</strong> Elementare Bedürfnisse sind nur aus nonverbalen Reaktionen (Mimik, Gestik, Lautäußerungen) ableitbar, ggf. nach oder durch entsprechende(r) Stimulation; oder die Person äußert von sich aus keine elementaren Bedürfnisse, muss dazu ständig angeleitet werden, kann aber Zustimmung oder Ablehnung deutlich machen.
-<br />
-<strong>Fähigkeit nicht vorhanden:</strong> Die Person äußert nicht oder nur sehr selten Bedürfnisse, auch nicht in nonverbaler Form. Sie kann weder Zustimmung noch Ablehnung deutlich machen."
+                                <br />
+                                <strong>Fähigkeit vorhanden:</strong> Die Person kann Bedürfnisse äußern.
+                                <br />
+                                <strong>Fähigkeit größtenteils vorhanden:</strong> Die Person kann auf Nachfrage elementare Bedürfnisse äußern. Die Person äußert Bedürfnisse aber nicht immer von sich aus.
+                                <br />
+                                <strong>Fähigkeit in geringem Maße vorhanden:</strong> Elementare Bedürfnisse sind nur aus nonverbalen Reaktionen (Mimik, Gestik, Lautäußerungen) ableitbar, ggf. nach oder durch entsprechende(r) Stimulation; oder die Person äußert von sich aus keine elementaren Bedürfnisse, muss dazu ständig angeleitet werden, kann aber Zustimmung oder Ablehnung deutlich machen.
+                                <br />
+                                <strong>Fähigkeit nicht vorhanden:</strong> Die Person äußert nicht oder nur sehr selten Bedürfnisse, auch nicht in nonverbaler Form. Sie kann weder Zustimmung noch Ablehnung deutlich machen."
                                 rel="tooltip">2.9 Mitteilen von elementaren Bedürfnissen</label>
                             <select name="module2_9" id="online-rechner-input29">
                                 <option value="0">Vorhanden / unbeeinträchtigt</option>
@@ -509,14 +529,14 @@
                         <div class="col-md-6">
                             <label for="online-rechner-input210"
                                 title="Fähigkeit, Aufforderungen in Hinblick auf alltägliche Grundbedürfnisse zu verstehen. Zu den alltäglichen Grundbedürfnissen gehören z. B. Essen, Trinken, sich kleiden, sich beschäftigen.
-<br />
-<strong>Fähigkeit vorhanden:</strong> Aufforderungen und Bitten zu alltäglichen Grundbedürfnissen werden ohne weiteres verstanden.
-<br />
-<strong>Fähigkeit größtenteils vorhanden:</strong> Einfache Bitten und Aufforderungen, wie z. B. „Setz dich bitte an den Tisch!“, „Zieh dir die Jacke über!“, „Komm zum Essen!“, „Prosit!“ werden verstanden, Aufforderungen in nicht alltäglichen Situationen müssen erklärt werden. Ggf. sind besonders deutliche Ansprache, Wiederholungen, Zeichensprache, Gebärdensprache oder Schrift erforderlich, um Aufforderungen verständlich zu machen.
-<br />
-<strong>Fähigkeit in geringem Maße vorhanden:</strong> Die Person kann Aufforderungen und Bitten meist nicht verstehen, wenn diese nicht wiederholt geäußert und erläutert werden. Das Verständnis ist sehr von der Tagesform abhängig. Sie zeigt aber Zustimmung oder Ablehnung gegenüber nonverbalen Aufforderungen, z. B. Berührungen oder Geleiten an den Esstisch.
-<br />
-<strong>Fähigkeit nicht vorhanden:</strong> Die Person kann Anleitung und Aufforderungen kaum oder nicht verstehen."
+                                <br />
+                                <strong>Fähigkeit vorhanden:</strong> Aufforderungen und Bitten zu alltäglichen Grundbedürfnissen werden ohne weiteres verstanden.
+                                <br />
+                                <strong>Fähigkeit größtenteils vorhanden:</strong> Einfache Bitten und Aufforderungen, wie z. B. „Setz dich bitte an den Tisch!“, „Zieh dir die Jacke über!“, „Komm zum Essen!“, „Prosit!“ werden verstanden, Aufforderungen in nicht alltäglichen Situationen müssen erklärt werden. Ggf. sind besonders deutliche Ansprache, Wiederholungen, Zeichensprache, Gebärdensprache oder Schrift erforderlich, um Aufforderungen verständlich zu machen.
+                                <br />
+                                <strong>Fähigkeit in geringem Maße vorhanden:</strong> Die Person kann Aufforderungen und Bitten meist nicht verstehen, wenn diese nicht wiederholt geäußert und erläutert werden. Das Verständnis ist sehr von der Tagesform abhängig. Sie zeigt aber Zustimmung oder Ablehnung gegenüber nonverbalen Aufforderungen, z. B. Berührungen oder Geleiten an den Esstisch.
+                                <br />
+                                <strong>Fähigkeit nicht vorhanden:</strong> Die Person kann Anleitung und Aufforderungen kaum oder nicht verstehen."
                                 rel="tooltip">2.10 Verstehen von Aufforderungen</label>
                             <select name="module2_10" id="online-rechner-input210">
                                 <option value="0">Vorhanden / unbeeinträchtigt</option>
@@ -1366,7 +1386,8 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4">
-                            <label for="online-rechner-input61" title="Den Tagesablauf nach individuellen Gewohnheiten und Vorlieben einteilen und bewusst gestalten und ggf. an äußere Veränderungen anpassen Dies erfordert planerische Fähigkeiten zur Umsetzung von Alltagsroutinen. Zu beurteilen ist, ob die Person von sich aus festlegen kann, ob und welche Aktivitäten sie im Laufe des Tages durchführen möchte, z. B. wann sie baden, essen oder zu Bett gehen oder ob und wann sie Fernsehen oder spazieren gehen möchte. Solche Festlegungen setzen voraus, dass die zeitliche Orientierung zumindest teilweise erhalten ist. Die Gutachterin bzw. der Gutachter kann dies prüfen, indem er sich z. B. den bisherigen oder künftigen Tagesablauf schildern lässt.
+                            <label for="online-rechner-input61"
+                                title="Den Tagesablauf nach individuellen Gewohnheiten und Vorlieben einteilen und bewusst gestalten und ggf. an äußere Veränderungen anpassen Dies erfordert planerische Fähigkeiten zur Umsetzung von Alltagsroutinen. Zu beurteilen ist, ob die Person von sich aus festlegen kann, ob und welche Aktivitäten sie im Laufe des Tages durchführen möchte, z. B. wann sie baden, essen oder zu Bett gehen oder ob und wann sie Fernsehen oder spazieren gehen möchte. Solche Festlegungen setzen voraus, dass die zeitliche Orientierung zumindest teilweise erhalten ist. Die Gutachterin bzw. der Gutachter kann dies prüfen, indem er sich z. B. den bisherigen oder künftigen Tagesablauf schildern lässt.
                             <br />
                             <strong>Selbständig:</strong> Die Person kann die beschriebene Aktivität ohne personelle Hilfe durchführen.
                             <br />
@@ -1374,7 +1395,8 @@
                             <br />
                             <strong>Überwiegend unselbständig:</strong> Die Person benötigt Hilfe beim Planen des Routinetagesablaufs. Sie ist aber in der Lage, Zustimmung oder Ablehnung zu Strukturierungsangeboten zu signalisieren. Sie kann eigene Planungen häufig nicht einhalten, da diese wieder vergessen werden. Deshalb ist über den ganzen Tag hinweg eine Erinnerung bzw. Aufforderung erforderlich. Überwiegend unselbständig ist auch eine Person, die zwar selbst planen und entscheiden kann, aber für jegliche Umsetzung personelle Hilfe benötigt.
                             <br />
-                            <strong>Unselbständig:</strong> Mitwirkung an der Tagesstrukturierung oder Orientierung an vorgegebenen Strukturen ist nicht oder nur minimal möglich." rel="tooltip">6.1 Gestaltung des Alltagslebens und Anpassung an
+                            <strong>Unselbständig:</strong> Mitwirkung an der Tagesstrukturierung oder Orientierung an vorgegebenen Strukturen ist nicht oder nur minimal möglich."
+                                rel="tooltip">6.1 Gestaltung des Alltagslebens und Anpassung an
                                 Veränderungen</label>
                             <select name="module6_1" id="module6_1">
                                 <option value="0">Selbstständig</option>
@@ -1384,7 +1406,8 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input62" title="Nach individuellen Gewohnheiten einen Tag-Nacht-Rhythmus einhalten und für ausreichende Ruhe- und Schlafphasen sorgen
+                            <label for="online-rechner-input62"
+                                title="Nach individuellen Gewohnheiten einen Tag-Nacht-Rhythmus einhalten und für ausreichende Ruhe- und Schlafphasen sorgen
                             <br />
                             Dazu gehört die Fähigkeit, die Notwendigkeit von Ruhephasen erkennen, sich ausruhen und mit Phasen der Schlaflosigkeit umgehen aber auch somatischen Funktionen, um ins Bett zu kommen und die Ruhephasen insbesondere nachts einhalten zu können.
                             <br />
@@ -1394,7 +1417,8 @@
                             <br />
                             <strong>Überwiegend unselbständig:</strong> Es treten regelmäßig Einschlafprobleme oder nächtliche Unruhe auf, die die Person größtenteils nicht allein bewältigen kann. Deshalb sind regelmäßige Einschlafrituale und beruhigende Ansprache in der Nacht erforderlich. Überwiegend unselbständig ist auch eine Person, die wegen hochgradiger motorischer Beeinträchtigung regelmäßig in der Nacht personeller Hilfe bedarf, um weiterschlafen zu können, z. B. bei Lagewechsel oder Toilettengängen in der Nacht.
                             <br />
-                            <strong>Unselbständig:</strong> Die Person verfügt über keinen oder einen gestörten Schlaf-Wach-Rhythmus. Dies gilt u. a. für mobile gerontopsychiatrisch erkrankte Personen und auch für Menschen, die keinerlei Aktivitäten ausüben, z. B. im Wachkoma oder Personen, die regelmäßig mindestens dreimal in der Nacht personelle Unterstützung benötigen." rel="tooltip">6.2 Ruhen und Schlafen</label>
+                            <strong>Unselbständig:</strong> Die Person verfügt über keinen oder einen gestörten Schlaf-Wach-Rhythmus. Dies gilt u. a. für mobile gerontopsychiatrisch erkrankte Personen und auch für Menschen, die keinerlei Aktivitäten ausüben, z. B. im Wachkoma oder Personen, die regelmäßig mindestens dreimal in der Nacht personelle Unterstützung benötigen."
+                                rel="tooltip">6.2 Ruhen und Schlafen</label>
                             <select name="module6_2" id="">
                                 <option value="0">Selbstständig</option>
                                 <option value="1">Überwiegend selbstständig</option>
@@ -1403,7 +1427,8 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input63" title="Die verfügbare Zeit nutzen, um Aktivitäten durchzuführen, die den eigenen Vorlieben und Interessen entsprechen
+                            <label for="online-rechner-input63"
+                                title="Die verfügbare Zeit nutzen, um Aktivitäten durchzuführen, die den eigenen Vorlieben und Interessen entsprechen
                             <br />
                             „Verfügbare Zeit“ ist in diesem Zusammenhang definiert als Zeit, die nicht durch Notwendigkeiten wie Ruhen, Schlafen, Essen, Mahlzeitenzubereitung, Körperpflege, Arbeit etc. gebunden ist („freie“ Zeit).
                             <br />
@@ -1415,7 +1440,8 @@
                             <br />
                             <strong>Überwiegend unselbständig:</strong> Die Person kann sich an Beschäftigungen beteiligen, aber nur mit (kontinuierlicher) Anleitung, Begleitung oder motorische Unterstützung.
                             <br />
-                            <strong>Unselbständig:</strong> Die Person kann an der Entscheidung oder Durchführung nicht nennenswert mitwirken. Sie zeigt keine Eigeninitiative, kann Anleitung und Aufforderungen nicht kognitiv umsetzen, beteiligt sich nicht oder nur minimal an angebotenen Beschäftigungen." rel="tooltip">6.3 Sich beschäftigen</label>
+                            <strong>Unselbständig:</strong> Die Person kann an der Entscheidung oder Durchführung nicht nennenswert mitwirken. Sie zeigt keine Eigeninitiative, kann Anleitung und Aufforderungen nicht kognitiv umsetzen, beteiligt sich nicht oder nur minimal an angebotenen Beschäftigungen."
+                                rel="tooltip">6.3 Sich beschäftigen</label>
                             <select name="module6_3" id="">
                                 <option value="0">Selbstständig</option>
                                 <option value="1">Überwiegend selbstständig</option>
@@ -1424,7 +1450,8 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input64" title="Längere Zeitabschnitte überschauend über den Tag hinaus planen
+                            <label for="online-rechner-input64"
+                                title="Längere Zeitabschnitte überschauend über den Tag hinaus planen
                             <br />
                             Dies kann beispielsweise anhand der Frage beurteilt werden, ob Vorstellungen oder Wünsche zu anstehenden Festlichkeiten wie Geburtstag oder Jahresfeste bestehen, ob die Zeitabläufe eingeschätzt werden können, z. B. vorgegebene Strukturen wie regelmäßige Termine nachvollzogen werden können oder ob die körperlichen Fähigkeiten vorhanden sind, um eigene Zukunftsplanungen mit anderen Menschen kommunizieren zu können. Es ist auch zu berücksichtigen, wenn stark ausgeprägte psychische Problemlagen (z. B. Ängste) es verhindern, sich mit Fragen des zukünftigen Handelns auseinanderzusetzen.
                             <br />
@@ -1434,7 +1461,8 @@
                             <br />
                             <strong>Überwiegend unselbständig:</strong> Die Person plant von sich aus nicht, entscheidet aber mit Unterstützung durch andere Personen. Sie muss an die Umsetzung der eigenen Entscheidungen erinnert werden oder benötigt bei der Umsetzung emotionale oder körperliche Unterstützung. Überwiegend unselbständig ist daher auch eine Person, die zwar kognitiv in der Lage ist, selbständig zu planen und zu entscheiden, die aber so stark somatisch beeinträchtigt ist, dass sie für alle Umsetzungsschritte personelle Hilfe benötigt.
                             <br />
-                            <strong>Unselbständig:</strong> Die Person verfügt nicht über Zeitvorstellungen für Planungen über den Tag hinaus, auch bei Vorgabe von Auswahloptionen wird weder Zustimmung noch Ablehnung signalisiert." rel="tooltip">6.4 Vornehmen von in die Zukunft gerichteten
+                            <strong>Unselbständig:</strong> Die Person verfügt nicht über Zeitvorstellungen für Planungen über den Tag hinaus, auch bei Vorgabe von Auswahloptionen wird weder Zustimmung noch Ablehnung signalisiert."
+                                rel="tooltip">6.4 Vornehmen von in die Zukunft gerichteten
                                 Planungen</label>
                             <select name="module6_4" id="">
                                 <option value="0">Selbstständig</option>
@@ -1444,7 +1472,8 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input65" title="Im direkten Kontakt mit Angehörigen, Pflegepersonen, Mitbewohnern oder Besuchern umgehen, Kontakt aufnehmen, Personen ansprechen, auf Ansprache reagieren
+                            <label for="online-rechner-input65"
+                                title="Im direkten Kontakt mit Angehörigen, Pflegepersonen, Mitbewohnern oder Besuchern umgehen, Kontakt aufnehmen, Personen ansprechen, auf Ansprache reagieren
                             <br />
                             <strong>Selbständig:</strong> Die Person kann die beschriebene Aktivität ohne personelle Hilfe durchführen.
                             <br />
@@ -1452,7 +1481,8 @@
                             <br />
                             <strong>Überwiegend unselbständig:</strong> Die Person ergreift von sich aus kaum Initiative. Sie muss angesprochen oder motiviert werden, reagiert aber verbal oder deutlich erkennbar durch andere Formen der Kommunikation (Blickkontakt, Mimik, Gestik). Überwiegend unselbständig ist auch eine Person, die auf weitgehende Unterstützung bei der Überwindung von Sprech-, Sprach oder Hörproblemen angewiesen ist.
                             <br />
-                            <strong>Unselbständig:</strong> Die Person reagiert nicht auf Ansprache. Auch nonverbale Kontaktversuche, z. B. Berührungen führen zu keiner nennenswerten Reaktion." rel="tooltip">6.5 Interaktion mit Personen im direkten
+                            <strong>Unselbständig:</strong> Die Person reagiert nicht auf Ansprache. Auch nonverbale Kontaktversuche, z. B. Berührungen führen zu keiner nennenswerten Reaktion."
+                                rel="tooltip">6.5 Interaktion mit Personen im direkten
                                 Kontakt</label>
                             <select name="module6_5" id="">
                                 <option value="0">Selbstständig</option>
@@ -1462,7 +1492,8 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="online-rechner-input66" title="Bestehende Kontakte zu Freunden, Bekannten, Nachbarn aufrechterhalten, beenden oder zeitweise ablehnen
+                            <label for="online-rechner-input66"
+                                title="Bestehende Kontakte zu Freunden, Bekannten, Nachbarn aufrechterhalten, beenden oder zeitweise ablehnen
                             <br />
                             Dazu gehört auch die Fähigkeit, mit technischen Kommunikationsmitteln wie Telefon umgehen zu können z. B. Besuche verabreden oder Telefon- oder Brief- oder Mail-Kontakte.
                             <br />
@@ -1472,7 +1503,8 @@
                             <br />
                             <strong>Überwiegend unselbständig:</strong> Die Kontaktgestaltung der Person ist eher reaktiv. Sie sucht von sich aus kaum Kontakt, wirkt aber mit, wenn beispielsweise die Pflegeperson die Initiative ergreift. Überwiegend unselbständig ist auch, wer aufgrund von somatischen Beeinträchtigungen während der Kontaktaufnahme personelle Unterstützung durch die Bezugsperson, z. B. bei der Nutzung von Kommunikationshilfen (Telefon halten) oder bei der Überwindung von Sprech-, Sprach- oder Hörproblemen benötigt.
                             <br />
-                            <strong>Unselbständig:</strong> Die Person nimmt keinen Kontakt außerhalb des direkten Umfeldes auf und reagiert nicht auf Anregungen zur Kontaktaufnahme." rel="tooltip">6.6 Kontaktpflege zu Personen außerhalb des direkten
+                            <strong>Unselbständig:</strong> Die Person nimmt keinen Kontakt außerhalb des direkten Umfeldes auf und reagiert nicht auf Anregungen zur Kontaktaufnahme."
+                                rel="tooltip">6.6 Kontaktpflege zu Personen außerhalb des direkten
                                 Umfeldes</label>
                             <select name="module6_6" id="">
                                 <option value="0">Selbstständig</option>

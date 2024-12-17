@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('components.header.head')
+<style>
+   
 
+    .blog-kate span:not(:last-child)::after {
+        content: ', ';
+    }
+    </style>
 <body>
     <div class="header-container service-header-bg blog-header-bg">
         @include('components.header.header')
@@ -49,19 +55,19 @@
                                 class="{{ request()->routeIs('blogs.index') && !request()->category ? 'active' : '' }}">
                                 Alle</a>
                         </div>
-                        @foreach ($uniqueCategories as $category)
+                        @foreach ($testCategories as $category)
                             <div class="blog-search-sub-heading category-item">
                                 <a style="text-decoration: none;color:black"
-                                    href="{{ route('blogs.index', ['category' => $category->name]) }}"
-                                    class="{{ request()->routeIs('blogs.index') && request()->category === $category->name ? 'active' : '' }}">
+                                    href="{{ route('blogs.index', ['category' => $category['name']]) }}"
+                                    class="{{ request()->routeIs('blogs.index') && request()->category === $category['name'] ? 'active' : '' }}">
 
-                                    {{ $category->name }}</a>
+                                    {{ $category['name'] }}</a>
                             </div>
                         @endforeach
                     </div>
                 </div>
             </div>
-            <div class="col-lg-8">
+            <div class="col-lg-8 mt-3">
 
 
                 <div class="row" id="marketplace-items">
@@ -74,28 +80,20 @@
                                         <img src="{{ Storage::url($blog->image) }}" alt="" />
                                     </div>
                                     <div class="blog-card-body">
-                                        <span class="blog-date">{{ \Carbon\Carbon::parse($blog->blog_date)->format('d.m.Y') }}</span>
+                                        <span
+                                            class="blog-date">{{ \Carbon\Carbon::parse($blog->blog_date)->format('d.m.Y') }}</span>
                                         <div class="blog-kate">
                                             Kategorie:
                                             @if ($blog->category1_name)
                                                 <span class="blog-kate">{{ $blog->category1_name }}</span>
-                                                @if ($blog->category2_name || $blog->category3_name || $blog->category4_name)
-                                                    ,
-                                                @endif
                                             @endif
 
                                             @if ($blog->category2_name)
                                                 <span class="blog-kate">{{ $blog->category2_name }}</span>
-                                                @if ($blog->category3_name || $blog->category4_name)
-                                                    ,
-                                                @endif
                                             @endif
 
                                             @if ($blog->category3_name)
                                                 <span class="blog-kate">{{ $blog->category3_name }}</span>
-                                                @if ($blog->category4_name)
-                                                    ,
-                                                @endif
                                             @endif
 
                                             @if ($blog->category4_name)
@@ -130,7 +128,7 @@
                                         </div>
                                     </div>
 
-                                    <button class="blog-card-btn">Weiterlesen</button>
+                                    <button class="blog-card-btn mb-5">Weiterlesen</button>
                                 </a>
                             </div>
                         </div>

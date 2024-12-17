@@ -129,54 +129,67 @@
     <!-- ######################## ACADEMY PAGE SLIDER FOR SMALL SCREEN ########################  -->
 
     <div class="academy-section-2-sm">
-        <div class="academy-page-card">
-            <img src="{{ asset('assets/Images/Academy_page_slider_1_sm.svg') }}" alt="" />
-            <div class="swiper-content">
-                <div class="swiper-content-top1">Pflegende Angehörige</div>
-                <div class="swiper-content-heading">
-                    Selbstfürsorge und Stressbewältigung
+        <a style="text-decoration: none"
+            href="https://pflegepur.my-ablefy.com/s/pflegepur/kopie-von-demenz-verstehen-unterstuetzung-und-pflege-d1b95913"
+            target="_blank">
+            <div class="academy-page-card">
+                <img src="{{ asset('assets/Images/Academy_page_slider_1_sm.svg') }}" alt="" />
+                <div class="swiper-content">
+                    <div class="swiper-content-top1">PflegePur - Academy</div>
+                    <div class="swiper-content-heading">
+                        Herzlich Willkommen zum Online-Kurs "Pflegende Angehörige -
+                        Selbstfürsorge und Stressbewältigung"!
+                    </div>
+                    <div class="swiper-content-data">
+                        Selbstfürsorge ist ein entscheidender Aspekt für pflegende
+                            Angehörige, der oft vernachlässigt wird. In diesem Abschnitt
+                            möchten wir Ihnen die Gründe aufzeigen, warum Selbstfürsorge nicht
+                            nur für Ihre eigene Gesundheit und Ihr Wohlbefinden wichtig ist,
+                            sondern auch für die Qualität der Pflege, die Sie Ihrem
+                            Angehörigen bieten können.
+                    </div>
+                    <div class="swiper-content-btn"><button>Kostenlos</button></div>
                 </div>
-                <div class="swiper-content-data">
-                    Selbstfürsorge ist ein entscheidender Aspekt für pflegende
-                    Angehörige, der oft vernachlässigt wird. In diesem Abschnitt möchten
-                    wir Ihnen die Gründe aufzeigen, warum Selbstfürsorge nicht nur für
-                    Ihre eigene Gesundheit und Ihr Wohlbefinden wichtig ist, sondern
-                    auch für die Qualität der Pflege, die Sie Ihrem Angehörigen bieten
-                    können.
-                </div>
-                <div class="swiper-content-btn"><button>Kostenlos</button></div>
             </div>
-        </div>
-        <div class="academy-page-card">
-            <img src="{{ asset('assets/Images/Academy_page_slider_2_sm.svg') }}" alt="" />
-            <div class="swiper-content">
-                <div class="swiper-content-top1">Pflege zu Hause</div>
-                <div class="swiper-content-heading">Grundlagen und Tipps</div>
-                <div class="swiper-content-data">
-                    Häusliche Pflege umfasst die Unterstützung und Betreuung von
-                    pflegebedürftigen Personen in ihrem eigenen Zuhause. Dies kann
-                    sowohl durch Angehörige als auch durch professionelle Pflegekräfte
-                    erfolgen.
+        </a>
+        <a style="text-decoration: none" target="_blank"
+            href="https://pflegepur.my-ablefy.com/s/pflegepur/pflege-zu-hause-grundlagen-und-tipps-736e9710">
+
+            <div class="academy-page-card">
+                <img src="{{ asset('assets/Images/Academy_page_slider_2_sm.svg') }}" alt="" />
+                <div class="swiper-content">
+                    <div class="swiper-content-top1">PflegePur - Academy</div>
+                    <div class="swiper-content-heading"> Herzlich Willkommen zum Online-Kurs "Demenz verstehen:
+                        Unterstützung und Pflege"!</div>
+                    <div class="swiper-content-data">
+                        Häusliche Pflege umfasst die Unterstützung und Betreuung von
+                        pflegebedürftigen Personen in ihrem eigenen Zuhause. Dies kann
+                        sowohl durch Angehörige als auch durch professionelle Pflegekräfte
+                        erfolgen.
+                    </div>
+                    <div class="swiper-content-btn"><button>Kostenlos</button></div>
                 </div>
-                <div class="swiper-content-btn"><button>Kostenlos</button></div>
             </div>
-        </div>
-        <div class="academy-page-card">
-            <img src="{{ asset('assets/Images/Academy_page_slider_3_sm.svg') }}" alt="" />
-            <div class="swiper-content">
-                <div class="swiper-content-top1">Demenz verstehen</div>
-                <div class="swiper-content-heading">Unterstützung und Pflege</div>
-                <div class="swiper-content-data">
-                    Demenz ist kein spezifisches Krankheitsbild, sondern ein allgemeiner
-                    Begriff, der eine Vielzahl von Symptomen beschreibt, die mit einem
-                    Verlust der kognitiven Funktionen – denken, erinnern und schließen –
-                    einhergehen, welche stark genug sind, um den Alltag einer Person zu
-                    beeinträchtigen. Es ist eine fortschreitende Erkrankung, was
-                    bedeutet, dass die Symptome sich mit der Zeit verschlechtern.
+        </a>
+        <a style="text-decoration: none" target="_blank"
+            href="https://pflegepur.my-ablefy.com/s/pflegepur/kopie-von-pflege-zu-hause-grundlagen-und-tipps-13bbb0bb">
+            <div class="academy-page-card">
+                <img src="{{ asset('assets/Images/Academy_page_slider_3_sm.svg') }}" alt="" />
+                <div class="swiper-content">
+                    <div class="swiper-content-top1">PflegePur - Academy</div>
+                    <div class="swiper-content-heading">Unterstützung und Pflege</div>
+                    <div class="swiper-content-data">
+                        Demenz ist kein spezifisches Krankheitsbild, sondern ein allgemeiner
+                        Begriff, der eine Vielzahl von Symptomen beschreibt, die mit einem
+                        Verlust der kognitiven Funktionen – denken, erinnern und schließen –
+                        einhergehen, welche stark genug sind, um den Alltag einer Person zu
+                        beeinträchtigen. Es ist eine fortschreitende Erkrankung, was
+                        bedeutet, dass die Symptome sich mit der Zeit verschlechtern.
+                    </div>
+                    <div class="swiper-content-btn"><button>Kostenlos</button></div>
                 </div>
-                <div class="swiper-content-btn"><button>Kostenlos</button></div>
             </div>
-        </div>
+        </a>
     </div>
 
     <div style="width: 100%">

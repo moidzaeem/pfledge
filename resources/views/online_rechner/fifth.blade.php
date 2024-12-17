@@ -266,7 +266,8 @@
 
                     <div style="display: flex; justify-content: center;"><button
                             class="online-rechner-page2-section3-btn"
-                            style="border: none; text-transform: uppercase;">berechnen</button></div>
+                            style="border: none; text-transform: uppercase;">berechnen</button>
+                    </div>
 
 
 

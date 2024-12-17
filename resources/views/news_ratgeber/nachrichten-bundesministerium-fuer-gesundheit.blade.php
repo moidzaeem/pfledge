@@ -23,7 +23,7 @@
             </div>
             <div class="newsund-btn2 newsund-btn">
                 <button>
-                    <a style="color: #b22222" href="{{route('ratgeber')}}">Ratgeber</a>
+                    <a style="color: #b22222" href="{{ route('ratgeber') }}">Ratgeber</a>
                 </button>
             </div>
         </div>
@@ -73,8 +73,7 @@
                                 <div class="newsund-section2-card-bottom">
                                     <div class="newsund-section2-card-date">
                                         Quelle:
-                                        <a href="https://bundesgesundheitsministerium.de"
-                                            target="_blank">www.bundesgesundheitsministerium.de</a>
+                                        www.bundesgesundheitsministerium.de
                                     </div>
                                     <div>
                                         <button>

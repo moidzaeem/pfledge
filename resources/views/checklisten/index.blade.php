@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('components.header.head')
+<style>
+    /* Media query for printing */
+    @media print {
+        .checklisten-section3-btn {
+            display: none;
+        }
+
+    }
+</style>
 
 <body>
     <div class="header-container service-header-bg"
@@ -375,7 +384,7 @@
                 Pflegebedürftigen zu gewährleisten.
             </div>
 
-            <div class="checklisten-section3-btn"><button>Drucken</button></div>
+            <div class="checklisten-section3-btn" onClick="printDiv('medi-form1')"><button>Drucken</button></div>
         </div>
     </form>
 
@@ -681,7 +690,7 @@
                 gesundheitliche Risiken zu minimieren.
             </div>
 
-            <div class="checklisten-section3-btn"><button>Drucken</button></div>
+            <div class="checklisten-section3-btn" onClick="printDiv('medi-form2')"><button>Drucken</button></div>
         </div>
     </form>
 
@@ -1051,7 +1060,7 @@
                 gewährleisten und gesundheitliche Risiken zu minimieren.
             </div>
 
-            <div class="checklisten-section3-btn"><button>Drucken</button></div>
+            <div class="checklisten-section3-btn" onClick="printDiv('medi-form3')"><button>Drucken</button></div>
         </div>
     </form>
     <!-- ####################  Verschreibungserneuerungen und Apothekenkontakte form ###################   -->
@@ -1396,7 +1405,7 @@
                 notwendigen Medikamenten sicherzustellen.
             </div>
 
-            <div class="checklisten-section3-btn"><button>Drucken</button></div>
+            <div class="checklisten-section3-btn" onClick="printDiv('medi-form4')"><button>Drucken</button></div>
         </div>
     </form>
 
@@ -1414,18 +1423,31 @@
         function prepareForPrint() {
             // Get all checkbox containers
             const checkboxes = document.querySelectorAll('.checklisten-checkbox-container');
-    
+
             // Loop through each checkbox container
-            checkboxes.forEach(function(checkboxContainer) {
-                const checkbox = checkboxContainer.querySelector('input[type="checkbox"]');
-    
-                // If the checkbox is not checked, hide its container
-                if (!checkbox.checked) {
-                    checkboxContainer.style.display = 'none';
-                }
-            });
+            // checkboxes.forEach(function(checkboxContainer) {
+            //     // Find the checkbox within the container
+            //     const checkbox = checkboxContainer.querySelector('input[type="checkbox"]');
+
+            //     // Find the heading ('.checklisten-section3-wrapper-heading') for this container's section
+            //     const heading = checkboxContainer.closest('.checklisten-section3-wrapper').querySelector(
+            //         '.checklisten-section3-wrapper-heading');
+
+            //     // If the checkbox is not checked, hide its container and its heading
+            //     if (heading && !checkbox.checked) {
+            //         heading.style.display = 'none'; // Hide the heading
+            //         checkboxContainer.style.display = 'none'; // Hide the checkbox container
+            //     } else {
+            //         // Ensure visible checkboxes remain visible (restore visibility)
+            //         if (heading) heading.style.display = ''; // Ensure heading is visible
+            //         checkboxContainer.style.display = ''; // Ensure checkbox container is visible
+            //     }
+            // });
         }
-    
+
+
+
+
         // Function to reset visibility after printing (if you print multiple times in a session)
         function resetPrint() {
             const checkboxes = document.querySelectorAll('.checklisten-checkbox-container');
@@ -1433,17 +1455,35 @@
                 checkboxContainer.style.display = ''; // Reset to original state
             });
         }
-    
-        // Print button event listener
-        document.querySelector('.checklisten-section3-btn button').addEventListener('click', function() {
+
+        function printDiv(divId) {
             prepareForPrint();
-            
-            // Open the print dialog
+            var printContents = document.getElementById(divId).innerHTML;
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
             window.print();
-    
-            // Reset visibility after printing
-            window.onafterprint = resetPrint;
-        });
+            document.body.innerHTML = originalContents;
+            location.reload();
+        }
+
+        // Print button event listener
+        // document.querySelector('.checklisten-section3-btn button').addEventListener('click', function() {
+        //     // prepareForPrint();
+
+        //     var printContents = document.getElementById('medi-form1').innerHTML;
+        //     var originalContents = document.body.innerHTML;
+        //     document.body.innerHTML = printContents;
+        //     window.print();
+        //     document.body.innerHTML = originalContents;
+        //     location.reload();
+
+
+        //     // Open the print dialog
+        //     // window.print();
+
+        //     // // Reset visibility after printing
+        //     // window.onafterprint = resetPrint;
+        // });
     </script>
 
 </body>
