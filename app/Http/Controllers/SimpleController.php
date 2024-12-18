@@ -11,6 +11,7 @@ use App\Models\MarketplaceCategory;
 use Http;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Session;
 
 class SimpleController extends Controller
 {
@@ -184,7 +185,12 @@ class SimpleController extends Controller
 
     public function postContactForm(Request $request)
     {
-        // Validate the incoming request
+        // Validate CAPTCHA first
+        if ($request->captcha !== Session::get('captcha')) {
+            // If CAPTCHA doesn't match, return with error message
+            return redirect()->back()->withErrors(['captcha' => 'Invalid CAPTCHA. Please try again.']);
+        }
+
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
@@ -192,16 +198,16 @@ class SimpleController extends Controller
             'message' => 'required|string',
         ]);
 
-         // Send a thank you email to the admin or your email
-         Mail::to('moid68580@gmail.com')->send(new ContactFormThankYou($validatedData));
+        // Send a thank you email to the admin or your email
+        Mail::to('moid68580@gmail.com')->send(new ContactFormThankYou($validatedData));
 
-         // Send a confirmation email to the user
-         Mail::to($validatedData['email'])->send(new ContactFormConfirmation($validatedData['name']));
- 
-         // Redirect back with a success message
-         return redirect()->back()->with('success', 'Ihre Nachricht wurde erfolgreich gesendet!');
+        // Send a confirmation email to the user
+        Mail::to($validatedData['email'])->send(new ContactFormConfirmation($validatedData['name']));
 
-      
+        // Redirect back with a success message
+        return redirect()->back()->with('success', 'Ihre Nachricht wurde erfolgreich gesendet!');
+
+
     }
 
 }

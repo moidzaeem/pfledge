@@ -77,7 +77,21 @@ class MarketplaceController extends Controller
             }
         });
 
-        sort($uniqueCategories);
+        usort($uniqueCategories, function ($a, $b) {
+            // If $a is "Sonstiges", place it at the end
+            if ($a->name === 'Sonstiges') {
+                return 1;
+            }
+        
+            // If $b is "Sonstiges", place it at the end
+            if ($b->name === 'Sonstiges') {
+                return -1;
+            }
+        
+            // Otherwise, sort by name (alphabetically)
+            return strcmp($a->name, $b->name);
+        });
+        
         // Return the view with the filtered marketplaces, categories, unique categories array, and pagination links
         return view('marketplace.index', compact('marketPlaces', 'uniqueCategories'));
     }

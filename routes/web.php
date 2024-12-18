@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogsController;
+use App\Http\Controllers\CaptchaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MarketplaceController;
 use App\Http\Controllers\OnlineRechner;
@@ -158,3 +159,8 @@ Route::get('/marketplace/load-more', [MarketplaceController::class, 'loadMore'])
 
 
 Route::post('/contact-form', [SimpleController::class, 'postContactForm'])->name('contact.form');
+
+Route::get('/captcha', [CaptchaController::class, 'generateCaptcha'])->name('captcha');
+
+// Route to handle form submission
+// Route::post('/submit-form', [CaptchaController::class, 'validateCaptcha'])->name('submit.form');

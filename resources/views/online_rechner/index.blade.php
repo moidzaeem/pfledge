@@ -327,8 +327,8 @@
                         <div class="col-md-4">
                             <label for="online-rechner-input6">1.6 Gebrauchsfähigkeit beider Arme und Beine</label>
                             <select name="modul1_6" id="online-rechner-input6">
-                                <option value="0">Ja</option>
-                                <option value="1">Nein</option>
+                                <option value="0" {{ old('modul1_6') == '0' ? 'selected' : '' }}>Ja</option>
+                                <option value="1" {{ old('modul1_6') == '1' ? 'selected' : '' }}>Nein</option>
                             </select>
                         </div>
                     </div>
@@ -365,10 +365,14 @@
                                 rel="tooltip">2.1 Erkennen von Personen aus dem näheren
                                 Umfeld</label>
                             <select name="module2_1" id="online-rechner-input21">
-                                <option value="0" {{ old('module2_1') == '0' ? 'selected' : '' }}>Vorhanden / unbeeinträchtigt</option>
-                                <option value="1" {{ old('module2_1') == '1' ? 'selected' : '' }}>Größenteils vorhanden</option>
-                                <option value="2" {{ old('module2_1') == '2' ? 'selected' : '' }}>In geringem Maße vorhanden</option>
-                                <option value="3" {{ old('module2_1') == '3' ? 'selected' : '' }}>Nicht vorhanden</option>
+                                <option value="0" {{ old('module2_1') == '0' ? 'selected' : '' }}>Vorhanden /
+                                    unbeeinträchtigt</option>
+                                <option value="1" {{ old('module2_1') == '1' ? 'selected' : '' }}>Größenteils
+                                    vorhanden</option>
+                                <option value="2" {{ old('module2_1') == '2' ? 'selected' : '' }}>In geringem
+                                    Maße vorhanden</option>
+                                <option value="3" {{ old('module2_1') == '3' ? 'selected' : '' }}>Nicht vorhanden
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -384,10 +388,14 @@
                             <strong>Fähigkeit nicht vorhanden:</strong> Selbst in der eigenen Wohnumgebung ist die Person regelmäßig auf Unterstützung angewiesen, um sich zurechtzufinden."
                                 rel="tooltip">2.2 Örtliche Orientierung</label>
                             <select name="module2_2" id="online-rechner-input22">
-                                <option value="0" {{ old('module2_2') == '0' ? 'selected' : '' }} >Vorhanden / unbeeinträchtigt</option>
-                                <option value="1" {{ old('module2_2') == '1' ? 'selected' : '' }}>Größenteils vorhanden</option>
-                                <option value="2" {{ old('module2_2') == '2' ? 'selected' : '' }}>In geringem Maße vorhanden</option>
-                                <option value="3" {{ old('module2_2') == '3' ? 'selected' : '' }}>Nicht vorhanden</option>
+                                <option value="0" {{ old('module2_2') == '0' ? 'selected' : '' }}>Vorhanden /
+                                    unbeeinträchtigt</option>
+                                <option value="1" {{ old('module2_2') == '1' ? 'selected' : '' }}>Größenteils
+                                    vorhanden</option>
+                                <option value="2" {{ old('module2_2') == '2' ? 'selected' : '' }}>In geringem
+                                    Maße vorhanden</option>
+                                <option value="3" {{ old('module2_2') == '3' ? 'selected' : '' }}>Nicht vorhanden
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -403,10 +411,14 @@
                                 <strong>Fähigkeit nicht vorhanden:</strong> Das Verständnis für zeitliche Strukturen und Abläufe ist kaum oder nicht vorhanden."
                                 rel="tooltip">2.3 Zeitliche Orientierung</label>
                             <select name="module2_3" id="online-rechner-input23">
-                                <option value="0">Vorhanden / unbeeinträchtigt</option>
-                                <option value="1">Größenteils vorhanden</option>
-                                <option value="2">In geringem Maße vorhanden</option>
-                                <option value="3">Nicht vorhanden</option>
+                                <option value="0" {{ old('module2_3') == '0' ? 'selected' : '' }}>Vorhanden /
+                                    unbeeinträchtigt</option>
+                                <option value="1" {{ old('module2_3') == '1' ? 'selected' : '' }}>Größenteils
+                                    vorhanden</option>
+                                <option value="2" {{ old('module2_3') == '2' ? 'selected' : '' }}>In geringem
+                                    Maße vorhanden</option>
+                                <option value="3" {{ old('module2_3') == '3' ? 'selected' : '' }}>Nicht vorhanden
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -423,10 +435,14 @@
                                 rel="tooltip">2.4 Erinnern an wesentliche Ereignisse oder
                                 Beobachtungen</label>
                             <select name="module2_4" id="online-rechner-input24">
-                                <option value="0">Vorhanden / unbeeinträchtigt</option>
-                                <option value="1">Größenteils vorhanden</option>
-                                <option value="2">In geringem Maße vorhanden</option>
-                                <option value="3">Nicht vorhanden</option>
+                                <option value="0" {{ old('module2_4') == '0' ? 'selected' : '' }}>Vorhanden /
+                                    unbeeinträchtigt</option>
+                                <option value="1" {{ old('module2_4') == '1' ? 'selected' : '' }}>Größenteils
+                                    vorhanden</option>
+                                <option value="2" {{ old('module2_4') == '2' ? 'selected' : '' }}>In geringem
+                                    Maße vorhanden</option>
+                                <option value="3" {{ old('module2_4') == '3' ? 'selected' : '' }}>Nicht vorhanden
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -443,10 +459,14 @@
                                 rel="tooltip">2.5 Steuern von mehrschrittigen
                                 Alltagshandlungen</label>
                             <select name="module2_5" id="online-rechner-input25">
-                                <option value="0">Vorhanden / unbeeinträchtigt</option>
-                                <option value="1">Größenteils vorhanden</option>
-                                <option value="2">In geringem Maße vorhanden</option>
-                                <option value="3">Nicht vorhanden</option>
+                                <option value="0" {{ old('module2_5') == '0' ? 'selected' : '' }}>Vorhanden /
+                                    unbeeinträchtigt</option>
+                                <option value="1" {{ old('module2_5') == '1' ? 'selected' : '' }}>Größenteils
+                                    vorhanden</option>
+                                <option value="2" {{ old('module2_5') == '2' ? 'selected' : '' }}>In geringem
+                                    Maße vorhanden</option>
+                                <option value="3" {{ old('module2_5') == '3' ? 'selected' : '' }}>Nicht vorhanden
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -462,10 +482,14 @@
                                 <strong>Fähigkeit nicht vorhanden:</strong> Die Person kann Entscheidungen auch mit Unterstützung nicht mehr oder nur selten treffen. Sie zeigt keine deutbare Reaktion auf das Angebot mehrerer Entscheidungsalternativen)."
                                 rel="tooltip">2.6 Treffen von Entscheidungen im Alltagsleben</label>
                             <select name="module2_6" id="online-rechner-input26">
-                                <option value="0">Vorhanden / unbeeinträchtigt</option>
-                                <option value="1">Größenteils vorhanden</option>
-                                <option value="2">In geringem Maße vorhanden</option>
-                                <option value="3">Nicht vorhanden</option>
+                                <option value="0" {{ old('module2_6') == '1' ? 'selected' : '' }}>Vorhanden /
+                                    unbeeinträchtigt</option>
+                                <option value="1" {{ old('module2_6') == '2' ? 'selected' : '' }}>Größenteils
+                                    vorhanden</option>
+                                <option value="2" {{ old('module2_6') == '3' ? 'selected' : '' }}>In geringem
+                                    Maße vorhanden</option>
+                                <option value="3" {{ old('module2_6') == '4' ? 'selected' : '' }}>Nicht vorhanden
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -482,10 +506,14 @@
                                 rel="tooltip">2.7 Verstehen von Sachverhalten und
                                 Informationen</label>
                             <select name="module2_7" id="online-rechner-input27">
-                                <option value="0">Vorhanden / unbeeinträchtigt</option>
-                                <option value="1">Größenteils vorhanden</option>
-                                <option value="2">In geringem Maße vorhanden</option>
-                                <option value="3">Nicht vorhanden</option>
+                                <option value="0" {{ old('module2_7') == '0' ? 'selected' : '' }}>Vorhanden /
+                                    unbeeinträchtigt</option>
+                                <option value="1" {{ old('module2_7') == '1' ? 'selected' : '' }}>Größenteils
+                                    vorhanden</option>
+                                <option value="2" {{ old('module2_7') == '2' ? 'selected' : '' }}>In geringem
+                                    Maße vorhanden</option>
+                                <option value="3" {{ old('module2_7') == '3' ? 'selected' : '' }}>Nicht vorhanden
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -501,10 +529,14 @@
                                 <strong>Fähigkeit nicht vorhanden:</strong> Die Person kann Risiken und Gefahren so gut wie gar nicht erkennen."
                                 rel="tooltip">2.8 Erkennen von Risiken und Gefahren</label>
                             <select name="module2_8" id="online-rechner-input28">
-                                <option value="0">Vorhanden / unbeeinträchtigt</option>
-                                <option value="1">Größenteils vorhanden</option>
-                                <option value="2">In geringem Maße vorhanden</option>
-                                <option value="3">Nicht vorhanden</option>
+                                <option value="0" {{ old('module2_8') == '0' ? 'selected' : '' }}>Vorhanden /
+                                    unbeeinträchtigt</option>
+                                <option value="1" {{ old('module2_8') == '1' ? 'selected' : '' }}>Größenteils
+                                    vorhanden</option>
+                                <option value="2" {{ old('module2_8') == '2' ? 'selected' : '' }}>In geringem
+                                    Maße vorhanden</option>
+                                <option value="3" {{ old('module2_8') == '3' ? 'selected' : '' }}>Nicht vorhanden
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -520,10 +552,14 @@
                                 <strong>Fähigkeit nicht vorhanden:</strong> Die Person äußert nicht oder nur sehr selten Bedürfnisse, auch nicht in nonverbaler Form. Sie kann weder Zustimmung noch Ablehnung deutlich machen."
                                 rel="tooltip">2.9 Mitteilen von elementaren Bedürfnissen</label>
                             <select name="module2_9" id="online-rechner-input29">
-                                <option value="0">Vorhanden / unbeeinträchtigt</option>
-                                <option value="1">Größenteils vorhanden</option>
-                                <option value="2">In geringem Maße vorhanden</option>
-                                <option value="3">Nicht vorhanden</option>
+                                <option value="0" {{ old('module2_9') == '0' ? 'selected' : '' }}>Vorhanden /
+                                    unbeeinträchtigt</option>
+                                <option value="1" {{ old('module2_9') == '1' ? 'selected' : '' }}>Größenteils
+                                    vorhanden</option>
+                                <option value="2" {{ old('module2_9') == '2' ? 'selected' : '' }}>In geringem
+                                    Maße vorhanden</option>
+                                <option value="3" {{ old('module2_9') == '3' ? 'selected' : '' }}>Nicht vorhanden
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-6">
@@ -539,10 +575,14 @@
                                 <strong>Fähigkeit nicht vorhanden:</strong> Die Person kann Anleitung und Aufforderungen kaum oder nicht verstehen."
                                 rel="tooltip">2.10 Verstehen von Aufforderungen</label>
                             <select name="module2_10" id="online-rechner-input210">
-                                <option value="0">Vorhanden / unbeeinträchtigt</option>
-                                <option value="1">Größenteils vorhanden</option>
-                                <option value="2">In geringem Maße vorhanden</option>
-                                <option value="3">Nicht vorhanden</option>
+                                <option value="0" {{ old('module2_10') == '0' ? 'selected' : '' }}>Vorhanden /
+                                    unbeeinträchtigt</option>
+                                <option value="1" {{ old('module2_10') == '1' ? 'selected' : '' }}>Größenteils
+                                    vorhanden</option>
+                                <option value="2" {{ old('module2_10') == '2' ? 'selected' : '' }}>In geringem
+                                    Maße vorhanden</option>
+                                <option value="3" {{ old('module2_10') == '3' ? 'selected' : '' }}>Nicht
+                                    vorhanden</option>
                             </select>
                         </div>
                         <div class="col-md-6">
@@ -558,10 +598,14 @@
 <strong>Fähigkeit nicht vorhanden:</strong> Ein Gespräch mit der Person, das über einfache Mitteilungen hinausgeht, ist auch unter Einsatz bonverbaler Kommunikation kaum oder nicht möglich."
                                 rel="tooltip">2.11 Beteiligen an einem Gespräch</label>
                             <select name="module2_11" id="online-rechner-input211">
-                                <option value="0">Vorhanden / unbeeinträchtigt</option>
-                                <option value="1">Größenteils vorhanden</option>
-                                <option value="2">In geringem Maße vorhanden</option>
-                                <option value="3">Nicht vorhanden</option>
+                                <option value="0" {{ old('module2_11') == '0' ? 'selected' : '' }}>Vorhanden /
+                                    unbeeinträchtigt</option>
+                                <option value="1" {{ old('module2_11') == '1' ? 'selected' : '' }}>Größenteils
+                                    vorhanden</option>
+                                <option value="2" {{ old('module2_11') == '2' ? 'selected' : '' }}>In geringem
+                                    Maße vorhanden</option>
+                                <option value="3" {{ old('module2_11') == '3' ? 'selected' : '' }}>Nicht
+                                    vorhanden</option>
                             </select>
                         </div>
                     </div>
@@ -591,10 +635,11 @@
                                 rel="tooltip">3.1 Motorisch geprägte
                                 Verhaltensauffälligkeiten</label>
                             <select name="modul3_1" id="online-rechner-input31">
-                                <option value="0">Nie oder sehr selten</option>
-                                <option value="1">Selten</option>
-                                <option value="2">Häufig</option>
-                                <option value="3">Täglich</option>
+                                <option value="0" {{ old('modul3_1') == '0' ? 'selected' : '' }}>Nie oder sehr
+                                    selten</option>
+                                <option value="1" {{ old('modul3_1') == '1' ? 'selected' : '' }}>Selten</option>
+                                <option value="2" {{ old('modul3_1') == '2' ? 'selected' : '' }}>Häufig</option>
+                                <option value="3" {{ old('modul3_1') == '3' ? 'selected' : '' }}>Täglich</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -604,10 +649,11 @@
                             Zu bewerten ist, wie häufig Anlass für personelle Unterstützung zur Steuerung des Schlaf-Wach-Rhythmus bestehen, z. B. wieder ins Bett bringen und beruhigen. Schlafstörungen wie Einschlafschwierigkeiten am Abend oder Wachphasen während der Nacht sind nicht zu werten. Andere nächtliche Hilfen, z. B. Aufstehen, zu Bett bringen bei Nykturie oder Lagerungen sind im Modul 6 Ziffer 2 zu werten."
                                 rel="tooltip">3.2 Nächtliche Unruhe</label>
                             <select name="modul3_2" id="online-rechner-input32">
-                                <option value="0">Nie oder sehr selten</option>
-                                <option value="1">Selten</option>
-                                <option value="2">Häufig</option>
-                                <option value="3">Täglich</option>
+                                <option value="0" {{ old('modul3_2') == '0' ? 'selected' : '' }}>Nie oder sehr
+                                    selten</option>
+                                <option value="1" {{ old('modul3_2') == '1' ? 'selected' : '' }}>Selten</option>
+                                <option value="2" {{ old('modul3_2') == '2' ? 'selected' : '' }}>Häufig</option>
+                                <option value="3" {{ old('modul3_2') == '3' ? 'selected' : '' }}>Täglich</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -616,10 +662,11 @@
                                 rel="tooltip">3.3 Selbstschädigendes und autoaggressives
                                 Verhalten</label>
                             <select name="modul3_3" id="online-rechner-input33">
-                                <option value="0">Nie oder sehr selten</option>
-                                <option value="1">Selten</option>
-                                <option value="2">Häufig</option>
-                                <option value="3">Täglich</option>
+                                <option value="0" {{ old('modul3_3') == '0' ? 'selected' : '' }}>Nie oder sehr
+                                    selten</option>
+                                <option value="1" {{ old('modul3_3') == '1' ? 'selected' : '' }}>Selten</option>
+                                <option value="2" {{ old('modul3_3') == '2' ? 'selected' : '' }}>Häufig</option>
+                                <option value="3" {{ old('modul3_3') == '3' ? 'selected' : '' }}>Täglich</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -627,10 +674,11 @@
                                 title="Gemeint sind hier aggressive, auf Gegenstände gerichtete Handlungen wie Gegenstände wegstoßen oder wegschieben, gegen Gegenstände schlagen, das Zerstören von Dingen sowie das Treten nach Gegenständen."
                                 rel="tooltip">3.4 Beschädigen von Gegenständen</label>
                             <select name="modul3_4" id="online-rechner-input34">
-                                <option value="0">Nie oder sehr selten</option>
-                                <option value="1">Selten</option>
-                                <option value="2">Häufig</option>
-                                <option value="3">Täglich</option>
+                                <option value="0" {{ old('modul3_4') == '0' ? 'selected' : '' }}>Nie oder sehr
+                                    selten</option>
+                                <option value="1" {{ old('modul3_4') == '1' ? 'selected' : '' }}>Selten</option>
+                                <option value="2" {{ old('modul3_4') == '2' ? 'selected' : '' }}>Häufig</option>
+                                <option value="3" {{ old('modul3_4') == '3' ? 'selected' : '' }}>Täglich</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -638,10 +686,11 @@
                                 title="Physisch aggressives Verhalten gegenüber anderen Personen kann z. B. darin bestehen, nach Personen zu schlagen oder zu treten, andere mit Zähnen oder Fingernägeln zu verletzen, andere zu stoßen oder wegzudrängen oder in Verletzungsversuchen gegenüber anderen Personen mit Gegenständen."
                                 rel="tooltip">3.5 Physisch aggressives Verhalten</label>
                             <select name="modul3_5" id="online-rechner-input35">
-                                <option value="0">Nie oder sehr selten</option>
-                                <option value="1">Selten</option>
-                                <option value="2">Häufig</option>
-                                <option value="3">Täglich</option>
+                                <option value="0" {{ old('modul3_5') == '0' ? 'selected' : '' }}>Nie oder sehr
+                                    selten</option>
+                                <option value="1" {{ old('modul3_5') == '1' ? 'selected' : '' }}>Selten</option>
+                                <option value="2" {{ old('modul3_5') == '2' ? 'selected' : '' }}>Häufig</option>
+                                <option value="3" {{ old('modul3_5') == '3' ? 'selected' : '' }}>Täglich</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -649,10 +698,11 @@
                                 title="Verbale Aggression kann sich z. B. in verbalen Beschimpfungen oder in der Bedrohung anderer Personen ausdrücken."
                                 rel="tooltip">3.6 Verbale Aggression</label>
                             <select name="modul3_6" id="online-rechner-input36">
-                                <option value="0">Nie oder sehr selten</option>
-                                <option value="1">Selten</option>
-                                <option value="2">Häufig</option>
-                                <option value="3">Täglich</option>
+                                <option value="0" {{ old('modul3_6') == '0' ? 'selected' : '' }}>Nie oder sehr
+                                    selten</option>
+                                <option value="1" {{ old('modul3_6') == '1' ? 'selected' : '' }}>Selten</option>
+                                <option value="2" {{ old('modul3_6') == '2' ? 'selected' : '' }}>Häufig</option>
+                                <option value="3" {{ old('modul3_6') == '3' ? 'selected' : '' }}>Täglich</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -661,10 +711,12 @@
                                 rel="tooltip">3.7 Andere pflegerelevante vokale
                                 Auffälligkeiten</label>
                             <select name="modul3_7" id="online-rechner-input37">
-                                <option value="0">Nie oder sehr selten</option>
-                                <option value="1">Selten</option>
-                                <option value="2">Häufig</option>
-                                <option value="3">Täglich</option>
+                                <option value="0" {{ old('modul3_7') == '0' ? 'selected' : '' }}>Nie oder sehr
+                                    selten</option>
+                                <option value="1" {{ old('modul3_7') == '1' ? 'selected' : '' }}>Selten</option>
+                                <option value="2" {{ old('modul3_7') == '2' ? 'selected' : '' }}>Häufig</option>
+                                <option value="3" {{ old('modul3_7') == '3' ? 'selected' : '' }}>Täglich
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -672,10 +724,12 @@
                                 title="Hier ist die Abwehr von Unterstützung, z. B. bei der Körperpflege, die Verweigerung der Nahrungsaufnahme, der Medikamenteneinnahme oder anderer notwendiger Verrichtungen sowie die Manipulation an Vorrichtungen wie z. B. an Kathetern, Infusionen oder Sondenernährung gemeint. Dazu gehört nicht die willentliche (selbstbestimmte) Ablehnung bestimmter Maßnahmen."
                                 rel="tooltip">3.8 Abwehr pflegerischer Maßnahmen</label>
                             <select name="modul3_8" id="online-rechner-input38">
-                                <option value="0">Nie oder sehr selten</option>
-                                <option value="1">Selten</option>
-                                <option value="2">Häufig</option>
-                                <option value="3">Täglich</option>
+                                <option value="0" {{ old('modul3_8') == '0' ? 'selected' : '' }}>Nie oder sehr
+                                    selten</option>
+                                <option value="1" {{ old('modul3_8') == '1' ? 'selected' : '' }}>Selten</option>
+                                <option value="2" {{ old('modul3_8') == '2' ? 'selected' : '' }}>Häufig</option>
+                                <option value="3" {{ old('modul3_8') == '3' ? 'selected' : '' }}>Täglich
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -683,10 +737,12 @@
                                 title="Wahnvorstellungen beziehen sich z. B. auf die Vorstellung, mit Verstorbenen oder imaginären Personen in Kontakt zu stehen oder auf die Vorstellung, verfolgt, bedroht oder bestohlen zu werden."
                                 rel="tooltip">3.9 Wahnvorstellungen</label>
                             <select name="modul3_9" id="online-rechner-input39">
-                                <option value="0">Nie oder sehr selten</option>
-                                <option value="1">Selten</option>
-                                <option value="2">Häufig</option>
-                                <option value="3">Täglich</option>
+                                <option value="0" {{ old('modul3_9') == '0' ? 'selected' : '' }}>Nie oder sehr
+                                    selten</option>
+                                <option value="1" {{ old('modul3_9') == '1' ? 'selected' : '' }}>Selten</option>
+                                <option value="2" {{ old('modul3_9') == '2' ? 'selected' : '' }}>Häufig</option>
+                                <option value="3" {{ old('modul3_9') == '3' ? 'selected' : '' }}>Täglich
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -694,10 +750,14 @@
                                 title="Die Person hat starke Ängste oder Sorgen, sie erlebt Angstattacken unabhängig von der Ursache."
                                 rel="tooltip">3.10 Ängste</label>
                             <select name="modul3_10" id="online-rechner-input310">
-                                <option value="0">Nie oder sehr selten</option>
-                                <option value="1">Selten</option>
-                                <option value="2">Häufig</option>
-                                <option value="3">Täglich</option>
+                                <option value="0" {{ old('modul3_10') == '0' ? 'selected' : '' }}>Nie oder sehr
+                                    selten</option>
+                                <option value="1" {{ old('modul3_10') == '1' ? 'selected' : '' }}>Selten
+                                </option>
+                                <option value="2" {{ old('modul3_10') == '2' ? 'selected' : '' }}>Häufig
+                                </option>
+                                <option value="3" {{ old('modul3_10') == '3' ? 'selected' : '' }}>Täglich
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -705,10 +765,14 @@
                                 title="Antriebslosigkeit bei depressiver Stimmungslage zeigt sich z. B. daran, dass die Person kaum Interesse an der Umgebung hat, kaum Eigeninitiative aufbringt und Motivierung durch andere benötigt, um etwas zu tun. Sie wirkt traurig oder apathisch, möchte am liebsten das Bett nicht verlassen. Hier ist nicht gemeint, dass Menschen mit rein kognitiven Beeinträchtigungen, z. B. bei Demenz Impulse benötigen, um eine Handlung zu beginnen oder fortzuführen."
                                 rel="tooltip">3.11 Antriebslosigkeit</label>
                             <select name="modul3_11" id="online-rechner-input311">
-                                <option value="0">Nie oder sehr selten</option>
-                                <option value="1">Selten</option>
-                                <option value="2">Häufig</option>
-                                <option value="3">Täglich</option>
+                                <option value="0" {{ old('modul3_11') == '0' ? 'selected' : '' }}>Nie oder sehr
+                                    selten</option>
+                                <option value="1" {{ old('modul3_11') == '1' ? 'selected' : '' }}>Selten
+                                </option>
+                                <option value="2" {{ old('modul3_11') == '2' ? 'selected' : '' }}>Häufig
+                                </option>
+                                <option value="3" {{ old('modul3_11') == '3' ? 'selected' : '' }}>Täglich
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -716,10 +780,14 @@
                                 title="Sozial inadäquate Verhaltensweisen sind z. B. distanzloses Verhalten, auffälliges Einfordern von Aufmerksamkeit, sich vor anderen in unpassenden Situationen auskleiden, unangemessenes Greifen nach Personen oder unangemessene körperliche oder verbale sexuelle Annäherungsversuche."
                                 rel="tooltip">3.12 Sozial inadäquate Verhaltensweisen</label>
                             <select name="modul3_12" id="online-rechner-input312">
-                                <option value="0">Nie oder sehr selten</option>
-                                <option value="1">Selten</option>
-                                <option value="2">Häufig</option>
-                                <option value="3">Täglich</option>
+                                <option value="0" {{ old('modul3_12') == '0' ? 'selected' : '' }}>Nie oder sehr
+                                    selten</option>
+                                <option value="1" {{ old('modul3_12') == '1' ? 'selected' : '' }}>Selten
+                                </option>
+                                <option value="2" {{ old('modul3_12') == '2' ? 'selected' : '' }}>Häufig
+                                </option>
+                                <option value="3" {{ old('modul3_12') == '3' ? 'selected' : '' }}>Täglich
+                                </option>
                             </select>
                         </div>
                         <div class="col-12">
@@ -727,10 +795,14 @@
                                 title="Sonstige pflegerelevante inadäquate Handlungen sind z. B. Nesteln an der Kleidung, ständiges Wiederholen der gleichen Handlung (Stereotypien), planlose Aktivitäten, Verstecken oder Horten von Gegenständen, Kotschmieren, Urinieren in die Wohnung."
                                 rel="tooltip">3.13 Sonstige inadäquate Handlungen</label>
                             <select name="modul3_13" id="online-rechner-input313">
-                                <option value="0">Nie oder sehr selten</option>
-                                <option value="1">Selten</option>
-                                <option value="2">Häufig</option>
-                                <option value="3">Täglich</option>
+                                <option value="0" {{ old('modul3_13') == '0' ? 'selected' : '' }}>Nie oder sehr
+                                    selten</option>
+                                <option value="1" {{ old('modul3_13') == '1' ? 'selected' : '' }}>Selten
+                                </option>
+                                <option value="2" {{ old('modul3_13') == '2' ? 'selected' : '' }}>Häufig
+                                </option>
+                                <option value="3" {{ old('modul3_13') == '3' ? 'selected' : '' }}>Täglich
+                                </option>
                             </select>
                         </div>
                     </div>
@@ -766,10 +838,14 @@
                             <strong>Unselbständig:</strong> Die Person kann sich an der Aktivität nicht oder nur minimal beteiligen."
                                 rel="tooltip">4.1 Waschen des vorderen Oberkörpers</label>
                             <select name="module4_1" id="module4_1" aria-label="Waschen des vorderen Oberkörpers">
-                                <option value="0">Selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('module4_1') == '0' ? 'selected' : '' }}>Selbstständig
+                                </option>
+                                <option value="1" {{ old('module4_1') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('module4_1') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('module4_1') == '3' ? 'selected' : '' }}>
+                                    Unselbstständig</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -785,10 +861,14 @@
                             <strong>Unselbständig:</strong> Die Person kann sich an den Aktivitäten nicht oder nur minimal beteiligen."
                                 rel="tooltip">4.2 Körperpflege im Bereich des Kopfes</label>
                             <select name="module4_2" id="module4_2" aria-label="Körperpflege im Bereich des Kopfes">
-                                <option value="0">Selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('module4_2') == '0' ? 'selected' : '' }}>Selbstständig
+                                </option>
+                                <option value="1" {{ old('module4_2') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('module4_2') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('module4_2') == '3' ? 'selected' : '' }}>
+                                    Unselbstständig</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -804,10 +884,14 @@
                             <strong>Unselbständig:</strong> Die Person kann sich an der Aktivität nicht oder nur minimal beteiligen."
                                 rel="tooltip">4.3 Waschen des Intimbereichs</label>
                             <select name="module4_3" id="module4_3" aria-label="Waschen des Intimbereichs">
-                                <option value="0">Selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('module4_3') == '0' ? 'selected' : '' }}>Selbstständig
+                                </option>
+                                <option value="1" {{ old('module4_3') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('module4_3') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('module4_3') == '3' ? 'selected' : '' }}>
+                                    Unselbstständig</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -824,10 +908,14 @@
                                 rel="tooltip">4.4 Duschen und Baden einschließlich Waschen der Haare</label>
                             <select name="module4_4" id="module4_4"
                                 aria-label="Duschen und Baden einschließlich Waschen der Haare">
-                                <option value="0">Selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('module4_4') == '0' ? 'selected' : '' }}>Selbstständig
+                                </option>
+                                <option value="1" {{ old('module4_4') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('module4_4') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('module4_4') == '3' ? 'selected' : '' }}>
+                                    Unselbstständig</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -843,10 +931,14 @@
                             <strong>Unselbständig:</strong> Die Person kann sich an der Aktivität nicht oder nur minimal beteiligen."
                                 rel="tooltip">4.5 An- und Auskleiden des Oberkörpers</label>
                             <select name="module4_5" id="module4_5" aria-label="An- und Auskleiden des Oberkörpers">
-                                <option value="0">Selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('module4_5') == '0' ? 'selected' : '' }}>Selbstständig
+                                </option>
+                                <option value="1" {{ old('module4_5') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('module4_5') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('module4_5') == '3' ? 'selected' : '' }}>
+                                    Unselbstständig</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -862,10 +954,14 @@
                             <strong>Unselbständig:</strong> Die Person kann sich an der Aktivität nicht oder nur minimal beteiligen."
                                 rel="tooltip">4.6 An- und Auskleiden des Unterkörpers</label>
                             <select name="module4_6" id="module4_6" aria-label="An- und Auskleiden des Unterkörpers">
-                                <option value="0">Selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('module4_6') == '0' ? 'selected' : '' }}>Selbstständig
+                                </option>
+                                <option value="1" {{ old('module4_6') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('module4_6') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('module4_6') == '3' ? 'selected' : '' }}>
+                                    Unselbstständig</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -883,10 +979,14 @@
                                 Getränken</label>
                             <select name="module4_7" id="module4_7"
                                 aria-label="Mundgerechtes Zubereiten der Nahrung und Eingießen von Getränken">
-                                <option value="0">Selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('module4_7') == '0' ? 'selected' : '' }}>Selbstständig
+                                </option>
+                                <option value="1" {{ old('module4_7') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('module4_7') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('module4_7') == '3' ? 'selected' : '' }}>
+                                    Unselbstständig</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -902,10 +1002,14 @@
                             <strong>Unselbständig:</strong> Die Nahrung muss (nahezu) komplett gereicht werden."
                                 rel="tooltip">4.8 Essen</label>
                             <select name="module4_8" id="module4_8" aria-label="Essen">
-                                <option value="0">Selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('module4_8') == '0' ? 'selected' : '' }}>Selbstständig
+                                </option>
+                                <option value="1" {{ old('module4_8') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('module4_8') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('module4_8') == '3' ? 'selected' : '' }}>
+                                    Unselbstständig</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -921,10 +1025,14 @@
                             <strong>Unselbständig:</strong> Getränke müssen (nahezu) komplett gereicht werden."
                                 rel="tooltip">4.9 Trinken</label>
                             <select name="module4_9" id="module4_9" aria-label="Trinken">
-                                <option value="0">Selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('module4_9') == '0' ? 'selected' : '' }}>Selbstständig
+                                </option>
+                                <option value="1" {{ old('module4_9') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('module4_9') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('module4_9') == '3' ? 'selected' : '' }}>
+                                    Unselbstständig</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -946,10 +1054,14 @@
                                 rel="tooltip">4.10 Benutzen einer Toilette oder eines Toilettenstuhls</label>
                             <select name="module4_10" id="module4_10"
                                 aria-label="Benutzen einer Toilette oder eines Toilettenstuhls">
-                                <option value="0">Selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('module4_10') == '0' ? 'selected' : '' }}>Selbstständig
+                                </option>
+                                <option value="1" {{ old('module4_10') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('module4_10') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('module4_10') == '3' ? 'selected' : '' }}>
+                                    Unselbstständig</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -967,10 +1079,14 @@
                                 Umgang mit
                                 Dauerkatheter und Urostoma</label>
                             <select name="module4_11" id="">
-                                <option value="0">Entfällt oder selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('module4_11') == '0' ? 'selected' : '' }}>Entfällt oder
+                                    selbstständig</option>
+                                <option value="1" {{ old('module4_11') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('module4_11') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('module4_11') == '3' ? 'selected' : '' }}>
+                                    Unselbstständig</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -988,10 +1104,14 @@
                                 Umgang
                                 mit Stoma</label>
                             <select name="module4_12" id="">
-                                <option value="0">Entfällt oder selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('module4_12') == '0' ? 'selected' : '' }}>Entfällt oder
+                                    selbstständig</option>
+                                <option value="1" {{ old('module4_12') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('module4_12') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('module4_12') == '3' ? 'selected' : '' }}>
+                                    Unselbstständig</option>
                             </select>
                         </div>
                         <div class="col-12">
@@ -1011,14 +1131,14 @@
                                 über
                                 Sonde</label>
                             <select name="module4_13" id="">
-                                <option value="0">
+                                <option value="0" {{ old('module4_13') == '0' ? 'selected' : '' }}>
                                     Entfällt, selbstständig, Versorgung mit Hilfe (aber nicht
                                     täglich, nicht auf Dauer)
                                 </option>
-                                <option value="1">
+                                <option value="1" {{ old('module4_13') == '1' ? 'selected' : '' }}>
                                     Ausschließlich oder nahezu ausschließlich
                                 </option>
-                                <option value="2">
+                                <option value="2" {{ old('module4_13') == '2' ? 'selected' : '' }}>
                                     Täglich, zusätzlich zu oraler Ernährung
                                 </option>
                             </select>
@@ -1051,22 +1171,44 @@
                                 title="Orale Medikation, Augen- oder Ohrentropfen, Zäpfchen und Medikamentenpflaster. Das Ausmaß der Hilfestellung kann von einmal wöchentlichem Stellen der Medikamente im Wochendispenser bis zu mehrfach täglicher Einzelgabe differieren. Werden Medikamente verabreicht, ist das Stellen nicht gesondert zu berücksichtigen."
                                 rel="tooltip">5.1 Medikation</label>
                             <select name="module5_1" id="module5_1">
-                                <option value="0">Entfällt oder selbstständig</option>
-                                <option value="1">Täglich ergänzend</option>
-                                <option value="0.03">1 x pro Monat</option>
-                                <option value="0.07">2 x pro Monat</option>
-                                <option value="0.1">3 x pro Monat</option>
-                                <option value="0.17">4 x pro Monat (1 x pro Woche)</option>
-                                <option value="0.29">2 x pro Woche</option>
-                                <option value="0.43">3 x pro Woche</option>
-                                <option value="0.57">4 x pro Woche</option>
-                                <option value="0.71">5 x pro Woche</option>
-                                <option value="0.86">6 x pro Woche</option>
-                                <option value="1">7 x pro Woche (1 x pro Tag)</option>
-                                <option value="2">2 x pro Tag</option>
-                                <option value="3">3 x pro Tag</option>
-                                <option value="4">4 x pro Tag</option>
-                                <option value="5">5 x pro Tag</option>
+                                <option value="0" {{ old('module5_1') == '0' ? 'selected' : '' }}>Entfällt oder
+                                    selbstständig</option>
+                                <option value="1" {{ old('module5_1') == '1' ? 'selected' : '' }}>Täglich
+                                    ergänzend</option>
+                                <option value="0.03" {{ old('module5_1') == '0.03' ? 'selected' : '' }}>1 x pro
+                                    Monat</option>
+                                <option value="0.07" {{ old('module5_1') == '0.07' ? 'selected' : '' }}>2 x pro
+                                    Monat</option>
+                                <option value="0.1" {{ old('module5_1') == '0.1' ? 'selected' : '' }}>3 x pro
+                                    Monat</option>
+                                <option value="0.17" {{ old('module5_1') == '0.17' ? 'selected' : '' }}>4 x pro
+                                    Monat
+                                    (1 x pro Woche)</option>
+                                <option value="0.29" {{ old('module5_1') == '0.29' ? 'selected' : '' }}>2 x pro
+                                    Woche
+                                </option>
+                                <option value="0.43" {{ old('module5_1') == '0.43' ? 'selected' : '' }}>3 x pro
+                                    Woche
+                                </option>
+                                <option value="0.57" {{ old('module5_1') == '0.57' ? 'selected' : '' }}>4 x pro
+                                    Woche
+                                </option>
+                                <option value="0.71" {{ old('module5_1') == '0.71' ? 'selected' : '' }}>5 x pro
+                                    Woche
+                                </option>
+                                <option value="0.86" {{ old('module5_1') == '0.86' ? 'selected' : '' }}>6 x pro
+                                    Woche
+                                </option>
+                                <option value="1" {{ old('module5_1') == '1' ? 'selected' : '' }}>7 x pro Woche
+                                    (1 x pro Tag)</option>
+                                <option value="2" {{ old('module5_1') == '2' ? 'selected' : '' }}>2 x pro Tag
+                                </option>
+                                <option value="3" {{ old('module5_1') == '3' ? 'selected' : '' }}>3 x pro Tag
+                                </option>
+                                <option value="4" {{ old('module5_1') == '4' ? 'selected' : '' }}>4 x pro Tag
+                                </option>
+                                <option value="5" {{ old('module5_1') == '5' ? 'selected' : '' }}>5 x pro Tag
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -1074,22 +1216,38 @@
                                 title="Subkutane und intramuskuläre Injektionen und subkutane Infusionen. Dazu gehören z. B. Insulininjektionen oder auch die Versorgung mit Medikamentenpumpen über einen subkutanen Zugang."
                                 rel="tooltip">5.2 Injektionen</label>
                             <select name="module5_2" id="module5_2">
-                                <option value="0">Entfällt oder selbstständig</option>
-                                <option value="1">Täglich ergänzend</option>
-                                <option value="0.03">1 x pro Monat</option>
-                                <option value="0.07">2 x pro Monat</option>
-                                <option value="0.1">3 x pro Monat</option>
-                                <option value="0.17">4 x pro Monat (1 x pro Woche)</option>
-                                <option value="0.29">2 x pro Woche</option>
-                                <option value="0.43">3 x pro Woche</option>
-                                <option value="0.57">4 x pro Woche</option>
-                                <option value="0.71">5 x pro Woche</option>
-                                <option value="0.86">6 x pro Woche</option>
-                                <option value="1">7 x pro Woche (1 x pro Tag)</option>
-                                <option value="2">2 x pro Tag</option>
-                                <option value="3">3 x pro Tag</option>
-                                <option value="4">4 x pro Tag</option>
-                                <option value="5">5 x pro Tag</option>
+                                <option value="0" {{ old('module5_2') == '0' ? 'selected' : '' }}>Entfällt oder
+                                    selbstständig</option>
+                                <option value="1" {{ old('module5_2') == '1' ? 'selected' : '' }}>Täglich
+                                    ergänzend</option>
+                                <option value="0.03" {{ old('module5_2') == '0.03' ? 'selected' : '' }}>1 x pro
+                                    Monat</option>
+                                <option value="0.07" {{ old('module5_2') == '0.07' ? 'selected' : '' }}>2 x pro
+                                    Monat</option>
+                                <option value="0.1" {{ old('module5_2') == '0.1' ? 'selected' : '' }}>3 x pro
+                                    Monat</option>
+                                <option value="0.17" {{ old('module5_2') == '0.17' ? 'selected' : '' }}>4 x pro
+                                    Monat (1 x pro Woche)</option>
+                                <option value="0.29" {{ old('module5_2') == '0.29' ? 'selected' : '' }}>2 x pro
+                                    Woche</option>
+                                <option value="0.43" {{ old('module5_2') == '0.43' ? 'selected' : '' }}>3 x pro
+                                    Woche</option>
+                                <option value="0.57" {{ old('module5_2') == '0.57' ? 'selected' : '' }}>4 x pro
+                                    Woche</option>
+                                <option value="0.71" {{ old('module5_2') == '0.71' ? 'selected' : '' }}>5 x pro
+                                    Woche</option>
+                                <option value="0.86" {{ old('module5_2') == '0.86' ? 'selected' : '' }}>6 x pro
+                                    Woche</option>
+                                <option value="1" {{ old('module5_2') == '1' ? 'selected' : '' }}>7 x pro Woche
+                                    (1 x pro Tag)</option>
+                                <option value="2" {{ old('module5_2') == '2' ? 'selected' : '' }}>2 x pro Tag
+                                </option>
+                                <option value="3" {{ old('module5_2') == '3' ? 'selected' : '' }}>3 x pro Tag
+                                </option>
+                                <option value="4" {{ old('module5_2') == '4' ? 'selected' : '' }}>4 x pro Tag
+                                </option>
+                                <option value="5" {{ old('module5_2') == '5' ? 'selected' : '' }}>5 x pro Tag
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -1098,22 +1256,38 @@
                             zur Vermeidung von Komplikationen wie Verstopfung des Katheters zu berücksichtigen. Analog ist auch die Versorgung intrathekaler Zugänge hier zu erfassen. Das Anhängen von Nährlösungen zur parenteralen Ernährung ist nicht hier sondern im Modul 4 unter Ziffer 13 zu erfassen."
                                 rel="tooltip">5.3 Versorgung intravenöser Zugänge (Port)</label>
                             <select name="module5_3" id="module5_3">
-                                <option value="0">Entfällt oder selbstständig</option>
-                                <option value="1">Täglich ergänzend</option>
-                                <option value="0.03">1 x pro Monat</option>
-                                <option value="0.07">2 x pro Monat</option>
-                                <option value="0.1">3 x pro Monat</option>
-                                <option value="0.17">4 x pro Monat (1 x pro Woche)</option>
-                                <option value="0.29">2 x pro Woche</option>
-                                <option value="0.43">3 x pro Woche</option>
-                                <option value="0.57">4 x pro Woche</option>
-                                <option value="0.71">5 x pro Woche</option>
-                                <option value="0.86">6 x pro Woche</option>
-                                <option value="1">7 x pro Woche (1 x pro Tag)</option>
-                                <option value="2">2 x pro Tag</option>
-                                <option value="3">3 x pro Tag</option>
-                                <option value="4">4 x pro Tag</option>
-                                <option value="5">5 x pro Tag</option>
+                                <option value="0" {{ old('module5_3') == '0' ? 'selected' : '' }}>Entfällt oder
+                                    selbstständig</option>
+                                <option value="1" {{ old('module5_3') == '1' ? 'selected' : '' }}>Täglich
+                                    ergänzend</option>
+                                <option value="0.03" {{ old('module5_3') == '0.03' ? 'selected' : '' }}>1 x pro
+                                    Monat</option>
+                                <option value="0.07" {{ old('module5_3') == '0.07' ? 'selected' : '' }}>2 x pro
+                                    Monat</option>
+                                <option value="0.1" {{ old('module5_3') == '0.1' ? 'selected' : '' }}>3 x pro
+                                    Monat</option>
+                                <option value="0.17" {{ old('module5_3') == '0.17' ? 'selected' : '' }}>4 x pro
+                                    Monat (1 x pro Woche)</option>
+                                <option value="0.29" {{ old('module5_3') == '0.29' ? 'selected' : '' }}>2 x pro
+                                    Woche</option>
+                                <option value="0.43" {{ old('module5_3') == '0.43' ? 'selected' : '' }}>3 x pro
+                                    Woche</option>
+                                <option value="0.57" {{ old('module5_3') == '0.57' ? 'selected' : '' }}>4 x pro
+                                    Woche</option>
+                                <option value="0.71" {{ old('module5_3') == '0.71' ? 'selected' : '' }}>5 x pro
+                                    Woche</option>
+                                <option value="0.86" {{ old('module5_3') == '0.86' ? 'selected' : '' }}>6 x pro
+                                    Woche</option>
+                                <option value="1" {{ old('module5_3') == '1' ? 'selected' : '' }}>7 x pro Woche
+                                    (1 x pro Tag)</option>
+                                <option value="2" {{ old('module5_3') == '2' ? 'selected' : '' }}>2 x pro Tag
+                                </option>
+                                <option value="3" {{ old('module5_3') == '3' ? 'selected' : '' }}>3 x pro Tag
+                                </option>
+                                <option value="4" {{ old('module5_3') == '4' ? 'selected' : '' }}>4 x pro Tag
+                                </option>
+                                <option value="5" {{ old('module5_3') == '5' ? 'selected' : '' }}>5 x pro Tag
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -1121,22 +1295,38 @@
                                 title="Absaugen kann z. B. bei beatmeten oder tracheotomierten Patienten in sehr unterschiedlicher und wechselnder Häufigkeit notwendig sein. Es ist der durchschnittliche Bedarf anzugeben. Ebenso ist hier das An- und Ablegen von Sauerstoffbrillen oder analog auch von Atemmasken zur nächtlichen Druckbeatmung zu erfassen sowie das Bereitstellen eines Inhalationsgerätes (inkl. deren Reinigung). Jede Maßnahme ist auch einzeln zu berücksichtigen."
                                 rel="tooltip">5.4 Absaugen und Sauerstoffgabe</label>
                             <select name="module5_4" id="module5_4">
-                                <option value="0">Entfällt oder selbstständig</option>
-                                <option value="1">Täglich ergänzend</option>
-                                <option value="0.03">1 x pro Monat</option>
-                                <option value="0.07">2 x pro Monat</option>
-                                <option value="0.1">3 x pro Monat</option>
-                                <option value="0.17">4 x pro Monat (1 x pro Woche)</option>
-                                <option value="0.29">2 x pro Woche</option>
-                                <option value="0.43">3 x pro Woche</option>
-                                <option value="0.57">4 x pro Woche</option>
-                                <option value="0.71">5 x pro Woche</option>
-                                <option value="0.86">6 x pro Woche</option>
-                                <option value="1">7 x pro Woche (1 x pro Tag)</option>
-                                <option value="2">2 x pro Tag</option>
-                                <option value="3">3 x pro Tag</option>
-                                <option value="4">4 x pro Tag</option>
-                                <option value="5">5 x pro Tag</option>
+                                <option value="0" {{ old('module5_4') == '0' ? 'selected' : '' }}>Entfällt oder
+                                    selbstständig</option>
+                                <option value="1" {{ old('module5_4') == '1' ? 'selected' : '' }}>Täglich
+                                    ergänzend</option>
+                                <option value="0.03" {{ old('module5_4') == '0.03' ? 'selected' : '' }}>1 x pro
+                                    Monat</option>
+                                <option value="0.07" {{ old('module5_4') == '0.07' ? 'selected' : '' }}>2 x pro
+                                    Monat</option>
+                                <option value="0.1" {{ old('module5_4') == '0.1' ? 'selected' : '' }}>3 x pro
+                                    Monat</option>
+                                <option value="0.17" {{ old('module5_4') == '0.17' ? 'selected' : '' }}>4 x pro
+                                    Monat (1 x pro Woche)</option>
+                                <option value="0.29" {{ old('module5_4') == '0.29' ? 'selected' : '' }}>2 x pro
+                                    Woche</option>
+                                <option value="0.43" {{ old('module5_4') == '0.43' ? 'selected' : '' }}>3 x pro
+                                    Woche</option>
+                                <option value="0.57" {{ old('module5_4') == '0.57' ? 'selected' : '' }}>4 x pro
+                                    Woche</option>
+                                <option value="0.71" {{ old('module5_4') == '0.71' ? 'selected' : '' }}>5 x pro
+                                    Woche</option>
+                                <option value="0.86" {{ old('module5_4') == '0.86' ? 'selected' : '' }}>6 x pro
+                                    Woche</option>
+                                <option value="1" {{ old('module5_4') == '1' ? 'selected' : '' }}>7 x pro Woche
+                                    (1 x pro Tag)</option>
+                                <option value="2" {{ old('module5_4') == '2' ? 'selected' : '' }}>2 x pro Tag
+                                </option>
+                                <option value="3" {{ old('module5_4') == '3' ? 'selected' : '' }}>3 x pro Tag
+                                </option>
+                                <option value="4" {{ old('module5_4') == '4' ? 'selected' : '' }}>4 x pro Tag
+                                </option>
+                                <option value="5" {{ old('module5_4') == '5' ? 'selected' : '' }}>5 x pro Tag
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -1144,22 +1334,38 @@
                                 title="Hier sind alle externen Anwendungen mit ärztlich angeordneten Salben, Cremes, Emulsionen etc. abzubilden, außerdem Kälte- und Wärmeanwendungen, die z. B. bei rheumatischen Erkrankungen angeordnet werden. Jede Maßnahme ist auch einzeln zu berücksichtigen."
                                 rel="tooltip">5.5 Einreibungen oder Kälte- und Wärmeanwendungen</label>
                             <select name="module5_5" id="module5_5">
-                                <option value="0">Entfällt oder selbstständig</option>
-                                <option value="1">Täglich ergänzend</option>
-                                <option value="0.03">1 x pro Monat</option>
-                                <option value="0.07">2 x pro Monat</option>
-                                <option value="0.1">3 x pro Monat</option>
-                                <option value="0.17">4 x pro Monat (1 x pro Woche)</option>
-                                <option value="0.29">2 x pro Woche</option>
-                                <option value="0.43">3 x pro Woche</option>
-                                <option value="0.57">4 x pro Woche</option>
-                                <option value="0.71">5 x pro Woche</option>
-                                <option value="0.86">6 x pro Woche</option>
-                                <option value="1">7 x pro Woche (1 x pro Tag)</option>
-                                <option value="2">2 x pro Tag</option>
-                                <option value="3">3 x pro Tag</option>
-                                <option value="4">4 x pro Tag</option>
-                                <option value="5">5 x pro Tag</option>
+                                <option value="0" {{ old('module5_5') == '0' ? 'selected' : '' }}>Entfällt oder
+                                    selbstständig</option>
+                                <option value="1" {{ old('module5_5') == '1' ? 'selected' : '' }}>Täglich
+                                    ergänzend</option>
+                                <option value="0.03" {{ old('module5_5') == '0.03' ? 'selected' : '' }}>1 x pro
+                                    Monat</option>
+                                <option value="0.07" {{ old('module5_5') == '0.07' ? 'selected' : '' }}>2 x pro
+                                    Monat</option>
+                                <option value="0.1" {{ old('module5_5') == '0.1' ? 'selected' : '' }}>3 x pro
+                                    Monat</option>
+                                <option value="0.17" {{ old('module5_5') == '0.17' ? 'selected' : '' }}>4 x pro
+                                    Monat (1 x pro Woche)</option>
+                                <option value="0.29" {{ old('module5_5') == '0.29' ? 'selected' : '' }}>2 x pro
+                                    Woche</option>
+                                <option value="0.43" {{ old('module5_5') == '0.43' ? 'selected' : '' }}>3 x pro
+                                    Woche</option>
+                                <option value="0.57" {{ old('module5_5') == '0.57' ? 'selected' : '' }}>4 x pro
+                                    Woche</option>
+                                <option value="0.71" {{ old('module5_5') == '0.71' ? 'selected' : '' }}>5 x pro
+                                    Woche</option>
+                                <option value="0.86" {{ old('module5_5') == '0.86' ? 'selected' : '' }}>6 x pro
+                                    Woche</option>
+                                <option value="1" {{ old('module5_5') == '1' ? 'selected' : '' }}>7 x pro Woche
+                                    (1 x pro Tag)</option>
+                                <option value="2" {{ old('module5_5') == '2' ? 'selected' : '' }}>2 x pro Tag
+                                </option>
+                                <option value="3" {{ old('module5_5') == '3' ? 'selected' : '' }}>3 x pro Tag
+                                </option>
+                                <option value="4" {{ old('module5_5') == '4' ? 'selected' : '' }}>4 x pro Tag
+                                </option>
+                                <option value="5" {{ old('module5_5') == '5' ? 'selected' : '' }}>5 x pro Tag
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -1167,22 +1373,38 @@
                                 title="Die Aktivität umfasst Messungen wie z. B. Blutdruck, Puls, Blutzucker, Temperatur, Körpergewicht, Flüssigkeitshaushalt, soweit diese auf ärztliche Anordnung erfolgen. Dabei geht es nicht nur darum, die Messung durchzuführen, sondern auch notwendige Schlüsse zu ziehen, etwa zur Festlegung der erforderlichen Insulindosis oder zur Notwendigkeit anderer Maßnahmen, wie das Umstellen der Ernährung oder auch das Aufsuchen einer Ärztin oder eines Arztes. Dies gilt beispielsweise auch für Menschen mit erhöhtem Blutdruck, die zur Ergänzung der medikamentösen Therapie und einer Umstellung ihres Lebensstils regelmäßig Blutdruck und Puls kontrollieren."
                                 rel="tooltip">5.6 Messung und Deutung von Körperzuständen</label>
                             <select name="module5_6" id="module5_6">
-                                <option value="0">Entfällt oder selbstständig</option>
-                                <option value="1">Täglich ergänzend</option>
-                                <option value="0.03">1 x pro Monat</option>
-                                <option value="0.07">2 x pro Monat</option>
-                                <option value="0.1">3 x pro Monat</option>
-                                <option value="0.17">4 x pro Monat (1 x pro Woche)</option>
-                                <option value="0.29">2 x pro Woche</option>
-                                <option value="0.43">3 x pro Woche</option>
-                                <option value="0.57">4 x pro Woche</option>
-                                <option value="0.71">5 x pro Woche</option>
-                                <option value="0.86">6 x pro Woche</option>
-                                <option value="1">7 x pro Woche (1 x pro Tag)</option>
-                                <option value="2">2 x pro Tag</option>
-                                <option value="3">3 x pro Tag</option>
-                                <option value="4">4 x pro Tag</option>
-                                <option value="5">5 x pro Tag</option>
+                                <option value="0" {{ old('module5_6') == '0' ? 'selected' : '' }}>Entfällt oder
+                                    selbstständig</option>
+                                <option value="1" {{ old('module5_6') == '1' ? 'selected' : '' }}>Täglich
+                                    ergänzend</option>
+                                <option value="0.03" {{ old('module5_6') == '0.03' ? 'selected' : '' }}>1 x pro
+                                    Monat</option>
+                                <option value="0.07" {{ old('module5_6') == '0.07' ? 'selected' : '' }}>2 x pro
+                                    Monat</option>
+                                <option value="0.1" {{ old('module5_6') == '0.1' ? 'selected' : '' }}>3 x pro
+                                    Monat</option>
+                                <option value="0.17" {{ old('module5_6') == '0.17' ? 'selected' : '' }}>4 x pro
+                                    Monat (1 x pro Woche)</option>
+                                <option value="0.29" {{ old('module5_6') == '0.29' ? 'selected' : '' }}>2 x pro
+                                    Woche</option>
+                                <option value="0.43" {{ old('module5_6') == '0.43' ? 'selected' : '' }}>3 x pro
+                                    Woche</option>
+                                <option value="0.57" {{ old('module5_6') == '0.57' ? 'selected' : '' }}>4 x pro
+                                    Woche</option>
+                                <option value="0.71" {{ old('module5_6') == '0.71' ? 'selected' : '' }}>5 x pro
+                                    Woche</option>
+                                <option value="0.86" {{ old('module5_6') == '0.86' ? 'selected' : '' }}>6 x pro
+                                    Woche</option>
+                                <option value="1" {{ old('module5_6') == '1' ? 'selected' : '' }}>7 x pro Woche
+                                    (1 x pro Tag)</option>
+                                <option value="2" {{ old('module5_6') == '2' ? 'selected' : '' }}>2 x pro Tag
+                                </option>
+                                <option value="3" {{ old('module5_6') == '3' ? 'selected' : '' }}>3 x pro Tag
+                                </option>
+                                <option value="4" {{ old('module5_6') == '4' ? 'selected' : '' }}>4 x pro Tag
+                                </option>
+                                <option value="5" {{ old('module5_6') == '5' ? 'selected' : '' }}>5 x pro Tag
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -1190,22 +1412,38 @@
                                 title="Hierunter versteht man beispielsweise das An- und Ablegen von Prothesen, kieferorthopädische Apparaturen; Orthesen, Brille, Hörgerät oder Kompressionsstrümpfen (inkl. deren Reinigung). Der Umgang mit Zahnprothesen ist im Modul 4 unter Ziffer 2 zu erfassen."
                                 rel="tooltip">5.7 Körpernahe Hilfsmittel</label>
                             <select name="module5_7" id="module5_7">
-                                <option value="0">Entfällt oder selbstständig</option>
-                                <option value="1">Täglich ergänzend</option>
-                                <option value="0.03">1 x pro Monat</option>
-                                <option value="0.07">2 x pro Monat</option>
-                                <option value="0.1">3 x pro Monat</option>
-                                <option value="0.17">4 x pro Monat (1 x pro Woche)</option>
-                                <option value="0.29">2 x pro Woche</option>
-                                <option value="0.43">3 x pro Woche</option>
-                                <option value="0.57">4 x pro Woche</option>
-                                <option value="0.71">5 x pro Woche</option>
-                                <option value="0.86">6 x pro Woche</option>
-                                <option value="1">7 x pro Woche (1 x pro Tag)</option>
-                                <option value="2">2 x pro Tag</option>
-                                <option value="3">3 x pro Tag</option>
-                                <option value="4">4 x pro Tag</option>
-                                <option value="5">5 x pro Tag</option>
+                                <option value="0" {{ old('module5_7') == '0' ? 'selected' : '' }}>Entfällt oder
+                                    selbstständig</option>
+                                <option value="1" {{ old('module5_7') == '1' ? 'selected' : '' }}>Täglich
+                                    ergänzend</option>
+                                <option value="0.03" {{ old('module5_7') == '0.03' ? 'selected' : '' }}>1 x pro
+                                    Monat</option>
+                                <option value="0.07" {{ old('module5_7') == '0.07' ? 'selected' : '' }}>2 x pro
+                                    Monat</option>
+                                <option value="0.1" {{ old('module5_7') == '0.1' ? 'selected' : '' }}>3 x pro
+                                    Monat</option>
+                                <option value="0.17" {{ old('module5_7') == '0.17' ? 'selected' : '' }}>4 x pro
+                                    Monat (1 x pro Woche)</option>
+                                <option value="0.29" {{ old('module5_7') == '0.29' ? 'selected' : '' }}>2 x pro
+                                    Woche</option>
+                                <option value="0.43" {{ old('module5_7') == '0.43' ? 'selected' : '' }}>3 x pro
+                                    Woche</option>
+                                <option value="0.57" {{ old('module5_7') == '0.57' ? 'selected' : '' }}>4 x pro
+                                    Woche</option>
+                                <option value="0.71" {{ old('module5_7') == '0.71' ? 'selected' : '' }}>5 x pro
+                                    Woche</option>
+                                <option value="0.86" {{ old('module5_7') == '0.86' ? 'selected' : '' }}>6 x pro
+                                    Woche</option>
+                                <option value="1" {{ old('module5_7') == '1' ? 'selected' : '' }}>7 x pro Woche
+                                    (1 x pro Tag)</option>
+                                <option value="2" {{ old('module5_7') == '2' ? 'selected' : '' }}>2 x pro Tag
+                                </option>
+                                <option value="3" {{ old('module5_7') == '3' ? 'selected' : '' }}>3 x pro Tag
+                                </option>
+                                <option value="4" {{ old('module5_7') == '4' ? 'selected' : '' }}>4 x pro Tag
+                                </option>
+                                <option value="5" {{ old('module5_7') == '5' ? 'selected' : '' }}>5 x pro Tag
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -1213,10 +1451,14 @@
                                 title="Die Aktivität beinhaltet die Versorgung chronischer Wunden, wie z. B. Ulkus cruris oder Dekubitus."
                                 rel="tooltip">5.8 Arztbesuche</label>
                             <select name="module5_8" id="module5_8">
-                                <option value="0">Nie oder seltener als einmal wöchentlich</option>
-                                <option value="1">ein- bis mehrmals wöchentlich</option>
-                                <option value="2" selected="">ein- bis zweimal täglich</option>
-                                <option value="3">mindestens dreimal täglich</option>
+                                <option value="0" {{ old('module5_8') == '0' ? 'selected' : '' }}>Nie oder
+                                    seltener als einmal wöchentlich</option>
+                                <option value="1" {{ old('module5_8') == '1' ? 'selected' : '' }}>ein- bis
+                                    mehrmals wöchentlich</option>
+                                <option value="2" {{ old('module5_8') == '2' ? 'selected' : '' }}>ein- bis
+                                    zweimal täglich</option>
+                                <option value="3" {{ old('module5_8') == '3' ? 'selected' : '' }}>mindestens
+                                    dreimal täglich</option>
                             </select>
                         </div>
 
@@ -1225,10 +1467,14 @@
                                 title="Gemeint ist hier die Pflege künstlicher Körperöffnungen wie Tracheostoma, PEG, subrapubischer Blasenkatheter, Urostoma, Colo- oder Ileostoma. Hierbei ist auch das Reinigen des Katheters, die Desinfektion der Einstichstelle der PEG und falls notwendig auch der Verbandswechsel zu bewerten. Die Pflege eines Uristoma, Colo-oder Ileostoma ist in der Regel mit dem der Wechsel der Basisplatte oder dem Wechsel eines einteiligen Systems verbunden. Der einfache Wechsel oder das Entleeren eines Stoma- oder Katheterbeutels oder das Anhängen von Sondennahrung sind im Modul 4 unter Ziffer 11 ff zu werten."
                                 rel="tooltip">5.9 Versorgung mit Stoma</label>
                             <select name="module5_9"id="">
-                                <option value="0">Nie oder seltener als einmal wöchentlich</option>
-                                <option value="1">ein- bis mehrmals wöchentlich</option>
-                                <option value="2">ein- bis zweimal täglich</option>
-                                <option value="3">mindestens dreimal täglich</option>
+                                <option value="0" {{ old('module5_9') == '0' ? 'selected' : '' }}>Nie oder
+                                    seltener als einmal wöchentlich</option>
+                                <option value="1" {{ old('module5_9') == '1' ? 'selected' : '' }}>ein- bis
+                                    mehrmals wöchentlich</option>
+                                <option value="2" {{ old('module5_9') == '2' ? 'selected' : '' }}>ein- bis
+                                    zweimal täglich</option>
+                                <option value="3" {{ old('module5_9') == '3' ? 'selected' : '' }}>mindestens
+                                    dreimal täglich</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -1238,10 +1484,14 @@
                                 von
                                 Abführmethoden</label>
                             <select name="module5_10" id="">
-                                <option value="0">Nie oder seltener als einmal wöchentlich</option>
-                                <option value="1">ein- bis mehrmals wöchentlich</option>
-                                <option value="2">ein- bis zweimal täglich</option>
-                                <option value="3">mindestens dreimal täglich</option>
+                                <option value="0" {{ old('module5_10') == '0' ? 'selected' : '' }}>Nie oder
+                                    seltener als einmal wöchentlich</option>
+                                <option value="1" {{ old('module5_10') == '1' ? 'selected' : '' }}>ein- bis
+                                    mehrmals wöchentlich</option>
+                                <option value="2" {{ old('module5_10') == '2' ? 'selected' : '' }}>ein- bis
+                                    zweimal täglich</option>
+                                <option value="3" {{ old('module5_10') == '3' ? 'selected' : '' }}>mindestens
+                                    dreimal täglich</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -1249,12 +1499,14 @@
                                 title="Bei vielen Erkrankungen werden aus einer Heilmitteltherapie heraus Anweisungen zu einem Eigenübungsprogramm gegeben, welches dauerhaft und regelmäßig durchgeführt werden soll, z. B. krankengymnastische Übungen, Atemübungen oder logopädische Übungen. Des Weiteren sind Maßnahmen zur Sekretelemination (ausgenommen Absaugen) zu nennen oder die Durchführung spezifischer Therapien nach Bobath oder Vojta oder die Durchführung ambulanter Peritonealdialyse (CAPD)."
                                 rel="tooltip">5.11 Therapiemaßnahmen in häuslicher Umgebung</label>
                             <select name="module5_11" id="">
-                                <option value="0">
-                                    Nie oder seltener als einmal wöchentlich
-                                </option>
-                                <option value="1">ein- bis mehrmals wöchentlich</option>
-                                <option value="2">ein- bis zweimal täglich</option>
-                                <option value="3">mindestens dreimal täglich</option>
+                                <option value="0" {{ old('module5_11') == '0' ? 'selected' : '' }}>Nie oder
+                                    seltener als einmal wöchentlich</option>
+                                <option value="1" {{ old('module5_11') == '1' ? 'selected' : '' }}>ein- bis
+                                    mehrmals wöchentlich</option>
+                                <option value="2" {{ old('module5_11') == '2' ? 'selected' : '' }}>ein- bis
+                                    zweimal täglich</option>
+                                <option value="3" {{ old('module5_11') == '3' ? 'selected' : '' }}>mindestens
+                                    dreimal täglich</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -1266,17 +1518,28 @@
                                 häuslicher
                                 Umgebung</label>
                             <select name="module5_12" id="">
-                                <option value="0">Entfällt oder selbstständig</option>
-                                <option value="1">Täglich</option>
-                                <option value="2">1 x pro Monat</option>
-                                <option value="3">2 x pro Monat</option>
-                                <option value="4">3 x pro Monat</option>
-                                <option value="5">4 x pro Monat (1 x pro Woche)</option>
-                                <option value="6">2 x pro Woche</option>
-                                <option value="7">3 x pro Woche</option>
-                                <option value="8">4 x pro Woche</option>
-                                <option value="9">5 x pro Woche</option>
-                                <option value="10">6 x pro Woche</option>
+                                <option value="0" {{ old('module5_12') == '0' ? 'selected' : '' }}>Entfällt oder
+                                    selbstständig</option>
+                                <option value="1" {{ old('module5_12') == '1' ? 'selected' : '' }}>Täglich
+                                </option>
+                                <option value="2  {{ old('module5_12') == '2' ? 'selected' : '' }}">1 x pro Monat
+                                </option>
+                                <option value="3" {{ old('module5_12') == '3' ? 'selected' : '' }}>2 x pro Monat
+                                </option>
+                                <option value="4" {{ old('module5_12') == '4' ? 'selected' : '' }}>3 x pro Monat
+                                </option>
+                                <option value="5" {{ old('module5_12') == '5' ? 'selected' : '' }}>4 x pro Monat
+                                    (1 x pro Woche)</option>
+                                <option value="6" {{ old('module5_12') == '6' ? 'selected' : '' }}>2 x pro Woche
+                                </option>
+                                <option value="7" {{ old('module5_12') == '7' ? 'selected' : '' }}>3 x pro Woche
+                                </option>
+                                <option value="8" {{ old('module5_12') == '8' ? 'selected' : '' }}>4 x pro Woche
+                                </option>
+                                <option value="9" {{ old('module5_12') == '9' ? 'selected' : '' }}>5 x pro Woche
+                                </option>
+                                <option value="10" {{ old('module5_12') == '10' ? 'selected' : '' }}>6 x pro
+                                    Woche</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -1284,16 +1547,26 @@
                                 title="Hierunter fallen regelmäßige Besuche bei der niedergelassenen Hausärztin bzw. beim niedergelassenen Hausarzt oder Fachärztin bzw. Facharzt zu diagnostischen oder therapeutischen Zwecken. Wenn eine Unterstützung auf dem Weg zu oder bei Arztbesuchen erforderlich ist, ist diese in durchschnittlicher Häufigkeit zu erfassen."
                                 rel="tooltip">5.13 Arztbesuche</label>
                             <select name="module5_13" id="">
-                                <option value="0">Entfällt</option>
-                                <option value="1">1 x pro Monat</option>
-                                <option value="2">2 x pro Monat</option>
-                                <option value="3">3 x pro Monat</option>
-                                <option value="4">4 x pro Monat (1 x pro Woche)</option>
-                                <option value="5">2 x pro Woche</option>
-                                <option value="6">3 x pro Woche</option>
-                                <option value="7">4 x pro Woche</option>
-                                <option value="8">5 x pro Woche</option>
-                                <option value="9">6 x pro Woche</option>
+                                <option value="0" {{ old('module5_13') == '0' ? 'selected' : '' }}>Entfällt
+                                </option>
+                                <option value="1" {{ old('module5_13') == '1' ? 'selected' : '' }}>1 x pro Monat
+                                </option>
+                                <option value="2" {{ old('module5_13') == '2' ? 'selected' : '' }}>2 x pro Monat
+                                </option>
+                                <option value="3" {{ old('module5_13') == '3' ? 'selected' : '' }}>3 x pro Monat
+                                </option>
+                                <option value="4" {{ old('module5_13') == '4' ? 'selected' : '' }}>4 x pro Monat
+                                    (1 x pro Woche)</option>
+                                <option value="5" {{ old('module5_13') == '5' ? 'selected' : '' }}>2 x pro Woche
+                                </option>
+                                <option value="6" {{ old('module5_13') == '6' ? 'selected' : '' }}>3 x pro Woche
+                                </option>
+                                <option value="7" {{ old('module5_13') == '7' ? 'selected' : '' }}>4 x pro Woche
+                                </option>
+                                <option value="8" {{ old('module5_13') == '8' ? 'selected' : '' }}>5 x pro Woche
+                                </option>
+                                <option value="9" {{ old('module5_13') == '9' ? 'selected' : '' }}>6 x pro Woche
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -1305,16 +1578,26 @@
                                 peutischer
                                 Einrichtungen (bis zu 3 Std)</label>
                             <select name="module5_14" id="">
-                                <option value="0">Entfällt</option>
-                                <option value="1">1 x pro Monat</option>
-                                <option value="2">2 x pro Monat</option>
-                                <option value="3">3 x pro Monat</option>
-                                <option value="4">4 x pro Monat (1 x pro Woche)</option>
-                                <option value="5">2 x pro Woche</option>
-                                <option value="6">3 x pro Woche</option>
-                                <option value="7">4 x pro Woche</option>
-                                <option value="8">5 x pro Woche</option>
-                                <option value="9">6 x pro Woche</option>
+                                <option value="0" {{ old('module5_14') == '0' ? 'selected' : '' }}>Entfällt
+                                </option>
+                                <option value="1" {{ old('module5_14') == '1' ? 'selected' : '' }}>1 x pro Monat
+                                </option>
+                                <option value="2" {{ old('module5_14') == '2' ? 'selected' : '' }}>2 x pro Monat
+                                </option>
+                                <option value="3" {{ old('module5_14') == '3' ? 'selected' : '' }}>3 x pro Monat
+                                </option>
+                                <option value="4" {{ old('module5_14') == '4' ? 'selected' : '' }}>4 x pro Monat
+                                    (1 x pro Woche)</option>
+                                <option value="5" {{ old('module5_14') == '5' ? 'selected' : '' }}>2 x pro Woche
+                                </option>
+                                <option value="6" {{ old('module5_14') == '6' ? 'selected' : '' }}>3 x pro Woche
+                                </option>
+                                <option value="7" {{ old('module5_14') == '7' ? 'selected' : '' }}>4 x pro Woche
+                                </option>
+                                <option value="8" {{ old('module5_14') == '8' ? 'selected' : '' }}>5 x pro Woche
+                                </option>
+                                <option value="9" {{ old('module5_14') == '9' ? 'selected' : '' }}>6 x pro Woche
+                                </option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -1327,16 +1610,26 @@
                                 oder
                                 therapeutischer Einrichtungen (länger als 3 Std.)</label>
                             <select name="module5_15" id="">
-                                <option value="0">Entfällt</option>
-                                <option value="1">1 x pro Monat</option>
-                                <option value="2">2 x pro Monat</option>
-                                <option value="3">3 x pro Monat</option>
-                                <option value="4">4 x pro Monat (1 x pro Woche)</option>
-                                <option value="5">2 x pro Woche</option>
-                                <option value="6">3 x pro Woche</option>
-                                <option value="7">4 x pro Woche</option>
-                                <option value="8">5 x pro Woche</option>
-                                <option value="9">6 x pro Woche</option>
+                                <option value="0" {{ old('module5_15') == '0' ? 'selected' : '' }}>Entfällt
+                                </option>
+                                <option value="1" {{ old('module5_15') == '1' ? 'selected' : '' }}>1 x pro Monat
+                                </option>
+                                <option value="2" {{ old('module5_15') == '2' ? 'selected' : '' }}>2 x pro Monat
+                                </option>
+                                <option value="3" {{ old('module5_15') == '3' ? 'selected' : '' }}>3 x pro Monat
+                                </option>
+                                <option value="4" {{ old('module5_15') == '4' ? 'selected' : '' }}>4 x pro Monat
+                                    (1 x pro Woche)</option>
+                                <option value="5" {{ old('module5_15') == '5' ? 'selected' : '' }}>2 x pro Woche
+                                </option>
+                                <option value="6" {{ old('module5_15') == '6' ? 'selected' : '' }}>3 x pro Woche
+                                </option>
+                                <option value="7" {{ old('module5_15') == '7' ? 'selected' : '' }}>4 x pro Woche
+                                </option>
+                                <option value="8" {{ old('module5_15') == '8' ? 'selected' : '' }}>5 x pro Woche
+                                </option>
+                                <option value="9" {{ old('module5_15') == '9' ? 'selected' : '' }}>6 x pro Woche
+                                </option>
                             </select>
                         </div>
 
@@ -1357,16 +1650,17 @@
                                 oder
                                 therapiebedingter Verhaltensvorschriften, und zwar:</label>
                             <select name="module5_16" id="">
-                                <option value="0">Entfällt oder selbstständig</option>
-                                <option value="1">
+                                <option value="0" {{ old('module5_16') == '0' ? 'selected' : '' }}>Entfällt oder
+                                    selbstständig</option>
+                                <option value="1" {{ old('module5_16') == '1' ? 'selected' : '' }}>
                                     Überwiegend selbstständig (Erinnerung/Anleitung ist mindestens
                                     einmal täglich notwendig)
                                 </option>
-                                <option value="2">
+                                <option value="2" {{ old('module5_16') == '2' ? 'selected' : '' }}>
                                     Überwiegend unselbstständig (benötigt meistens
                                     Anleitung/Beaufsichtigung mehrmals täglich)
                                 </option>
-                                <option value="3">
+                                <option value="3" {{ old('module5_16') == '3' ? 'selected' : '' }}>
                                     Unselbstständig (benötigt immer Anleitung/Beaufsichtigung)
                                 </option>
                             </select>
@@ -1399,10 +1693,14 @@
                                 rel="tooltip">6.1 Gestaltung des Alltagslebens und Anpassung an
                                 Veränderungen</label>
                             <select name="module6_1" id="module6_1">
-                                <option value="0">Selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('module6_1') == '0' ? 'selected' : '' }}>Selbstständig
+                                </option>
+                                <option value="1" {{ old('module6_1') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('module6_1') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('module6_1') == '3' ? 'selected' : '' }}>
+                                    Unselbstständig</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -1420,10 +1718,14 @@
                             <strong>Unselbständig:</strong> Die Person verfügt über keinen oder einen gestörten Schlaf-Wach-Rhythmus. Dies gilt u. a. für mobile gerontopsychiatrisch erkrankte Personen und auch für Menschen, die keinerlei Aktivitäten ausüben, z. B. im Wachkoma oder Personen, die regelmäßig mindestens dreimal in der Nacht personelle Unterstützung benötigen."
                                 rel="tooltip">6.2 Ruhen und Schlafen</label>
                             <select name="module6_2" id="">
-                                <option value="0">Selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('module6_2') == '0' ? 'selected' : '' }}>Selbstständig
+                                </option>
+                                <option value="1" {{ old('module6_2') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('module6_2') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('module6_2') == '3' ? 'selected' : '' }}>
+                                    Unselbstständig</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -1443,10 +1745,14 @@
                             <strong>Unselbständig:</strong> Die Person kann an der Entscheidung oder Durchführung nicht nennenswert mitwirken. Sie zeigt keine Eigeninitiative, kann Anleitung und Aufforderungen nicht kognitiv umsetzen, beteiligt sich nicht oder nur minimal an angebotenen Beschäftigungen."
                                 rel="tooltip">6.3 Sich beschäftigen</label>
                             <select name="module6_3" id="">
-                                <option value="0">Selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('module6_3') == '0' ? 'selected' : '' }}>Selbstständig
+                                </option>
+                                <option value="1" {{ old('module6_3') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('module6_3') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('module6_3') == '3' ? 'selected' : '' }}>
+                                    Unselbstständig</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -1465,10 +1771,14 @@
                                 rel="tooltip">6.4 Vornehmen von in die Zukunft gerichteten
                                 Planungen</label>
                             <select name="module6_4" id="">
-                                <option value="0">Selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('module6_4') == '0' ? 'selected' : '' }}>Selbstständig
+                                </option>
+                                <option value="1" {{ old('module6_4') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('module6_4') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('module6_4') == '3' ? 'selected' : '' }}>
+                                    Unselbstständig</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -1485,10 +1795,14 @@
                                 rel="tooltip">6.5 Interaktion mit Personen im direkten
                                 Kontakt</label>
                             <select name="module6_5" id="">
-                                <option value="0">Selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('module6_5') == '0' ? 'selected' : '' }}>Selbstständig
+                                </option>
+                                <option value="1" {{ old('module6_5') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('module6_5') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('module6_5') == '3' ? 'selected' : '' }}>
+                                    Unselbstständig</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -1507,89 +1821,17 @@
                                 rel="tooltip">6.6 Kontaktpflege zu Personen außerhalb des direkten
                                 Umfeldes</label>
                             <select name="module6_6" id="">
-                                <option value="0">Selbstständig</option>
-                                <option value="1">Überwiegend selbstständig</option>
-                                <option value="2">Überwiegend unselbstständig</option>
-                                <option value="3">Unselbstständig</option>
+                                <option value="0" {{ old('module6_6') == '0' ? 'selected' : '' }}>Selbstständig
+                                </option>
+                                <option value="1" {{ old('module6_6') == '1' ? 'selected' : '' }}>Überwiegend
+                                    selbstständig</option>
+                                <option value="2" {{ old('module6_6') == '2' ? 'selected' : '' }}>Überwiegend
+                                    unselbstständig</option>
+                                <option value="3" {{ old('module6_6') == '3' ? 'selected' : '' }}>
+                                    Unselbstständig</option>
                             </select>
                         </div>
                     </div>
-                    <div class="text-center">
-                        <button class="online-rechner-section3-form-btn active-btn2 " type="submit"
-                            style="background-color: #b22222">
-                            Pflegegrad berechnen
-                        </button>
-                    </div>
-                </div>
-
-                <!-- ######################## Online Rechner Section 3 bottom ######################## -->
-                <div class="online-rechner-section3-form" id="module6Form">
-                    <div class="online-rechner-section3-form-heading">
-                        6. Gestaltung des Alltagslebens und sozialer Kontakte
-                    </div>
-                    <div class="online-rechner-section3-form-sub-heading">
-                        Kann die betroffene Person zum Beispiel ihren Tagesablauf
-                        selbstständig gestalten? Kann sie mit anderen Menschen in direkten
-                        Kontakt treten oder die Skatrunde ohne Hilfe besuchen?
-                    </div>
-
-                    <div class="col-md-4">
-                        <label for="module6_1">6.1 Gestaltung des Alltagslebens und Anpassung an
-                            Veränderungen</label>
-                        <select name="module7_1" id="">
-                            <option value="0">Selbstständig</option>
-                            <option value="1">Überwiegend selbstständig</option>
-                            <option value="2">Überwiegend unselbstständig</option>
-                            <option value="3">Unselbstständig</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="module6_2">6.2 Ruhen und Schlafen</label>
-                        <select name="" id="module6_2">
-                            <option value="0">Selbstständig</option>
-                            <option value="1">Überwiegend selbstständig</option>
-                            <option value="2">Überwiegend unselbstständig</option>
-                            <option value="3">Unselbstständig</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="module6_3">6.3 Sich beschäftigen</label>
-                        <select name="" id="module6_3">
-                            <option value="0">Selbstständig</option>
-                            <option value="1">Überwiegend selbstständig</option>
-                            <option value="2">Überwiegend unselbstständig</option>
-                            <option value="3">Unselbstständig</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="module6_4">6.4 Vornehmen von in die Zukunft gerichteten Planungen</label>
-                        <select name="" id="module6_4">
-                            <option value="0">Selbstständig</option>
-                            <option value="1">Überwiegend selbstständig</option>
-                            <option value="2">Überwiegend unselbstständig</option>
-                            <option value="3">Unselbstständig</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="module6_5">6.5 Interaktion mit Personen im direkten Kontakt</label>
-                        <select name="" id="module6_5">
-                            <option value="0">Selbstständig</option>
-                            <option value="1">Überwiegend selbstständig</option>
-                            <option value="2">Überwiegend unselbstständig</option>
-                            <option value="3">Unselbstständig</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="module6_6">6.6 Kontaktpflege zu Personen außerhalb des direkten
-                            Umfeldes</label>
-                        <select name="" id="module6_6">
-                            <option value="0">Selbstständig</option>
-                            <option value="1">Überwiegend selbstständig</option>
-                            <option value="2">Überwiegend unselbstständig</option>
-                            <option value="3">Unselbstständig</option>
-                        </select>
-                    </div>
-
                     <div class="text-center">
                         <button class="online-rechner-section3-form-btn active-btn2 " type="submit"
                             style="background-color: #b22222">
@@ -1613,15 +1855,26 @@
                     <div class="col-lg-8">
                         <div style="padding-top: 0">Ergebnis</div>
                     </div>
-                    <div class="col-lg-2">
+                    {{-- <div class="col-lg-2">
                         <div class="pt-0">Summe Einzelpunkte</div>
                     </div>
                     <div class="col-lg-2">
                         <div style="padding-top: 0">Gewichtete Punkte</div>
-                    </div>
+                    </div> --}}
                 </div>
 
                 <div class="online-rechner-section3-inner-bottom">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div style="padding-top: 0">Module</div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="pt-0" style="text-align: right">Summe Einzelpunkte</div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div  style="text-align: right!important;padding-top: 0">Gewichtete Punkte</div>
+                        </div>
+                    </div>
                     @if (session('Sonderfall') === true)
                         <div class="" style="color: white"></div>
                         <strong style="color: white">Sonderfall:</strong>
@@ -1636,11 +1889,13 @@
                         <div class="col-lg-8">
                             <div style="padding-top: 0">{{ $loop->iteration }} - {{ $moduleName }}</div>
                         </div>
-                        <div class="col-lg-2">
-                            <div class="pt-0">{{ $moduleValues['punkte'] ?? '---' }}</div>
+                        <div class="col-lg-2" style="text-align: right">
+                            <div class="pt-0" style="text-align: right">{{ $moduleValues['punkte'] ?? '---' }}
+                            </div>
                         </div>
-                        <div class="col-lg-2">
-                            <div style="padding-top: 0">{{ $moduleValues['gewichtet'] ?? '---' }}</div>
+                        <div class="col-lg-2" style="text-align: right">
+                            <div style="padding-top: 0;text-align: right">{{ $moduleValues['gewichtet'] ?? '---' }}
+                            </div>
                         </div>
                     </div>
                 @endforeach

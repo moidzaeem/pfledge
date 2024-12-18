@@ -936,7 +936,7 @@
     <form action="" class="check-listen-forms" id="hausl-form3">
         <div class="checklisten-section3-container">
             <div class="checklisten-section3-top1">
-                Checkliste Mahlzeiten und Ernährung
+                Mobilitätshilfen und Transfers (Rollstuhl, Gehstock)
             </div>
 
             <div class="checklisten-section3-sub-container">

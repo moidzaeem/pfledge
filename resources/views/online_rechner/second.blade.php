@@ -100,16 +100,13 @@
             PFLEGEKOSTEN IM PFLEGEHEIM
         </button>
         <button class="online-rechner-section2-btn5 online-rechner-section2-btn">
-            <a
-            href="{{route('online.rechner.fifth')}}"
-             
-            ></a>
+            <a href="{{ route('online.rechner.fifth') }}"></a>
             RECHNER PFLEGEKOSTEN FÜR AMBULANTE PFLEGE
-          </button>
-          <button class="online-rechner-section2-btn6 online-rechner-section2-btn">
-            <a href="{{route('online.rechner.sixth')}}"></a>
+        </button>
+        <button class="online-rechner-section2-btn6 online-rechner-section2-btn">
+            <a href="{{ route('online.rechner.sixth') }}"></a>
             RECHNER ZUZAHLUNGEN
-          </button>
+        </button>
     </div>
 
     <!-- ########################### Online Rechner SECTION 3 ########################### -->
@@ -214,7 +211,7 @@
 
             <!-- ######################## Online Rechner Section 3 bottom ######################## -->
             <div class="online-rechner-section3-bottom">
-                <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
+                {{-- <div class="online-rechner-section3-bottom-heading">Ergebnis</div> --}}
                 <div class="online-rechner-section3-heading-bottom">
                     <div>Ergebnis</div>
                 </div>
@@ -272,12 +269,7 @@
                         <span id="wohnumfeldverbesserung" class="span2">4.000,00 EUR</span>
                     </div>
                 </div>
-                <div style="display: flex; justify-content: center; margin-top: 1rem">
-                    <button class="online-rechner-page2-section3-btn"
-                        style="border: none; background-color: #000000; width: 200px">
-                        Zurück
-                    </button>
-                </div>
+               
             </div>
         </div>
     </div>

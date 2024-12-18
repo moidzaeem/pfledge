@@ -1,15 +1,15 @@
 
 // ######################## BLOG PAGE CONTENT SHOW/HIDE ############################
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
   const btn = document.querySelector('.hide-show-btn');
   const content = document.querySelector('.hide-show-content');
-  
+
   // Set initial state to hidden
   content.style.display = 'none';
-  
-  btn.addEventListener('click', function() {
+
+  btn.addEventListener('click', function () {
     if (content.style.display === 'none') {
       // Show content and rotate button
       content.style.display = 'block';
@@ -20,26 +20,26 @@ document.addEventListener('DOMContentLoaded', function() {
       btn.classList.remove('rotate');
     }
   });
-  
+
 });
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('.navbar-toggler').addEventListener('click', function() {
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelector('.navbar-toggler').addEventListener('click', function () {
     const navbarContainer = document.querySelector('.navbar-container');
-    
+
     // Delay to ensure aria-expanded has updated
     setTimeout(() => {
       const isExpanded = this.getAttribute('aria-expanded') === 'true';
-      
+
       // Toggle background color based on the current aria-expanded state
       navbarContainer.style.backgroundColor = isExpanded ? '#000000' : '#000000A3';
     }, 10); // Short delay to wait for aria-expanded update
   });
-  
-    });
+
+});
 
 // ######################## ACADEMY PAGE SLIDER ############################
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
   const cards = document.querySelectorAll('.academy-card');
   const dots = document.querySelectorAll('.academy-dot');
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
       card.classList.toggle('active', i === index);
       card.classList.toggle('inactive', i !== index);
     });
-    
+
     dots.forEach((dot, i) => {
       dot.classList.toggle('active', i === index);
     });
@@ -82,24 +82,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ####################### IMPRESSUM ACCODION #########################
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.impressum-accordion1-top-div').forEach((accordionTop) => {
-      accordionTop.addEventListener('click', function () {
-          // Close all active accordions except the one being clicked
-          document.querySelectorAll('.impressum-accordion1-bottom-div.active').forEach((openAccordion) => {
-              if (openAccordion !== this.nextElementSibling) {
-                  openAccordion.classList.remove('active');
-                  openAccordion.previousElementSibling.querySelector('.accordion-icon').classList.remove('rotated');
-              }
-          });
-
-          // Toggle visibility and rotation only for the clicked accordion
-          const bottomDiv = this.nextElementSibling;
-          const icon = this.querySelector('.accordion-icon');
-          
-          bottomDiv.classList.toggle('active');
-          icon.classList.toggle('rotated');
+    accordionTop.addEventListener('click', function () {
+      // Close all active accordions except the one being clicked
+      document.querySelectorAll('.impressum-accordion1-bottom-div.active').forEach((openAccordion) => {
+        if (openAccordion !== this.nextElementSibling) {
+          openAccordion.classList.remove('active');
+          openAccordion.previousElementSibling.querySelector('.accordion-icon').classList.remove('rotated');
+        }
       });
+
+      // Toggle visibility and rotation only for the clicked accordion
+      const bottomDiv = this.nextElementSibling;
+      const icon = this.querySelector('.accordion-icon');
+
+      bottomDiv.classList.toggle('active');
+      icon.classList.toggle('rotated');
+    });
   });
 });
 
@@ -107,157 +107,157 @@ document.addEventListener('DOMContentLoaded', function() {
 // ########################### CHEKCLISTEN BUTTONS ###########################
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Function to show specific content and hide others
   function showContent(buttonId, contentId) {
-      // Hide all content containers
-      const allContents = document.querySelectorAll('.check-listen-forms');
-      allContents.forEach(content => content.style.display = 'none');
+    // Hide all content containers
+    const allContents = document.querySelectorAll('.check-listen-forms');
+    allContents.forEach(content => content.style.display = 'none');
 
-      // Show the specific content container
-      const contentElement = document.getElementById(contentId);
-      if (contentElement) {
-          contentElement.style.display = 'block';
-      }
+    // Show the specific content container
+    const contentElement = document.getElementById(contentId);
+    if (contentElement) {
+      contentElement.style.display = 'block';
+    }
 
-      // Remove active class from all buttons
-      const allButtons = document.querySelectorAll('.check-bottom-btns');
-      allButtons.forEach(button => button.classList.remove('check-active-btn'));
+    // Remove active class from all buttons
+    const allButtons = document.querySelectorAll('.check-bottom-btns');
+    allButtons.forEach(button => button.classList.remove('check-active-btn'));
 
-      // Add active class to the clicked button
-      const buttonElement = document.getElementById(buttonId);
-      if (buttonElement) {
-          buttonElement.classList.add('check-active-btn');
-      }
+    // Add active class to the clicked button
+    const buttonElement = document.getElementById(buttonId);
+    if (buttonElement) {
+      buttonElement.classList.add('check-active-btn');
+    }
   }
 
 
   const buttonContentGroups = [
-      { buttonIds: ['checklisten-bottom-btn11', 'checklisten-bottom-btn12', 'checklisten-bottom-btn13', 'checklisten-bottom-btn14'], contentIds: ['medi-form1', 'medi-form2', 'medi-form3', 'medi-form4'] },
+    { buttonIds: ['checklisten-bottom-btn11', 'checklisten-bottom-btn12', 'checklisten-bottom-btn13', 'checklisten-bottom-btn14'], contentIds: ['medi-form1', 'medi-form2', 'medi-form3', 'medi-form4'] },
 
-      { buttonIds: ['checklisten-bottom-btn21', 'checklisten-bottom-btn22', 'checklisten-bottom-btn23'], contentIds: ['termi-form1', 'termi-form2', 'termi-form3'] },
+    { buttonIds: ['checklisten-bottom-btn21', 'checklisten-bottom-btn22', 'checklisten-bottom-btn23'], contentIds: ['termi-form1', 'termi-form2', 'termi-form3'] },
 
-      { buttonIds: ['checklisten-bottom-btn31', 'checklisten-bottom-btn32','checklisten-bottom-btn33','checklisten-bottom-btn34'], contentIds: ['hausl-form1', 'hausl-form2','hausl-form3','hausl-form4'] },
+    { buttonIds: ['checklisten-bottom-btn31', 'checklisten-bottom-btn32', 'checklisten-bottom-btn33', 'checklisten-bottom-btn34'], contentIds: ['hausl-form1', 'hausl-form2', 'hausl-form3', 'hausl-form4'] },
 
-      { buttonIds: ['checklisten-bottom-btn41', 'checklisten-bottom-btn42', 'checklisten-bottom-btn43'], contentIds: ['psyc-form1', 'psyc-form2', 'psyc-form3'] },
+    { buttonIds: ['checklisten-bottom-btn41', 'checklisten-bottom-btn42', 'checklisten-bottom-btn43'], contentIds: ['psyc-form1', 'psyc-form2', 'psyc-form3'] },
 
-      { buttonIds: ['checklisten-bottom-btn51', 'checklisten-bottom-btn52','checklisten-bottom-btn53'], contentIds: ['fina-form1', 'fina-form2','fina-form3'] },
-      
-      { buttonIds: ['checklisten-bottom-btn61', 'checklisten-bottom-btn62', 'checklisten-bottom-btn63'], contentIds: ['notf-form1', 'notf-form2', 'notf-form3'] },
+    { buttonIds: ['checklisten-bottom-btn51', 'checklisten-bottom-btn52', 'checklisten-bottom-btn53'], contentIds: ['fina-form1', 'fina-form2', 'fina-form3'] },
 
-      { buttonIds: ['checklisten-bottom-btn71', 'checklisten-bottom-btn72', 'checklisten-bottom-btn73' ], contentIds: ['gesu-form1', 'gesu-form2', 'gesu-form3'] }
+    { buttonIds: ['checklisten-bottom-btn61', 'checklisten-bottom-btn62', 'checklisten-bottom-btn63'], contentIds: ['notf-form1', 'notf-form2', 'notf-form3'] },
+
+    { buttonIds: ['checklisten-bottom-btn71', 'checklisten-bottom-btn72', 'checklisten-bottom-btn73'], contentIds: ['gesu-form1', 'gesu-form2', 'gesu-form3'] }
   ];
 
   // Loop through each group and add event listeners
   buttonContentGroups.forEach(group => {
-      group.buttonIds.forEach((buttonId, index) => {
-          const buttonElement = document.getElementById(buttonId);
-          const contentId = group.contentIds[index];
+    group.buttonIds.forEach((buttonId, index) => {
+      const buttonElement = document.getElementById(buttonId);
+      const contentId = group.contentIds[index];
 
-          // Ensure both button and content elements exist before attaching event listeners
-          if (buttonElement && document.getElementById(contentId)) {
-              buttonElement.addEventListener('click', function() {
-                  showContent(buttonId, contentId);
-              });
-          } else {
-              console.warn(`Element missing for button ID: ${buttonId} or content ID: ${contentId}`);
-          }
-      });
+      // Ensure both button and content elements exist before attaching event listeners
+      if (buttonElement && document.getElementById(contentId)) {
+        buttonElement.addEventListener('click', function () {
+          showContent(buttonId, contentId);
+        });
+      } else {
+        console.warn(`Element missing for button ID: ${buttonId} or content ID: ${contentId}`);
+      }
+    });
   });
 });
 
 // ################################ MUSTERANSCHREIBEN (COVER LETTER) BUTTONS ################################
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Function to show specific content and hide others
   function showContent(buttonId, contentId) {
-      // Hide all content containers
-      const allContents = document.querySelectorAll('.cover-letter-section3-sub');
-      allContents.forEach(content => content.style.display = 'none');
-      
-      // Show the specific content container
-      const contentElement = document.getElementById(contentId);
-      if (contentElement) {
-          contentElement.style.display = 'block';
-      }
+    // Hide all content containers
+    const allContents = document.querySelectorAll('.cover-letter-section3-sub');
+    allContents.forEach(content => content.style.display = 'none');
 
-      // Remove active class from all buttons
-      const allButtons = document.querySelectorAll('.cover-letter-bottom-btn');
-      allButtons.forEach(button => button.classList.remove('cover-letter-active-btn'));
+    // Show the specific content container
+    const contentElement = document.getElementById(contentId);
+    if (contentElement) {
+      contentElement.style.display = 'block';
+    }
 
-      // Add active class to the clicked button
-      const buttonElement = document.getElementById(buttonId);
-      if (buttonElement) {
-          buttonElement.classList.add('cover-letter-active-btn');
-      }
+    // Remove active class from all buttons
+    const allButtons = document.querySelectorAll('.cover-letter-bottom-btn');
+    allButtons.forEach(button => button.classList.remove('cover-letter-active-btn'));
+
+    // Add active class to the clicked button
+    const buttonElement = document.getElementById(buttonId);
+    if (buttonElement) {
+      buttonElement.classList.add('cover-letter-active-btn');
+    }
   }
 
   // Add event listeners to each button
   const buttonIds = [
-      'cover-letter-bottom-btn11', 'cover-letter-bottom-btn12', 'cover-letter-bottom-btn13',
-      'cover-letter-bottom-btn14', 'cover-letter-bottom-btn15', 'cover-letter-bottom-btn16',
-      'cover-letter-bottom-btn17',
+    'cover-letter-bottom-btn11', 'cover-letter-bottom-btn12', 'cover-letter-bottom-btn13',
+    'cover-letter-bottom-btn14', 'cover-letter-bottom-btn15', 'cover-letter-bottom-btn16',
+    'cover-letter-bottom-btn17',
   ];
 
   buttonIds.forEach((buttonId, index) => {
-      const contentId = `cover-letter-content-${11 + index}`;
-      const buttonElement = document.getElementById(buttonId);
-      if (buttonElement) { // Only add the event listener if the button exists
-          buttonElement.addEventListener('click', function() {
-              showContent(buttonId, contentId);
-          });
-      }
+    const contentId = `cover-letter-content-${11 + index}`;
+    const buttonElement = document.getElementById(buttonId);
+    if (buttonElement) { // Only add the event listener if the button exists
+      buttonElement.addEventListener('click', function () {
+        showContent(buttonId, contentId);
+      });
+    }
   });
 });
 
 
 // ################################ FÜR PFLEGENDE ANGEHÖRIGE (COVER LETTER) BUTTONS ################################
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   console.log('DOM fully loaded and parsed'); // Initial log when the DOM is ready
 
   function showContent(buttonId, contentId) {
-      console.log(`Showing content for: ${contentId}`); // Log when content is shown
+    console.log(`Showing content for: ${contentId}`); // Log when content is shown
 
-      // Hide all content containers
-      const allContents = document.querySelectorAll('.cover-letter-section3-sub2');
-      allContents.forEach(content => {
-          content.style.display = 'none';
-      });
+    // Hide all content containers
+    const allContents = document.querySelectorAll('.cover-letter-section3-sub2');
+    allContents.forEach(content => {
+      content.style.display = 'none';
+    });
 
-      // Show the specific content container
-      const contentElement = document.getElementById(contentId);
-      if (contentElement) {
-          contentElement.style.display = 'block';
-      } else {
-          console.log(`Content element not found for ID: ${contentId}`);
-      }
+    // Show the specific content container
+    const contentElement = document.getElementById(contentId);
+    if (contentElement) {
+      contentElement.style.display = 'block';
+    } else {
+      console.log(`Content element not found for ID: ${contentId}`);
+    }
 
-      // Remove active class from all buttons
-      const allButtons = document.querySelectorAll('.cover-letter-bottom-btn2');
-      allButtons.forEach(button => button.classList.remove('cover-letter-active-btn'));
+    // Remove active class from all buttons
+    const allButtons = document.querySelectorAll('.cover-letter-bottom-btn2');
+    allButtons.forEach(button => button.classList.remove('cover-letter-active-btn'));
 
-      // Add active class to the clicked button
-      const buttonElement = document.getElementById(buttonId);
-      if (buttonElement) {
-          buttonElement.classList.add('cover-letter-active-btn');
-      }
+    // Add active class to the clicked button
+    const buttonElement = document.getElementById(buttonId);
+    if (buttonElement) {
+      buttonElement.classList.add('cover-letter-active-btn');
+    }
   }
 
   // Add event listeners to each button
   for (let i = 21; i <= 29; i++) {
-      const buttonId = `cover-letter-bottom-btn${i}`;
-      const contentId = `cover-letter-content-${i}`;
-      const buttonElement = document.getElementById(buttonId);
+    const buttonId = `cover-letter-bottom-btn${i}`;
+    const contentId = `cover-letter-content-${i}`;
+    const buttonElement = document.getElementById(buttonId);
 
-      if (buttonElement) {
-          buttonElement.addEventListener('click', function() {
-              console.log(`Button clicked: ${buttonId}`); // Log button click
-              showContent(buttonId, contentId);
-          });
-      } else {
-          console.log(`Button element not found for ID: ${buttonId}`);
-      }
+    if (buttonElement) {
+      buttonElement.addEventListener('click', function () {
+        console.log(`Button clicked: ${buttonId}`); // Log button click
+        showContent(buttonId, contentId);
+      });
+    } else {
+      console.log(`Button element not found for ID: ${buttonId}`);
+    }
   }
 
   // Handle the last button (210)
@@ -266,12 +266,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const buttonElement210 = document.getElementById(buttonId210);
 
   if (buttonElement210) {
-      buttonElement210.addEventListener('click', function() {
-          console.log(`Button clicked: ${buttonId210}`); // Log button click
-          showContent(buttonId210, contentId210);
-      });
+    buttonElement210.addEventListener('click', function () {
+      console.log(`Button clicked: ${buttonId210}`); // Log button click
+      showContent(buttonId210, contentId210);
+    });
   } else {
-      console.log(`Button element not found for ID: ${buttonId210}`);
+    console.log(`Button element not found for ID: ${buttonId210}`);
   }
 });
 
@@ -279,61 +279,61 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ################################ ONLINE RECHNER BUTTONS MODULE ################################
 
-  document.addEventListener('DOMContentLoaded', function() {
-    // Function to show specific content and hide others
-    function showContent(buttonId, contentId) {
-      // Hide all content containers
-      const allContents = document.querySelectorAll('.online-rechner-section3-form');
-      allContents.forEach(content => content.style.display = 'none');
-      
-      // Show the specific content container
-      document.getElementById(contentId).style.display = 'block';
-  
-      // Remove active class from all buttons
-      const allButtons = document.querySelectorAll('.online-rechner-section3-btn');
-      allButtons.forEach(button => button.classList.remove('active-btn2'));
-  
-      // Add active class to the clicked button
-      document.getElementById(buttonId).classList.add('active-btn2');
-    }
-  
-    // Add event listeners to each button
-    document.getElementById('module1-btn').addEventListener('click', function() {
-      showContent('module1-btn', 'module1Form');
-    });
-    document.getElementById('module2-btn').addEventListener('click', function() {
-      showContent('module2-btn', 'module2Form');
-    });
-   
-    document.getElementById('module3-btn').addEventListener('click', function() {
-      showContent('module3-btn', 'module3Form');
-    });
-   
-    document.getElementById('module4-btn').addEventListener('click', function() {
-      showContent('module4-btn', 'module4Form');
-    });
-   
-    document.getElementById('module5-btn').addEventListener('click', function() {
-      showContent('module5-btn', 'module5Form');
-    });
-   
-    document.getElementById('module6-btn').addEventListener('click', function() {
-      showContent('module6-btn', 'module6Form');
-    });
-   
-   
+document.addEventListener('DOMContentLoaded', function () {
+  // Function to show specific content and hide others
+  function showContent(buttonId, contentId) {
+    // Hide all content containers
+    const allContents = document.querySelectorAll('.online-rechner-section3-form');
+    allContents.forEach(content => content.style.display = 'none');
+
+    // Show the specific content container
+    document.getElementById(contentId).style.display = 'block';
+
+    // Remove active class from all buttons
+    const allButtons = document.querySelectorAll('.online-rechner-section3-btn');
+    allButtons.forEach(button => button.classList.remove('active-btn2'));
+
+    // Add active class to the clicked button
+    document.getElementById(buttonId).classList.add('active-btn2');
+  }
+
+  // Add event listeners to each button
+  document.getElementById('module1-btn').addEventListener('click', function () {
+    showContent('module1-btn', 'module1Form');
   });
-  
+  document.getElementById('module2-btn').addEventListener('click', function () {
+    showContent('module2-btn', 'module2Form');
+  });
+
+  document.getElementById('module3-btn').addEventListener('click', function () {
+    showContent('module3-btn', 'module3Form');
+  });
+
+  document.getElementById('module4-btn').addEventListener('click', function () {
+    showContent('module4-btn', 'module4Form');
+  });
+
+  document.getElementById('module5-btn').addEventListener('click', function () {
+    showContent('module5-btn', 'module5Form');
+  });
+
+  document.getElementById('module6-btn').addEventListener('click', function () {
+    showContent('module6-btn', 'module6Form');
+  });
+
+
+});
+
 
 // ################################ NEWS SUBCATEGORY BUTTONS ################################
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Function to show specific content and hide others
   function showContent(buttonId, contentId) {
     // Hide all content containers
     const allContents = document.querySelectorAll('.newund-section2-row');
     allContents.forEach(content => content.style.display = 'none');
-    
+
     // Show the specific content container
     document.getElementById(contentId).style.display = 'block';
 
@@ -352,24 +352,24 @@ document.addEventListener('DOMContentLoaded', function() {
   // document.getElementById('news-bottom-btn2').addEventListener('click', function() {
   //   showContent('news-bottom-btn2', 'newsund-section2-content2');
   // });
- 
+
   // document.getElementById('news-bottom-btn3').addEventListener('click', function() {
   //   showContent('news-bottom-btn3', 'newsund-section2-content3');
   // });
- 
+
 });
 
 
 
 // ################################ INDEX PAGE NEWS SUBCATEGORY BUTTONS ################################
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Function to show specific content and hide others
   function showContent(buttonId, contentId) {
     // Hide all content containers
     const allContents = document.querySelectorAll('.index-news-bottom');
     allContents.forEach(content => content.style.display = 'none');
-    
+
     // Show the specific content container
     document.getElementById(contentId).style.display = 'flex';
 
@@ -382,14 +382,14 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Add event listeners to each button
-  document.getElementById('index-new-top-btn1').addEventListener('click', function() {
+  document.getElementById('index-new-top-btn1').addEventListener('click', function () {
     showContent('index-new-top-btn1', 'index-news-bottom1');
   });
-  document.getElementById('index-new-top-btn2').addEventListener('click', function() {
+  document.getElementById('index-new-top-btn2').addEventListener('click', function () {
     showContent('index-new-top-btn2', 'index-news-bottom2');
   });
- 
-  document.getElementById('index-new-top-btn3').addEventListener('click', function() {
+
+  document.getElementById('index-new-top-btn3').addEventListener('click', function () {
     showContent('index-new-top-btn3', 'index-news-bottom3');
   });
 
@@ -398,10 +398,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // ############################# NEW POPUP ##############################
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Close overlay and popups
   document.querySelectorAll('.news-popup-overlay, .close-popup, .news-popup-btn').forEach(element => {
-    element.addEventListener('click', function() {
+    element.addEventListener('click', function () {
       document.querySelector('.news-popup-overlay').style.display = 'none';
       document.querySelectorAll('.news-info-popup').forEach(popup => {
         popup.style.display = 'none';
@@ -437,7 +437,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Loop through the mappings and add event listeners
   Object.keys(popupMappings).forEach(selector => {
     document.querySelectorAll(selector).forEach(element => {
-      element.addEventListener('click', function() {
+      element.addEventListener('click', function () {
         openPopup('.news-popup-overlay', popupMappings[selector]);
       });
     });
@@ -458,143 +458,143 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Function to show specific content and hide others
   function showContent(buttonId, contentId) {
     // Prevent the default form submission or page reload
-    
-    
+
+
     // Hide all content containers
     const allContents = document.querySelectorAll('.rechner-calculators');
     allContents.forEach(content => content.style.display = 'none');
-    
+
     // Show the specific content container
     document.getElementById(contentId).style.display = 'block';
-}
+  }
 
 
   // Add event listeners to each button
-  document.querySelectorAll('#calculator-btn0').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn0').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn0', 'calculator0');
     });
   });
-  document.querySelectorAll('#calculator-btn1').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn1').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn1', 'calculator1');
     });
   });
-  document.querySelectorAll('#calculator-btn2').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn2').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn2', 'calculator2');
     });
   });
-  document.querySelectorAll('#calculator-btn3').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn3').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn3', 'calculator3');
     });
   });
-  document.querySelectorAll('#calculator-btn4').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn4').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn4', 'calculator4');
     });
   });
-  document.querySelectorAll('#calculator-btn5').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn5').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn5', 'calculator5');
     });
   });
-  document.querySelectorAll('#calculator-btn6').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn6').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn6', 'calculator6');
     });
   });
-  document.querySelectorAll('#calculator-btn7').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn7').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn7', 'calculator7');
     });
   });
-  document.querySelectorAll('#calculator-btn8').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn8').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn8', 'calculator8');
     });
   });
-  document.querySelectorAll('#calculator-btn9').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn9').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn9', 'calculator9');
     });
   });
-  document.querySelectorAll('#calculator-btn10').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn10').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn10', 'calculator10');
     });
   });
-  document.querySelectorAll('#calculator-btn11').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn11').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn11', 'calculator11');
     });
   });
-  document.querySelectorAll('#calculator-btn12').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn12').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn12', 'calculator12');
     });
   });
-  document.querySelectorAll('#calculator-btn13').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn13').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn13', 'calculator13');
     });
   });
-  document.querySelectorAll('#calculator-btn14').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn14').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn14', 'calculator14');
     });
   });
-  document.querySelectorAll('#calculator-btn15').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn15').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn15', 'calculator15');
     });
   });
-  document.querySelectorAll('#calculator-btn16').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn16').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn16', 'calculator16');
     });
   });
-  document.querySelectorAll('#calculator-btn17').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn17').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn17', 'calculator17');
     });
   });
-  document.querySelectorAll('#calculator-btn18').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn18').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn18', 'calculator18');
     });
   });
-  document.querySelectorAll('#calculator-btn19').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn19').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn19', 'calculator19');
     });
   });
-  document.querySelectorAll('#calculator-btn20').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn20').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn20', 'calculator20');
     });
   });
-  document.querySelectorAll('#calculator-btn21').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn21').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn21', 'calculator21');
     });
   });
-  document.querySelectorAll('#calculator-btn22').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn22').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn22', 'calculator22');
     });
   });
-  document.querySelectorAll('#calculator-btn23').forEach(function(button) {
-    button.addEventListener('click', function() {
+  document.querySelectorAll('#calculator-btn23').forEach(function (button) {
+    button.addEventListener('click', function () {
       showContent('calculator-btn23', 'calculator23');
     });
   });
-  
+
 
 });
 
@@ -634,27 +634,32 @@ document.addEventListener('DOMContentLoaded', function () {
     "1": {
       div1: "Ausgewählter Pflegegrad: 1",
       div2: "Sie können einen häuslichen Pflegedienst in Anspruch nehmen und bekommen monatlich bis zu 125 EUR der Kosten durch die Pflegekasse ersetzt. <br> Denn für Pflegegrad 1 gewährt die Pflegekasse den Entlastungsbetrag gemäß § 45b in Höhe von monatlich 125 Euro ausnahmsweise auch für die Sachleistung durch den Pflegedienst (Grundpflege). Zudem stehen Pflege­bedürftigen mit Pflegegrad 1 zwei kostenlose Pflegeberatungsbesuche pro Jahr zu.",
-      div3: "Mtl. Inanspruchnahme Ambulanter Pflegedienst (max. 125 EUR)"
+      div3: "Mtl. Inanspruchnahme Ambulanter Pflegedienst (max. 125 EUR)",
+      value: "125"
     },
     "2": {
       div1: "Ausgewählter Pflegegrad: 2",
       div2: "Sie können einen häuslichen Pflegedienst in Anspruch nehmen und bekommen monatlich bis zu 761 EUR der Kosten durch die Pflegekasse ersetzt.<br> Sofern diese Leistung nicht oder nur teilweise in Anspruch genommen wird, besteht für die Eigenleistung ein Anspruch auf anteilige Auszahlung von Pflegegeld bis zu 332 EUR. Wird z.B die maximale Kassenleistung in Höhe von 761 EUR durch den Pflegedienst zu 60% (= 456,60 EUR) aufgezehrt, so bleibt ein Anteil von 40% des maximalen Pflegegelds als Ausgleich für die Eigenleistungen. Es werden 40% von 332 EUR (= 132,80 EUR) ausgezahlt.",
-      div3: "Mtl. Inanspruchnahme Ambulanter Pflegedienst (max. 761 EUR)"
+      div3: "Mtl. Inanspruchnahme Ambulanter Pflegedienst (max. 761 EUR)",
+      value: "761"
     },
     "3": {
       div1: "Ausgewählter Pflegegrad: 3",
       div2: "Sie können einen häuslichen Pflege­dienst in Anspruch nehmen und bekommen monatlich bis zu 1.432 EUR der Kosten durch die Pflegekasse ersetzt. <br> Sofern diese Leistung nicht oder nur teilweise in Anspruch genommen wird, besteht für die Eigenleistung ein Anspruch auf anteilige Auszahlung von Pflegegeld bis zu 573 EUR. Wird z.B die maximale Kassenleistung in Höhe von 1.432 EUR durch den Pflegedienst zu 60% (= 859,20 EUR) aufgezehrt, so bleibt ein Anteil von 40% des maximalen Pflegegelds als Ausgleich für die Eigenleistungen. Es werden 40% von 573 EUR (= 229,20 EUR) ausgezahlt.",
-      div3: "Mtl. Inanspruchnahme Ambulanter Pflegedienst (max. 1.432 EUR)"
+      div3: "Mtl. Inanspruchnahme Ambulanter Pflegedienst (max. 1.432 EUR)",
+      value: "1432"
     },
     "4": {
       div1: "Ausgewählter Pflegegrad: 4",
       div2: "Sie können einen häuslichen Pflegedienst in Anspruch nehmen und bekommen monatlich bis zu 1.778 EUR der Kosten durch die Pflegekasse ersetzt. <br> Sofern diese Leistung nicht oder nur teilweise in Anspruch genommen wird, besteht für die Eigenleistung ein Anspruch auf anteilige Auszahlung von Pflegegeld bis zu 765 EUR. Wird z.B die maximale Kassenleistung in Höhe von 1.778 EUR durch den Pflegedienst zu 60% (= 1.066,80 EUR) aufgezehrt, so bleibt ein Anteil von 40% des maximalen Pflegegelds als Ausgleich für die Eigenleistungen. Es werden 40% von 765EUR (= 306,00 EUR) ausgezahlt.",
-      div3: "Mtl. Inanspruchnahme Ambulanter Pflegedienst (max. 1.778 EUR)"
+      div3: "Mtl. Inanspruchnahme Ambulanter Pflegedienst (max. 1.778 EUR)",
+      value: "1778"
     },
     "5": {
       div1: "Ausgewählter Pflegegrad: 5",
       div2: "Sie können einen häuslichen Pflegedienst in Anspruch nehmen und bekommen monatlich bis zu 2.200 EUR der Kosten durch die Pflegekasse ersetzt. <br> Sofern diese Leistung nicht oder nur teilweise in Anspruch genommen wird, besteht für die Eigenleistung ein Anspruch auf anteilige Auszahlung von Pflegegeld bis zu 947 EUR. Wird z.B die maximale Kassenleistung in Höhe von 2.200 EUR durch den Pflegedienst zu 60% (= 1.320,00 EUR) aufgezehrt, so bleibt ein Anteil von 40% des maximalen Pflegegelds als Ausgleich für die Eigenleistungen. Es werden 40% von 947 EUR (= 378,80 EUR) ausgezahlt.",
-      div3: "Mtl. Inanspruchnahme Ambulanter Pflegedienst (max. 2.200 EUR)"
+      div3: "Mtl. Inanspruchnahme Ambulanter Pflegedienst (max. 2.200 EUR)",
+      value: "2200"
     }
   };
 
@@ -666,6 +671,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('div1').innerHTML = contentMap[selectedValue]?.div1 || "";
     document.getElementById('div2').innerHTML = contentMap[selectedValue]?.div2 || "";
     document.getElementById('div3').innerHTML = contentMap[selectedValue]?.div3 || "";
+    document.getElementById('pflegedienst').max = contentMap[selectedValue]?.value || 1;  // Example: Set default max to 100
   });
 
   // Handle form submission without page reload or localStorage
@@ -673,7 +679,8 @@ document.addEventListener('DOMContentLoaded', function () {
     e.preventDefault(); // Prevent form submission from reloading the page
 
     let pflegegrad = parseInt(document.getElementById('pflegegrad1').value, 10);
-    let pflegedienst = parseInt(document.getElementById('pflegedienst').value, 10);
+    let pflegedienst = 0;
+    let ambulant = parseInt(document.getElementById('pflegedienst').value, 10);
 
     let sachleistung = 0;
     let sachleistungrestwert = 0;
@@ -683,11 +690,10 @@ document.addEventListener('DOMContentLoaded', function () {
     let pflegevollstationaer = 125;
     let verhinderungspflege = 0;
     let kurzzeitpflege = 0;
-    let betreuungszusatz = 125;
+    let betreuungzusatz = 125;
     let wohngruppen = 214;
     let hilfsmittel = 40;
     let wohnumfeldverbesserung = 4000;
-
     // Logic based on Pflegegrad value
     if (pflegegrad === 1) {
       sachleistung = 0;
@@ -700,11 +706,16 @@ document.addEventListener('DOMContentLoaded', function () {
       pflegevollstationaer = 761;
       verhinderungspflege = 1612;
       kurzzeitpflege = 1612;
-
-      if (pflegedienst === 0) {
+      betreuungzusatz = 125;
+      wohngruppen = 214;
+      hilfsmittel = 40;
+      wohnumfeldverbesserung = 4000;
+      if (pflegedienst == 0) {
+        sachleistungrestwert = 0;
         pflegegeldmax = pflegegeld;
       } else {
         sachleistungrestwert = ((sachleistung - pflegedienst) / sachleistung) * 100;
+        sachleistungrestwert = Math.round(sachleistungrestwert * 100) / 100;
         pflegegeldmax = (pflegegeld * sachleistungrestwert) / 100;
         if (pflegegeldmax < 0) {
           pflegegeldmax = 0;
@@ -717,6 +728,21 @@ document.addEventListener('DOMContentLoaded', function () {
       pflegevollstationaer = 1432;
       verhinderungspflege = 1612;
       kurzzeitpflege = 1612;
+      betreuungzusatz = 125;
+      wohngruppen = 214;
+      hilfsmittel = 40;
+      wohnumfeldverbesserung = 4000;
+      if (pflegedienst == 0) {
+        sachleistungrestwert = 0;
+        pflegegeldmax = pflegegeld;
+      } else {
+        sachleistungrestwert = ((sachleistung - pflegedienst) / sachleistung) * 100;
+        sachleistungrestwert = Math.round(sachleistungrestwert, 2);
+        pflegegeldmax = (pflegegeld * sachleistungrestwert) / 100;
+        if (pflegegeldmax < 0) {
+          pflegegeldmax = 0;
+        }
+      }
     } else if (pflegegrad === 4) {
       sachleistung = 1778;
       pflegegeld = 765;
@@ -724,13 +750,43 @@ document.addEventListener('DOMContentLoaded', function () {
       pflegevollstationaer = 1778;
       verhinderungspflege = 1612;
       kurzzeitpflege = 1612;
-    } else if (pflegegrad === 5) {
+      betreuungzusatz = 125;
+      wohngruppen = 214;
+      hilfsmittel = 40;
+      wohnumfeldverbesserung = 4000;
+      if (pflegedienst == 0) {
+        sachleistungrestwert = 0;
+        pflegegeldmax = pflegegeld;
+      } else {
+        sachleistungrestwert = ((sachleistung - pflegedienst) / sachleistung) * 100;
+        sachleistungrestwert = Math.round(sachleistungrestwert);
+        pflegegeldmax = (pflegegeld * sachleistungrestwert) / 100;
+        if (pflegegeldmax < 0) {
+          pflegegeldmax = 0;
+        }
+      }
+    } else if (pflegegrad == 5) {
       sachleistung = 2200;
       pflegegeld = 947;
       tagesnachtpflege = 1995;
       pflegevollstationaer = 2200;
       verhinderungspflege = 1612;
       kurzzeitpflege = 1612;
+      betreuungzusatz = 125;
+      wohngruppen = 214;
+      hilfsmittel = 40;
+      wohnumfeldverbesserung = 4000;
+      if (pflegedienst == 0) {
+        sachleistungrestwert = 0;
+        pflegegeldmax = pflegegeld;
+      } else {
+        sachleistungrestwert = ((sachleistung - pflegedienst) / sachleistung) * 100;
+        sachleistungrestwert = (sachleistungrestwert);
+        pflegegeldmax = (pflegegeld * sachleistungrestwert) / 100;
+        if (pflegegeldmax < 0) {
+          pflegegeldmax = 0;
+        }
+      }
     }
 
     // Helper function to format numbers as currency
@@ -741,6 +797,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const formatPercent = (value) =>
       value.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " %";
 
+    console.log(sachleistungrestwert);
+    console.log(pflegegeldmax);
+
     // Display the calculated values in their respective divs or spans
     document.getElementById('sachleistung').textContent = formatCurrency(sachleistung);
     document.getElementById('sachleistungrestwert').textContent = formatPercent(sachleistungrestwert);
@@ -750,28 +809,28 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('pflegevollstationaer').textContent = formatCurrency(pflegevollstationaer);
     document.getElementById('verhinderungspflege').textContent = formatCurrency(verhinderungspflege);
     document.getElementById('kurzzeitpflege').textContent = formatCurrency(kurzzeitpflege);
-    document.getElementById('betreuungszusatz').textContent = formatCurrency(betreuungszusatz);
+    document.getElementById('betreuungszusatz').textContent = formatCurrency(betreuungzusatz);
     document.getElementById('wohngruppen').textContent = formatCurrency(wohngruppen);
     document.getElementById('hilfsmittel').textContent = formatCurrency(hilfsmittel);
     document.getElementById('wohnumfeldverbesserung').textContent = formatCurrency(wohnumfeldverbesserung);
   });
 });
 
-  
-  
-  
 
 
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
   // Get all elements with the class name 'ambulants'
   let ambulantElements = document.getElementsByClassName('ambulants');
-  
+
   // Loop through all the elements and add the event listener to each
   for (let i = 0; i < ambulantElements.length; i++) {
-    ambulantElements[i].addEventListener('input', function() {
+    ambulantElements[i].addEventListener('input', function () {
       let value = this.value;
       // Check if the input has more than 4 digits
       if (value.length > 4) {
@@ -782,7 +841,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-        
+
 
 // ###################### RECHNER_pflegekosten_im_pflegeheim CALCULATION ########################
 
@@ -921,20 +980,20 @@ document.addEventListener("DOMContentLoaded", function () {
 // ###################### RECHNER_zuzahlungen CALCULATION ########################
 
 document.addEventListener("DOMContentLoaded", function () {
- 
-  
+
+
 });
 
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Get all elements with the class name 'ambulants'
   let ambulantElements = document.getElementsByClassName('ambulants2');
-  
+
   // Loop through all the elements and add the event listener to each
   for (let i = 0; i < ambulantElements.length; i++) {
-    ambulantElements[i].addEventListener('input', function() {
+    ambulantElements[i].addEventListener('input', function () {
       let value = this.value;
       // Check if the input has more than 2 digits
       if (value.length > 2) {
@@ -945,13 +1004,13 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Get all elements with the class name 'ambulants'
   let ambulantElements = document.getElementsByClassName('ambulants3');
-  
+
   // Loop through all the elements and add the event listener to each
   for (let i = 0; i < ambulantElements.length; i++) {
-    ambulantElements[i].addEventListener('input', function() {
+    ambulantElements[i].addEventListener('input', function () {
       let value = this.value;
       // Check if the input has more than 7 digits
       if (value.length > 7) {

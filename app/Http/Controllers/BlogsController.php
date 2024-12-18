@@ -34,6 +34,8 @@ class BlogsController extends Controller
                 });
             }
         }
+        $query->orderBy('blog_date', 'desc');
+
 
         // Fetch the filtered blog records and order by latest (newest first), paginate 5 articles per page
         $blogs = $query->latest()->paginate(10);  // Paginate with 5 blogs per page
@@ -79,13 +81,29 @@ class BlogsController extends Controller
         usort($uniqueCategories, function ($a, $b) {
             return strcmp($a->name, $b->name); // Sort categories by their name
         });
+
+        $categoriesWithBlogs = [];
+
+        foreach ($testCategories as $category) {
+            // Check if the category exists in any of the four category columns and has at least one blog
+            $hasBlogs = Blogs::where(function ($query) use ($category) {
+                $query->where('category1', $category)
+                    ->orWhere('category2', $category)
+                    ->orWhere('category3', $category)
+                    ->orWhere('category4', $category);
+            })->exists();
+
+            // If there is at least one blog for the current category, add it to the array
+            if ($hasBlogs) {
+                $categoriesWithBlogs[] = $category;
+            }
+        }
+        $testCategories = $categoriesWithBlogs;
         usort($testCategories, function ($a, $b) {
             return strcmp($a['name'], $b['name']); // Sort categories by their name
         });
-
-        
         // Return the view with the filtered blogs, categories, and unique categories
-        return view('blogs.index', compact('blogs', 'uniqueCategories','testCategories'));
+        return view('blogs.index', compact('blogs', 'uniqueCategories', 'testCategories'));
     }
 
 

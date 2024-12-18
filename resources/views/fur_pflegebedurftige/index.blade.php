@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('components.header.head')
+<style>
+    /* Media query for printing */
+    @media print {
+        .cover-letter-section3-btn {
+            display: none;
+        }
+
+    }
+</style>
+
 
 <body>
     <div class="header-container service-header-bg"
@@ -83,8 +93,8 @@
                 </button>
             </div>
             <div class="col-12 col-md-3">
-                <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn23"
-                    id="cover-letter-bottom-btn23">
+                <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn24"
+                    id="cover-letter-bottom-btn24">
                     Antrag auf Teilzeitarbeit gemäß Familienpflegezeitgesetz
                 </button>
             </div>

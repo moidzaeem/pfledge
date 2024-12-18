@@ -66,7 +66,7 @@
 
     <div style="width: 100%">
         <img class="page-bottom-img" style="width: 100%; object-fit: cover; height: 100%"
-            src="{{ asset('assets/Images/blog_bottom.svg') }}" alt="" />
+            src="{{ asset('assets/Images/Blog_bottom.svg') }}" alt="" />
     </div>
 
     <!-- ######################### FOOTER SECTION ######################### -->
