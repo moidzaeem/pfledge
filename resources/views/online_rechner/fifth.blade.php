@@ -2061,7 +2061,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="{{old('tagelk17')}}" style="width: 50%;" name="tagelk17">
+                    <input type="number" value="{{ old('tagelk17') }}" style="width: 50%;" name="tagelk17">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button
@@ -2171,7 +2171,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="{{old('tagelk18')}}" style="width: 50%;" name="tagelk18">
+                    <input type="number" value="{{ old('tagelk18') }}" style="width: 50%;" name="tagelk18">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button
@@ -2309,7 +2309,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Summe Minuten im Monat</label>
-                    <input type="number" value="{{old('tagelk19')}}"  style="width: 50%;" name="tagelk19">
+                    <input type="number" value="{{ old('tagelk19') }}" style="width: 50%;" name="tagelk19">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button
@@ -2454,7 +2454,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Summe Minuten im Monat</label>
-                    <input type="number" value="{{old('tagelk20')}}"  style="width: 50%;" name="tagelk20">
+                    <input type="number" value="{{ old('tagelk20') }}" style="width: 50%;" name="tagelk20">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button
@@ -2590,7 +2590,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Summe Minuten im Monat</label>
-                    <input type="number" value="{{old('tagelk20')}}" style="width: 50%;" name="tagelk20">
+                    <input type="number" value="{{ old('tagelk20') }}" style="width: 50%;" name="tagelk20">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button
@@ -2797,7 +2797,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Summe Minuten im Monat</label>
-                    <input type="number" value="{{old('tagelk21')}}"  style="width: 50%;" name="tagelk21">
+                    <input type="number" value="{{ old('tagelk21') }}" style="width: 50%;" name="tagelk21">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button
@@ -2936,7 +2936,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Summe Minuten im Monat</label>
-                    <input type="number" value="{{old('tagelk22')}}" style="width: 50%;" name="tagelk22">
+                    <input type="number" value="{{ old('tagelk22') }}" style="width: 50%;" name="tagelk22">
                 </div>
 
 
@@ -2950,17 +2950,121 @@
         </div>
 
     </div>
+
+
+
+
     <div class="container mb-5">
         <div class="online-rechner-section3-bottom">
             <div class="online-rechner-section3-heading-bottom">
                 <div>Ergebnis</div>
             </div>
 
+            @if (old('tagelk1') > 0 ||
+                    old('tagelk2') > 0 ||
+                    old('tagelk3') > 0 ||
+                    old('tagelk4') > 0 ||
+                    old('tagelk5') > 0 ||
+                    old('tagelk6') > 0 ||
+                    old('tagelk7') > 0 ||
+                    old('tagelk8') > 0 ||
+                    old('tagelk9') > 0 ||
+                    old('tagelk10') > 0 ||
+                    old('tagelk11') > 0 ||
+                    old('tagelk12') > 0 ||
+                    old('tagelk13') > 0 ||
+                    old('tagelk14') > 0 ||
+                    old('tagelk15') > 0 ||
+                    old('tagelk16') > 0 ||
+                    old('tagelk17') > 0 ||
+                    old('tagelk18') > 0 ||
+                    old('tagelk20') > 0)
+                    
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" style="text-align:left;">Leistungskatalog</th>
+                                <th scope="col" style="text-align:right;">Angesetzte Tage je Monat</th>
+                                <th scope="col" style="text-align:right;">Kosten je Monat</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for ($i = 1; $i <= 20; $i++)
+                                @if (old('tagelk' . $i) > 0)
+                                    <tr>
+                                        <td style="text-align:left;">{{ session('leistung' . $i) }}</td>
+                                        <td style="text-align:right;">{{ number_format(old('tagelk' . $i), 0, ',', '.') }}</td>
+                                        <td style="text-align:right;">{{ number_format(session('monatlk' . $i), 2, ',', '.') }} EUR</td>
+                                    </tr>
+                                @endif
+                            @endfor
+                        </tbody>
+                    </table>
+                </div>
+                
+            @endif
+
+            @if (old('tagelk19') > 0 || old('tagelk21') > 0 || old('tagelk22') > 0 || old('tagelk23') > 0)
+
+                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col" style="text-align:left;">Leistungskatalog</th>
+                                    <th scope="col" style="text-align:center;">Angesetzte Minuten je Monat</th>
+                                    <th scope="col" style="text-align:center;">Kosten je Monat</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (old('tagelk19') > 0)
+                                    <tr>
+                                        <td style="text-align:left;">{{ old('leistung19') }}</td>
+                                        <td style="text-align:right;">
+                                            {{ number_format(old('tagelk19'), 0, ',', '.') }}</td>
+                                        <td style="text-align:right;">
+                                            {{ number_format(old('monatlk19'), 2, ',', '.') }} EUR</td>
+                                    </tr>
+                                @endif
+                                @if (old('tagelk21') > 0)
+                                    <tr>
+                                        <td style="text-align:left;">{{ old('leistung21') }}</td>
+                                        <td style="text-align:right;">
+                                            {{ number_format(old('tagelk21'), 0, ',', '.') }}</td>
+                                        <td style="text-align:right;">
+                                            {{ number_format(session('monatlk21'), 2, ',', '.') }} EUR</td>
+                                    </tr>
+                                @endif
+                                @if (old('tagelk22') > 0)
+                                    <tr>
+                                        <td style="text-align:left;">{{ old('leistung22') }}</td>
+                                        <td style="text-align:right;">
+                                            {{ number_format(old('tagelk22'), 0, ',', '.') }}</td>
+                                        <td style="text-align:right;">
+                                            {{ number_format(session('monatlk22'), 2, ',', '.') }} EUR</td>
+                                    </tr>
+                                @endif
+                                @if (old('tagelk23') > 0)
+                                    <tr>
+                                        <td style="text-align:left;">{{ old('leistung23') }}</td>
+                                        <td style="text-align:right;">
+                                            {{ number_format(old('tagelk23'), 0, ',', '.') }}</td>
+                                        <td style="text-align:right;">
+                                            {{ number_format(session('monatlk23'), 2, ',', '.') }} EUR</td>
+                                    </tr>
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            @endif
+
             <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
                 <div style="padding-top: 0"><span class="span1">Gesamtsumme</span> <span class="span2">
                         {{ session('gesamtsumme') ? number_format(session('gesamtsumme'), 2, ',', '.') . ' EUR' : '' }}</span>
                 </div>
-                <div> <span class="span1">Erstattungsbetrag (kein Pflegegrad)</span> <span class="span2">
+                <div> <span class="span1">Erstattungsbetrag ({{old('pflegegrad')}})</span> <span class="span2">
                         {{ session('erstattungssatz') ? number_format(session('erstattungssatz'), 2, ',', '.') . ' EUR' : '' }}</span>
                 </div>
                 <div> <span class="span1">Differenz</span> <span class="span2">

@@ -6,28 +6,19 @@
                     <img src="{{ Storage::url($blog->image) }}" alt="" />
                 </div>
                 <div class="blog-card-body">
-                    <span class="blog-date">{{ $blog->created_at->format('d.m.Y') }}</span>
+                    <span class="blog-date">{{ \Carbon\Carbon::parse($blog->blog_date)->format('d.m.Y') }}</span>
                     <div class="blog-kate">
                         Kategorie:
                         @if ($blog->category1_name)
                             <span class="blog-kate">{{ $blog->category1_name }}</span>
-                            @if ($blog->category2_name || $blog->category3_name || $blog->category4_name)
-                                ,
-                            @endif
                         @endif
 
                         @if ($blog->category2_name)
                             <span class="blog-kate">{{ $blog->category2_name }}</span>
-                            @if ($blog->category3_name || $blog->category4_name)
-                                ,
-                            @endif
                         @endif
 
                         @if ($blog->category3_name)
                             <span class="blog-kate">{{ $blog->category3_name }}</span>
-                            @if ($blog->category4_name)
-                                ,
-                            @endif
                         @endif
 
                         @if ($blog->category4_name)

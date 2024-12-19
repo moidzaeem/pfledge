@@ -1904,6 +1904,7 @@
                             </div>
                         </div>
                     </div>
+                    <hr/ style="border: 1px solid white">
                 @endforeach
 
                 <div class="online-rechner-section3-bottom-heading2">

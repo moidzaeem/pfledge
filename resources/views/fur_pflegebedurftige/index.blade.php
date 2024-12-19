@@ -73,62 +73,62 @@
         </div>
         <div class="cover-letter-bottom-buttons row justify-content-center align-items-center"
             id="cover-letter-bottom-buttons2">
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-4">
                 <button
                     class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn21 cover-letter-active-btn"
                     id="cover-letter-bottom-btn21">
                     Antrag auf Pflegeunterstützungsgeld
                 </button>
             </div>
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-4">
                 <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn22"
                     id="cover-letter-bottom-btn22">
                     Antrag auf Entlastungsbetrag für pflegende Angehörige
                 </button>
             </div>
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-4">
                 <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn23"
                     id="cover-letter-bottom-btn23">
                     Antrag auf Freistellung gemäß Pflegezeitgesetz
                 </button>
             </div>
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-4 col-lg-3">
                 <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn24"
                     id="cover-letter-bottom-btn24">
                     Antrag auf Teilzeitarbeit gemäß Familienpflegezeitgesetz
                 </button>
             </div>
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-4 col-lg-3">
                 <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn25"
                     id="cover-letter-bottom-btn25">
                     Widerspruch gegen Ablehnung von Pflegeleistungen
                 </button>
             </div>
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-4 col-lg-3">
                 <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn26"
                     id="cover-letter-bottom-btn26">
                     Antrag auf zusätzliche Betreuungs- und Entlastungsleistungen
                 </button>
             </div>
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-4 col-lg-3">
                 <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn27"
                     id="cover-letter-bottom-btn27">
                     Mitteilung über Veränderungen im Pflegeaufwand
                 </button>
             </div>
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-4 col-lg-3">
                 <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn28"
                     id="cover-letter-bottom-btn28">
                     Antrag auf Erhöhung des Pflegegeldes
                 </button>
             </div>
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-4">
                 <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn29"
                     id="cover-letter-bottom-btn29">
                     Antrag auf Beratungsgespräche gemäß § 37 Abs. 3 SGB XI
                 </button>
             </div>
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-4">
                 <button class="cover-letter-bottom-btn cover-letter-bottom-btn2 cover-letter-bottom-btn210"
                     id="cover-letter-bottom-btn210">
                     Antrag auf Pflegekurse und Schulungen für pflegende Angehörige

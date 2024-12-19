@@ -188,7 +188,7 @@ class SimpleController extends Controller
         // Validate CAPTCHA first
         if ($request->captcha !== Session::get('captcha')) {
             // If CAPTCHA doesn't match, return with error message
-            return redirect()->back()->withErrors(['captcha' => 'Invalid CAPTCHA. Please try again.']);
+            return redirect()->back()->withErrors(['captcha' => 'Ungültiger Code']);
         }
 
         $validatedData = $request->validate([

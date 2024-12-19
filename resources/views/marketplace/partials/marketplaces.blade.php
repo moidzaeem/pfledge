@@ -15,13 +15,13 @@
                 <div class="blog-kate">
                     Kategorie:
                     @if ($marketplace->category1_name)
-                        <span class="blog-kate">{{ $marketplace->category1_name }},</span>
+                        <span class="blog-kate">{{ $marketplace->category1_name }}</span>
                     @endif
                     @if ($marketplace->category2_name)
-                        <span class="blog-kate">{{ $marketplace->category2_name }},</span>
+                        <span class="blog-kate">{{ $marketplace->category2_name }}</span>
                     @endif
                     @if ($marketplace->category3_name)
-                        <span class="blog-kate">{{ $marketplace->category3_name }},</span>
+                        <span class="blog-kate">{{ $marketplace->category3_name }}</span>
                     @endif
                     @if ($marketplace->category4_name)
                         <span class="blog-kate">{{ $marketplace->category4_name }}</span>
@@ -35,7 +35,7 @@
                     <!-- Limit the content text for a preview -->
                 </div>
             </div>
-            <a style="text-decoration: none" href="{{ $marketplace->link }}">
+            <a style="text-decoration: none" href="{{ $marketplace->link }}" target="_blank">
                 <button class="blog-card-btn">Weiterlesen</button>
             </a>
         </div>

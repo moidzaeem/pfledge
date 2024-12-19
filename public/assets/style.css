@@ -3135,7 +3135,7 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     text-align: left;
     color: #ffffff;
     /* border-bottom: 1px solid #ffffff33; */
-    padding: 1rem 0;
+    padding: 7px 0px;
 }
 .online-rechner-section3-bottom-heading2 {
     border-bottom: none !important;
@@ -3597,16 +3597,16 @@ input[type="number"]::-webkit-inner-spin-button {
     min-width: 300px;
 }
 .cover-letter-bottom-btn24 {
-    min-width: 300px;
+    min-width: 270px;
 }
 .cover-letter-bottom-btn25 {
     min-width: 320px;
 }
 .cover-letter-bottom-btn26 {
-    min-width: 330px;
+    min-width: 286;
 }
 .cover-letter-bottom-btn27 {
-    min-width: 300px;
+    min-width: 270px;
 }
 .cover-letter-bottom-btn28 {
     min-width: 250px;

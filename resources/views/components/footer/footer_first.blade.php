@@ -65,7 +65,7 @@
                             <img src="{{ route('captcha') }}" alt="CAPTCHA" />
                         </div>
                         <div class="col-md-6">
-                            <input maxlength="6" type="text" name="captcha" placeholder="Text Code" required />
+                            <input maxlength="6" type="text" name="captcha" placeholder="Code" required />
                             @error('captcha')
                                 <div class="text-danger" style="color: white!important">{{ $message }}</div>
                             @enderror
