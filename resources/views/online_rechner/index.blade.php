@@ -1666,6 +1666,12 @@
                             </select>
                         </div>
                     </div>
+                    <div class="text-center">
+                        <button class="online-rechner-section3-form-btn active-btn2 " type="submit"
+                            style="background-color: #b22222">
+                            Pflegegrad berechnen
+                        </button>
+                    </div>
                 </div>
 
                 <!-- ######################## MODULE 6 FORM ######################## -->

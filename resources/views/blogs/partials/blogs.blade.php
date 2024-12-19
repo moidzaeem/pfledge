@@ -1,5 +1,5 @@
 @foreach ($blogs as $blog)
-    <div class="col-lg-6 marketplace-item"" data-name="{{ $blog->name }}" data-content="{{ $blog->data }}">
+    <div class="col-lg-6 marketplace-item mt-5" data-name="{{ $blog->name }}" data-content="{{ $blog->data }}">
         <div class="blog-card" style="width: 94%;">
             <a style="text-decoration: none" href="{{ route('blogs.show', $blog->slug) }}">
                 <div class="blog-card-img">

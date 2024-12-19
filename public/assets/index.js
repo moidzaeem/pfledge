@@ -474,126 +474,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   // Add event listeners to each button
-  document.querySelectorAll('#calculator-btn0').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn0', 'calculator0');
+  // Loop over button IDs from 0 to 23
+  for (let i = 0; i <= 23; i++) {
+    // Create the button selector and content selector dynamically
+    const buttonId = `#calculator-btn${i}`;
+    const contentId = `calculator${i}`;
+
+    // Add event listener for each button
+    document.querySelectorAll(buttonId).forEach(function (button) {
+      button.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent the default behavior (e.g., form submission or navigation)
+        showContent(buttonId, contentId);
+      });
     });
-  });
-  document.querySelectorAll('#calculator-btn1').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn1', 'calculator1');
-    });
-  });
-  document.querySelectorAll('#calculator-btn2').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn2', 'calculator2');
-    });
-  });
-  document.querySelectorAll('#calculator-btn3').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn3', 'calculator3');
-    });
-  });
-  document.querySelectorAll('#calculator-btn4').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn4', 'calculator4');
-    });
-  });
-  document.querySelectorAll('#calculator-btn5').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn5', 'calculator5');
-    });
-  });
-  document.querySelectorAll('#calculator-btn6').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn6', 'calculator6');
-    });
-  });
-  document.querySelectorAll('#calculator-btn7').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn7', 'calculator7');
-    });
-  });
-  document.querySelectorAll('#calculator-btn8').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn8', 'calculator8');
-    });
-  });
-  document.querySelectorAll('#calculator-btn9').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn9', 'calculator9');
-    });
-  });
-  document.querySelectorAll('#calculator-btn10').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn10', 'calculator10');
-    });
-  });
-  document.querySelectorAll('#calculator-btn11').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn11', 'calculator11');
-    });
-  });
-  document.querySelectorAll('#calculator-btn12').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn12', 'calculator12');
-    });
-  });
-  document.querySelectorAll('#calculator-btn13').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn13', 'calculator13');
-    });
-  });
-  document.querySelectorAll('#calculator-btn14').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn14', 'calculator14');
-    });
-  });
-  document.querySelectorAll('#calculator-btn15').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn15', 'calculator15');
-    });
-  });
-  document.querySelectorAll('#calculator-btn16').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn16', 'calculator16');
-    });
-  });
-  document.querySelectorAll('#calculator-btn17').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn17', 'calculator17');
-    });
-  });
-  document.querySelectorAll('#calculator-btn18').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn18', 'calculator18');
-    });
-  });
-  document.querySelectorAll('#calculator-btn19').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn19', 'calculator19');
-    });
-  });
-  document.querySelectorAll('#calculator-btn20').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn20', 'calculator20');
-    });
-  });
-  document.querySelectorAll('#calculator-btn21').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn21', 'calculator21');
-    });
-  });
-  document.querySelectorAll('#calculator-btn22').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn22', 'calculator22');
-    });
-  });
-  document.querySelectorAll('#calculator-btn23').forEach(function (button) {
-    button.addEventListener('click', function () {
-      showContent('calculator-btn23', 'calculator23');
-    });
-  });
+  }
+
 
 
 });

@@ -17,6 +17,7 @@ class MarketplaceController extends Controller
     {
         // Fetch all categories from the database
         $categories = MarketplaceCategory::all();
+        $testCategories = MarketplaceCategory::all()->toArray();
 
         // Create a map (associative array) of category ID to category details (name, etc.)
         $categoriesById = $categories->keyBy('id');
@@ -26,15 +27,15 @@ class MarketplaceController extends Controller
 
         // Apply category filter if a category is selected in the request
         if ($request->category) {
-            // $category = MarketplaceCategory::where('name', $request->category)->first();
-            // if ($category) {
-            //     $query->where(function ($q) use ($category) {
-            //         $q->where('category1', $category->id)
-            //             ->orWhere('category2', $category->id)
-            //             ->orWhere('category3', $category->id)
-            //             ->orWhere('category4', $category->id);
-            //     });
-            // }
+            $category = MarketplaceCategory::where('name', $request->category)->first();
+            if ($category) {
+                $query->where(function ($q) use ($category) {
+                    $q->where('category1', $category->id)
+                        ->orWhere('category2', $category->id)
+                        ->orWhere('category3', $category->id)
+                        ->orWhere('category4', $category->id);
+                });
+            }
         }
 
         // Paginate the marketplaces (10 per page)
@@ -77,23 +78,41 @@ class MarketplaceController extends Controller
             }
         });
 
-        usort($uniqueCategories, function ($a, $b) {
+        $categoriesWithMarketplaces= [];
+
+        foreach ($testCategories as $category) {
+            // Check if the category exists in any of the four category columns and has at least one blog
+            $hasBlogs = Marketplace::where(function ($query) use ($category) {
+                $query->where('category1', $category)
+                    ->orWhere('category2', $category)
+                    ->orWhere('category3', $category)
+                    ->orWhere('category4', $category);
+            })->exists();
+
+            // If there is at least one blog for the current category, add it to the array
+            if ($hasBlogs) {
+                $categoriesWithMarketplaces[] = $category;
+            }
+        }
+        $testCategories = $categoriesWithMarketplaces;
+
+        usort($testCategories, function ($a, $b) {
             // If $a is "Sonstiges", place it at the end
-            if ($a->name === 'Sonstiges') {
+            if ($a['name'] === 'Sonstiges') {
                 return 1;
             }
         
             // If $b is "Sonstiges", place it at the end
-            if ($b->name === 'Sonstiges') {
+            if ($b['name'] === 'Sonstiges') {
                 return -1;
             }
         
             // Otherwise, sort by name (alphabetically)
-            return strcmp($a->name, $b->name);
+            return strcmp($a['name'], $b['name']);
         });
         
         // Return the view with the filtered marketplaces, categories, unique categories array, and pagination links
-        return view('marketplace.index', compact('marketPlaces', 'uniqueCategories'));
+        return view('marketplace.index', compact('marketPlaces', 'uniqueCategories','testCategories'));
     }
 
     public function loadMore(Request $request)

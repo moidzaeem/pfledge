@@ -180,8 +180,8 @@
                         <label style="margin-top: -0.67rem;" class="online-rechner-page2-section3-heading "
                             for="online-rechner-input1">Berechnung für</label>
                         <select name="jahr" id="jahr" style="width: 50%;">
-                            <option value="0">2023</option>
-                            <option value="1">2022</option>
+                            <option value="2023" {{ old('jahr') == '2023' ? 'selected' : '' }}>2023</option>
+                            <option value="2022" {{ old('jahr') == '2022' ? 'selected' : '' }}>2022</option>
 
                         </select>
                     </div>
@@ -199,8 +199,8 @@
                             Der Regelsatz ist der jährlich festgelegte Satz für den Lebensunterhalt, der zur Gewährleistung des Existenzminimums in Deutschland notwendig ist."
                             rel="tooltip">ALG II- oder Sozialhilfeempfänger</label>
                         <select name="alg" id="alg" style="width: 50%;">
-                            <option value="0">Nein</option>
-                            <option value="1">Ja</option>>
+                            <option value="0" {{ old('alg') == '0' ? 'selected' : '' }}>Nein</option>
+                            <option value="1" {{ old('alg') == '1' ? 'selected' : '' }}>Ja</option>>
                         </select>
                     </div>
                     <div class="online-rechner-page2-section3-input-div"
@@ -216,8 +216,8 @@
                             "
                             rel="tooltip">Chronisch krank oder Pflegegrad 3 bis 5</label>
                         <select name="chronisch" id="chronisch" style="width: 50%;">
-                            <option value="0">Nein</option>
-                            <option value="1">Ja</option>
+                            <option value="1" {{ old('chronisch') == '1' ? 'selected' : '' }}>Nein</option>
+                            <option value="2" {{ old('chronisch') == '2' ? 'selected' : '' }}>Ja</option>
                         </select>
                     </div>
                     <div class="online-rechner-page2-section3-input-div"
@@ -230,8 +230,8 @@
                             "
                             rel="tooltip">Verheiratet oder eingetragene Lebenspartnerschaft</label>
                         <select name="verheiratet" id="verheiratet" style="width: 50%;">
-                            <option value="0">Nein</option>
-                            <option value="1">Ja</option>
+                            <option value="0" {{ old('verheiratet') == '0' ? 'selected' : '' }}>Nein</option>
+                            <option value="1" {{ old('verheiratet') == '1' ? 'selected' : '' }}>Ja</option>
                         </select>
                     </div>
 
@@ -245,8 +245,8 @@
                             Zur Bestimmung der Belastungsgrenze für Zuzahlungen wird das Familien-Bruttoeinkommen abzüglich bestimmter Freibeträge für jedes im Haushalt lebende Familienmitglied herangezogen. 2023 beträgt der Freibetrag je Kind 8.952 EUR. Im Vorjahr, also 2022 betrug er 8.388 EUR.
                             "
                             rel="tooltip">Anzahl der Kinder</label>
-                        <input id="kinder" name="kinder" type="number" min="0" max="2"
-                            class="ambulants2" value="0" style="width: 50%;">
+                        <input id="kinder" name="kinder" type="number" min="0" class="ambulants2"
+                            value="{{ old('kinder') }}" style="width: 50%;">
                     </div>
                     <div class="online-rechner-page2-section3-input-div"
                         style="margin-bottom: 1rem; display: flex; align-items: center;justify-content: space-between; margin-top: 1rem;">
@@ -260,8 +260,8 @@
                             - Anzugeben sind die geschätzten Einkünfte für das aktuelle Kalenderjahr, denn gemäß der 'Verfahrensgrundsätze zur Vorschrift über die Erstattung bzw. Befreiung von gesetzlichen Zuzahlungen' heißt es unter 3.2 (3): 'Die Feststellung der Belastungsgrenze erfolgt auf der Basis der zum Zeitpunkt der Prüfung bestehenden aktuellen Verhältnisse durch eine Schätzung der kalenderjährlichen Bruttoeinnahmen zum Lebensunterhalt unter Einbeziehung der voraussichtlich im weiteren Verlauf des Kalenderjahres zu erwartenden Einnahmen (z. B. Urlaubs- und Weihnachtsgeld) und Einkommenssteigerungen. Bei stark schwankenden Einkünften kann eine vergleichende Berücksichtigung der Gesamtbruttoeinnahmen des Vorjahres erfolgen.'
                             "
                             rel="tooltip">Familien-Bruttoeinkommen</label>
-                        <input id="brutto" type="number" min="0" name="brutto" max="2"
-                            class="ambulants3" value="0" style="width: 50%;">
+                        <input id="brutto" type="number" min="0" name="brutto" class="ambulants3"
+                            value="{{ old('brutto') }}" style="width: 50%;">
                     </div>
 
                     <div style="display: flex; justify-content: center;"><button id="zuzahlungen-btn" type="submit"
@@ -274,7 +274,6 @@
 
         <!-- ######################## Online Rechner Section 3 bottom ######################## -->
         <div class="online-rechner-section3-bottom">
-            <div class="online-rechner-section3-bottom-heading">Ergebnis</div>
             <div class="online-rechner-section3-heading-bottom">
                 <div>Ergebnis</div>
             </div>
@@ -296,18 +295,20 @@
                                     class="span2">{{ number_format(session('verheiratetfreibetrag'), 2, ',', '.') . ' EUR' }}</span>
                             </div>
                             <div> <span class="span1">- Freibetrag Kinder</span> <span class="span2">
-                                {{number_format(session('kinderfreibetrag'), 2, ',', '.')." EUR";}}
-                            </span>
-                            </div>
-                          
-                            <div> <span class="span1">= Berechnungsgrundlage</span> <span class="span2">
-                                {{number_format(session('berechnungsgrundlage1'), 2, ',', '.')." EUR"}}
-                            </span>
-                            </div>
-                            <div> <span class="span1">Belastungsgrenze</span> <span class="span2">{{session('chronisch')}}</span>
+                                    {{ number_format(session('kinderfreibetrag'), 2, ',', '.') . ' EUR' }}
+                                </span>
                             </div>
 
-                            <div style="border-bottom: none; color: #ffffffbd;">{{session('maxzuzahlungtext')}}</div>
+                            <div> <span class="span1">= Berechnungsgrundlage</span> <span class="span2">
+                                    {{ number_format(session('berechnungsgrundlage1'), 2, ',', '.') . ' EUR' }}
+                                </span>
+                            </div>
+                            <div> <span class="span1">Belastungsgrenze</span> <span
+                                    class="span2">{{ session('chronisch') . '% davon' }}</span>
+                            </div>
+
+                            <div style="border-bottom: none; color: #ffffffbd;">{{ session('maxzuzahlungtext') }}
+                            </div>
 
                         </div>
             @endif

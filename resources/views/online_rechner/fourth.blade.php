@@ -198,19 +198,19 @@
                         class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2 online-rechner-section3-inner-bottom23 ">
 
                         <div style="padding-top: 0; color: white; font-weight: 600;">
-                            <span class="span1">Pflegebedingte Kosten</span>
-                            <span class="span2">Pflegebedingte Kosten nach Zuschlag</span>
-                            <span class="span3">Investitionskosten</span>
-                            <span class="span4">Verpflegung & Unterkunft</span>
-                            <span class="span5">Ihr monatlicher Eigenanteil</span>
+                            <span class="span1" style="text-align: right">Pflegebedingte Kosten</span>
+                            <span class="span2" style="text-align: right">Pflegebedingte Kosten nach Zuschlag</span>
+                            <span class="span3" style="text-align: right">Investitionskosten</span>
+                            <span class="span4" style="text-align: right">Verpflegung & Unterkunft</span>
+                            <span class="span5" style="text-align: right">Ihr monatlicher Eigenanteil</span>
 
                         </div>
                         <div>
-                            <span id="pflegebedingtekosten" class="span1">1.098,00 EUR</span>
-                            <span id="pflegebedingtekostennachzuschlag" class="span2">933,30 EUR</span>
-                            <span id="investitionskosten" class="span3">509,00 EUR</span>
-                            <span id="verpflegungundunterkunftkosten" class="span4">754,00 EUR</span>
-                            <span id="eigenanteil" class="span5">2.196,30 EUR</span>
+                            <span id="pflegebedingtekosten" class="span1" style="text-align: right">1.098,00 EUR</span>
+                            <span id="pflegebedingtekostennachzuschlag" class="span2" style="text-align: right">933,30 EUR</span>
+                            <span id="investitionskosten" class="span3" style="text-align: right">509,00 EUR</span>
+                            <span id="verpflegungundunterkunftkosten" class="span4" style="text-align: right">754,00 EUR</span>
+                            <span id="eigenanteil" class="span5" style="text-align: right">2.196,30 EUR</span>
                         </div>
                     </div>
                 </div>

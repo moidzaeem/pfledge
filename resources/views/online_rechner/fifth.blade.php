@@ -181,8 +181,8 @@
 
                 <div class="calculator-btn-container">
                     <button class="calculator-btns calculator-btn-active" id="calculator-btn0">PG</button>
-                    <button class="calculator-btns " id="calculator-btn1" title="Leistungskomplex 1: Erstbesuch"
-                        rel="tooltip">LK 1</button>
+                    <button type="button" class="calculator-btns " id="calculator-btn1"
+                        title="Leistungskomplex 1: Erstbesuch" rel="tooltip">LK 1</button>
                     <button class="calculator-btns" id="calculator-btn2" title="Leistungskomplex 2: Folgebesuch"
                         rel="tooltip">LK 2</button>
                     <button class="calculator-btns" id="calculator-btn3"
@@ -255,12 +255,18 @@
                             for="online-rechner-input1">Pflegegrad</label>
 
                         <select name="pflegegrad" id="online-rechner-input1" style="width: 50%;">
-                            <option value="0">Kein Pflegegrad</option>
-                            <option value="1">Pflegegrad 1</option>
-                            <option value="2">Pflegegrad 2</option>
-                            <option value="3">Pflegegrad 3</option>
-                            <option value="4">Pflegegrad 4</option>
-                            <option value="5">Pflegegrad 5</option>
+                            <option value="0" {{ old('pflegegrad') == '0' ? 'selected' : '' }}>Kein Pflegegrad
+                            </option>
+                            <option value="1" {{ old('pflegegrad') == '1' ? 'selected' : '' }}>Pflegegrad 1
+                            </option>
+                            <option value="2" {{ old('pflegegrad') == '2' ? 'selected' : '' }}>Pflegegrad 2
+                            </option>
+                            <option value="3" {{ old('pflegegrad') == '3' ? 'selected' : '' }}>Pflegegrad 3
+                            </option>
+                            <option value="4" {{ old('pflegegrad') == '4' ? 'selected' : '' }}>Pflegegrad 4
+                            </option>
+                            <option value="5" {{ old('pflegegrad') == '5' ? 'selected' : '' }}>Pflegegrad 5
+                            </option>
                         </select>
                     </div>
 
@@ -385,7 +391,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" name="tagelk1" style="width: 50%;">
+                    <input type="number" value="{{ old('tagelk1') }}" name="tagelk1" style="width: 50%;">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button class="online-rechner-page2-section3-btn"
@@ -491,7 +497,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;" name="tagelk2">
+                    <input type="number" value="{{ old('tagelk2') }}" style="width: 50%;" name="tagelk2">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button class="online-rechner-page2-section3-btn"
@@ -600,7 +606,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;" name="tagelk3">
+                    <input type="number" value="{{ old('tagelk3') }}" style="width: 50%;" name="tagelk3">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button class="online-rechner-page2-section3-btn"
@@ -715,7 +721,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;" name="tagelk4">
+                    <input type="number" value="{{ old('tagelk4') }}" style="width: 50%;" name="tagelk4">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button class="online-rechner-page2-section3-btn"
@@ -833,7 +839,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%; " name="tagelk4">
+                    <input type="number" value="{{ old('tagelk5') }}" style="width: 50%; " name="tagelk5">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button class="online-rechner-page2-section3-btn"
@@ -938,7 +944,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;" name="tagelk5">
+                    <input type="number" value="{{ old('tagelk6') }}" style="width: 50%;" name="tagelk6">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button class="online-rechner-page2-section3-btn"
@@ -1094,7 +1100,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;" name="tagelk6">
+                    <input type="number" value="{{ old('tagelk8') }}" style="width: 50%;" name="tagelk8">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button class="online-rechner-page2-section3-btn"
@@ -1194,7 +1200,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;" name="tagelk7">
+                    <input type="number" value="{{ old('tagelk9') }}" style="width: 50%;" name="tagelk9">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button class="online-rechner-page2-section3-btn"
@@ -1293,7 +1299,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;" name="tagelk8">
+                    <input type="number" value="{{ old('tagelk10') }}" style="width: 50%;" name="tagelk10">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button class="online-rechner-page2-section3-btn"
@@ -1393,10 +1399,11 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;" name="tagelk9">
+                    <input type="number" value="{{ old('tagelk11') }}" style="width: 50%;" name="tagelk11">
                 </div>
 
-                <div style="display: flex; justify-content: center;"><button class="online-rechner-page2-section3-btn"
+                <div style="display: flex; justify-content: center;"><button
+                        class="online-rechner-page2-section3-btn"
                         style="border: none; text-transform: uppercase;">berechnen</button></div>
             </div>
 
@@ -1503,7 +1510,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;" name="tagelk10">
+                    <input type="number" value="{{ old('tagelk12') }}" style="width: 50%;" name="tagelk12">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button
@@ -1623,7 +1630,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;" name="tagelk11">
+                    <input type="number" value="{{ old('tagelk13') }}" style="width: 50%;" name="tagelk13">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button
@@ -1736,7 +1743,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;" name="tagelk12">
+                    <input type="number" value="{{ old('tagelk14') }}" style="width: 50%;" name="tagelk14">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button
@@ -1833,7 +1840,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;" name="tagelk13">
+                    <input type="number" value="{{ old('tagelk15') }}" style="width: 50%;" name="tagelk15">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button
@@ -1950,7 +1957,8 @@
                         <label style="margin-top: -0.67rem;"
                             class="online-rechner-page2-section3-heading input-margin-top"
                             for="online-rechner-input1">Anzahl Tage im Monat</label>
-                        <input type="number" value="0" style="width: 50%;" name="tagelk14">
+                        <input type="number" value="{{ old('tagelk16') }}" style="width: 50%;"
+                            name="tagelk16">
                     </div>
 
                     <div style="display: flex; justify-content: center;"><button
@@ -2053,7 +2061,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;" name="tagelk15">
+                    <input type="number" value="{{old('tagelk17')}}" style="width: 50%;" name="tagelk17">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button
@@ -2163,7 +2171,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Anzahl Tage im Monat</label>
-                    <input type="number" value="0" style="width: 50%;" name="tagelk16">
+                    <input type="number" value="{{old('tagelk18')}}" style="width: 50%;" name="tagelk18">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button
@@ -2301,7 +2309,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Summe Minuten im Monat</label>
-                    <input type="number" value="0" style="width: 50%;" name="tagelk17">
+                    <input type="number" value="{{old('tagelk19')}}"  style="width: 50%;" name="tagelk19">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button
@@ -2446,7 +2454,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Summe Minuten im Monat</label>
-                    <input type="number" value="0" style="width: 50%;" name="tagelk18">
+                    <input type="number" value="{{old('tagelk20')}}"  style="width: 50%;" name="tagelk20">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button
@@ -2582,7 +2590,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Summe Minuten im Monat</label>
-                    <input type="number" value="0" style="width: 50%;" name="tagelk19">
+                    <input type="number" value="{{old('tagelk20')}}" style="width: 50%;" name="tagelk20">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button
@@ -2789,7 +2797,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Summe Minuten im Monat</label>
-                    <input type="number" value="0" style="width: 50%;" name="tagelk20">
+                    <input type="number" value="{{old('tagelk21')}}"  style="width: 50%;" name="tagelk21">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button
@@ -2928,7 +2936,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Summe Minuten im Monat</label>
-                    <input type="number" value="0" style="width: 50%;" name="tagelk21">
+                    <input type="number" value="{{old('tagelk22')}}" style="width: 50%;" name="tagelk22">
                 </div>
 
 
@@ -2956,8 +2964,8 @@
                         {{ session('erstattungssatz') ? number_format(session('erstattungssatz'), 2, ',', '.') . ' EUR' : '' }}</span>
                 </div>
                 <div> <span class="span1">Differenz</span> <span class="span2">
-                    {{ session('differenz') ? number_format(session('differenz'), 2, ',', '.') . ' EUR' : '' }}
-                </span> </div>
+                        {{ session('differenz') ? number_format(session('differenz'), 2, ',', '.') . ' EUR' : '' }}
+                    </span> </div>
 
             </div>
 

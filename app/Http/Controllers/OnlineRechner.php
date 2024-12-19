@@ -108,7 +108,7 @@ class OnlineRechner extends Controller
             $teilstattext = "Falls Sie berechtigt sind, teilstationäre Pflege (Tages- oder Nachtpflege) in Anspruch zu nehmen, bekommen Sie bei Pflegegrad " . $pflegegrad . " monatlich bis zu " . $teilstat . " EUR der Kosten durch die Pflegekasse ersetzt.<br />Anders als bei den Leistungen für die ambulante Pflege durch einen Pflegedienst, wird die Inanspruchnahme von Leistungen für die teilstationäre Pflege bereits seit dem 1. Januar 2015 nicht mehr negativ auf die Höhe des Pflegegelds angerechnet.";
             $vollstattext = "* Hinweis: Bei vollstationärer Pflege, also der Unterbringung im Pflegeheim besteht kein Anspruch auf Pflegegeld.<br />Angegeben ist hier nur der Vollständigkeit halber die vom Pflegegrad abhängige Kostenübernahme der Pflegekasse bei Heimunterbringung.";
         }
-        return back()->with([
+        return back()->withInput()->with([
             'pflegegrad' => $pflegegeldanspruch,
             'teilstat' => $teilstat,
             'vollstat' => $vollstat
@@ -629,7 +629,7 @@ class OnlineRechner extends Controller
         # Gesamtsumme im Monat
         $differenz = $gesamtsumme - $erstattungssatz;
 
-        return back()->with([
+        return back()->withInput()->with([
             'gesamtsumme' => $gesamtsumme,
             'pgtext' => $pgtext,
             'differenz' => $differenz,
@@ -695,14 +695,14 @@ class OnlineRechner extends Controller
             $maxzuzahlung = 0;
         }
         $maxzuzahlungtext = "In diesem Jahr müssen Sie demnach maximal " . number_format($maxzuzahlung, 2, ',', '.') . " EUR für Zuzahlungen aufbringen.";
-        return back()->with([
+        return back()->withInput()->with([
             'berechnungsgrundlage1' => $berechnungsgrundlage1,
             'brutto' => $brutto,
             'verheiratetfreibetrag' => $verheiratetfreibetrag,
             'kinderfreibetrag' => $kinderfreibetrag,
             'chronisch' => $chronisch,
             'maxzuzahlungtext' => $maxzuzahlungtext,
-            'regelsatz'=>$regelsatz,
+            'regelsatz' => $regelsatz,
 
         ]);
 

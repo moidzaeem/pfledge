@@ -75,12 +75,12 @@
                             Alle
                         </a>
                     </div>
-                    @foreach ($uniqueCategories as $category)
+                    @foreach ($testCategories as $category)
                         <div class="blog-search-sub-heading category-item">
                             <a style="text-decoration: none;color:black"
-                                href="{{ route('marketplace.index', ['category' => $category->name]) }}"
-                                class="{{ request()->routeIs('marketplace.index') && request()->category === $category->name ? 'active' : '' }}">
-                                {{ $category->name }}
+                                href="{{ route('marketplace.index', ['category' => $category['name']]) }}"
+                                class="{{ request()->routeIs('marketplace.index') && request()->category === $category['name'] ? 'active' : '' }}">
+                                {{ $category['name'] }}
                             </a>
                         </div>
                     @endforeach
