@@ -2590,7 +2590,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Summe Minuten im Monat</label>
-                    <input type="number" value="{{ old('tagelk20') }}" style="width: 50%;" name="tagelk20">
+                    <input type="number" value="{{ old('tagelk21') }}" style="width: 50%;" name="tagelk21">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button
@@ -2797,7 +2797,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Summe Minuten im Monat</label>
-                    <input type="number" value="{{ old('tagelk21') }}" style="width: 50%;" name="tagelk21">
+                    <input type="number" value="{{ old('tagelk22') }}" style="width: 50%;" name="tagelk22">
                 </div>
 
                 <div style="display: flex; justify-content: center;"><button
@@ -2936,7 +2936,7 @@
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
                         for="online-rechner-input1">Summe Minuten im Monat</label>
-                    <input type="number" value="{{ old('tagelk22') }}" style="width: 50%;" name="tagelk22">
+                    <input type="number" value="{{ old('tagelk23') }}" style="width: 50%;" name="tagelk23">
                 </div>
 
 
@@ -2977,8 +2977,8 @@
                     old('tagelk15') > 0 ||
                     old('tagelk16') > 0 ||
                     old('tagelk17') > 0 ||
-                    old('tagelk18') > 0 ||
-                    old('tagelk20') > 0)
+                    old('tagelk18') > 0
+                    )
                     
                 <div class="table-responsive">
                     <table class="table">
@@ -2990,7 +2990,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @for ($i = 1; $i <= 20; $i++)
+                            @for ($i = 1; $i <= 18; $i++)
                                 @if (old('tagelk' . $i) > 0)
                                     <tr>
                                         <td style="text-align:left;">{{ session('leistung' . $i) }}</td>
@@ -3007,29 +3007,28 @@
 
             @if (old('tagelk19') > 0 || old('tagelk21') > 0 || old('tagelk22') > 0 || old('tagelk23') > 0)
 
-                <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col" style="text-align:left;">Leistungskatalog</th>
-                                    <th scope="col" style="text-align:center;">Angesetzte Minuten je Monat</th>
-                                    <th scope="col" style="text-align:center;">Kosten je Monat</th>
+                                    <th scope="col" style="text-align:right;">Angesetzte Minuten je Monat</th>
+                                    <th scope="col" style="text-align:right;">Kosten je Monat</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @if (old('tagelk19') > 0)
                                     <tr>
-                                        <td style="text-align:left;">{{ old('leistung19') }}</td>
+                                        <td style="text-align:left;">{{ session('leistung19') }}</td>
                                         <td style="text-align:right;">
                                             {{ number_format(old('tagelk19'), 0, ',', '.') }}</td>
                                         <td style="text-align:right;">
-                                            {{ number_format(old('monatlk19'), 2, ',', '.') }} EUR</td>
+                                            {{ number_format(session('monatlk19'), 2, ',', '.') }} EUR</td>
                                     </tr>
                                 @endif
                                 @if (old('tagelk21') > 0)
                                     <tr>
-                                        <td style="text-align:left;">{{ old('leistung21') }}</td>
+                                        <td style="text-align:left;">{{ session('leistung21') }}</td>
                                         <td style="text-align:right;">
                                             {{ number_format(old('tagelk21'), 0, ',', '.') }}</td>
                                         <td style="text-align:right;">
@@ -3038,7 +3037,7 @@
                                 @endif
                                 @if (old('tagelk22') > 0)
                                     <tr>
-                                        <td style="text-align:left;">{{ old('leistung22') }}</td>
+                                        <td style="text-align:left;">{{ session('leistung22') }}</td>
                                         <td style="text-align:right;">
                                             {{ number_format(old('tagelk22'), 0, ',', '.') }}</td>
                                         <td style="text-align:right;">
@@ -3047,7 +3046,7 @@
                                 @endif
                                 @if (old('tagelk23') > 0)
                                     <tr>
-                                        <td style="text-align:left;">{{ old('leistung23') }}</td>
+                                        <td style="text-align:left;">{{ session('leistung23') }}</td>
                                         <td style="text-align:right;">
                                             {{ number_format(old('tagelk23'), 0, ',', '.') }}</td>
                                         <td style="text-align:right;">
@@ -3057,7 +3056,6 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
             @endif
 
             <div class="online-rechner-section3-inner-bottom online-rechner-section3-inner-bottom2">
