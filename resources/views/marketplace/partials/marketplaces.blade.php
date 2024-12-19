@@ -3,6 +3,7 @@
         data-content="{{ $marketplace->content_text }}">
         <!-- Blog Card Container -->
         <div class="blog-card">
+            <a style="text-decoration: none" href="{{ $marketplace->link }}" target="_blank">
             <div class="blog-card-img">
                 @if (strpos($marketplace->image, 'https') === 0)
                     <!-- Check if the image is an external URL -->
@@ -11,6 +12,7 @@
                     <img src="{{ asset('storage/' . $marketplace->image) }}" alt="" class="img-fluid" />
                 @endif
             </div>
+            </a>
             <div class="blog-card-body">
                 <div class="blog-kate">
                     Kategorie:

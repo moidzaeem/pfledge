@@ -2453,7 +2453,7 @@
                     style="margin-bottom: 1rem; display: flex; align-items: center;justify-content: space-between; margin-top: 1rem;">
                     <label style="margin-top: -0.67rem;"
                         class="online-rechner-page2-section3-heading input-margin-top"
-                        for="online-rechner-input1">Summe Minuten im Monat</label>
+                        for="online-rechner-input1">Anzahl Tage im Monat</label>
                     <input type="number" value="{{ old('tagelk20') }}" style="width: 50%;" name="tagelk20">
                 </div>
 
@@ -2977,7 +2977,8 @@
                     old('tagelk15') > 0 ||
                     old('tagelk16') > 0 ||
                     old('tagelk17') > 0 ||
-                    old('tagelk18') > 0
+                    old('tagelk18') > 0 || 
+                    old('tagelk20') > 0
                     )
                     
                 <div class="table-responsive">
@@ -2999,6 +3000,13 @@
                                     </tr>
                                 @endif
                             @endfor
+                            @if (old('tagelk20' > 0))
+                            <tr>
+                                <td style="text-align:left;">{{ session('leistung20') }}</td>
+                                <td style="text-align:right;">{{ number_format(old('tagelk20'), 0, ',', '.') }}</td>
+                                <td style="text-align:right;">{{ number_format(session('monatlk20'), 2, ',', '.') }} EUR</td>
+                            </tr>
+                        @endif
                         </tbody>
                     </table>
                 </div>

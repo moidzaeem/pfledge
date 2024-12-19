@@ -175,20 +175,19 @@ class OnlineRechner extends Controller
         $modul3_13 = $request->input('modul3_13');
 
         // Modul 4
-        $modul4_1 = $request->input('modul4_1');
-        $modul4_2 = $request->input('modul4_2');
-        $modul4_3 = $request->input('modul4_3');
-        $modul4_4 = $request->input('modul4_4');
-        $modul4_5 = $request->input('modul4_5');
-        $modul4_6 = $request->input('modul4_6');
-        $modul4_7 = $request->input('modul4_7');
-        $modul4_8 = $request->input('modul4_8');
-        $modul4_9 = $request->input('modul4_9');
-        $modul4_10 = $request->input('modul4_10');
-        $modul4_11 = $request->input('modul4_11');
-        $modul4_12 = $request->input('modul4_12');
-        $modul4_13 = $request->input('modul4_13');
-
+        $modul4_1 = $request->input('module4_1');
+        $modul4_2 = $request->input('module4_2');
+        $modul4_3 = $request->input('module4_3');
+        $modul4_4 = $request->input('module4_4');
+        $modul4_5 = $request->input('module4_5');
+        $modul4_6 = $request->input('module4_6');
+        $modul4_7 = $request->input('module4_7');
+        $modul4_8 = $request->input('module4_8');
+        $modul4_9 = $request->input('module4_9');
+        $modul4_10 = $request->input('module4_10');
+        $modul4_11 = $request->input('module4_11');
+        $modul4_12 = $request->input('module4_12');
+        $modul4_13 = $request->input('module4_13');
         // Modul 5
         $modul5_1 = $request->input('modul5_1');
         $modul5_2 = $request->input('modul5_2');
@@ -268,6 +267,7 @@ class OnlineRechner extends Controller
 
         # Modul 4: Summe der Einzelpunkte und gewichtete Punkte                  
         $modul4_punkte = $modul4_1 + $modul4_2 + $modul4_3 + $modul4_4 + $modul4_5 + $modul4_6 + $modul4_7 + $modul4_8 + $modul4_9 + $modul4_10 + $modul4_11 + $modul4_12 + $modul4_13;
+       
         $modul4_gewichtet = 0;
         if ($modul4_punkte <= 2) {
             $modul4_gewichtet = 0;
